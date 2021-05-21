@@ -41,5 +41,5 @@ double, float 과 같은 실수 자료형은 사용할 수 없다.
 
 ## 참고 자료
 
-- [C언어 코딩 도장](https://dojang.io/mod/page/view.php?id=472)
-- [IT 개발자 Note](https://www.it-note.kr/312)
+- [C언어 코딩 도장 - 56 구조체 비트 필드 사용하기](https://dojang.io/mod/page/view.php?id=472)
+- [IT 개발자 Note - 27. 구조체(struct) - 비트 필드(bit field)](https://www.it-note.kr/312)
