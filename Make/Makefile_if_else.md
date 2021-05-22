@@ -32,12 +32,12 @@ make 에서 조건문은 단순하고 은근히 까다롭다. 사용할 때 주�
 
 ### Makefile 다중 조건문(중첩 조건)
 기본적으로, make 에서 다중 조건문은 존재하지 않는다.
-AND(&&) 또는 OR(||) 를 사용할 수 없는데, `filter` 를 활용해 어느정도 변형하여 사용할 수 있는 듯 하다. 
+AND(&&) 또는 OR(||) 를 사용할 수 없는데, `filter` 를 활용해 어느 정도 변형하여 사용할 수 있는 듯하다. 
 
 참고 : [Stackoverflow - makefile-ifeq-logical-or](https://stackoverflow.com/questions/7656425/makefile-ifeq-logical-or)
 
 ### 주의사항
-조건문을 사용할 때 지시어들을 들여쓰기(indent) 하지말자. `<syntax error near unexpected token>` 와 같은 에러가 날 수 있다.
+조건문을 사용할 때 지시어들을 들여쓰기(indent) 하지 말자. `<syntax error near unexpected token>` 와 같은 에러가 날 수 있다.
 
 ### 참고 자료
 - [GNU Manual Conditional Parts of Makefiles](http://web.mit.edu/gnu/doc/html/make_7.html#SEC68) (영문)
