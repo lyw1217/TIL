@@ -16,6 +16,7 @@ ls 명령어에도 수많은 옵션이 있다. 그 중 중요하다고 생각하
         -a, --all               : do not ignore entries starting with .
         -l                      : use a long listing format
         -h, --human-readable    : with -l, print sizes in human readable format (e.g., 1K 234M 2G)
+        -r, --reverse           : reverse order while sorting
         -R, --recursive         : list subdirectories recursively
         -S                      : sort by file size
         -t                      : sort by modification time, newest first
@@ -24,3 +25,8 @@ ls 명령어에도 수많은 옵션이 있다. 그 중 중요하다고 생각하
 
 ## ls 명령어 사용 예시
 
+![ls 명령어 옵션 없이 사용한 결과](images/ls_1.png)
+
+![ls 명령어에 -l 옵션을 사용한 결과](images/ls_2.png)
+
+![ls 명령어에 -al 옵션을 사용한 결과](images/ls_3.png)
