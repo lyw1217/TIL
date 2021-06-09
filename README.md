@@ -16,7 +16,6 @@ Today I Learned 실천을 위한 레파지토리
 - Python
   - [파이썬에서 파일 다루기](https://github.com/lyw1217/TIL/blob/main/Python/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%97%90%EC%84%9C%20%ED%8C%8C%EC%9D%BC%20%EB%8B%A4%EB%A3%A8%EA%B8%B0.md)
   - [UnicodeDecodeError cp949 해결방법](https://github.com/lyw1217/TIL/blob/main/Python/UnicodeDecodeError_cp949_%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95%20.md)
-- Windows
-  - [윈도우에서 grep 사용법(findstr)](https://github.com/lyw1217/TIL/blob/main/Windows/%EC%9C%88%EB%8F%84%EC%9A%B0%EC%97%90%EC%84%9C_grep_%EC%82%AC%EC%9A%A9%EB%B2%95(findstr).md)
 - ETC
   - [macOS 숨겨진파일 보기](https://github.com/lyw1217/TIL/blob/main/ETC/macOS_%EC%88%A8%EA%B2%A8%EC%A7%84%ED%8C%8C%EC%9D%BC_%EB%B3%B4%EA%B8%B0.md)
+  - [윈도우에서 grep 사용법(findstr)](https://github.com/lyw1217/TIL/blob/main/ETC/%EC%9C%88%EB%8F%84%EC%9A%B0%EC%97%90%EC%84%9C_grep_%EC%82%AC%EC%9A%A9%EB%B2%95(findstr).md)
