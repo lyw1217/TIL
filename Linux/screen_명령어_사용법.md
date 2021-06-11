@@ -2,7 +2,7 @@
 
 ## `screen` 명령어란?
 
-해당 서비스 또는 프로그램을 백그라운드로 실행시키고자 할 때 사용한다.
+해당 서비스 또는 프로그램을 백그라운드로 실행시키고자 할 때 사용한다. (ssh 접속을 끊어도 프로그램을 구동시키고 싶을 때 사용)
 
 실제 기능은 *virtual terminal emulation*, 즉, 터미널을 가상화해서 다중 사용할 수 있게 만들어주는 명령어.
 
@@ -22,43 +22,53 @@
 
 ## `screen` 명령어 사용법
 
+screen 명령어는 실행 전 옵션(command-line options), 실행 후 커맨드(default key bindings) 로 구분지어 사용할 수 있다.
+
+실행 후 커맨드는 screen에 진입한 상태에서 단축키 누르듯 커맨드를 동시에 입력하면 수행된다.
+
+    실행 전 옵션(command-line options)
     screen [ -options ] [ cmd [ args ] ]
+        -ls and -list
+            실행 중인 screen 리스트를 보여준다. 
+            'detached' : 세션에 아무도 attach하지 않은 상태(-r 옵션으로 접근 가능)
+            'attached' : 해당 세션에 attach하여 터미널을 컨트롤 중인 경우
+            'multi'    : multiuser mode로 세션이 동작중인 경우(여러명이 세션에 attach 중인 경우)
+        -S [sessionname]
+            새로운 세션을 생성할 때, 세션의 이름을 지정한다.
+        -R [sessionname]
+            'detached' 상태인 세션으로 재 진입하기 위해 사용하는 옵션으로, sessionname에 해당하는 세션이 없다면 새로 생성한다.
+            세션을 새로 생성하고 싶지 않으면 -r 옵션을 사용
+        -x [sessionname]
+            'attached' 상태인 세션으로 진입하기 위해 사용하는 옵션 (Multi display mode)
 
-
-## `screen` 명령어 옵션
-screen 명령어
-
-    screen [OPTIONS] PATTERN [FILE...]
-        -i, --ignore-case                : PATTERN 의 대소문자를 구분하지 않음
-        -v, --invert-match                : PATTERN 과 일치하지 않는 라인만 보여줌
-        -w, --word-regexp                : PATTERN 과 정확히 일치하는 라인만 출력
-        -x, --line-regexp                : 라인 단위로 PATTERN 과 정확히 일치하는 경우
-        -c, --count                        : 파일 당 PATTERN 과 일치하는 라인의 수를 출력
-        -L, --files-without-match        : PATTERN 이 존재하지 않는 파일의 이름을 표시
-        -l, --files-with-matches           : PATTERN 이 존재하는 파일의 이름을 표시
-        -o, --only-matching                : PATTERN 과 일치하는 문자열만 출력
-        -n, --line-number                : PATTERN 과 일치하는 라인의 번호를 함께 출력
+    실행 후 커맨드(default key bindings)
+        기본적으로 screen 의 커맨드는 'Ctrl + a' 의 조합으로 시작된다. 'Ctrl + a' 는 줄여서 'C-a'로 작성하겠다.
+        C-a a
+            바로 전 창으로 이동
+        C-a c   (create)
+            새로운 창을 생성하고 그 창으로 이동한다.
+        C-a d   (detach)
+            현재 터미널로부터 detach 한다. (현재 터미널에서 진행중인 작업은 유지하면서, screen에서만 빠져나온다.)
+        C-a n   (next)
+            다음 창으로 이동
+        C-a p   (previous)
+            이전 창으로 이동
+    
+    screen에 진입한 상태에서 쉘에 exit 명령어를 수행하면 screen 세션을 종료하고 완전히 빠져나오게 된다.
 
 다른 옵션은 screen의 man page를 참고.
 
+screen 명령어의 옵션와 커맨드는 꽤나 많고 복잡하다. 그래도 잘 쓰면 엄청 유용할 것 같다.
+
 ## `screen` 명령어 사용 예시
 
-![wiki.txt 라는 파일에 'wiki' 라는 문자열을 검색한 결과](images/screen_1.png)
-wiki.txt 라는 파일에 'wiki' 라는 문자열을 검색한 결과
+추가 예정
 
-screen 을 사용하면서 찾고자 하는 문자열을 ' 또는 " , 따옴표로 묶어주면 정확하게 찾을 수 있다.
+## 주의사항
 
-![screen 사용 예시](images/screen_2.png)
-screen 사용 예시
-example.txt
-text.txt
-wiki.txt
-이 3가지 파일에 'a' 라는 문자열이 몇 개나 있는지 알고 싶다면 사진과 같이 * asterisk 로 한 번에 여러 파일을 검색할 수 있다.
+screen 명령어를 통해 새로운 세선으로 들어가면, 로그인 쉘(즉, `.bash_profile`)이 적용되지 않았다.
 
-물론 아래와 같이 파일을 개별로 여러 개를 지정하는 것도 가능하다.
-
-![개별 지정](images/screen_3.png)
-
+그래서, 세션 진입 후 `source ~/.bash_profile` 명령어를 통해 로그인 쉘을 적용하고 작업하자.
 
 ## 참고 자료
 
