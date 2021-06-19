@@ -7,7 +7,7 @@ tar 명령어는 여러 개의 파일을 하나의 파일로 묶거나 풀 때 �
 정확하게 말하면 tar 명령어 자체는 '압축' 을 하지 않고 여러 개의 파일을 하나로 묶는 동작만 수행한다.
 
 ![예를 들면 이런 식](images/tar_1.png)
-예를 들면 이런 식?
+<center>"예를 들면 이런 식?"</center>
 
 그렇지만 tar 명령어를 이용해서 gzip이나 bzip2 와 같은 압축 방식을 이용하여 파일들을 하나로 묶을 수 있는데, 그래서 tar 명령어는 '압축한다' 라고 말해도 틀린 말은 아니다.
 
@@ -65,7 +65,7 @@ tar 명령어의 옵션도 매우 많지만 자주 사용하는 옵션 위주로
 ### 4-1. 현재 디렉토리의 모든 파일 및 디렉토리를 tar로 묶기
 
 ![현재 디렉토리에 있는 모든 파일 및 디렉토리들](images/tar_2.png)
-현재 디렉토리에 있는 모든 파일 및 디렉토리들
+<center>현재 디렉토리에 있는 모든 파일 및 디렉토리들</center>
 
 현재 `~/Doc/Blog` 라는 디렉토리에 있는 파일 및 디렉토리는 사진에서 보이는 것처럼
 
@@ -84,7 +84,7 @@ _파일 3개 : example.txt, text.txt, wiki.txt_
     # f 옵션을 통해 archive.tar 라는 파일로 지정할 수 있게 되었다.
 
 ![명령어 실행 결과 archive.tar 생성](images/tar_3.png)
-명령어 실행 결과 archive.tar 생성
+<center>명령어 실행 결과 archive.tar 생성</center>
 
 결과에서 보이는 것처럼 `archive.tar` 라는 파일이 생성된 것을 확인할 수 있다.
 
@@ -93,7 +93,7 @@ _파일 3개 : example.txt, text.txt, wiki.txt_
 #### 4-2. 파일 또는 디렉토리를 지정해서 tar로 묶기
 
 ![현재 디렉토리에 있는 모든 파일 및 디렉토리들](images/tar_4.png)
-현재 디렉토리에 있는 모든 파일 및 디렉토리들
+<center>현재 디렉토리에 있는 모든 파일 및 디렉토리들</center>
 
 이번엔 여기에서 디렉토리인 `TEST`, `TEST1` 을 제외하고
 
@@ -108,7 +108,7 @@ _파일 3개 : example.txt, text.txt, wiki.txt_
     # example.txt, text.txt, wiki.txt 파일들을 text_files.tar 라는 이름으로 묶기
 
 ![명령어 실행 결과 text_files.tar 생성](images/tar_5.png)
-명령어 실행 결과 text_files.tar 생성
+<center>명령어 실행 결과 text_files.tar 생성</center>
 
 사진과 같이 `text_files.tar` 파일이 생성된 것을 확인할 수 있다.
 
@@ -131,7 +131,7 @@ _파일 3개 : example.txt, text.txt, wiki.txt_
     # 현재 디렉토리에 archive.tar 로 묶인 파일들을 풀어낸다.
 
 ![묶었던 파일들이 그대로 있는데 동일한 위치에 풀면 어떻게 될까](images/tar_6.png)
-묶었던 파일들이 그대로 있는데 동일한 위치에 풀면 어떻게 될까
+<center>묶었던 파일들이 그대로 있는데 동일한 위치에 풀면 어떻게 될까</center>
 
 그런데 사진처럼, [4-1](#4-1-현재-디렉토리의-모든-파일-및-디렉토리를-tar로-묶기), [4-2](#4-2-파일-또는-디렉토리를-지정해서-tar로-묶기) 묶은 `archive.tar`, `text_files.tar` 안의 내용물들이 같은 디렉토리에 있기 때문에
 
@@ -140,7 +140,7 @@ tar 명령어를 이용해 묶인 걸 풀더라도 overwrite 되고 실제로 �
 때문에, `TEST` 디렉토리로 묶인 파일들을 옮겨놓고, `TEST` 디렉토리로 이동 후 풀어보겠다.
 
 ![TEST 디렉토리에 파일들이 풀렸다](images/tar_7.png)
-TEST 디렉토리에 파일들이 풀렸다
+<center>TEST 디렉토리에 파일들이 풀렸다</center>
 
 `TEST` 디렉토리에 `archive.tar`로 묶인 파일들이 전부 생성된 것을 알 수 있다.
 
@@ -154,7 +154,7 @@ tar 파일을 옮기지 않고 제자리에서 내가 원하는 디렉토리에 
     # TEST1 이라는 디렉토리 안에 archive.tar 로 묶인 파일들을 풀어낸다.
 
 ![TEST1 디렉토리 안에 파일들이 풀렸다.](images/tar_8.png)
-TEST1 디렉토리 안에 파일들이 풀렸다.
+<center>TEST1 디렉토리 안에 파일들이 풀렸다.</center>
 
 ### 4-5. `tar`로 묶인 파일의 내용물 확인하기
 
@@ -164,7 +164,7 @@ TEST1 디렉토리 안에 파일들이 풀렸다.
     # archive.tar 로 묶인 파일들의 목록을 출력한다.
 
 ![archive.tar 안의 내용물이 보인다](images/tar_9.png)
-archive.tar 안의 내용물이 보인다
+<center>archive.tar 안의 내용물이 보인다</center>
 
 이 경우엔 실제로 묶인 파일들이 풀리지는 않고, 목록만 보인다.
 
@@ -182,7 +182,7 @@ tar 명령어는 기본적으로 압축을 하는 것은 아니다. 그러나 �
     # .tar.gz == .tgz 로 줄여서 사용 가능하다.
 
 ![그냥 묶은 것과, gzip으로 압축한 것](images/tar_10.png)
-그냥 묶은 것과, gzip으로 압축한 것
+<center>그냥 묶은 것과, gzip으로 압축한 것</center>
 
 tar 로 묶인 파일은 _7680_ byte, 거기에 `gzip`으로 압축된 파일은 _2460_ byte로 용량이 대폭 감소한 것을 확인할 수 있다.
 
