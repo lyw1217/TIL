@@ -9,7 +9,11 @@ Today I Learned 실천을 위한 레파지토리
   - [ls 명령어 사용법](https://github.com/lyw1217/TIL/blob/main/Linux/ls_%EB%AA%85%EB%A0%B9%EC%96%B4_%EC%82%AC%EC%9A%A9%EB%B2%95.md)
   - [screen 명령어 사용법](https://github.com/lyw1217/TIL/blob/main/Linux/screen_%EB%AA%85%EB%A0%B9%EC%96%B4_%EC%82%AC%EC%9A%A9%EB%B2%95.md)
   - [tar 명령어 사용법](https://github.com/lyw1217/TIL/blob/main/Linux/tar_%EB%AA%85%EB%A0%B9%EC%96%B4_%EC%82%AC%EC%9A%A9%EB%B2%95.md)
-  - [bash 정수형 변수 증감](https://github.com/lyw1217/TIL/blob/main/Linux/bash_%EC%A0%95%EC%88%98%ED%98%95_%EB%B3%80%EC%88%98_%EC%A6%9D%EA%B0%90.md)
+  - [계정 관련 명령어](https://github.com/lyw1217/TIL/blob/main/Linux/%EB%A6%AC%EB%88%85%EC%8A%A4_%EA%B3%84%EC%A0%95_%EA%B4%80%EB%A0%A8_%EB%AA%85%EB%A0%B9%EC%96%B4.md)
+- Bash
+  - [bash 정수형 변수 증감](https://github.com/lyw1217/TIL/blob/main/Bash/bash_%EC%A0%95%EC%88%98%ED%98%95_%EB%B3%80%EC%88%98_%EC%A6%9D%EA%B0%90.md)
+  - [bash 무한 루프](https://github.com/lyw1217/TIL/blob/main/Bash/bash_%EB%AC%B4%ED%95%9C%EB%A3%A8%ED%94%84.md)
+  - [bash 명령어 실행 결과 변수 할당](https://github.com/lyw1217/TIL/blob/main/Bash/bash_%EB%AA%85%EB%A0%B9%EC%96%B4_%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC_%EB%B3%80%EC%88%98_%ED%95%A0%EB%8B%B9.md)
 - Markdown
   - [How to Write with Markdown](https://github.com/lyw1217/TIL/blob/main/Markdown/How_to_Write_with_Markdown.md)
   - [문서 내부 링크 이동](https://github.com/lyw1217/TIL/blob/main/Markdown/%EB%AC%B8%EC%84%9C%20%EB%82%B4%EB%B6%80%20%EB%A7%81%ED%81%AC%20%EC%9D%B4%EB%8F%99.md)
