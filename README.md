@@ -19,6 +19,7 @@ Today I Learned 실천을 위한 레파지토리
   - [screen 명령어 사용법](https://github.com/lyw1217/TIL/blob/main/Linux/screen_%EB%AA%85%EB%A0%B9%EC%96%B4_%EC%82%AC%EC%9A%A9%EB%B2%95.md)
   - [tar 명령어 사용법](https://github.com/lyw1217/TIL/blob/main/Linux/tar_%EB%AA%85%EB%A0%B9%EC%96%B4_%EC%82%AC%EC%9A%A9%EB%B2%95.md)
   - [리눅스 계정 관련 명령어](https://github.com/lyw1217/TIL/blob/main/Linux/%EB%A6%AC%EB%88%85%EC%8A%A4_%EA%B3%84%EC%A0%95_%EA%B4%80%EB%A0%A8_%EB%AA%85%EB%A0%B9%EC%96%B4.md)
+  - [ssh로 원격 명령 실행](https://github.com/lyw1217/TIL/blob/main/Linux/ssh%EB%A1%9C%20%EC%9B%90%EA%B2%A9%20%EB%AA%85%EB%A0%B9%20%EC%8B%A4%ED%96%89.md)
 - Make
   - [Makefile_if_else.md](https://github.com/lyw1217/TIL/blob/main/Make/Makefile_if_else.md)
   - [make 컴파일 속도 향상](https://github.com/lyw1217/TIL/blob/main/Make/make%20%EC%BB%B4%ED%8C%8C%EC%9D%BC%20%EC%86%8D%EB%8F%84%20%ED%96%A5%EC%83%81.md)
