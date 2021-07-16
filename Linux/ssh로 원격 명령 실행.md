@@ -39,27 +39,31 @@ ssh 명령어의 manpage에서, 아래와 같은 Synopsis를 확인할 수 있�
 
 ### 별도의 쉘스크립트를 만들고 원격에 스크립트 해석기를 실행시키고 파이프나 리다이렉션으로 보내는 방법
     
-    test_script.sh
+    [test_script.sh]
 
-    #!/bin/sh
-    ls -la
+    #!/bin/bash
+    ls -al
     df
 
-cat test_script.sh | ssh myserver sh
-또는
-ssh myserver sh < test_script.sh
+    # 파이프로 보내기
+    cat test_script.sh | ssh myserver sh
+    
+    # 리다이렉션으로 보내기
+    ssh user@server_ip sh < test_script.sh
 
 ### 여러 서버에 루프를 돌면서 지정한 스크립트를 실행하는 스크립트
 
-    #!/bin/sh
+    [test_script.sh]
+
+    #!/bin/bash
     SERVERS="
-    myserver1
-    myserver2
+    hostname1
+    hostname2
     "
-    for m in $SERVERS
+    for s in $SERVERS
     do
-        ssh $m sh < test_script.sh  # 순차 실행
-        # ssh $m sh < test_script.sh > $m.log &  # 백그라운드 실행
+        ssh $s sh < test_script.sh               # 순차적으로 실행
+        # ssh $s sh < test_script.sh > $m.log &  # 백그라운드에서 실행
     done
 
 ## 참고 자료
