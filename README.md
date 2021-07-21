@@ -7,6 +7,7 @@ Today I Learned 실천을 위한 레파지토리
   - [bash 명령어 실행 결과 변수 할당](https://github.com/lyw1217/TIL/blob/main/Bash/bash_%EB%AA%85%EB%A0%B9%EC%96%B4_%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC_%EB%B3%80%EC%88%98_%ED%95%A0%EB%8B%B9.md)
   - [bash 변수 사용 시 주의사항(중괄호)](https://github.com/lyw1217/TIL/blob/main/Bash/bash_%EB%B3%80%EC%88%98_%EC%82%AC%EC%9A%A9_%EC%8B%9C_%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD(%EC%A4%91%EA%B4%84%ED%98%B8).md)
   - [bash if else 사용법](https://github.com/lyw1217/TIL/blob/main/Bash/bash_if_else_%EC%82%AC%EC%9A%A9%EB%B2%95.md)
+  - [bash 함수 사용법](https://github.com/lyw1217/TIL/blob/main/Bash/bash_%ED%95%A8%EC%88%98_%EC%82%AC%EC%9A%A9%EB%B2%95.md)
 - C Language
   - [struct_bit_field](https://github.com/lyw1217/TIL/blob/main/C%20Language/struct_bit_field.md)
   - [shared memory functions](https://github.com/lyw1217/TIL/blob/main/C%20Language/shared_memory_functions.md)
