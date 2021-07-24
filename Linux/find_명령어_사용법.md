@@ -15,77 +15,29 @@ _**walk a file hierarchy**_
 
 옵션 너무 많다
 
+	-empty
+		 빈 디렉토리나 크기가 0인 파일 검색
+
     -ctime n[smhdw]
-	     If	no units are specified,	this primary evaluates to true if the
-	     difference	between	the time of last change	of file	status infor-
-	     mation and	the time find was started, rounded up to the next full
-	     24-hour period, is	n 24-hour periods.
-
-	     If	units are specified, this primary evaluates to true if the
-	     difference	between	the time of last change	of file	status infor-
-	     mation and	the time find was started is exactly n units.  Please
-	     refer to the -atime primary description for information on	sup-
-	     ported time units.
-
-    -depth  Always true; same as the non-portable -d option.  Cause find to
-	     perform a depth-first traversal, i.e., directories	are visited in
-	     post-order	and all	entries	in a directory will be acted on	before
-	     the directory itself.  By default,	find visits directories	in
-	     pre-order,	i.e., before their contents.  Note, the	default	is not
-	     a breadth-first traversal.
-
-	     The -depth	primary	can be useful when find	is used	with cpio(1)
-	     to	process	files that are contained in directories	with unusual
-	     permissions.  It ensures that you have write permission while you
-	     are placing files in a directory, then sets the directory's per-
-	     missions as the last thing.
-
-     -depth n
-	     True if the depth of the file relative to the starting point of
-	     the traversal is n.
+	     (change time)
+		 파일의 내용 및 속성이 변경된 시간을 기준으로 파일 검색
 
     -exec utility [argument ...] ;
-	     True if the program named utility returns a zero value as its
-	     exit status.  Optional arguments may be passed to the utility.
-	     The expression must be terminated by a semicolon (";").  If you
-	     invoke find from a	shell you may need to quote the	semicolon if
-	     the shell would otherwise treat it	as a control operator.	If the
-	     string "{}" appears anywhere in the utility name or the arguments
-	     it	is replaced by the pathname of the current file.  Utility will
-	     be	executed from the directory from which find was	executed.
-	     Utility and arguments are not subject to the further expansion of
-	     shell patterns and	constructs.
-
-     -exec utility [argument ...] {} +
-	     Same as -exec, except that	"{}" is	replaced with as many path-
-	     names as possible for each	invocation of utility.	This behaviour
-	     is	similar	to that	of xargs(1).  The primary always returns true;
-	     if	at least one invocation	of utility returns a non-zero exit
-	     status, find will return a	non-zero exit status.
-
+	     검색 된 파일들에 대해서 명렁(utility) 실행
+		 
     -name pattern
-	     True if the last component	of the pathname	being examined matches
-	     pattern.  Special shell pattern matching characters ("[", "]",
-	     "*", and "?") may be used as part of pattern.  These characters
-	     may be matched explicitly by escaping them	with a backslash
-	     ("\").
+	     이름이 pattern에 해당하는 파일 검색
 
     -size n[ckMGTP]
-	     True if the file's	size, rounded up, in 512-byte blocks is	n.  If
-	     n is followed by a	c, then	the primary is true if the file's size
-	     is	n bytes	(characters).  Similarly if n is followed by a scale
-	     indicator then the	file's size is compared	to n scaled as:
-
-	     k	     kilobytes (1024 bytes)
+	     파일의 크기로 검색
+		 k	     kilobytes (1024 bytes)
 	     M	     megabytes (1024 kilobytes)
 	     G	     gigabytes (1024 megabytes)
 	     T	     terabytes (1024 gigabytes)
 	     P	     petabytes (1024 terabytes)
 
     -type t
-	     True if the file is of the	specified type.	 Possible file types
-	     are as follows:
-
+	     지정한 파일 타입에 해당하는 파일 검색
 	     b	     block special
 	     c	     character special
 	     d	     directory
@@ -94,7 +46,7 @@ _**walk a file hierarchy**_
 	     p	     FIFO
 	     s	     socket
 
-수없이 알짜배기 옵션들이 많다.
+이외에 많은 옵션이 있다.
 
 
 ## find 명령어 사용 예시
