@@ -9,7 +9,7 @@ _**walk a file hierarchy**_
 ## find 명령어 사용법
     find [-H | -L | -P] [-EXdsx] [-f path] path ... [expression]
 
-아무 것도 없이 명령어만 실행하면 현재 디렉토리 하위의 모든 디렉토리 및 파일을 출력해준다.
+아무것도 없이 명령어만 실행하면 현재 디렉토리 하위의 모든 디렉토리 및 파일을 출력해준다.
 
 ## find 명령어 옵션
 
@@ -23,7 +23,7 @@ _**walk a file hierarchy**_
 		 파일의 내용 및 속성이 변경된 시간을 기준으로 파일 검색
 
     -exec utility [argument ...] ;
-	     검색 된 파일들에 대해서 명렁(utility) 실행
+	     검색된 파일들에 대해서 명령(utility) 실행
 		 
     -name pattern
 	     이름이 pattern에 해당하는 파일 검색
