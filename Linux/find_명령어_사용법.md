@@ -51,38 +51,26 @@ _**walk a file hierarchy**_
 
 ## find 명령어 사용 예시
 
-    find / \! -name "*.c" -print
-	     Print out a list of all the files whose names do not end in .c.
+     find / \! -name "*.c" -print
+	     파일명이 '.c'로 끝나는 파일을 제외한(\!) 모든 파일들의 목록 출력
 
      find / -newer ttt -user wnj -print
-	     Print out a list of all the files owned by	user "wnj" that	are
-	     newer than	the file ttt.
+	     "wnj" 라는 이름의 유저가 소유권을 가졌으며, "ttt" 라는 파일보다 더 최근에 생성된 파일들의 목록 출력 
 
      find / \! \( -newer ttt -user wnj \) -print
-	     Print out a list of all the files which are not both newer	than
-	     ttt and owned by "wnj".
+	     "wnj" 유저가 소유하지도 않았고 (and) "ttt" 라는 파일보다 더 최근에 생성되지도 않은 모든 파일들의 목록 출력
 
      find / \( -newer ttt -or -user wnj	\) -print
-	     Print out a list of all the files that are	either owned by	"wnj"
-	     or	that are newer than ttt.
+	     "wnj" 유저가 소유했거나 (or)  "ttt" 라는 파일보다 더 최근에 생성된 모든 파일들의 목록 출력
 
      find / -newerct '1	minute ago' -print
-	     Print out a list of all the files whose inode change time is more
-	     recent than the current time minus	one minute.
+	     inode 변경 시간이 현재 시간에서 1분을 뺀 시간보다 최근인 모든 파일들의 목록 출력 
 
      find / -type f -exec echo {} \;
-	     Use the echo(1) command to	print out a list of all	the files.
+	     모든 파일들(-type f)의 목록을 echo 명령어의 입력값으로 사용
 
      find -L /usr/ports/packages -type l -exec rm -- {}	+
-	     Delete all	broken symbolic	links in /usr/ports/packages.
-
-     find /usr/src -name CVS -prune -o -depth +6 -print
-	     Find files	and directories	that are at least seven	levels deep in
-	     the working directory /usr/src.
-
-     find /usr/src -name CVS -prune -o -mindepth 7 -print
-	     Is	not equivalent to the previous example,	since -prune is	not
-	     evaluated below level seven.
+	     /usr/ports/packages 디렉토리에 있는 모든 심볼릭 링크 중 broken symbolic links(이동되었거나 존재하지 않는 대상을 가리키는 링크)들을 삭제(rm 명령어의 입력값으로 사용)
 
 ## 참고 자료
 - [BSD Manual Page](https://www.freebsd.org/cgi/man.cgi?find(1))
