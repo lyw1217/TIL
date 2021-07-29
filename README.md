@@ -10,9 +10,9 @@ _26 TILs and counting..._
 
 ### 3 most recent TILs
 
+- [ssh로 원격으로 명령어 실행하는 방법](Linux/ssh로_원격_명령_실행.md) - Thu Jul 29 15:26:43 2021 +0900
 - [UnicodeDecodeError: 'cp949' 에러 해결 방법](Python/UnicodeDecodeError_cp949_해결방법.md) - Thu Jul 29 15:25:23 2021 +0900
 - [마크다운[Markdown] 문서 내부 링크 이동 (북마크, 바로 가기, 목차)](Markdown/문서_내부_링크_이동.md) - Thu Jul 29 15:25:23 2021 +0900
-- [C언어 구조체 비트 필드 (Bit Field)](C/struct_bit_field.md) - Thu Jul 29 15:25:23 2021 +0900
 
 ### Categories
 
@@ -47,7 +47,7 @@ _26 TILs and counting..._
 - [grep 명령어 사용법](Linux/grep_명령어_사용법.md)
 - [ls 명령어 사용법](Linux/ls_명령어_사용법.md)
 - [`screen` 명령어 사용법](Linux/screen_명령어_사용법.md)
-- [ssh로 원격으로 명령어 실행하는 방법](Linux/ssh로 원격 명령 실행.md)
+- [ssh로 원격으로 명령어 실행하는 방법](Linux/ssh로_원격_명령_실행.md)
 - [# 1. `tar` 명령어란?](Linux/tar_명령어_사용법.md)
 - [리눅스 계정 관련 명령어](Linux/리눅스_계정_관련_명령어.md)
 
