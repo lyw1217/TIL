@@ -10,14 +10,14 @@ _26 TILs and counting..._
 
 ### 3 most recent TILs
 
-- [bash 쉘 스크립트 배열(Array) 사용법](Bash/bash_배열_사용법.md) - Wed Jul 28 14:00:46 2021 +0900
-- [find 명령어 사용법](Linux/find_명령어_사용법.md) - Fri Jul 23 22:23:11 2021 +0900
-- [bash 쉘 스크립트 함수 사용법](Bash/bash_함수_사용법.md) - Mon Jul 19 14:22:25 2021 +0900
+- [UnicodeDecodeError: 'cp949' 에러 해결 방법](Python/UnicodeDecodeError_cp949_해결방법.md) - Thu Jul 29 15:25:23 2021 +0900
+- [마크다운[Markdown] 문서 내부 링크 이동 (북마크, 바로 가기, 목차)](Markdown/문서_내부_링크_이동.md) - Thu Jul 29 15:25:23 2021 +0900
+- [C언어 구조체 비트 필드 (Bit Field)](C/struct_bit_field.md) - Thu Jul 29 15:25:23 2021 +0900
 
 ### Categories
 
 - [Bash](#Bash)
-- [C Language](#C Language)
+- [C](#C)
 - [ETC](#ETC)
 - [Linux](#Linux)
 - [Make](#Make)
@@ -34,9 +34,9 @@ _26 TILs and counting..._
 - [bash 쉘 스크립트 함수 반환 값 전달(return)](Bash/bash_함수_반환값(리턴).md)
 - [bash 쉘 스크립트 함수 사용법](Bash/bash_함수_사용법.md)
 
-### [C Language](#C Language)
-- [공유 메모리 함수 (Shared Memory Functions)](C Language/shared_memory_functions.md)
-- [C언어 구조체 비트 필드 (Bit Field)](C Language/struct_bit_field.md)
+### [C](#C)
+- [공유 메모리 함수 (Shared Memory Functions)](C/shared_memory_functions.md)
+- [C언어 구조체 비트 필드 (Bit Field)](C/struct_bit_field.md)
 
 ### [ETC](#ETC)
 - [macOS에서 숨겨진 파일, 숨은 폴더 확인 하는 법](ETC/macOS_숨겨진파일_보기.md)
@@ -53,16 +53,16 @@ _26 TILs and counting..._
 
 ### [Make](#Make)
 - [Makefile 에서 if else 문 사용하기](Make/Makefile_if_else.md)
-- [`make` 컴파일 속도 향상](Make/make 컴파일 속도 향상.md)
+- [`make` 컴파일 속도 향상](Make/make_컴파일_속도_향상.md)
 
 ### [Markdown](#Markdown)
 - [마크다운 Markdown 작성 방법](Markdown/How_to_Write_with_Markdown.md)
-- [마크다운[Markdown] 문서 내부 링크 이동 (북마크, 바로 가기, 목차)](Markdown/문서 내부 링크 이동.md)
+- [마크다운[Markdown] 문서 내부 링크 이동 (북마크, 바로 가기, 목차)](Markdown/문서_내부_링크_이동.md)
 - [마크다운 Markdown 표(Table) 입력](Markdown/표_입력.md)
 
 ### [Python](#Python)
-- [UnicodeDecodeError: 'cp949' 에러 해결 방법](Python/UnicodeDecodeError_cp949_해결방법 .md)
-- [Python 파이썬에서 파일 다루기(읽기, 쓰기)](Python/파이썬에서 파일 다루기.md)
+- [UnicodeDecodeError: 'cp949' 에러 해결 방법](Python/UnicodeDecodeError_cp949_해결방법.md)
+- [Python 파이썬에서 파일 다루기(읽기, 쓰기)](Python/파이썬에서_파일_다루기.md)
 
 [1]: https://simonwillison.net/2020/Apr/20/self-rewriting-readme/
 [2]: https://github.com/jbranchaud/til
