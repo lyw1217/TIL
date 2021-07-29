@@ -1,33 +1,69 @@
 # TIL
-Today I Learned 실천을 위한 레파지토리
+> Today I Learned
 
-- Bash
-  - [bash 정수형 변수 증감](https://github.com/lyw1217/TIL/blob/main/Bash/bash_%EC%A0%95%EC%88%98%ED%98%95_%EB%B3%80%EC%88%98_%EC%A6%9D%EA%B0%90.md)
-  - [bash 무한 루프](https://github.com/lyw1217/TIL/blob/main/Bash/bash_%EB%AC%B4%ED%95%9C%EB%A3%A8%ED%94%84.md)
-  - [bash 명령어 실행 결과 변수 할당](https://github.com/lyw1217/TIL/blob/main/Bash/bash_%EB%AA%85%EB%A0%B9%EC%96%B4_%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC_%EB%B3%80%EC%88%98_%ED%95%A0%EB%8B%B9.md)
-  - [bash 변수 사용 시 주의사항(중괄호)](https://github.com/lyw1217/TIL/blob/main/Bash/bash_%EB%B3%80%EC%88%98_%EC%82%AC%EC%9A%A9_%EC%8B%9C_%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD(%EC%A4%91%EA%B4%84%ED%98%B8).md)
-  - [bash if else 사용법](https://github.com/lyw1217/TIL/blob/main/Bash/bash_if_else_%EC%82%AC%EC%9A%A9%EB%B2%95.md)
-  - [bash 함수 사용법](https://github.com/lyw1217/TIL/blob/main/Bash/bash_%ED%95%A8%EC%88%98_%EC%82%AC%EC%9A%A9%EB%B2%95.md)
-- C Language
-  - [struct_bit_field](https://github.com/lyw1217/TIL/blob/main/C%20Language/struct_bit_field.md)
-  - [shared memory functions](https://github.com/lyw1217/TIL/blob/main/C%20Language/shared_memory_functions.md)
-- ETC
-  - [macOS 숨겨진파일 보기](https://github.com/lyw1217/TIL/blob/main/ETC/macOS_%EC%88%A8%EA%B2%A8%EC%A7%84%ED%8C%8C%EC%9D%BC_%EB%B3%B4%EA%B8%B0.md)
-  - [윈도우에서 grep 사용법(findstr)](https://github.com/lyw1217/TIL/blob/main/ETC/%EC%9C%88%EB%8F%84%EC%9A%B0%EC%97%90%EC%84%9C_grep_%EC%82%AC%EC%9A%A9%EB%B2%95(findstr).md)
-- Linux
-  - [grep 명령어 사용법](https://github.com/lyw1217/TIL/blob/main/Linux/grep_%EB%AA%85%EB%A0%B9%EC%96%B4_%EC%82%AC%EC%9A%A9%EB%B2%95.md)
-  - [ls 명령어 사용법](https://github.com/lyw1217/TIL/blob/main/Linux/ls_%EB%AA%85%EB%A0%B9%EC%96%B4_%EC%82%AC%EC%9A%A9%EB%B2%95.md)
-  - [screen 명령어 사용법](https://github.com/lyw1217/TIL/blob/main/Linux/screen_%EB%AA%85%EB%A0%B9%EC%96%B4_%EC%82%AC%EC%9A%A9%EB%B2%95.md)
-  - [tar 명령어 사용법](https://github.com/lyw1217/TIL/blob/main/Linux/tar_%EB%AA%85%EB%A0%B9%EC%96%B4_%EC%82%AC%EC%9A%A9%EB%B2%95.md)
-  - [리눅스 계정 관련 명령어](https://github.com/lyw1217/TIL/blob/main/Linux/%EB%A6%AC%EB%88%85%EC%8A%A4_%EA%B3%84%EC%A0%95_%EA%B4%80%EB%A0%A8_%EB%AA%85%EB%A0%B9%EC%96%B4.md)
-  - [ssh로 원격 명령 실행](https://github.com/lyw1217/TIL/blob/main/Linux/ssh%EB%A1%9C%20%EC%9B%90%EA%B2%A9%20%EB%AA%85%EB%A0%B9%20%EC%8B%A4%ED%96%89.md)
-- Make
-  - [Makefile_if_else.md](https://github.com/lyw1217/TIL/blob/main/Make/Makefile_if_else.md)
-  - [make 컴파일 속도 향상](https://github.com/lyw1217/TIL/blob/main/Make/make%20%EC%BB%B4%ED%8C%8C%EC%9D%BC%20%EC%86%8D%EB%8F%84%20%ED%96%A5%EC%83%81.md)
-- Markdown
-  - [How to Write with Markdown](https://github.com/lyw1217/TIL/blob/main/Markdown/How_to_Write_with_Markdown.md)
-  - [문서 내부 링크 이동](https://github.com/lyw1217/TIL/blob/main/Markdown/%EB%AC%B8%EC%84%9C%20%EB%82%B4%EB%B6%80%20%EB%A7%81%ED%81%AC%20%EC%9D%B4%EB%8F%99.md)
-  - [표 입력](https://github.com/lyw1217/TIL/blob/main/Markdown/%ED%91%9C_%EC%9E%85%EB%A0%A5.md)
-- Python
-  - [파이썬에서 파일 다루기](https://github.com/lyw1217/TIL/blob/main/Python/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%97%90%EC%84%9C%20%ED%8C%8C%EC%9D%BC%20%EB%8B%A4%EB%A3%A8%EA%B8%B0.md)
-  - [UnicodeDecodeError cp949 해결방법](https://github.com/lyw1217/TIL/blob/main/Python/UnicodeDecodeError_cp949_%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95%20.md)
+오늘 내가 배운 것들을 모아놓는 곳
+
+
+_26 TILs and counting..._
+
+---
+
+### 3 most recent TILs
+
+- [bash 쉘 스크립트 배열(Array) 사용법](Bash/bash_배열_사용법.md) - Wed Jul 28 14:00:46 2021 +0900
+- [find 명령어 사용법](Linux/find_명령어_사용법.md) - Fri Jul 23 22:23:11 2021 +0900
+- [bash 쉘 스크립트 함수 사용법](Bash/bash_함수_사용법.md) - Mon Jul 19 14:22:25 2021 +0900
+
+### Categories
+
+- [Bash](#Bash)
+- [C Language](#C Language)
+- [ETC](#ETC)
+- [Linux](#Linux)
+- [Make](#Make)
+- [Markdown](#Markdown)
+- [Python](#Python)
+
+### [Bash](#Bash)
+- [**bash 쉘 스크립트 if elif else 조건문 사용법**](Bash/bash_if_else_사용법.md)
+- [bash 쉘 스크립트 명령어 실행 결과를 변수에 할당하는 방법](Bash/bash_명령어_실행결과_변수_할당.md)
+- [bash 쉘 스크립트 무한 루프 반복문 돌리기 (for, while)](Bash/bash_무한루프.md)
+- [bash 쉘 스크립트 배열(Array) 사용법](Bash/bash_배열_사용법.md)
+- [bash 쉘 스크립트 변수 사용 시 주의사항(중괄호)](Bash/bash_변수_사용_시_주의사항(중괄호).md)
+- [bash 쉘 스크립트 정수형 변수 **증가/감소**시키기 (++ 연산하기)](Bash/bash_정수형_변수_증감.md)
+- [bash 쉘 스크립트 함수 반환 값 전달(return)](Bash/bash_함수_반환값(리턴).md)
+- [bash 쉘 스크립트 함수 사용법](Bash/bash_함수_사용법.md)
+
+### [C Language](#C Language)
+- [공유 메모리 함수 (Shared Memory Functions)](C Language/shared_memory_functions.md)
+- [C언어 구조체 비트 필드 (Bit Field)](C Language/struct_bit_field.md)
+
+### [ETC](#ETC)
+- [macOS에서 숨겨진 파일, 숨은 폴더 확인 하는 법](ETC/macOS_숨겨진파일_보기.md)
+- [Windows 윈도우에서 Linux 리눅스의 `grep` 명령어를 사용하려면?](ETC/윈도우에서_grep_사용법(findstr).md)
+
+### [Linux](#Linux)
+- [find 명령어 사용법](Linux/find_명령어_사용법.md)
+- [grep 명령어 사용법](Linux/grep_명령어_사용법.md)
+- [ls 명령어 사용법](Linux/ls_명령어_사용법.md)
+- [`screen` 명령어 사용법](Linux/screen_명령어_사용법.md)
+- [ssh로 원격으로 명령어 실행하는 방법](Linux/ssh로 원격 명령 실행.md)
+- [# 1. `tar` 명령어란?](Linux/tar_명령어_사용법.md)
+- [리눅스 계정 관련 명령어](Linux/리눅스_계정_관련_명령어.md)
+
+### [Make](#Make)
+- [Makefile 에서 if else 문 사용하기](Make/Makefile_if_else.md)
+- [`make` 컴파일 속도 향상](Make/make 컴파일 속도 향상.md)
+
+### [Markdown](#Markdown)
+- [마크다운 Markdown 작성 방법](Markdown/How_to_Write_with_Markdown.md)
+- [마크다운[Markdown] 문서 내부 링크 이동 (북마크, 바로 가기, 목차)](Markdown/문서 내부 링크 이동.md)
+- [마크다운 Markdown 표(Table) 입력](Markdown/표_입력.md)
+
+### [Python](#Python)
+- [UnicodeDecodeError: 'cp949' 에러 해결 방법](Python/UnicodeDecodeError_cp949_해결방법 .md)
+- [Python 파이썬에서 파일 다루기(읽기, 쓰기)](Python/파이썬에서 파일 다루기.md)
+
+[1]: https://simonwillison.net/2020/Apr/20/self-rewriting-readme/
+[2]: https://github.com/jbranchaud/til
+
