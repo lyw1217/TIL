@@ -1,7 +1,7 @@
 # TIL
 > Today I Learned
 
-오늘 내가 배운 것들을 모아놓는 곳
+📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
 _28 TILs and counting..._
