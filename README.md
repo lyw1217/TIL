@@ -4,18 +4,20 @@
 오늘 내가 배운 것들을 모아놓는 곳
 
 
-_26 TILs and counting..._
+_28 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [3GPP 5G System Architecture](5G/3GPP_5G_System_Architecture.md) - Fri Jul 30 11:42:00 2021 +0900
+- [3GPP 규격 보는 방법(Release, Stage 등)](3GPP/3gpp_규격_보는_방법.md) - Fri Jul 30 11:41:44 2021 +0900
 - [ssh로 원격으로 명령어 실행하는 방법](Linux/ssh로_원격_명령_실행.md) - Thu Jul 29 15:26:43 2021 +0900
-- [UnicodeDecodeError: 'cp949' 에러 해결 방법](Python/UnicodeDecodeError_cp949_해결방법.md) - Thu Jul 29 15:25:23 2021 +0900
-- [마크다운[Markdown] 문서 내부 링크 이동 (북마크, 바로 가기, 목차)](Markdown/문서_내부_링크_이동.md) - Thu Jul 29 15:25:23 2021 +0900
 
 ### Categories
 
+- [3GPP](#3GPP)
+- [5G](#5G)
 - [Bash](#Bash)
 - [C](#C)
 - [ETC](#ETC)
@@ -23,6 +25,12 @@ _26 TILs and counting..._
 - [Make](#Make)
 - [Markdown](#Markdown)
 - [Python](#Python)
+
+### [3GPP](#3GPP)
+- [3GPP 규격 보는 방법(Release, Stage 등)](3GPP/3gpp_규격_보는_방법.md)
+
+### [5G](#5G)
+- [3GPP 5G System Architecture](5G/3GPP_5G_System_Architecture.md)
 
 ### [Bash](#Bash)
 - [**bash 쉘 스크립트 if elif else 조건문 사용법**](Bash/bash_if_else_사용법.md)
