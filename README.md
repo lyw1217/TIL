@@ -33,7 +33,7 @@ _28 TILs and counting..._
 - [3GPP 5G System Architecture](5G/3GPP_5G_System_Architecture.md)
 
 ### [Bash](#Bash)
-- [**bash 쉘 스크립트 if elif else 조건문 사용법**](Bash/bash_if_else_사용법.md)
+- [bash 쉘 스크립트 if elif else 조건문 사용법](Bash/bash_if_else_사용법.md)
 - [bash 쉘 스크립트 명령어 실행 결과를 변수에 할당하는 방법](Bash/bash_명령어_실행결과_변수_할당.md)
 - [bash 쉘 스크립트 무한 루프 반복문 돌리기 (for, while)](Bash/bash_무한루프.md)
 - [bash 쉘 스크립트 배열(Array) 사용법](Bash/bash_배열_사용법.md)
