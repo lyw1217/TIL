@@ -1,4 +1,4 @@
-# **bash 쉘 스크립트 if elif else 조건문 사용법**
+# bash 쉘 스크립트 if elif else 조건문 사용법
 
 ## **if elif else 조건문이란?**
 
