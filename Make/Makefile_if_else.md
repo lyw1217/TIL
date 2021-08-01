@@ -1,4 +1,4 @@
-# Makefile 에서 if else 문 사용하기
+# Makefile 에서 `if else` 문 사용하기
 
 ## Makefile 조건문
 make 에서 조건문은 단순하고 은근히 까다롭다. 사용할 때 주의해서 사용하자.
