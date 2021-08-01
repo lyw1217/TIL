@@ -38,7 +38,7 @@ _28 TILs and counting..._
 - [bash 쉘 스크립트 무한 루프 반복문 돌리기 (for, while)](Bash/bash_무한루프.md)
 - [bash 쉘 스크립트 배열(Array) 사용법](Bash/bash_배열_사용법.md)
 - [bash 쉘 스크립트 변수 사용 시 주의사항(중괄호)](Bash/bash_변수_사용_시_주의사항(중괄호).md)
-- [bash 쉘 스크립트 정수형 변수 **증가/감소**시키기 (++ 연산하기)](Bash/bash_정수형_변수_증감.md)
+- [bash 쉘 스크립트 정수형 변수 증가/감소시키기 (++ 연산하기)](Bash/bash_정수형_변수_증감.md)
 - [bash 쉘 스크립트 함수 반환 값 전달(return)](Bash/bash_함수_반환값(리턴).md)
 - [bash 쉘 스크립트 함수 사용법](Bash/bash_함수_사용법.md)
 
@@ -51,21 +51,21 @@ _28 TILs and counting..._
 - [Windows 윈도우에서 Linux 리눅스의 `grep` 명령어를 사용하려면?](ETC/윈도우에서_grep_사용법(findstr).md)
 
 ### [Linux](#Linux)
-- [find 명령어 사용법](Linux/find_명령어_사용법.md)
-- [grep 명령어 사용법](Linux/grep_명령어_사용법.md)
-- [ls 명령어 사용법](Linux/ls_명령어_사용법.md)
+- [`find` 명령어 사용법](Linux/find_명령어_사용법.md)
+- [`grep` 명령어 사용법](Linux/grep_명령어_사용법.md)
+- [`ls` 명령어 사용법](Linux/ls_명령어_사용법.md)
 - [`screen` 명령어 사용법](Linux/screen_명령어_사용법.md)
 - [ssh로 원격으로 명령어 실행하는 방법](Linux/ssh로_원격_명령_실행.md)
-- [# 1. `tar` 명령어란?](Linux/tar_명령어_사용법.md)
+- [`tar` 명령어 사용법](Linux/tar_명령어_사용법.md)
 - [리눅스 계정 관련 명령어](Linux/리눅스_계정_관련_명령어.md)
 
 ### [Make](#Make)
-- [Makefile 에서 if else 문 사용하기](Make/Makefile_if_else.md)
+- [Makefile 에서 `if else` 문 사용하기](Make/Makefile_if_else.md)
 - [`make` 컴파일 속도 향상](Make/make_컴파일_속도_향상.md)
 
 ### [Markdown](#Markdown)
 - [마크다운 Markdown 작성 방법](Markdown/How_to_Write_with_Markdown.md)
-- [마크다운[Markdown] 문서 내부 링크 이동 (북마크, 바로 가기, 목차)](Markdown/문서_내부_링크_이동.md)
+- [마크다운(Markdown) 문서 내부 링크 이동 (북마크, 바로 가기, 목차)](Markdown/문서_내부_링크_이동.md)
 - [마크다운 Markdown 표(Table) 입력](Markdown/표_입력.md)
 
 ### [Python](#Python)
