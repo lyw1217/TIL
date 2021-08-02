@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_29 TILs and counting..._
+_30 TILs and counting..._
 
 ---
 
@@ -68,6 +68,7 @@ _29 TILs and counting..._
 ### [Moblie](#Moblie)
 - [3GPP 5G System Architecture](Moblie/3GPP_5G_System_Architecture.md)
 - [IMS 서비스](Moblie/IMS_서비스.md)
+- [이동통신 세대별 명칭](Moblie/이동통신_세대별_명칭.md)
 
 ### [Python](#Python)
 - [UnicodeDecodeError: 'cp949' 에러 해결 방법](Python/UnicodeDecodeError_cp949_해결방법.md)
