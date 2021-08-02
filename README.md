@@ -4,33 +4,30 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_28 TILs and counting..._
+_29 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
-- [3GPP 5G System Architecture](5G/3GPP_5G_System_Architecture.md) - Fri Jul 30 11:42:00 2021 +0900
 - [3GPP 규격 보는 방법(Release, Stage 등)](3GPP/3gpp_규격_보는_방법.md) - Fri Jul 30 11:41:44 2021 +0900
 - [ssh로 원격으로 명령어 실행하는 방법](Linux/ssh로_원격_명령_실행.md) - Thu Jul 29 15:26:43 2021 +0900
+- [공유 메모리 함수 (Shared Memory Functions)](C/shared_memory_functions.md) - Thu Jul 29 15:25:23 2021 +0900
 
 ### Categories
 
 - [3GPP](#3GPP)
-- [5G](#5G)
 - [Bash](#Bash)
 - [C](#C)
 - [ETC](#ETC)
 - [Linux](#Linux)
 - [Make](#Make)
 - [Markdown](#Markdown)
+- [Moblie](#Moblie)
 - [Python](#Python)
 
 ### [3GPP](#3GPP)
 - [3GPP 규격 보는 방법(Release, Stage 등)](3GPP/3gpp_규격_보는_방법.md)
-
-### [5G](#5G)
-- [3GPP 5G System Architecture](5G/3GPP_5G_System_Architecture.md)
 
 ### [Bash](#Bash)
 - [bash 쉘 스크립트 if elif else 조건문 사용법](Bash/bash_if_else_사용법.md)
@@ -67,6 +64,10 @@ _28 TILs and counting..._
 - [마크다운 Markdown 작성 방법](Markdown/How_to_Write_with_Markdown.md)
 - [마크다운(Markdown) 문서 내부 링크 이동 (북마크, 바로 가기, 목차)](Markdown/문서_내부_링크_이동.md)
 - [마크다운 Markdown 표(Table) 입력](Markdown/표_입력.md)
+
+### [Moblie](#Moblie)
+- [3GPP 5G System Architecture](Moblie/3GPP_5G_System_Architecture.md)
+- [IMS 서비스](Moblie/IMS_서비스.md)
 
 ### [Python](#Python)
 - [UnicodeDecodeError: 'cp949' 에러 해결 방법](Python/UnicodeDecodeError_cp949_해결방법.md)
