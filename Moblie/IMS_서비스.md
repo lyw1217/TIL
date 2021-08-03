@@ -74,4 +74,4 @@ HSS는 가입자의 마스터 데이터베이스로 기존의 3G HLR의 모든 �
 
 ## 참고 자료
 - [김창기, 신재승, 신연승, 조철회, [3GPP IP 멀티미디어 서비스를 위한 핵심망 구조 분석]](https://ettrends.etri.re.kr/ettrends/75/0905000333/)
-- [이운영, KT 플랫폼연구소 - 유무선통합 IMS플랫폼 기술](/Moblie/documents/유무선통합%20ims플랫폼%20기술.pdf)
+- [이운영, KT 플랫폼연구소, [유무선통합 IMS플랫폼 기술]](../Moblie/documents/유무선통합%20ims플랫폼%20기술.pdf)
