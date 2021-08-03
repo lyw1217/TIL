@@ -62,7 +62,7 @@ _30 TILs and counting..._
 
 ### [Markdown](#Markdown)
 - [마크다운 Markdown 작성 방법](Markdown/How_to_Write_with_Markdown.md)
-- [마크다운(Markdown) 문서 내부 링크 이동 (북마크, 바로 가기, 목차)](Markdown/문서_내부_링크_이동.md)
+- [마크다운 Markdown 문서 내부 링크 이동 (북마크, 바로 가기, 목차)](Markdown/문서_내부_링크_이동.md)
 - [마크다운 Markdown 표(Table) 입력](Markdown/표_입력.md)
 
 ### [Moblie](#Moblie)
