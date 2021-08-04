@@ -1,4 +1,4 @@
-# PuID와 PrID
+# PuID(Public User ID)와 PrID(Private User ID)
 
 - PuID(Public User ID)  
     - IMS Subsystem 내의 가입자가 다른 가입자와의 통신을 요청하기 위해 사용하는 ID
