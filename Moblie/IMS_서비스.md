@@ -24,7 +24,7 @@ HSS는 가입자의 마스터 데이터베이스로 기존의 3G HLR의 모든 �
 
    1. P-CSCF
         
-        - 사용자(UE)가 IMS망에 접속하는 최초 Contact Point 역할
+        - 사용자(UE)가 IMS 망에 접속하는 최초 Contact Point 역할
         - UE로부터 수신한 SIP Regi 요청 메시지를 홈 I-CSCF에게 전달
         - Emergency session을 검출하여 이를 처리할 S-CSCF를 선택
    
@@ -42,7 +42,7 @@ HSS는 가입자의 마스터 데이터베이스로 기존의 3G HLR의 모든 �
 
 2. HSS(Home Subscriber Server)
    
-    - 호/세션 제어를 위한 가입자의 모든 정보들에 대한 책임을 지고 있는 마스터 데이터베이스
+    - 호/세션 제어를 위한 가입자의 모든 정보에 대한 책임을 지고 있는 마스터 데이터베이스
     - 가입자 식별자, 가입자 보안 정보(인증), 가입자 위치 정보, 가입자 서비스 프로파일 정보 등
 
 3. Mw Interface(CSCF간, SIP 프로토콜)
@@ -57,21 +57,24 @@ HSS는 가입자의 마스터 데이터베이스로 기존의 3G HLR의 모든 �
     - 가입자 인증 수행을 위한 메시지(MAR/MAA)
 
 ### IMS Diameter 메시지
-|Command Name|Src|Dest|Abbr|
-|------------|---|----|----|
-|User-Authorisation-Req|I-CSCF|HSS|UAR|
-|User-Authorisation-Ans|HSS|I-CSCF|UAA|
-|Server-Assigment-Req|S-CSCF|HSS|SAR|
-|Server-Assigment-Ans|HSS|S-CSCF|SAA|
-|Location-Info-Req|I-CSCF|HSS|LIR|
-|Location-Info-Ans|HSS|I-CSCF|LIA|
-|Multimdeia-Authentication-Req|S-CSCF|HSS|MAR|
-|Multimdeia-Authentication-Ans|HSS|S-CSCF|MAA|
-|Registration-Termination-Req|HSS|S-CSCF|RTR|
-|Registration-Termination-Ans|S-CSCF|HSS|RTA|
-|Push-Profile-Req|HSS|S-CSCF|PPR|
-|Push-Profile-Ans|S-CSCF|HSS|PPA|
+|Command Name          |Src   |Dest  |Abbr|
+|----------------------|------|------|----|
+|User-Authorisation-Req|I-CSCF|HSS   |UAR|
+|User-Authorisation-Ans|HSS   |I-CSCF|UAA|
+|Server-Assigment-Req  |S-CSCF|HSS   |SAR|
+|Server-Assigment-Ans  |HSS   |S-CSCF|SAA|
+|Location-Info-Req     |I-CSCF|HSS   |LIR|
+|Location-Info-Ans     |HSS   |I-CSCF|LIA|
+|Multimdeia-Authentication-Req|S-CSCF|HSS   |MAR|
+|Multimdeia-Authentication-Ans|HSS   |S-CSCF|MAA|
+|Registration-Termination-Req |HSS   |S-CSCF|RTR|
+|Registration-Termination-Ans |S-CSCF|HSS   |RTA|
+|Push-Profile-Req      |HSS   |S-CSCF|PPR|
+|Push-Profile-Ans      |S-CSCF|HSS   |PPA|
+        
 
 ## 참고 자료
 - [김창기, 신재승, 신연승, 조철회, [3GPP IP 멀티미디어 서비스를 위한 핵심망 구조 분석]](https://ettrends.etri.re.kr/ettrends/75/0905000333/)
-- [이운영, KT 플랫폼연구소, [유무선통합 IMS플랫폼 기술]](../Moblie/documents/유무선통합%20ims플랫폼%20기술.pdf)
+- 이운영, KT 플랫폼연구소, [유무선통합 IMS플랫폼 기술]
+- [3GPP TS 23.228 "IP Multimedia Subsystem (IMS); Stage 2"](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=821)
+- [3GPP TS 22.228 "Service requirements for the Internet Protocol (IP) multimedia core network subsystem (IMS); Stage 1"](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=629)
