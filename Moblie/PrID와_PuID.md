@@ -1,11 +1,13 @@
 # PuID(Public User ID)와 PrID(Private User ID)
 
-- PuID(Public User ID)  
-    - IMS Subsystem 내의 가입자가 다른 가입자와의 통신을 요청하기 위해 사용하는 ID
-    - 최소 1개 이상의 PuID를 가지고 있어야 함
-    - SIP URI(IETF RFC 3261) 또는 Tel URI(IETF RFC 3966)의 형태를 취해야 함
-    - SIP URI 형식 : "sip:username@domain"
-    - Tel URI 형식 : "tel:+\<CC\>\<NDC\>\<SN\>"
+##### _틀린 부분이 있을 수 있습니다. 지적 부탁드립니다._
+
+## PuID(Public User ID)  
+  - IMS Subsystem 내의 가입자가 다른 가입자와의 통신을 요청하기 위해 사용하는 ID
+  - 최소 1개 이상의 PuID를 가지고 있어야 함
+  - SIP URI(IETF RFC 3261) 또는 Tel URI(IETF RFC 3966)의 형태를 취해야 함
+  - SIP URI 형식 : "sip:username@domain"
+  - Tel URI 형식 : "tel:+\<CC\>\<NDC\>\<SN\>"
 
 <details>
 <summary>PuID 규격 접기/펼치기</summary>
@@ -42,12 +44,12 @@
 </details><br>
 
 
-- PrID(Private User ID)
-    - 홈 네트워크 운영자(통신사)에 의해 고유한 Global ID로 할당되며, 등록, 인증, 관리 및 계정 용도로 사용됨
-    - 최소 1개 이상의 PrID를 가지고 있어야 함
-    - SIP 메시지 라우팅에 사용되지 않음
-    - NAI(Network Access Identifier)의 형태를 취해야 하며 IETF RFC 4282의 clause 2.1에 명시된 "username@realm" 형식을 가져야 함
-    - IMSI가 2341509999999999(MCC = 234, MNC = 15) 인 경우 PrID는 "234150999999999@ims.mnc015.mcc234.3gppnetwork.org" 의 형태로 이루어짐
+## PrID(Private User ID)
+  - 홈 네트워크 운영자(통신사)에 의해 고유한 Global ID로 할당되며, 등록, 인증, 관리 및 계정 용도로 사용됨
+  - 최소 1개 이상의 PrID를 가지고 있어야 함
+  - SIP 메시지 라우팅에 사용되지 않음
+  - NAI(Network Access Identifier)의 형태를 취해야 하며 IETF RFC 4282의 clause 2.1에 명시된 "username@realm" 형식을 가져야 함
+  - IMSI가 2341509999999999(MCC = 234, MNC = 15) 인 경우 PrID는 "234150999999999@ims.mnc015.mcc234.3gppnetwork.org" 의 형태로 이루어짐
 
 
 <details>
@@ -81,16 +83,26 @@
 </div>
 </details><br>
 
+## 특징
 - 하나의 PrID가 여러 개의 PuID로 구성될 수 있음
   - 동일한 단말에 사용자 선택에 따라 여러 번호로 등록 가능
 - PuID 별로 서로 다른 Service Profile을 적용할 수 있음
   - 등록되는 번호에 따라 상이한 서비스 제공 가능
 - 하나의 PuID가 여러 개의 PrID와 연결될 수 있음
   - 여러 단말에서 동일한 번호를 이용 가능
-        
+
+## IRS(Implicit Registration Set)
+- SIP는 한 번에 하나의 PuID를 등록(Registration)할 수 있다.
+- 그럼 여러 개의 PuID를 가지고 있는 경우에는 개별적으로 등록해야한다.
+- 시간과 리소스를 많이 잡아먹게된다.
+- IRS(Implicit Registration Set)은 PuID의 집합이다.
+- IRS로 묶인 ID들 중 하나가 등록되면, 묶여있는 모든 ID들이 동시에 등록된다.
+- 묶여 있는 ID들 중 하나가 등록 취소(Deregistration)되면, 묶여 있는 모든 ID들이 동시에 등록 취소 된다.
+
 
 ## 참고 자료
-- 이운영, KT 플랫폼연구소, [유무선통합 IMS플랫폼 기술]
+- [이운영, KT 플랫폼연구소, [유무선통합 IMS플랫폼 기술]](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiBtLCv2pjyAhUsxosBHd-aC0UQFnoECAMQAw&url=http%3A%2F%2Fwebs.co.kr%2F%3Fmodule%3Dfile%26act%3DprocFileDownload%26file_srl%3D39321%26sid%3D68db23e4e057c1c24999e922c5698a1b&usg=AOvVaw1npIFv_RJvWc5OtVJxnfHv)
+- [The IMS: IP Multimedia Concepts And Services, Second Edition by Miikka Poikselka, Georg Mayer, Hisham Khartabil, Aki Niemi](https://www.oreilly.com/library/view/the-ims-ip/9780470019061/9780470019061_mechanism_to_register_multiple_user_iden.html)
 - [3GPP TS 23.228 "IP Multimedia Subsystem (IMS); Stage 2"](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=821)
 - [3GPP TS 22.228 "Service requirements for the Internet Protocol (IP) multimedia core network subsystem (IMS); Stage 1"](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=629)
 - [3GPP TS 23.003, “Numbering, Addressing and Identification”](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=729)
