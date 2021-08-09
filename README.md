@@ -8,11 +8,10 @@ _33 TILs and counting..._
 
 ---
 
-### 3 most recent TILs
+### 2 most recent TILs
 
 - [3GPP 규격 보는 방법(Release, Stage 등)](3GPP/3gpp_규격_보는_방법.md) - Fri Jul 30 11:41:44 2021 +0900
 - [ssh로 원격으로 명령어 실행하는 방법](Linux/ssh로_원격_명령_실행.md) - Thu Jul 29 15:26:43 2021 +0900
-- [공유 메모리 함수 (Shared Memory Functions)](C/shared_memory_functions.md) - Thu Jul 29 15:25:23 2021 +0900
 
 ### Categories
 
@@ -79,4 +78,5 @@ _33 TILs and counting..._
 
 [1]: https://simonwillison.net/2020/Apr/20/self-rewriting-readme/
 [2]: https://github.com/jbranchaud/til
+[3]: https://github.com/cflynn07/github-action-til-autoformat-readme
 
