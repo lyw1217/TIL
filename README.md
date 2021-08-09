@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_32 TILs and counting..._
+_33 TILs and counting..._
 
 ---
 
@@ -67,6 +67,7 @@ _32 TILs and counting..._
 
 ### [Moblie](#Moblie)
 - [3GPP 5G System Architecture](Moblie/3GPP_5G_System_Architecture.md)
+- [Cx Interface AVPs](Moblie/Cx_interface_AVPs.md)
 - [IMS 서비스](Moblie/IMS_서비스.md)
 - [PuID(Public User ID)와 PrID(Private User ID)](Moblie/PrID와_PuID.md)
 - [UE (User Equipment) 및 ME (Mobile Equipment) Identifier](Moblie/User_Equipment.md)
