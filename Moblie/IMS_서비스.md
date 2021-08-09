@@ -1,5 +1,7 @@
 # IMS 서비스
 
+##### _틀린 부분이 있을 수 있습니다. 지적 부탁드립니다._
+
 ## 1. IMS?
 IP Multimedia Service(IMS)
 
@@ -56,9 +58,17 @@ HSS는 가입자의 마스터 데이터베이스로 기존의 3G HLR의 모든 �
     - 가입자의 프로파일 다운로드 및 가입자 정보 갱신을 위한 메시지(PPR/PPA, SAR/SAA)
     - 가입자 인증 수행을 위한 메시지(MAR/MAA)
 
+5. Sh Interface(AS와 HSS간, Diameter 프로토콜)
+
+    - AS(Application Server)와 HSS 간 또는 여러 IMS AS 사이의 인터페이스
+    - 사용자의 데이터를 질의하거나 업데이트를 위한 메시지(UDR/UDA, PUR/PUA)
+    - 사용자 데이터가 변경될 때 알림을 구독하거나 수신을 위한 메시지(SNR/SNA, PNR/PNA)
+
+
 ### IMS Diameter 메시지
 |Command Name          |Src   |Dest  |Abbr|
 |----------------------|------|------|----|
+|**Cx Interface**||||
 |User-Authorisation-Req|I-CSCF|HSS   |UAR|
 |User-Authorisation-Ans|HSS   |I-CSCF|UAA|
 |Server-Assigment-Req  |S-CSCF|HSS   |SAR|
@@ -71,10 +81,23 @@ HSS는 가입자의 마스터 데이터베이스로 기존의 3G HLR의 모든 �
 |Registration-Termination-Ans |S-CSCF|HSS   |RTA|
 |Push-Profile-Req      |HSS   |S-CSCF|PPR|
 |Push-Profile-Ans      |S-CSCF|HSS   |PPA|
-        
+|**Sh Interface**||||
+|User-Data-Req         |AS    |HSS   |UDR|
+|User-Data-Ans         |HSS   |AS    |UDA|
+|Profile-Update-Req    |AS    |HSS   |PUR|
+|Profile-Update-Ans    |HSS   |AS    |PUA|
+|Subscribe-Notifications-Req|AS|HSS  |SNR|
+|Subscribe-Notifications-Ans|HSS|AS  |SNA|
+|Push-Notification-Req |HSS   |AS    |PNR|
+|Push-Notification-Ans |AS    |HSS   |PNA|
+
+
+
 
 ## 참고 자료
 - [김창기, 신재승, 신연승, 조철회, [3GPP IP 멀티미디어 서비스를 위한 핵심망 구조 분석]](https://ettrends.etri.re.kr/ettrends/75/0905000333/)
-- 이운영, KT 플랫폼연구소, [유무선통합 IMS플랫폼 기술]
+- [이운영, KT 플랫폼연구소, [유무선통합 IMS플랫폼 기술]](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiBtLCv2pjyAhUsxosBHd-aC0UQFnoECAMQAw&url=http%3A%2F%2Fwebs.co.kr%2F%3Fmodule%3Dfile%26act%3DprocFileDownload%26file_srl%3D39321%26sid%3D68db23e4e057c1c24999e922c5698a1b&usg=AOvVaw1npIFv_RJvWc5OtVJxnfHv)
 - [3GPP TS 23.228 "IP Multimedia Subsystem (IMS); Stage 2"](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=821)
 - [3GPP TS 22.228 "Service requirements for the Internet Protocol (IP) multimedia core network subsystem (IMS); Stage 1"](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=629)
+- [3GPP TS 29.329 "Sh Interface based on the Diameter protocol; Protocol details"](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=1707)
+- [Diameter Protocol Explained - Sh Interface [Application Server <--> HSS]](https://diameter-protocol.blogspot.com/2013/09/sh-interface.html)
