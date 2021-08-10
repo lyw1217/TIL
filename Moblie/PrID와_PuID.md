@@ -91,6 +91,10 @@
 - 하나의 PuID가 여러 개의 PrID와 연결될 수 있음
   - 여러 단말에서 동일한 번호를 이용 가능
 
+![Figure 4.5: Relationship of the Private User Identity and Public User Identities](images/Relationship%20of%20the%20Private%20User%20Identity%20and%20Public%20User%20Identities.png)
+
+[3GPP TS 23.228 "IP Multimedia Subsystem (IMS); Stage 2", Figure 4.5: Relationship of the Private User Identity and Public User Identities]
+
 ## IRS(Implicit Registration Set)
 - SIP는 한 번에 하나의 PuID를 등록(Registration)할 수 있다.
 - 그럼 여러 개의 PuID를 가지고 있는 경우에는 개별적으로 등록해야한다.
