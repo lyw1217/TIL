@@ -34,7 +34,7 @@
 
 ### 2-1. 주요 AVPs
 
-1. `Data-Reference` [more]()
+1. `Data-Reference`
     
         - This information element indicates the reference to the requested information
 
@@ -100,6 +100,9 @@
 1. `User-Data`
 
         - Changed data.
+
+
+### _Sh interface AVP_에 대한 내용은 [여기](Sh_interface_AVPs.md)를 참고
 
 
 ## 참고 자료
