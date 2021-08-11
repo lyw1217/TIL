@@ -18,6 +18,11 @@ HSS는 가입자의 마스터 데이터베이스로 기존의 3G HLR의 모든 �
 
 가입자가 기존의 음성, 영상 등의 실시간 서비스는 물론 파일전송, 이메일, 단문 메시지 등의 비 실시간 서비스를 동시에 사용할 수 있게 하거나 또는 이들 서비스를 이용한 새로운 서비스, 예를 들면 Video Phone, Instant Messaging, Emergency Call, Location 서비스, Presence 서비스 등을 이용할 수 있게 하는 것을 의미한다.
 
+![Reference Architecture of the IP Multimedia Core Network Subsystem](images/Reference%20Architecture%20of%20the%20IP%20Multimedia%20Core%20Network%20Subsystem.png)
+
+[3GPP TS 23.228 "IP Multimedia Subsystem (IMS); Stage 2", Figure 4.0: Reference Architecture of the IP Multimedia Core Network Subsystem]
+
+
 ## 2. IMS 주요 구성 요소
 
 1. CSCF(Call Sesstion Control Function)
@@ -47,18 +52,27 @@ HSS는 가입자의 마스터 데이터베이스로 기존의 3G HLR의 모든 �
     - 호/세션 제어를 위한 가입자의 모든 정보에 대한 책임을 지고 있는 마스터 데이터베이스
     - 가입자 식별자, 가입자 보안 정보(인증), 가입자 위치 정보, 가입자 서비스 프로파일 정보 등
 
-3. Mw Interface(CSCF간, SIP 프로토콜)
+3. AS(Application Server)
+
+    - 서비스를 호스팅 및 실행하고 S-CSCF와 SIP 인터페이스로 통신한다.
+    - 홈 네트워크 또는 외부 타사 네트워크에 위치할 수 있으며 홈 네트워크에 있는 경우 Diameter Sh 또는 Si 인터페이스로 HSS와 통신한다.
+
+    ![Figure 5-1: Functional architecture for AS interoperability](images/Functional%20architecture%20for%20AS%20interoperability.png)
+
+    [3GPP TS 29.364 "IP Multimedia Subsystem (IMS) Application Server (AS) service data descriptions for AS interoperability", Figure 5-1: Functional architecture for AS interoperability]
+
+4. Mw Interface(CSCF간, SIP 프로토콜)
     
     - CSCF 사이의 인터페이스   
 
-4. Cx Interface(CSCF와 HSS간, Diameter 프로토콜)
+5. Cx Interface(CSCF와 HSS간, Diameter 프로토콜)
 
     - I-CSCF/S-CSCF 와 HSS 사이의 인터페이스
     - 가입자의 등록/등록 해제와 가입자의 IM 서브시스템 망의 접근 가능 여부의 권한 검증 및 위치 정보 관리를 위한 메시지(UAR/UAA, SAR/SAA, LIR/LIA, RTR/RTA)
     - 가입자의 프로파일 다운로드 및 가입자 정보 갱신을 위한 메시지(PPR/PPA, SAR/SAA)
     - 가입자 인증 수행을 위한 메시지(MAR/MAA)
 
-5. Sh Interface(AS와 HSS간, Diameter 프로토콜)
+6. Sh Interface(AS와 HSS간, Diameter 프로토콜)
 
     - AS(Application Server)와 HSS 간 또는 여러 IMS AS 사이의 인터페이스
     - 사용자의 데이터를 질의하거나 업데이트를 위한 메시지(UDR/UDA, PUR/PUA)
