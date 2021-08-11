@@ -4,15 +4,15 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_34 TILs and counting..._
+_35 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [Markdown에서 접기/펼치기(details) 사용하기](Markdown/Markdown에서_접기_펼치기(details)_사용하기.md) - Wed Aug 11 13:20:52 2021 +0900
 - [IMS 서비스 호처리(Sh)](Moblie/IMS_서비스_호처리_Sh.md) - Tue Aug 10 16:53:48 2021 +0900
 - [3GPP 규격 보는 방법(Release, Stage 등)](3GPP/3gpp_규격_보는_방법.md) - Fri Jul 30 11:41:44 2021 +0900
-- [ssh로 원격으로 명령어 실행하는 방법](Linux/ssh로_원격_명령_실행.md) - Thu Jul 29 15:26:43 2021 +0900
 
 ### Categories
 
@@ -62,6 +62,7 @@ _34 TILs and counting..._
 
 ### [Markdown](#Markdown)
 - [마크다운 Markdown 작성 방법](Markdown/How_to_Write_with_Markdown.md)
+- [Markdown에서 접기/펼치기(details) 사용하기](Markdown/Markdown에서_접기_펼치기(details)_사용하기.md)
 - [마크다운 Markdown 문서 내부 링크 이동 (북마크, 바로 가기, 목차)](Markdown/문서_내부_링크_이동.md)
 - [마크다운 Markdown 표(Table) 입력](Markdown/표_입력.md)
 
