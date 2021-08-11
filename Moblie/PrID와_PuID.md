@@ -11,35 +11,34 @@
 
 <details>
 <summary>PuID 규격 접기/펼치기</summary>
-<div markdown="1">
-        [TS 23.228 에 정의된 PuID]<br>
-        4.3.3.2 Public User Identities<br>
-        Every IM CN subsystem user shall have one or more Public User Identities (see TS 22.228 [8]), including at least one taking the form of a SIP URI (see IETF RFC 3261 [12]). The Public User Identity is used by any user for requesting communications to other users. For example, this might be included on a business card. <br>
-        - Both telecom numbering and Internet naming schemes can be used to address users depending on the Public User identities that the users have. <br>
-        - The Public User Identity shall take the form as defined in TS 23.003 [24]. <br>
-        - An ISIM application shall securely store at least one Public User Identity. For UEs supporting only non-3GPP accesses, if neither ISIM nor USIM is present, but IMC is present, the Public User Identity shall be stored in IMC. It shall not be possible for the UE to modify the Public User Identity, but it is not required that all additional Public User Identities be stored on the ISIM application or IMC. <br>
-        - A Public User Identity shall be registered either explicitly or implicitly before originating IMS sessions and originating IMS session unrelated procedures can be established by a UE using the Public User Identity. Subscriber-specific services for unregistered users may nevertheless be executed as described in clause 5.6.5. Each    implicit registration set shall contain at least one Public User Identity taking the form of a SIP URI. <br>
-        NOTE: An implicit registration set can contain Public User Identities of more than one service profile. When sending a third party registration request (for details see clause 5.4.1.7 in TS 24.229 [10a]) to an AS based on an initial filter criteria in a service profile, the third party registration request will include a Public User Identity taking the form of a SIP URI from that service profile within the implicit registration set. <br>
-        - It shall be possible to identify Alias Public User Identities. For such a group of Public User Identities, operations that enable changes to the service profile and the service data configured shall apply to all the Public User Identities within the group. This grouping information shall be stored in the HSS. It shall be possible to make this grouping information available to the AS via the Sh interface, and Sh operations are applicable to all of the Public User Identities within the same Alias Public User Identity group. It shall be possible to make this information available to the S-CSCF via the Cx interface. It shall be possible to make this information available to the UE via the Gm interface. <br>
-        - A Public User Identity shall be registered either explicitly or implicitly before terminating IMS sessions and terminating IMS session unrelated procedures can be delivered to the UE of the user that the Public User Identity belongs to. Subscriber-specific services for unregistered users may nevertheless be executed as described in chapter 5.12. <br>
-        - It shall be possible to register globally (i.e. through one single UE request) a user that has more than one public identity via a mechanism within the IP multimedia CN subsystem (e.g. by using an Implicit Registration Set). This shall not preclude the user from registering individually some of his/her public identities if needed. <br>
-        - Public User Identities are not authenticated by the network during registration. <br>
-        - Public User Identities may be used to identify the user's information within the HSS (for example during mobile terminated session set-up).   <br>
-        <br>
-        [TS 23.003 에 정의된 PuID]<br>
-        13.4	Public User Identity<br>
-        A Public User Identity is any identity used by a user within the IMS subsystem for requesting communication to another user.<br>
-        The Public User Identity shall take the form of either a SIP URI (see IETF RFC 3261 [26]) or a Tel URI (see IETF RFC 3966 [45]).<br>
-        The 3GPP specifications describing the interfaces over which Public User Identities are transferred specify the allowed Public User Identity formats, in particular 3GPP TS 24.229 [81] for SIP signalling interfaces, 3GPP TS 29.229 [95] for Cx and Dx interfaces, 3GPP TS 29.329 [96] for Sh interface, 3GPP TS 29.165 [97] for II-NNI interface.<br>
-        In the case the user identity is a telephone number, it shall be represented either by a Tel URI or by a SIP URI that includes a "user=phone" URI parameter and a "userinfo" part that shall follow the same format as the Tel URI.<br>
-        According to 3GPP TS 24.229 [81], the UE can use either:<br>
-        - a global number as defined in IETF RFC 3966 [45] and  following E.164 format, as defined by ITU-T Recommendation E.164 [10] or<br>
-        - a local number, that shall include a "phone-context" parameter that identifies the scope of its validity, as per IETF RFC 3966 [45].<br>
-        According to 3GPP TS 29.165 [97] a global number as defined in IETF RFC 3966 [45] shall be used in a tel-URI or in the user portion of a SIP URI with the user=phone parameter when conveyed via a non-roaming II-NNI except when agreement exists between the operators to also allow other kinds of numbers.<br>
-        According to 3GPP TS 29.229 [95] and 3GPP TS 29.329 [96] the canonical forms of SIP URI and Tel URI shall be used over the corresponding Diameter interfaces.<br>
-        The canonical form of a SIP URI for a Public User Identity shall take the form "sip:username@domain" as specified in IETF RFC 3261 [26], clause 10.3. SIP URI comparisons shall be performed as defined in IETF RFC 3261 [26], clause 19.1.4.<br>
-        The canonical form of a Tel URI for a Public User Identity shall take the form "tel:+<CC><NDC><SN>" (max number of digits is 15), that represents an E.164 number and shall contain a global number without parameters and visual separators (see IETF RFC 3966[45], clause 3). Tel URI comparisons shall be performed as defined in IETF RFC 3966[45], clause 4.<br>
-        Public User Identities are stored in the HSS either as a distinct Public User Identity or as a Wildcarded Public User Identity. A distinct Public User Identity contains the Public User Identity that is used in routing and it is explicitly provisioned in the HSS.<br>
+[TS 23.228 에 정의된 PuID]<br>
+4.3.3.2 Public User Identities<br>
+Every IM CN subsystem user shall have one or more Public User Identities (see TS 22.228 [8]), including at least one taking the form of a SIP URI (see IETF RFC 3261 [12]). The Public User Identity is used by any user for requesting communications to other users. For example, this might be included on a business card. <br>
+- Both telecom numbering and Internet naming schemes can be used to address users depending on the Public User identities that the users have. <br>
+- The Public User Identity shall take the form as defined in TS 23.003 [24]. <br>
+- An ISIM application shall securely store at least one Public User Identity. For UEs supporting only non-3GPP accesses, if neither ISIM nor USIM is present, but IMC is present, the Public User Identity shall be stored in IMC. It shall not be possible for the UE to modify the Public User Identity, but it is not required that all additional Public User Identities be stored on the ISIM application or IMC. <br>
+- A Public User Identity shall be registered either explicitly or implicitly before originating IMS sessions and originating IMS session unrelated procedures can be established by a UE using the Public User Identity. Subscriber-specific services for unregistered users may nevertheless be executed as described in clause 5.6.5. Each    implicit registration set shall contain at least one Public User Identity taking the form of a SIP URI. <br>
+NOTE: An implicit registration set can contain Public User Identities of more than one service profile. When sending a third party registration request (for details see clause 5.4.1.7 in TS 24.229 [10a]) to an AS based on an initial filter criteria in a service profile, the third party registration request will include a Public User Identity taking the form of a SIP URI from that service profile within the implicit registration set. <br>
+- It shall be possible to identify Alias Public User Identities. For such a group of Public User Identities, operations that enable changes to the service profile and the service data configured shall apply to all the Public User Identities within the group. This grouping information shall be stored in the HSS. It shall be possible to make this grouping information available to the AS via the Sh interface, and Sh operations are applicable to all of the Public User Identities within the same Alias Public User Identity group. It shall be possible to make this information available to the S-CSCF via the Cx interface. It shall be possible to make this information available to the UE via the Gm interface. <br>
+- A Public User Identity shall be registered either explicitly or implicitly before terminating IMS sessions and terminating IMS session unrelated procedures can be delivered to the UE of the user that the Public User Identity belongs to. Subscriber-specific services for unregistered users may nevertheless be executed as described in chapter 5.12. <br>
+- It shall be possible to register globally (i.e. through one single UE request) a user that has more than one public identity via a mechanism within the IP multimedia CN subsystem (e.g. by using an Implicit Registration Set). This shall not preclude the user from registering individually some of his/her public identities if needed. <br>
+- Public User Identities are not authenticated by the network during registration. <br>
+- Public User Identities may be used to identify the user's information within the HSS (for example during mobile terminated session set-up).   <br>
+<br>
+[TS 23.003 에 정의된 PuID]<br>
+13.4	Public User Identity<br>
+A Public User Identity is any identity used by a user within the IMS subsystem for requesting communication to another user.<br>
+The Public User Identity shall take the form of either a SIP URI (see IETF RFC 3261 [26]) or a Tel URI (see IETF RFC 3966 [45]).<br>
+The 3GPP specifications describing the interfaces over which Public User Identities are transferred specify the allowed Public User Identity formats, in particular 3GPP TS 24.229 [81] for SIP signalling interfaces, 3GPP TS 29.229 [95] for Cx and Dx interfaces, 3GPP TS 29.329 [96] for Sh interface, 3GPP TS 29.165 [97] for II-NNI interface.<br>
+In the case the user identity is a telephone number, it shall be represented either by a Tel URI or by a SIP URI that includes a "user=phone" URI parameter and a "userinfo" part that shall follow the same format as the Tel URI.<br>
+According to 3GPP TS 24.229 [81], the UE can use either:<br>
+- a global number as defined in IETF RFC 3966 [45] and  following E.164 format, as defined by ITU-T Recommendation E.164 [10] or<br>
+- a local number, that shall include a "phone-context" parameter that identifies the scope of its validity, as per IETF RFC 3966 [45].<br>
+According to 3GPP TS 29.165 [97] a global number as defined in IETF RFC 3966 [45] shall be used in a tel-URI or in the user portion of a SIP URI with the user=phone parameter when conveyed via a non-roaming II-NNI except when agreement exists between the operators to also allow other kinds of numbers.<br>
+According to 3GPP TS 29.229 [95] and 3GPP TS 29.329 [96] the canonical forms of SIP URI and Tel URI shall be used over the corresponding Diameter interfaces.<br>
+The canonical form of a SIP URI for a Public User Identity shall take the form "sip:username@domain" as specified in IETF RFC 3261 [26], clause 10.3. SIP URI comparisons shall be performed as defined in IETF RFC 3261 [26], clause 19.1.4.<br>
+The canonical form of a Tel URI for a Public User Identity shall take the form "tel:+<CC><NDC><SN>" (max number of digits is 15), that represents an E.164 number and shall contain a global number without parameters and visual separators (see IETF RFC 3966[45], clause 3). Tel URI comparisons shall be performed as defined in IETF RFC 3966[45], clause 4.<br>
+Public User Identities are stored in the HSS either as a distinct Public User Identity or as a Wildcarded Public User Identity. A distinct Public User Identity contains the Public User Identity that is used in routing and it is explicitly provisioned in the HSS.<br>
 </div>
 </details><br>
 
@@ -54,32 +53,31 @@
 
 <details>
 <summary>PrID 규격 접기/펼치기</summary>
-<div markdown="1">
-        [TS 23.228에 정의된 PrID]<br>
-        4.3.3.1 Private User Identities <br>
-        Every IM CN subsystem user shall have one or more Private User Identities. The private identity is assigned by the home network operator, and used, for example, for Registration, Authorization, Administration, and Accounting purposes. This identity shall take the form of a Network Access Identifier (NAI) as defined in IETF RFC 4282 [14]. It is possible for a representation of the IMSI to be contained within the NAI for the private identity. <br>
-        - The Private User Identity is not used for routing of SIP messages. <br>
-        - The Private User Identity shall be contained in all Registration requests, (including Re-registration and Deregistration requests) passed from the UE to the home network.<br>
-        - An ISIM application shall securely store one Private User Identity. For UEs supporting only non-3GPP accesses, if neither ISIM nor USIM is present, but IMC is present, the Private User Identity shall be stored in IMC. It shall not be possible for the UE to modify the Private User Identity information stored on the ISIM application or IMC. <br>
-        - The Private User Identity is a unique global identity defined by the Home Network Operator, which may be used within the home network to identify the user's subscription (e.g. IM service capability) from a network perspective. The Private User Identity identifies the subscription, not the user. <br>
-        - The Private User Identity shall be permanently allocated to a user's subscription (it is not a dynamic identity), and is valid for the duration of the user's subscription with the home network. <br>
-        - The Private User Identity is used to identify the user's information (for example authentication information) stored within the HSS (for use for example during Registration). <br>
-        - The Private User Identity may be present in charging records based on operator policies. <br>
-        - The Private User Identity is authenticated only during registration of the user, (including re-registration and deregistration). <br>
-        - The HSS needs to store the Private User Identity. <br>
-        - The S-CSCF needs to obtain and store the Private User Identity upon registration and unregistered termination. <br>
-        - If mobile terminated short message service without MSISDN as defined in TS 23.204 [56] is required then the Private User Identity shall be based on the IMSI according to TS 23.003 [24], clause 13.3. <br>
-        <br>
-        [TS 23.003에 정의된 PrID]<br>
-        13.3	Private User Identity<br>
-        The private user identity shall take the form of an NAI, and shall have the form username@realm as specified in clause 2.1 of IETF RFC 4282 [53].<br>
-        NOTE:	It is possible for a representation of the IMSI to be contained within the NAI for the private identity.<br>
-        For 3GPP systems, the private user identity used for the user shall be as specified in clause 4.2 of 3GPP TS 24.229 [81] and in 3GPP TS 23.228 [24] Annex E.3.1. If the private user identity is not known, the private user identity shall be derived from the IMSI.<br>
-        The following steps show how to build the private user identity out of the IMSI:<br>
-        1.	Use the whole string of digits as the username part of the private user identity; and<br>
-        2.	convert the leading digits of the IMSI, i.e. MNC and MCC, into a domain name, as described in clause 13.2.<br>
-        The result will be a private user identity of the form "<IMSI>@ims.mnc<MNC>.mcc<MCC>.3gppnetwork.org". For example: If the IMSI is 234150999999999 (MCC = 234, MNC = 15), the private user identity then takes the form "234150999999999@ims.mnc015.mcc234.3gppnetwork.org".<br>
-        For 3GPP2 systems, if there is no IMC present, the UE shall derive the private user identity as described in Annex C of 3GPP2 X.S0013-004 [67].<br>
+[TS 23.228에 정의된 PrID]<br>
+4.3.3.1 Private User Identities <br>
+Every IM CN subsystem user shall have one or more Private User Identities. The private identity is assigned by the home network operator, and used, for example, for Registration, Authorization, Administration, and Accounting purposes. This identity shall take the form of a Network Access Identifier (NAI) as defined in IETF RFC 4282 [14]. It is possible for a representation of the IMSI to be contained within the NAI for the private identity. <br>
+- The Private User Identity is not used for routing of SIP messages. <br>
+- The Private User Identity shall be contained in all Registration requests, (including Re-registration and Deregistration requests) passed from the UE to the home network.<br>
+- An ISIM application shall securely store one Private User Identity. For UEs supporting only non-3GPP accesses, if neither ISIM nor USIM is present, but IMC is present, the Private User Identity shall be stored in IMC. It shall not be possible for the UE to modify the Private User Identity information stored on the ISIM application or IMC. <br>
+- The Private User Identity is a unique global identity defined by the Home Network Operator, which may be used within the home network to identify the user's subscription (e.g. IM service capability) from a network perspective. The Private User Identity identifies the subscription, not the user. <br>
+- The Private User Identity shall be permanently allocated to a user's subscription (it is not a dynamic identity), and is valid for the duration of the user's subscription with the home network. <br>
+- The Private User Identity is used to identify the user's information (for example authentication information) stored within the HSS (for use for example during Registration). <br>
+- The Private User Identity may be present in charging records based on operator policies. <br>
+- The Private User Identity is authenticated only during registration of the user, (including re-registration and deregistration). <br>
+- The HSS needs to store the Private User Identity. <br>
+- The S-CSCF needs to obtain and store the Private User Identity upon registration and unregistered termination. <br>
+- If mobile terminated short message service without MSISDN as defined in TS 23.204 [56] is required then the Private User Identity shall be based on the IMSI according to TS 23.003 [24], clause 13.3. <br>
+<br>
+[TS 23.003에 정의된 PrID]<br>
+13.3	Private User Identity<br>
+The private user identity shall take the form of an NAI, and shall have the form username@realm as specified in clause 2.1 of IETF RFC 4282 [53].<br>
+NOTE:	It is possible for a representation of the IMSI to be contained within the NAI for the private identity.<br>
+For 3GPP systems, the private user identity used for the user shall be as specified in clause 4.2 of 3GPP TS 24.229 [81] and in 3GPP TS 23.228 [24] Annex E.3.1. If the private user identity is not known, the private user identity shall be derived from the IMSI.<br>
+The following steps show how to build the private user identity out of the IMSI:<br>
+1.	Use the whole string of digits as the username part of the private user identity; and<br>
+2.	convert the leading digits of the IMSI, i.e. MNC and MCC, into a domain name, as described in clause 13.2.<br>
+The result will be a private user identity of the form "<IMSI>@ims.mnc<MNC>.mcc<MCC>.3gppnetwork.org". For example: If the IMSI is 234150999999999 (MCC = 234, MNC = 15), the private user identity then takes the form "234150999999999@ims.mnc015.mcc234.3gppnetwork.org".<br>
+For 3GPP2 systems, if there is no IMC present, the UE shall derive the private user identity as described in Annex C of 3GPP2 X.S0013-004 [67].<br>
 </div>
 </details><br>
 
