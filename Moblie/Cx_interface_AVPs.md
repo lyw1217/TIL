@@ -9,12 +9,12 @@ Cx Interface의 AVPs 중 일부를 발췌해서 정리
 
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+
 The Visited-Network-Identifier AVP is of type OctetString. This AVP contains an identifier that helps the HSS to identify the visited network (e.g. the visited network domain name). Coding of octets is H-PLMN operator specific. The I-CSCF maps a received P-Visited-Network-ID onto an Octet String value that is consistently configured in I-CSCF and HSS to uniquely identify the visited network.<br>
 </div>
 </details><br>
 
-type : UTF8OctectString
+>type : UTF8OctectString
 
 방문한 홈 네트워크를 식별하는데 도움을 주는 식별자가 포함되어 있음
 
@@ -23,7 +23,7 @@ type : UTF8OctectString
 ## User-Authorization-Type AVP
 ---
 
-type : Enumerated
+>type : Enumerated
 
 User Authorization operation(사용자 권한 부여 작업)에서 사용자 권한 유형을 나타낸다.
 (i.e. UAR)   
@@ -37,7 +37,7 @@ User Authorization operation(사용자 권한 부여 작업)에서 사용자 권
 
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+
 The User-Authorization-Type AVP is of type Enumerated, and indicates the type of user authorization being performed in a User Authorization operation, i.e. UAR command. The following values are defined:<br><br>
 REGISTRATION (0)<br>
 	This value is used in case of the initial registration or re-registration. I-CSCF determines this from the Expires field or expires parameter in Contact field in the SIP REGISTER method if it is not equal to zero.  <br>
@@ -54,23 +54,25 @@ REGISTRATION_AND_CAPABILITIES (2)<br>
 ## Server-Capabilities AVP
 ---
 
-type : Grouped
+>type : Grouped
 
 I-CSCF가 S-CSCF를 선택하는데 assist하는 정보를 포함하고 있음.   
 (만약 Public User Identity와 연관된 S-CSCF가 없다면, HSS는 I-CSCF가 적절한 S-CSCF를 선택하는 것을 허용하는 S-CSCF 기능(capabilities)과 관련된 정보를 응답할 수 있음.)
 
 - ### Mandatory-Capability AVP
-    type : Unsigned32   
+    >type : Unsigned32   
+    
     single determined mandatory capability or a set of capabilities of an S-CSCF
 
 - ### Optional-Capability AVP
-    type : Unsigned32   
+    >type : Unsigned32   
+    
     single determined mandatory capability or a set of capabilities of an S-CSCF
 
 
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+
 The Server-Capabilities AVP is of type Grouped. This AVP contains information to assist the I-CSCF in the selection of an S-CSCF.<br>
 AVP format<br>
 Server-Capabilities ::= \<AVP header: 603 10415\><br>
@@ -87,7 +89,7 @@ The Optional-Capability AVP is of type Unsigned32. Each value included in this A
 
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+
 6.7	S-CSCF Assignment<br>
 The list of mandatory and optional capabilities received by an I-CSCF from the HSS allows operators to distribute users between S-CSCFs, depending on the different capabilities (e.g. features, role, geographical location) that each S-CSCF may have. Alternatively, an operator has the possibility to steer users to certain S-CSCFs.<br>
 The operator shall define (possibly based on the functionality offered by each S-CSCF installed in the network) the exact meaning of the S-CSCF mandatory and optional capabilities available in his network. It is an operator task to allocate a unique value to represent a single capability (e.g. support of "wildcarded PSI") or a set of capabilities (e.g. support of "alias" and "Shared IFC sets" and "wildcarded PSI") and to use these values to identify capabilities that are mandatory and/or optional to support for a given subscription. It is a configuration task for the operator to ensure that the I-CSCF has a correct record of the capabily values received from the HSS for each S-CSCF available in his network. The I-CSCF and the HSS do not need to know the semantic of these values. This semantic is exclusively an operator issue.<br>
@@ -101,14 +103,14 @@ The following table is a guideline for operators that records S-CSCF capabilitie
 ## SIP-Number-Auth-Items AVP
 ---
 
-type : Unsigned32
+>type : Unsigned32
 
 - Request 메시지에 포함된 경우, S-CSCF가 요청하는 인증 벡터의 수
 - Response 메시지에 포함된 경우, HSS(UDM)에서 제공하는 SIP-Auth-Data-Item AVP의 실제 수(actual number)
 
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+
 6.3.8	SIP-Number-Auth-Items AVP<br>
 The SIP-Number-Auth-Items AVP is of type Unsigned32.<br>
 When used in a request, the SIP-Number-Auth-Items indicates the number of authentication vectors the S-CSCF is requesting. This can be used, for instance, when the client is requesting several pre-calculated authentication vectors. In the answer message, the SIP-Number-Auth-Items AVP indicates the actual number of SIP-Auth-Data-Item AVPs provided by the Diameter server. <br>
@@ -118,7 +120,7 @@ When used in a request, the SIP-Number-Auth-Items indicates the number of authen
 ## SIP-Authenticate AVP
 ---
 
-type : OctecString
+>type : OctecString
 
 authentication challenge RAND와 token AUTN가 binary encoded 되어 연결된 값이 포함된다.
 
@@ -128,7 +130,7 @@ authentication challenge RAND와 token AUTN가 binary encoded 되어 연결된 �
 
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+
 6.3.10	SIP-Authenticate AVP<br>
 The SIP-Authenticate AVP is of type OctetString and contains specific parts of the data portion of the WWW-Authenticate or Proxy-Authenticate SIP headers that are to be present in a SIP response. <br>
 It shall contain, binary encoded, the concatenation of the authentication challenge RAND and the token AUTN. See 3GPP TS 33.203 [3] for further details about RAND and AUTN. The Authentication Information has a fixed length of 32 octets; the 16 most significant octets shall contain the RAND, the 16 least significant octets shall contain the AUTN.<br>
@@ -138,7 +140,7 @@ It shall contain, binary encoded, the concatenation of the authentication challe
 ## SIP-Authorization AVP
 ---
 
-type : OctetString
+>type : OctetString
 
 - Authentication Request 메시지에 포함된 경우, RAND(16 octets) 와 AUTS(14 octets)가 binary encoded 되어 연결된 값이 포함된다. 그래서 인증 정보는 30 octets의 고정 길이를 가진다.
   - RAND와 AUTS에 대한 정보는 [3GPP TS 33.203](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=2277) 참고
@@ -147,7 +149,7 @@ type : OctetString
 
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+
 6.3.11	SIP-Authorization AVP<br>
 The SIP-Authorization AVP is of type OctetString and contains specific parts of the data portion of the Authorization or Proxy-Authorization SIP headers suitable for inclusion in a SIP request. <br>
 When included in an Authentication Request, it shall contain the concatenation of RAND, as sent to the terminal, and AUTS, as received from the terminal. RAND and AUTS shall both be binary encoded. See 3GPP TS 33.203 [3] for further details about RAND and AUTS. The Authorization Information has a fixed length of 30 octets; the 16 most significant octets shall contain the RAND, the 14 least significant octets shall contain the AUTS.<br>

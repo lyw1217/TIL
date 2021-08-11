@@ -96,7 +96,7 @@
 
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+
 -t : 
 
 스크립트의 표준입력([ -t 0 ])이나 표준출력([ -t 1 ])이 터미널인지 아닌지를 확인하는데 쓸 수 있습니다.
@@ -110,7 +110,7 @@
 
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+
 -g : 
 
 디렉토리에 sgid 플래그가 세트되어 있다면 그 디렉토리에서 만들어지는 파일은 파일 생성자의 그룹이 아니라 그 디렉토리 소유자의 그룹에 속하게 됩니다. 
@@ -122,7 +122,7 @@
     -u        : 파일에 set-user-id(suid) 플래그가 세트되어 있음
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+
 -u :
 
 root가 소유자인 어떤 실행 파일에 set-user-id 플래그가 세트되어 있다면 일반 사용자가 그 파일을 실행시키더라도 root 권한으로 실행됩니다.
@@ -139,7 +139,7 @@ suid 플래그가 걸린 파일은 퍼미션에 s라고 나타납니다.
     -k        : 스티키 비트(sticky bit)가 세트
 <details>
 <summary>접기/펼치기</summary>
-<div markdown="1">
+
 -k : 
 
     보통은 "스키키 비트"라고 알려져 있는 세이브-텍스트-모드(save-text-mode) 플래그는 특별한 형태의 파일 퍼미션입니다.
