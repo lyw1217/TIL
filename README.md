@@ -73,7 +73,7 @@ _36 TILs and counting..._
 - [IMS 서비스 호처리(Sh)](Moblie/IMS_서비스_호처리_Sh.md)
 - [PuID(Public User ID)와 PrID(Private User ID)](Moblie/PrID와_PuID.md)
 - [Sh Interface AVPs](Moblie/Sh_interface_AVPs.md)
-- [UE (User Equipment) 및 ME (Mobile Equipment) Identifier](Moblie/User_Equipment.md)
+- [UE (User Equipment) Identifier](Moblie/User_Equipment.md)
 - [이동통신 세대별 명칭](Moblie/이동통신_세대별_명칭.md)
 
 ### [Python](#Python)
