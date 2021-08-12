@@ -139,8 +139,12 @@ When an user has a set of Public User Identities defined to be implicitly regist
 -	When a Public User Identity is barred from IMS communications, only the HSS and S CSCF shall have access to this Public User Identity.
  
 ![Figure 5.0c: Relationship of Public User Identities when implicitly registered](images/Relationship%20of%20Public%20User%20Identities%20when%20implicitly%20registered.png)
- 
+
+[3GPP TS 23.228 "IP Multimedia Subsystem (IMS); Stage 2", Figure 5.0c: Relationship of Public User Identities when implicitly registered]
+
 ![Figure 5.0d: The relation of two shared Public User Identities (Public-ID-3 and 4) and Private User Identities](images/The%20relation%20of%20two%20shared%20Public%20User%20Identities%20(Public-ID-3%20and%204)%20and%20Private%20User%20Identities.png)
+
+[3GPP TS 23.228 "IP Multimedia Subsystem (IMS); Stage 2", Figure 5.0d: The relation of two shared Public User Identities (Public-ID-3 and 4) and Private User Identities]
 
 5.2.1a.1	Implicit Registration for UE without ISIM or IMC
 
