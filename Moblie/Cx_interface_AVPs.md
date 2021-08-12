@@ -29,11 +29,11 @@ User Authorization operation(사용자 권한 부여 작업)에서 사용자 권
 (i.e. UAR)   
 아래 값들 중 하나가 정의된다.
 
-|Type           |Value|Description|
-|---------------|-----|-----------|
-|REGISTRATION   |0    |최초 Regi 또는 Re-Regi 시에 사용|
-|DE_REGISTRATION|1    |Regi 취소 시에 사용|
-|REGISTRATION_AND_CAPABILITIES|2|I-CSCF가 HSS에게 S-CSCF 정보를 명시적으로 요청할 때 사용 (I-CSCF는 HSS에 저장된 사용자의 현재 S-CSCF에 연결할 수 없고 새로운 S-CSCF를 선택해야 할 때 REGI_AND_CAPA를 사용)|
+| Type                          | Value | Description                                                                                                                                                                |
+| ----------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| REGISTRATION                  | 0     | 최초 Regi 또는 Re-Regi 시에 사용                                                                                                                                           |
+| DE_REGISTRATION               | 1     | Regi 취소 시에 사용                                                                                                                                                        |
+| REGISTRATION_AND_CAPABILITIES | 2     | I-CSCF가 HSS에게 S-CSCF 정보를 명시적으로 요청할 때 사용 (I-CSCF는 HSS에 저장된 사용자의 현재 S-CSCF에 연결할 수 없고 새로운 S-CSCF를 선택해야 할 때 REGI_AND_CAPA를 사용) |
 
 <details>
 <summary>접기/펼치기</summary>

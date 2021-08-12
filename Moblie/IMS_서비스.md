@@ -80,30 +80,30 @@ HSS는 가입자의 마스터 데이터베이스로 기존의 3G HLR의 모든 �
 
 
 ### IMS Diameter 메시지
-|Command Name          |Src   |Dest  |Abbr|
-|----------------------|------|------|----|
-|**Cx Interface**||||
-|User-Authorisation-Req|I-CSCF|HSS   |UAR|
-|User-Authorisation-Ans|HSS   |I-CSCF|UAA|
-|Server-Assigment-Req  |S-CSCF|HSS   |SAR|
-|Server-Assigment-Ans  |HSS   |S-CSCF|SAA|
-|Location-Info-Req     |I-CSCF|HSS   |LIR|
-|Location-Info-Ans     |HSS   |I-CSCF|LIA|
-|Multimdeia-Authentication-Req|S-CSCF|HSS   |MAR|
-|Multimdeia-Authentication-Ans|HSS   |S-CSCF|MAA|
-|Registration-Termination-Req |HSS   |S-CSCF|RTR|
-|Registration-Termination-Ans |S-CSCF|HSS   |RTA|
-|Push-Profile-Req      |HSS   |S-CSCF|PPR|
-|Push-Profile-Ans      |S-CSCF|HSS   |PPA|
-|**Sh Interface**||||
-|User-Data-Req         |AS    |HSS   |UDR|
-|User-Data-Ans         |HSS   |AS    |UDA|
-|Profile-Update-Req    |AS    |HSS   |PUR|
-|Profile-Update-Ans    |HSS   |AS    |PUA|
-|Subscribe-Notifications-Req|AS|HSS  |SNR|
-|Subscribe-Notifications-Ans|HSS|AS  |SNA|
-|Push-Notification-Req |HSS   |AS    |PNR|
-|Push-Notification-Ans |AS    |HSS   |PNA|
+| Command Name                  | Src    | Dest   | Abbr |
+| ----------------------------- | ------ | ------ | ---- |
+| **Cx Interface**              |        |        |      |
+| User-Authorisation-Req        | I-CSCF | HSS    | UAR  |
+| User-Authorisation-Ans        | HSS    | I-CSCF | UAA  |
+| Server-Assigment-Req          | S-CSCF | HSS    | SAR  |
+| Server-Assigment-Ans          | HSS    | S-CSCF | SAA  |
+| Location-Info-Req             | I-CSCF | HSS    | LIR  |
+| Location-Info-Ans             | HSS    | I-CSCF | LIA  |
+| Multimdeia-Authentication-Req | S-CSCF | HSS    | MAR  |
+| Multimdeia-Authentication-Ans | HSS    | S-CSCF | MAA  |
+| Registration-Termination-Req  | HSS    | S-CSCF | RTR  |
+| Registration-Termination-Ans  | S-CSCF | HSS    | RTA  |
+| Push-Profile-Req              | HSS    | S-CSCF | PPR  |
+| Push-Profile-Ans              | S-CSCF | HSS    | PPA  |
+| **Sh Interface**              |        |        |      |
+| User-Data-Req                 | AS     | HSS    | UDR  |
+| User-Data-Ans                 | HSS    | AS     | UDA  |
+| Profile-Update-Req            | AS     | HSS    | PUR  |
+| Profile-Update-Ans            | HSS    | AS     | PUA  |
+| Subscribe-Notifications-Req   | AS     | HSS    | SNR  |
+| Subscribe-Notifications-Ans   | HSS    | AS     | SNA  |
+| Push-Notification-Req         | HSS    | AS     | PNR  |
+| Push-Notification-Ans         | AS     | HSS    | PNA  |
 
 
 

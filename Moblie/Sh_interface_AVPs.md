@@ -14,14 +14,15 @@ Sh interface의 AVPs 중 일부를 발췌해서 정리
 
 - 29.329
 
-        The User-Identity AVP is of type Grouped. This AVP contains either a Public- Identity AVP or an MSISDN AVP or an External-Identifier AVP.
+The User-Identity AVP is of type Grouped. This AVP contains either a Public- Identity AVP or an MSISDN AVP or an External-Identifier AVP.
 
 - 29.328
-        |Information element name|Mapping to Diameter AVP|Description|
-        |------------------------|-----------------------|-----------|
-        |IMS Public User Identity / Public Service Identity|Public-Identity|IMS Public User Identity or Public Service Identity for which data is required. If the MSISDNand External Identifier are is not included in the User-Identity AVP, the Public-Identity AVP shall be included in Sh messages only for allowed Data References as described in Table 7.6.1.|
-        |MSISDN|MSISDN|MSISDN for which data is required. If the Public-Identity AVP and External Identifier are not included in the User-Identity AVP, the MSISDN AVP shall be included in the Sh-Pull or Sh-Subs-Notif or Sh-Update messages only for allowed Data References as described in Table 7.6.1.|
-        |External Identifier|External-Identifier|External Identifier for which data is required. If the Public-Identity AVP and MSISDN are not included in the User-Identity AVP, the External Identifier AVP shall be included in the Sh-Pull or Sh-Subs-Notif or Sh-Update messages only for allowed Data References as described in Table 7.6.1.|
+
+| Information element name                           | Mapping to Diameter AVP | Description                                                                                                                                                                                                                                                                                        |
+| -------------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| IMS Public User Identity / Public Service Identity | Public-Identity         | IMS Public User Identity or Public Service Identity for which data is required. If the MSISDNand External Identifier are is not included in the User-Identity AVP, the Public-Identity AVP shall be included in Sh messages only for allowed Data References as described in Table 7.6.1.          |
+| MSISDN                                             | MSISDN                  | MSISDN for which data is required. If the Public-Identity AVP and External Identifier are not included in the User-Identity AVP, the MSISDN AVP shall be included in the Sh-Pull or Sh-Subs-Notif or Sh-Update messages only for allowed Data References as described in Table 7.6.1.              |
+| External Identifier                                | External-Identifier     | External Identifier for which data is required. If the Public-Identity AVP and MSISDN are not included in the User-Identity AVP, the External Identifier AVP shall be included in the Sh-Pull or Sh-Subs-Notif or Sh-Update messages only for allowed Data References as described in Table 7.6.1. |
 </details><br>
 
 ## Identity-Set AVP
@@ -32,12 +33,12 @@ Sh interface의 AVPs 중 일부를 발췌해서 정리
 
 [Data-Reference AVP](#data-accessible-via-sh-interface)의 `IMSPublicIdentity` 항목을 참고
 
-|Type|Value|Description|
-|----|-----|-----------|
-|ALL_IDENTITIES|0||
-|REGISTERED_IDENTITIES|1||
-|IMPLICIT_IDENTITIES|2||
-|ALIAS_IDENTITIES|3||
+| Type                  | Value | Description |
+| --------------------- | ----- | ----------- |
+| ALL_IDENTITIES        | 0     |             |
+| REGISTERED_IDENTITIES | 1     |             |
+| IMPLICIT_IDENTITIES   | 2     |             |
+| ALIAS_IDENTITIES      | 3     |             |
 
 <details>
 <summary>접기/펼치기</summary>
@@ -63,16 +64,16 @@ transparent data와 연관된 서비스의 집합을 구분할 수 있게 해주
 
 - 29.329
 
-        The Service-Indication AVP is of type OctetString. This AVP contains the Service Indication that identifies a service or a set of services in an AS and the related repository data in the HSS. Standardized values of Service-Indication identifying a standardized service or  set of services in the AS and standardized format of the related repository data are defined in 3GPP TS 29.364 [10].
+The Service-Indication AVP is of type OctetString. This AVP contains the Service Indication that identifies a service or a set of services in an AS and the related repository data in the HSS. Standardized values of Service-Indication identifying a standardized service or  set of services in the AS and standardized format of the related repository data are defined in 3GPP TS 29.364 [10].
 
 
 - 29.328
 
-        Identifier of one set of service related transparent data, which is stored in an HSS in an operator network per Public Identity.
+Identifier of one set of service related transparent data, which is stored in an HSS in an operator network per Public Identity.
 
-        The HSS shall allocate memory space to implement a data repository to store transparent data per IMS Public User Identity or Public Service Identity and value of Service Indication with a Sequence Number for verification.
+The HSS shall allocate memory space to implement a data repository to store transparent data per IMS Public User Identity or Public Service Identity and value of Service Indication with a Sequence Number for verification.
 
-        For Public Service Identities matching a Wildcarded Public Service Identity, the repository data shall be stored per Wildcarded Public Service Identity and not for each specific Public Service Identity.
+For Public Service Identities matching a Wildcarded Public Service Identity, the repository data shall be stored per Wildcarded Public Service Identity and not for each specific Public Service Identity.
 </details><br>
 
 ## Data-Reference AVP
@@ -118,34 +119,34 @@ IMSPrivateUserIdentity (33)
 
 Data Reference 중 일부만 발췌
 
-|Data Ref.|XML tag|Defined in|Access key|Operations|
-|---------|-------|----------|----------|----------|
-|0|RepositoryData|7.6.1|Data Reference<br>+ ( IMS Public User Identity OR Public Service Identity )<br>+ Service Indication|Sh-Pull<br>Sh-Update<br>Sh-Subs-Notif<br>(Note 1, Note 3)|
-|10|IMSPublicIdentity|7.6.2|Data Reference<br>+ ( IMS Public User Identiy OR Public Service Identity OR MSISDN OR External Identifier )<br>+ [ Requested Identity Set ]|Sh-Pull<br>Sh-Subs-Notif<br>|
-|11|IMSUserState|7.6.3|Data Reference<br>+ IMS Public User Identity|Sh-Pull<br>Sh-Subs-Notif<br>|
-|12|S-CSCFName|7.6.4|Data Reference<br>+ ( IMS Public User Identity OR Public Service Identity )|Sh-Pull<br>Sh-Subs-Notif<br>(Note 1)<br>|
-|13|InitialFilterCriteria|7.6.5|Data Reference<br>+ ( IMS Public User Identity OR Public Service Identity )<br>+ Application Server Name|Sh-Pull<br>Sh-Subs-Notif<br>(Note 1)<br>|
-|14|LocationInformation|7.6.6|Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )<br>+ [ Private Identity ]<br>+ Requested Domain<br>+ Current Location<br>+ [ Serving Node Indication ]<br>+ [ Requested Nodes ] <br>+ [ Local Time Zone Indication ] <br>+ [ RAT-Type Requested ]|Sh-Pull<br>(Note 5)<br>(Note 6)<br>(Note 7)<br>|
-|15|UserState|7.6.7|Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )<br>+ [ Private Identity ] <br>+ Requested Domain<br>+ [ Requested Nodes ]|Sh-Pull<br>(Note 5)<br>(Note 7)<br>|
-|16|Charging information|7.6.8|Data Reference<br>+ ( IMS Public User Identity OR Public Service Identity OR MSISDN OR External Identifier )|Sh-Pull<br>Sh-Subs-Notif<br>|
-|17|MSISDN or MSISDN +ExtendedMSISDN|7.6.9|Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )<br>+ [ Private Identity ]|Sh-Pull <br>(Note 4)<br>|
-|18|PSIActivation|7.6.10|Data Reference<br>+ IMS Public Service Identity|Sh-Pull<br>Sh-Update<br>Sh-Subs-Notif<br>(Note 1)<br>|
-|19|DSAI|7.6.11|Data Reference<br>+ ( IMS Public User Identity OR Public Service Identity )<br>+ DSAI Tag<br>+ Application Server Name|Sh-Pull<br>Sh-Update<br>Sh-Subs-Notif<br>(Note 1)<br>|
-|20|Reserved|||<br>|
-|21|ServiceLevelTraceInfo|7.6.13|Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )|Sh-Pull<br>Sh-Subs-Notif<br>|
-|22|IP Address Secure Binding Information|7.6.14|Data Reference<br>+ IMS Public User Identity|Sh-Pull<br>Sh-Subs-Notif<br>|
-|23|Service Priority Level|7.6.15|Data Reference<br>+ IMS Public User Identity|Sh-Pull<br>Sh-Subs-Notif<br>|
-|24|SMSRegistrationInfo|7.6.16|Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )<br>+ [ Private Identity ]|Sh-Pull<br>Sh-Update<br>(Note 5)<br>|
-|25|UE reachability for IP|7.6.17|Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )<br>+ [ Private Identity ]|Sh-Subs-Notif<br>(Note 5)<br>|
-|26|T-ADS Information|7.6.18|Data Reference<br>+ ( IMS Public User Identity OR MSISDN )<br>+ [ Private Identity ]|Sh-Pull<br>(Note 5)<br>|
-|27|STN-SR|7.6.20|Data Reference<br>+ ( IMS Public User Identity OR MSISDN )<br>+ [ Private Identity ]|Sh-Pull<br>Sh-Updatef<br>(Note 5)<br>|
-|28|UE-SRVCC- Capability|7.6.21|Data Reference<br>+ ( IMS Public User Identity OR MSISDN )<br>+ [ Private Identity ]|Sh-Pull<br>Sh-Subs-Notif <br>(Note 5)<br>|
-|29|ExtendedPriority|7.6.15A|Data Reference<br>+ IMS Public User Identity |Sh-Pull<br>Sh-Subs-Notif<br>|
-|30|CSRN|7.6.22|Data Reference<br>+ ( IMS Public User Identity OR MSISDN )<br>+ [ Private Identity ]|Sh-Pull<br>(Note 5)<br>|
-|31|Reference Location Information|7.6.23|Data Reference<br>+ IMS Public User Identity<br>+ [ Private Identity ]|Sh-Pull<br>(Note 5)<br>|
-|32|IMSI|7.6.24|Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )<br>+ [ Private Identity ]|Sh-Pull<br>(Note 5)<br>(Note 8)<br>|
-|33|IMSPrivateUserIdentity|7.6.25|Data Reference<br>+ IMS Public User Identity|Sh-Pull<br>Sh-Subs-Notif<br>(Note 8)<br>|
-|34|IMEISV|7.6.26|Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )<br>+ [ Private Identity ]|Sh-Pull<br>(Note 5)|
+| Data Ref. | XML tag                               | Defined in | Access key                                                                                                                                                                                                                                                                          | Operations                                                |
+| --------- | ------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| 0         | RepositoryData                        | 7.6.1      | Data Reference<br>+ ( IMS Public User Identity OR Public Service Identity )<br>+ Service Indication                                                                                                                                                                                 | Sh-Pull<br>Sh-Update<br>Sh-Subs-Notif<br>(Note 1, Note 3) |
+| 10        | IMSPublicIdentity                     | 7.6.2      | Data Reference<br>+ ( IMS Public User Identiy OR Public Service Identity OR MSISDN OR External Identifier )<br>+ [ Requested Identity Set ]                                                                                                                                         | Sh-Pull<br>Sh-Subs-Notif<br>                              |
+| 11        | IMSUserState                          | 7.6.3      | Data Reference<br>+ IMS Public User Identity                                                                                                                                                                                                                                        | Sh-Pull<br>Sh-Subs-Notif<br>                              |
+| 12        | S-CSCFName                            | 7.6.4      | Data Reference<br>+ ( IMS Public User Identity OR Public Service Identity )                                                                                                                                                                                                         | Sh-Pull<br>Sh-Subs-Notif<br>(Note 1)<br>                  |
+| 13        | InitialFilterCriteria                 | 7.6.5      | Data Reference<br>+ ( IMS Public User Identity OR Public Service Identity )<br>+ Application Server Name                                                                                                                                                                            | Sh-Pull<br>Sh-Subs-Notif<br>(Note 1)<br>                  |
+| 14        | LocationInformation                   | 7.6.6      | Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )<br>+ [ Private Identity ]<br>+ Requested Domain<br>+ Current Location<br>+ [ Serving Node Indication ]<br>+ [ Requested Nodes ] <br>+ [ Local Time Zone Indication ] <br>+ [ RAT-Type Requested ] | Sh-Pull<br>(Note 5)<br>(Note 6)<br>(Note 7)<br>           |
+| 15        | UserState                             | 7.6.7      | Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )<br>+ [ Private Identity ] <br>+ Requested Domain<br>+ [ Requested Nodes ]                                                                                                                         | Sh-Pull<br>(Note 5)<br>(Note 7)<br>                       |
+| 16        | Charging information                  | 7.6.8      | Data Reference<br>+ ( IMS Public User Identity OR Public Service Identity OR MSISDN OR External Identifier )                                                                                                                                                                        | Sh-Pull<br>Sh-Subs-Notif<br>                              |
+| 17        | MSISDN or MSISDN +ExtendedMSISDN      | 7.6.9      | Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )<br>+ [ Private Identity ]                                                                                                                                                                         | Sh-Pull <br>(Note 4)<br>                                  |
+| 18        | PSIActivation                         | 7.6.10     | Data Reference<br>+ IMS Public Service Identity                                                                                                                                                                                                                                     | Sh-Pull<br>Sh-Update<br>Sh-Subs-Notif<br>(Note 1)<br>     |
+| 19        | DSAI                                  | 7.6.11     | Data Reference<br>+ ( IMS Public User Identity OR Public Service Identity )<br>+ DSAI Tag<br>+ Application Server Name                                                                                                                                                              | Sh-Pull<br>Sh-Update<br>Sh-Subs-Notif<br>(Note 1)<br>     |
+| 20        | Reserved                              |            |                                                                                                                                                                                                                                                                                     | <br>                                                      |
+| 21        | ServiceLevelTraceInfo                 | 7.6.13     | Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )                                                                                                                                                                                                   | Sh-Pull<br>Sh-Subs-Notif<br>                              |
+| 22        | IP Address Secure Binding Information | 7.6.14     | Data Reference<br>+ IMS Public User Identity                                                                                                                                                                                                                                        | Sh-Pull<br>Sh-Subs-Notif<br>                              |
+| 23        | Service Priority Level                | 7.6.15     | Data Reference<br>+ IMS Public User Identity                                                                                                                                                                                                                                        | Sh-Pull<br>Sh-Subs-Notif<br>                              |
+| 24        | SMSRegistrationInfo                   | 7.6.16     | Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )<br>+ [ Private Identity ]                                                                                                                                                                         | Sh-Pull<br>Sh-Update<br>(Note 5)<br>                      |
+| 25        | UE reachability for IP                | 7.6.17     | Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )<br>+ [ Private Identity ]                                                                                                                                                                         | Sh-Subs-Notif<br>(Note 5)<br>                             |
+| 26        | T-ADS Information                     | 7.6.18     | Data Reference<br>+ ( IMS Public User Identity OR MSISDN )<br>+ [ Private Identity ]                                                                                                                                                                                                | Sh-Pull<br>(Note 5)<br>                                   |
+| 27        | STN-SR                                | 7.6.20     | Data Reference<br>+ ( IMS Public User Identity OR MSISDN )<br>+ [ Private Identity ]                                                                                                                                                                                                | Sh-Pull<br>Sh-Updatef<br>(Note 5)<br>                     |
+| 28        | UE-SRVCC- Capability                  | 7.6.21     | Data Reference<br>+ ( IMS Public User Identity OR MSISDN )<br>+ [ Private Identity ]                                                                                                                                                                                                | Sh-Pull<br>Sh-Subs-Notif <br>(Note 5)<br>                 |
+| 29        | ExtendedPriority                      | 7.6.15A    | Data Reference<br>+ IMS Public User Identity                                                                                                                                                                                                                                        | Sh-Pull<br>Sh-Subs-Notif<br>                              |
+| 30        | CSRN                                  | 7.6.22     | Data Reference<br>+ ( IMS Public User Identity OR MSISDN )<br>+ [ Private Identity ]                                                                                                                                                                                                | Sh-Pull<br>(Note 5)<br>                                   |
+| 31        | Reference Location Information        | 7.6.23     | Data Reference<br>+ IMS Public User Identity<br>+ [ Private Identity ]                                                                                                                                                                                                              | Sh-Pull<br>(Note 5)<br>                                   |
+| 32        | IMSI                                  | 7.6.24     | Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )<br>+ [ Private Identity ]                                                                                                                                                                         | Sh-Pull<br>(Note 5)<br>(Note 8)<br>                       |
+| 33        | IMSPrivateUserIdentity                | 7.6.25     | Data Reference<br>+ IMS Public User Identity                                                                                                                                                                                                                                        | Sh-Pull<br>Sh-Subs-Notif<br>(Note 8)<br>                  |
+| 34        | IMEISV                                | 7.6.26     | Data Reference<br>+ ( IMS Public User Identity OR MSISDN OR External Identifier )<br>+ [ Private Identity ]                                                                                                                                                                         | Sh-Pull<br>(Note 5)                                       |
 
 ### Repository Data
 
@@ -233,10 +234,10 @@ Multiple instances of this information element may be included in the message.
 
 알림 구독 요청의 유형을 나타냄
 
-|Type|Value|Description|
-|----|-----|-----------|
-|Subscribe|0|알림 구독|
-|Unsubscribe|1|알림 구독 해지|
+| Type        | Value | Description    |
+| ----------- | ----- | -------------- |
+| Subscribe   | 0     | 알림 구독      |
+| Unsubscribe | 1     | 알림 구독 해지 |
 
 <details>
 <summary>접기/펼치기</summary>
@@ -269,10 +270,10 @@ The Expiry-Time AVP is of type Time.  This AVP contains the expiry time of subsc
 
 Sender 측에서 User-Data의 요청했는지 여부를 나타낸다.
 
-|Type|Value|Description|
-|----|-----|-----------|
-|USER_DATA_NOT_REQUESTED|0|User_Data를 요청하지 않았음|
-|USER_DATA_REQUESTED|1|User_Data를 요청함|
+| Type                    | Value | Description                 |
+| ----------------------- | ----- | --------------------------- |
+| USER_DATA_NOT_REQUESTED | 0     | User_Data를 요청하지 않았음 |
+| USER_DATA_REQUESTED     | 1     | User_Data를 요청함          |
 
 <details>
 <summary>접기/펼치기</summary>
@@ -289,9 +290,9 @@ The Send-Data-Indication AVP is of type Enumerated. If present it indicates that
 
 Sender 측에 단 한 번만 알림(notify)하는 것을 나타낸다.
 
-|Type|Value|Description|
-|----|-----|-----------|
-|ONE_TIME_NOTIFICATION_REQUESTED|0|한 번만 notify|
+| Type                            | Value | Description    |
+| ------------------------------- | ----- | -------------- |
+| ONE_TIME_NOTIFICATION_REQUESTED | 0     | 한 번만 notify |
 
 이 AVP는 UE reachability for IP(25) Data Reference에서만 적용된다.
 
