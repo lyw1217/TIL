@@ -11,7 +11,7 @@ Cx Interface의 AVPs 중 일부를 발췌해서 정리
 <summary>접기/펼치기</summary>
 
 The Visited-Network-Identifier AVP is of type OctetString. This AVP contains an identifier that helps the HSS to identify the visited network (e.g. the visited network domain name). Coding of octets is H-PLMN operator specific. The I-CSCF maps a received P-Visited-Network-ID onto an Octet String value that is consistently configured in I-CSCF and HSS to uniquely identify the visited network.<br>
-</div>
+
 </details><br>
 
 >type : UTF8OctectString
@@ -47,7 +47,7 @@ DE_REGISTRATION (1)<br>
 REGISTRATION_AND_CAPABILITIES (2)<br>
 	This value is used when the I-CSCF explicitly requests S-CSCF capability information from the HSS. The I-CSCF shall use this value when the user's current S-CSCF, which is stored in the HSS, cannot be contacted and a new S-CSCF needs to be selected<br>
 <br>
-</div>
+
 </details><br>
 
 
@@ -84,11 +84,6 @@ Server-Capabilities ::= \<AVP header: 603 10415\><br>
 The Mandatory-Capability AVP is of type Unsigned32. Each value included in this AVP can be used to represent a single determined mandatory capability or a set of capabilities of an S-CSCF, as described in 3GPP TS 29.228 [1] (clause 6.7).<br><br>
 6.3.6	Optional-Capability AVP<br>
 The Optional-Capability AVP is of type Unsigned32. Each value included in this AVP can be used to represent a single determined optional capability or a set of capabilities of an S-CSCF, as described in 3GPP TS 29.228 [1] (clause 6.7).<br>
-</div>
-</details><br>
-
-<details>
-<summary>접기/펼치기</summary>
 
 6.7	S-CSCF Assignment<br>
 The list of mandatory and optional capabilities received by an I-CSCF from the HSS allows operators to distribute users between S-CSCFs, depending on the different capabilities (e.g. features, role, geographical location) that each S-CSCF may have. Alternatively, an operator has the possibility to steer users to certain S-CSCFs.<br>
@@ -97,7 +92,7 @@ As a first choice, the I-CSCF shall select an S-CSCF that has all the mandatory 
 It is the responsibility of the operator to ensure that there are S-CSCFs which have mandatory capabilities indicated by the HSS for any given user. However, configuration errors may occur. If such errors occur and they prevent the I-CSCF from selecting an S-CSCF which meets the mandatory capabilities indicated by the HSS, the I-CSCF shall inform the operator via the O&M subsystem.<br>
 As an alternative to selecting an S-CSCF based on the list of capabilities received from the HSS, it is possible to steer users to certain S-CSCFs. To do this, the operator may include one or more S-CSCF names as part of the capabilities of the user profile. The reason for the selection (e.g. all the users belonging to the same company/group could be in the same S-CSCF to implement a VPN service) and the method of selection are operator issues and out of the scope of this specification. If this alternative is chosen, the HSS shall include Server-Name AVPs in the Server-Capabilities AVP and should not include Mandatory-Capability AVPs or Optional-Capability AVPs in the Server-Capabilities AVP, and the I-CSCF when receiving Server-Name AVPs within the Server-Capabilities AVP shall discard any Mandatory-Capability AVP and any Optional-Capability AVP received within the Server-Capabilities AVP.<br>
 The following table is a guideline for operators that records S-CSCF capabilities that need to be supported by an S-CSCF in order to serve a user or a service (identified by a Public User Identity or Public Service Identity), that cannot be served by an S-CSCF which is only compliant to a previous 3GPP release.<br>
-</div>
+
 </details><br>
 
 ## SIP-Number-Auth-Items AVP
@@ -114,7 +109,7 @@ The following table is a guideline for operators that records S-CSCF capabilitie
 6.3.8	SIP-Number-Auth-Items AVP<br>
 The SIP-Number-Auth-Items AVP is of type Unsigned32.<br>
 When used in a request, the SIP-Number-Auth-Items indicates the number of authentication vectors the S-CSCF is requesting. This can be used, for instance, when the client is requesting several pre-calculated authentication vectors. In the answer message, the SIP-Number-Auth-Items AVP indicates the actual number of SIP-Auth-Data-Item AVPs provided by the Diameter server. <br>
-</div>
+
 </details><br>
 
 ## SIP-Authenticate AVP
@@ -134,7 +129,7 @@ authentication challenge RAND와 token AUTN가 binary encoded 되어 연결된 �
 6.3.10	SIP-Authenticate AVP<br>
 The SIP-Authenticate AVP is of type OctetString and contains specific parts of the data portion of the WWW-Authenticate or Proxy-Authenticate SIP headers that are to be present in a SIP response. <br>
 It shall contain, binary encoded, the concatenation of the authentication challenge RAND and the token AUTN. See 3GPP TS 33.203 [3] for further details about RAND and AUTN. The Authentication Information has a fixed length of 32 octets; the 16 most significant octets shall contain the RAND, the 16 least significant octets shall contain the AUTN.<br>
-</div>
+
 </details><br>
 
 ## SIP-Authorization AVP
@@ -154,7 +149,7 @@ It shall contain, binary encoded, the concatenation of the authentication challe
 The SIP-Authorization AVP is of type OctetString and contains specific parts of the data portion of the Authorization or Proxy-Authorization SIP headers suitable for inclusion in a SIP request. <br>
 When included in an Authentication Request, it shall contain the concatenation of RAND, as sent to the terminal, and AUTS, as received from the terminal. RAND and AUTS shall both be binary encoded. See 3GPP TS 33.203 [3] for further details about RAND and AUTS. The Authorization Information has a fixed length of 30 octets; the 16 most significant octets shall contain the RAND, the 14 least significant octets shall contain the AUTS.<br>
 When included in an Authentication Request Response, it shall contain, binary encoded, the expected response XRES. See 3GPP TS 33.203 [3] for further details about XRES. <br>
-</div>
+
 </details><br>
 
 ## 참고 자료
