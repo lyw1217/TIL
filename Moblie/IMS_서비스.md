@@ -31,26 +31,26 @@ HSS는 가입자의 마스터 데이터베이스로 기존의 3G HLR의 모든 �
 
    1. P-CSCF
         
-        - 사용자(UE)가 IMS 망에 접속하는 최초 Contact Point 역할
-        - UE로부터 수신한 SIP Regi 요청 메시지를 홈 I-CSCF에게 전달
-        - Emergency session을 검출하여 이를 처리할 S-CSCF를 선택
+      - 사용자(UE)가 IMS 망에 접속하는 최초 Contact Point 역할
+      - UE로부터 수신한 SIP Regi 요청 메시지를 홈 I-CSCF에게 전달
+      - Emergency session을 검출하여 이를 처리할 S-CSCF를 선택
    
    2. I-CSCF
 
-        - 하나의 사업자 망(홈 망)에 대한 Contact Point 역할
-        - UE의 SIP Regi을 수행하는 S-CSCF의 주소를 HSS(UDM)로부터 수신한 후 실제 Regi을 담당할 S-CSCF를 할당
-        - 타 망으로부터 수신한 SIP 메시지를 S-CSCF로 라우팅
+      - 하나의 사업자 망(홈 망)에 대한 Contact Point 역할
+      - UE의 SIP Regi을 수행하는 S-CSCF의 주소를 HSS(UDM)로부터 수신한 후 실제 Regi을 담당할 S-CSCF를 할당
+      - 타 망으로부터 수신한 SIP 메시지를 S-CSCF로 라우팅
 
    3. S-CSCF
-   
-        - UE의 세션을 제어하는 서버임을 HSS에 등록하고, 이후 UE의 가입자 정보를 받아 저장 (HSS로부터 사용자 프로파일을 다운로드하고 업로드)
-        - Registered User에 대한 Session 제어 및 Session 상태 관리
-        - UE Regi 시에 HSS로부터 수신한 인증정보를 가지고 인증을 수행
+
+      - UE의 세션을 제어하는 서버임을 HSS에 등록하고, 이후 UE의 가입자 정보를 받아 저장 (HSS로부터 사용자 프로파일을 다운로드하고 업로드)
+      - Registered User에 대한 Session 제어 및 Session 상태 관리
+      - UE Regi 시에 HSS로부터 수신한 인증정보를 가지고 인증을 수행
 
 2. HSS(Home Subscriber Server)
    
-    - 호/세션 제어를 위한 가입자의 모든 정보에 대한 책임을 지고 있는 마스터 데이터베이스
-    - 가입자 식별자, 가입자 보안 정보(인증), 가입자 위치 정보, 가입자 서비스 프로파일 정보 등
+   - 호/세션 제어를 위한 가입자의 모든 정보에 대한 책임을 지고 있는 마스터 데이터베이스
+   - 가입자 식별자, 가입자 보안 정보(인증), 가입자 위치 정보, 가입자 서비스 프로파일 정보 등
 
 3. AS(Application Server)
 
