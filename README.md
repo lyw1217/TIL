@@ -4,15 +4,15 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_36 TILs and counting..._
+_37 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [IMS 서비스 호처리(Cx)](Moblie/IMS_서비스_호처리_Cx.md) - Wed Aug 18 13:23:40 2021 +0900
 - [Sh Interface AVPs](Moblie/Sh_interface_AVPs.md) - Thu Aug 12 09:33:46 2021 +0900
 - [Markdown에서 접기/펼치기(details) 사용하기](Markdown/Markdown에서_접기_펼치기(details)_사용하기.md) - Wed Aug 11 13:20:52 2021 +0900
-- [IMS 서비스 호처리(Sh)](Moblie/IMS_서비스_호처리_Sh.md) - Tue Aug 10 16:53:48 2021 +0900
 
 ### Categories
 
@@ -70,6 +70,7 @@ _36 TILs and counting..._
 - [3GPP 5G System Architecture](Moblie/3GPP_5G_System_Architecture.md)
 - [Cx Interface AVPs](Moblie/Cx_interface_AVPs.md)
 - [IMS 서비스](Moblie/IMS_서비스.md)
+- [IMS 서비스 호처리(Cx)](Moblie/IMS_서비스_호처리_Cx.md)
 - [IMS 서비스 호처리(Sh)](Moblie/IMS_서비스_호처리_Sh.md)
 - [PuID(Public User ID)와 PrID(Private User ID)](Moblie/PrID와_PuID.md)
 - [Sh Interface AVPs](Moblie/Sh_interface_AVPs.md)
