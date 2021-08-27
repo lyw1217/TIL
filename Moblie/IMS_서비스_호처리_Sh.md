@@ -32,9 +32,7 @@
 - AS에 의해 호출됨
 - HSS에 있는 특정 유저의 데이터를 읽어들이는데 사용
 
-### 2-1. 언제/왜 할까?
-
-### 2-2. 주요 AVPs
+### 2-1. 주요 AVPs
 
 1. `Data-Reference`
     
@@ -52,9 +50,7 @@
 - AS가 HSS에 저장된 Short Message Service Registration Info를 업데이트할 수 있도록 함
 - AS가 HSS에 저장된 STN-SR을 업데이트할 수 있도록 함
 
-### 3-1. 언제/왜 할까?
-
-### 3-2. 주요 AVPs
+### 3-1. 주요 AVPs
 
 1. `Data-Reference`
 
@@ -71,9 +67,7 @@
 - AS가 HSS로부터 특정 Public User Identity 또는 Public Service Identity가 업데이트 되었을 때 알림(Notify)을 받을 수 있도록 구독함
 - Optionally to request the user data from the HSS in the same operation.
 
-### 4-1. 언제/왜 할까?
-
-### 4-2. 주요 AVPs
+### 4-1. 주요 AVPs
 
 1. `Data-Reference`
 
@@ -89,6 +83,7 @@
 
 4. `Expiry-Time`
 
+        - This information element indicates the expiry time of the subscription to notifications in the HSS.
         - Gives the absolute time requested at which the subscription expires.
 
 5. `One-Time-Notification`
@@ -102,9 +97,7 @@
 - HSS에 의해 호출됨
 - AS가 이전에 [Sh-Subs-Notif](#4-가입자-정보-구독해지sh--subs-notification-reqans--snrsna)를 사용하여 구독한 데이터의 변경 사항을 AS에 알림(Notify)
 
-### 5-1. 언제/왜 할까?
-
-### 5-2. 주요 AVPs
+### 5-1. 주요 AVPs
 
 1. `User-Data`
 
