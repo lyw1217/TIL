@@ -48,6 +48,13 @@ REGISTRATION_AND_CAPABILITIES (2)<br>
 	This value is used when the I-CSCF explicitly requests S-CSCF capability information from the HSS. The I-CSCF shall use this value when the user's current S-CSCF, which is stored in the HSS, cannot be contacted and a new S-CSCF needs to be selected<br>
 <br>
 
+[29.228]   
+If the request corresponds to a de-registration, i.e. Expires field or expires parameter in Contact field in the REGISTER method is equal to zero, this AVP shall be present in the command and the value shall be set to DE-REGISTRATION.
+If the request corresponds to an initial registration or a re-registration, i.e. Expires field or expires parameter in Contact field in the REGISTER method is not equal to zero then this AVP may be absent from the command. If present its value shall be set to REGISTRATION.
+If the request corresponds to an initial registration or a re-registration or a de-registration and the I-CSCF explicitly queries the S-CSCF capabilities, then this AVP shall be present in the command and the value shall be set to REGISTRATION_AND_CAPABILITIES. The I-CSCF shall use this value when the S-CSCF currently assigned to the Public User Identity in the HSS, cannot be contacted and a new S-CSCF needs to be selected. The I-CSCF shall also use this value for RLOS related registrations when the S-CSCF currently assigned to the Public User Identity in the HSS does not support RLOS (see 3GPP TS 23.228 [1] annex Z) and a new S-CSCF (supporting RLOS) needs to be selected. 
+RLOS support of the different S-CSCFs shall be locally configured in the I-CSCF, and this capability is independent on the subscribed capabilities received from HSS.
+
+
 </details><br>
 
 
