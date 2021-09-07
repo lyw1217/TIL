@@ -32,7 +32,7 @@
 - AS에 의해 호출됨
 - HSS에 있는 특정 유저의 데이터를 읽어들이는데 사용
 
-### 2-1. 주요 AVPs
+### 2-1. Request 주요 AVPs
 
 1. `Data-Reference`
     
@@ -42,6 +42,8 @@
 
         - Requested data. This information element shall be present if the requested data exists in the HSS and the AS has permissions to read it.
 
+### 2-2. Response 주요 AVPs
+
 ## 3. 가입자 정보 변경(Sh / Profile-Update Req/Ans , PUR/PUA)
 
 - AS에 의해 호출됨
@@ -50,7 +52,7 @@
 - AS가 HSS에 저장된 Short Message Service Registration Info를 업데이트할 수 있도록 함
 - AS가 HSS에 저장된 STN-SR을 업데이트할 수 있도록 함
 
-### 3-1. 주요 AVPs
+### 3-1. Request 주요 AVPs
 
 1. `Data-Reference`
 
@@ -60,6 +62,7 @@
 
         - Updated data.
 
+### 3-2. Response 주요 AVPs
 
 ## 4. 가입자 정보 구독/해지(Sh / Subs-Notification Req/Ans , SNR/SNA)
 
@@ -67,7 +70,7 @@
 - AS가 HSS로부터 특정 Public User Identity 또는 Public Service Identity가 업데이트 되었을 때 알림(Notify)을 받을 수 있도록 구독함
 - Optionally to request the user data from the HSS in the same operation.
 
-### 4-1. 주요 AVPs
+### 4-1. Request 주요 AVPs
 
 1. `Data-Reference`
 
@@ -91,18 +94,20 @@
         - This information element indicates if subscription shall be ended by the HSS after sending the first notification.
         - This IE shall be present for UE reachability for IP.
 
+### 4-2. Response 주요 AVPs
 
 ## 5. 가입자 정보 변경 알림(Sh / Profile-Notification Req/Ans , PNR/PNA)
 
 - HSS에 의해 호출됨
 - AS가 이전에 [Sh-Subs-Notif](#4-가입자-정보-구독해지sh--subs-notification-reqans--snrsna)를 사용하여 구독한 데이터의 변경 사항을 AS에 알림(Notify)
 
-### 5-1. 주요 AVPs
+### 5-1. Request 주요 AVPs
 
 1. `User-Data`
 
         - Changed data.
 
+### 5-2. Response 주요 AVPs
 
 ### *Sh interface AVP*에 대한 자세한 내용은 [여기](https://github.com/lyw1217/TIL/blob/main/Moblie/Sh_interface_AVPs.md)를 참고
 
