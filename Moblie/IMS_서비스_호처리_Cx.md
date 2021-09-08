@@ -49,30 +49,30 @@
 
 1. `Public-Identity`
 
-Public User Identity to be registered
+    Public User Identity to be registered
 
 2. `Visited-Network-Identifier`
 
-Identifier that allows the home network to identify the visited network
+    Identifier that allows the home network to identify the visited network
 
 3. `User-Authorization-Type`
 
-Type of authorization requested by the I-CSCF.
+    Type of authorization requested by the I-CSCF.
 
 4. `User-Name`
 
-Private User Identity
+    Private User Identity
 
 
 ### 2.2. Response 주요 AVPs
 
 1. `Server-Capabilities`
 
-Required capabilities of the S-CSCF to be assigned to the IMS Subscription. 
+    Required capabilities of the S-CSCF to be assigned to the IMS Subscription. 
 
 2. `Server-Name`
 
-Name of the assigned S-CSCF.
+    Name of the assigned S-CSCF.
 
 
 ## 3. 가입자 인증(Cx / Multimedia-Auth Req/Ans , MAR/MAA)
@@ -108,97 +108,97 @@ This procedure is mapped to the commands Multimedia-Auth-Request/Answer in the D
 
 1. `Public-Identity`
 
-This information element contains the Distinct Public User Identity of the user
+    This information element contains the Distinct Public User Identity of the user
 
 2. `User-Name`
 
-This information element contains the Private User Identity
+    This information element contains the Private User Identity
 
 3. `SIP-Number-Auth-Items`
 
-This information element indicates the number of authentication vectors requested. Certain authentication schemes do not support more than one set of authentication vectors (e.g. SIP Digest, GIBA).
+    This information element indicates the number of authentication vectors requested. Certain authentication schemes do not support more than one set of authentication vectors (e.g. SIP Digest, GIBA).
 
 4. `SIP-Auth-Data-Item`
 
    1. `SIP-Authentication-Scheme`
 
-   This information element indicates the authentication scheme.
+       This information element indicates the authentication scheme.
 
-   See 3GPP TS 29.229 [5] for a list of values 
+       See 3GPP TS 29.229 [5] for a list of values 
 
 
    2. `SIP-Authentication-Context`
 
-   This information element shall contain authentication-related information relevant for performing the authentication.
+       This information element shall contain authentication-related information relevant for performing the authentication.
 
-   It shall be absent for IMS-AKA authentication schemes.
+       It shall be absent for IMS-AKA authentication schemes.
 
 
    3. `SIP-Authorization`
 
-   This information element shall only be present for a request due to an IMS-AKA synchronization failure.
+       This information element shall only be present for a request due to an IMS-AKA synchronization failure.
  
-   If present, only IMS-AKA authentication schemes are allowed.
+       If present, only IMS-AKA authentication schemes are allowed.
 
 
 5. `Server-Name`
 
-This information element contains the name (SIP URL) of the S-CSCF.
+    This information element contains the name (SIP URL) of the S-CSCF.
 
 ### 3.2. Response 주요 AVPs
 
 1. `Public-Identity`
 
-Public User Identity. It shall be present when the result is DIAMETER_SUCCESS.
+    Public User Identity. It shall be present when the result is DIAMETER_SUCCESS.
 
 2. `User-Name`
 
-Private User Identity. It shall be present when the result is DIAMETER_SUCCESS.
+    Private User Identity. It shall be present when the result is DIAMETER_SUCCESS.
 
 3. `SIP-Number-Auth-Items`
 
-This information element indicates the number of authentication vectors delivered in the Authentication Data information element.
+    This information element indicates the number of authentication vectors delivered in the Authentication Data information element.
 
-It shall be present when the result is DIAMETER_SUCCESS.
+    It shall be present when the result is DIAMETER_SUCCESS.
 
-For SIP Digest, NASS Bundled authentication and GIBA this AVP shall be set to a value of 1.
+    For SIP Digest, NASS Bundled authentication and GIBA this AVP shall be set to a value of 1.
 
 
 4. `SIP-Auth-Data-Item`
 
-If the SIP-Number-Auth-Items AVP is equal to zero or it is not present, then this information element shall not be present.
+    If the SIP-Number-Auth-Items AVP is equal to zero or it is not present, then this information element shall not be present.
 
    1. `SIP-Item-Number`
 
-   This information element shall only be present for IMS-AKA authentication schemes.
+       This information element shall only be present for IMS-AKA authentication schemes.
 
-   This information element shall be present when there are multiple occurrences of the Authentication Data information element in the Authentication Request Response, and the order in which they should be processed is significant.
+       This information element shall be present when there are multiple occurrences of the Authentication Data information element in the Authentication Request Response, and the order in which they should be processed is significant.
 
-   In this scenario, Authentication Data information elements with a low Item Number information element value should be processed before Authentication Data information elements with a high Item Number information element value.
+       In this scenario, Authentication Data information elements with a low Item Number information element value should be processed before Authentication Data information elements with a high Item Number information element value.
 
    2. `SIP-Authentication-Scheme`
 
-   This information element indicates the authentication scheme. 
+       This information element indicates the authentication scheme. 
 
    3. `SIP-Authenticate`
 
-    This information element shall only be present for IMS-AKA authentication schemes.
+        This information element shall only be present for IMS-AKA authentication schemes.
 
    4. `SIP-Authorization`
   
-    This information element shall only be present for IMS-AKA authentication schemes.
+        This information element shall only be present for IMS-AKA authentication schemes.
   
    5. `Confidentiality-Key`
  
-    This information element shall be present for IMS AKA authentication schemes.
+        This information element shall be present for IMS AKA authentication schemes.
 
     It shall contain the confidentiality key. 
 
    6. `Integrity-Key`
 
-    This information element shall only be present for IMS-AKA authentication schemes.
+        This information element shall only be present for IMS-AKA authentication schemes.
 
-    This information element shall contain the integrity key. 
+        This information element shall contain the integrity key. 
 
 ## 4. 위치 등록 처리(Cx / Server-Assignment Req/Ans , SAR/SAA)
 
@@ -215,74 +215,74 @@ If the SIP-Number-Auth-Items AVP is equal to zero or it is not present, then thi
 
 1. `Public-Identity`
 
-Public Identity or list of Public Identities.
+    Public Identity or list of Public Identities.
 
-One and only one Public Identity shall be present if the Server-Assignment-Type is any value other than TIMEOUT_DEREGISTRATION, USER_DEREGISTRATION, DEREGISTRATION_TOO_MUCH_DATA, TIMEOUT_DEREGISTRATION_STORE_SERVER_NAME, USER_DEREGISTRATION_STORE_SERVER_NAME or ADMINISTRATIVE_DEREGISTRATION.
+    One and only one Public Identity shall be present if the Server-Assignment-Type is any value other than TIMEOUT_DEREGISTRATION, USER_DEREGISTRATION, DEREGISTRATION_TOO_MUCH_DATA, TIMEOUT_DEREGISTRATION_STORE_SERVER_NAME, USER_DEREGISTRATION_STORE_SERVER_NAME or ADMINISTRATIVE_DEREGISTRATION.
 
-If Server-Assignment-Type indicates deregistration of some type and Private Identity is not present in the request, at least one Public Identity shall be present.
+    If Server-Assignment-Type indicates deregistration of some type and Private Identity is not present in the request, at least one Public Identity shall be present.
 
 2. `Server-Name`
 
-Name of the S-CSCF.
+    Name of the S-CSCF.
 
 3. `User-Name`
 
-Private Identity.
+    Private Identity.
 
-It shall be present if it is available when the S-CSCF issues the request.
+    It shall be present if it is available when the S-CSCF issues the request.
 
-It may be absent during the initiation of a session to an unregistered Public Identity (Server-Assignment-Type shall contain the value UNREGISTERED_USER) or after S-CSCF recovery upon originating request different than REGISTER (Server-Assignment-Type shall contain the value NO_ASSIGNMENT).
+    It may be absent during the initiation of a session to an unregistered Public Identity (Server-Assignment-Type shall contain the value UNREGISTERED_USER) or after S-CSCF recovery upon originating request different than REGISTER (Server-Assignment-Type shall contain the value NO_ASSIGNMENT).
 
-In case of de-registration, Server-Assignment-Type equal to TIMEOUT_DEREGISTRATION, ADMINISTRATIVE_DEREGISTRATION, DEREGISTRATION_TOO_MUCH_DATA or TIMEOUT_DEREGISTRATION_STORE_SERVER_NAME if no Public-Identity AVPs are present then User-Name AVP shall be present.
+    In case of de-registration, Server-Assignment-Type equal to TIMEOUT_DEREGISTRATION, ADMINISTRATIVE_DEREGISTRATION, DEREGISTRATION_TOO_MUCH_DATA or TIMEOUT_DEREGISTRATION_STORE_SERVER_NAME if no Public-Identity AVPs are present then User-Name AVP shall be present.
 
 4. `Server-Assignment-Type`
         
-Type of update, request or notification that the S-CSCF requests in the HSS (e.g: de-registration). See 3GPP TS 29.229 [5] for all the possible values.
+    Type of update, request or notification that the S-CSCF requests in the HSS (e.g: de-registration). See 3GPP TS 29.229 [5] for all the possible values.
 
 5. `User-Data-Already-Available`
         
-This indicates if the user profile and charging information and, if supported and present in the subscription, allowed WAF and/or WWSF identities are already available in the S-CSCF.
+    This indicates if the user profile and charging information and, if supported and present in the subscription, allowed WAF and/or WWSF identities are already available in the S-CSCF.
 
-In the case where Server-Assignment-Type is not equal to NO_ASSIGNMENT, REGISTRATION, RE_REGISTRATION or UNREGISTERED_USER, the HSS shall not use User Data Already Available when processing the request.
+    In the case where Server-Assignment-Type is not equal to NO_ASSIGNMENT, REGISTRATION, RE_REGISTRATION or UNREGISTERED_USER, the HSS shall not use User Data Already Available when processing the request.
 
 6. `SCSCF-Restoration-Info`
 
-When the S-CSCF supports IMS Restoration Procedures, if Server-Assignment-Type is REGISTRATION or RE_REGISTRATION, and any of the related restoration information changed compared to the previous one, the S-CSCF shall send this information element to the HSS. This information allows a later retrieval in case of an S-CSCF service interruption.
+    When the S-CSCF supports IMS Restoration Procedures, if Server-Assignment-Type is REGISTRATION or RE_REGISTRATION, and any of the related restoration information changed compared to the previous one, the S-CSCF shall send this information element to the HSS. This information allows a later retrieval in case of an S-CSCF service interruption.
 
 ### 4.2. Response 주요 AVPs
 
 1. `User-Name`
 
-Private Identity.
+    Private Identity.
 
-It shall be present if it is available when the HSS sends the response.
+    It shall be present if it is available when the HSS sends the response.
 
-It may be absent in the following error case: when the Server-Assignment-Type of the request is UNREGISTERED_USER and the received Public Identity is not known by the HSS.
+    It may be absent in the following error case: when the Server-Assignment-Type of the request is UNREGISTERED_USER and the received Public Identity is not known by the HSS.
 
 2. `User-Data`
         
-Relevant user profile.
+    Relevant user profile.
 
-It shall be present when Server-Assignment-Type in the request is equal to NO_ASSIGNMENT, REGISTRATION, RE_REGISTRATION or UNREGISTERED_USER according to the rules defined in clause 6.6.
+    It shall be present when Server-Assignment-Type in the request is equal to NO_ASSIGNMENT, REGISTRATION, RE_REGISTRATION or UNREGISTERED_USER according to the rules defined in clause 6.6.
 
-If the S-CSCF receives more data than it is prepared to accept, it shall perform the de-registration of the Private Identity with Server-Assignment-Type set to DEREGISTRATION_TOO_MUCH_DATA and send back a SIP 3xx or 480 (Temporarily Unavailable) response, which shall trigger the selection of a new S-CSCF by the I-CSCF, as specified in 3GPP TS 24.229 [8].
+    If the S-CSCF receives more data than it is prepared to accept, it shall perform the de-registration of the Private Identity with Server-Assignment-Type set to DEREGISTRATION_TOO_MUCH_DATA and send back a SIP 3xx or 480 (Temporarily Unavailable) response, which shall trigger the selection of a new S-CSCF by the I-CSCF, as specified in 3GPP TS 24.229 [8].
 
 3. `Charging-Information`
         
-Addresses of the charging functions.
+    Addresses of the charging functions.
 
-It shall be present when the User-Data AVP is sent to the S-CSCF according to the rules defined in clause 6.6.
+    It shall be present when the User-Data AVP is sent to the S-CSCF according to the rules defined in clause 6.6.
 
-When this parameter is included, either the Primary-Charging-Collection-Function-Name AVP or the Primary-Event-Charging-Function-Name AVP shall be included. All other elements shall be included if they are available.
+    When this parameter is included, either the Primary-Charging-Collection-Function-Name AVP or the Primary-Event-Charging-Function-Name AVP shall be included. All other elements shall be included if they are available.
 
 
 4. `SCSCF-Restoration-Info`
 
-This information shall be present if it was stored by the S-CSCF in the HSS and Server-Assignment-Type is either UNREGISTERED_USER or NO_ASSIGNMENT.
+    This information shall be present if it was stored by the S-CSCF in the HSS and Server-Assignment-Type is either UNREGISTERED_USER or NO_ASSIGNMENT.
 
-This information shall also be present if it was stored by the S-CSCF in the HSS and the SAR indicates it is related to a multiple registration and Server-Assignment-Type is REGISTRATION.
+    This information shall also be present if it was stored by the S-CSCF in the HSS and the SAR indicates it is related to a multiple registration and Server-Assignment-Type is REGISTRATION.
 
-This information may be present if it was stored by the S-CSCF in the HSS and Server-Assignment-Type is either REGISTRATION or RE-REGISTRATION and there are other Private Identities different from the Private Identity received in the SAR command being registered with the Public Identity received in the SAR command.
+    This information may be present if it was stored by the S-CSCF in the HSS and Server-Assignment-Type is either REGISTRATION or RE-REGISTRATION and there are other Private Identities different from the Private Identity received in the SAR command being registered with the Public Identity received in the SAR command.
 
 
 ## 5. 위치 삭제 처리(Cx / Registration-Termination Req/Ans , RTR/RTA)
@@ -295,32 +295,32 @@ HSS에 의해 네트워크 등록 취소가 시작된 경우, HSS는 Public Iden
 
 1. `Public-Identity`
 
-It contains the list of Public Identities that are de-registered, in the form of SIP URL or TEL URL.
+    It contains the list of Public Identities that are de-registered, in the form of SIP URL or TEL URL.
 
-Public-Identity AVP shall be present if the de-registration reason code is NEW_SERVER_ASSIGNED. It may be present with the other reason codes.
+    Public-Identity AVP shall be present if the de-registration reason code is NEW_SERVER_ASSIGNED. It may be present with the other reason codes.
 
 
 2. `User-Name`
 
-It contains the Private Identity in the form of a NAI. The HSS shall always send a Private Identity that is known to the S-CSCF based on an earlier SAR/SAA procedure.
+    It contains the Private Identity in the form of a NAI. The HSS shall always send a Private Identity that is known to the S-CSCF based on an earlier SAR/SAA procedure.
 
 3. `Deregistration-Reason`
 
-The HSS shall send to the S-CSCF a reason for the de-registration. The de-registration reason is composed of two parts: one textual message (if available) that is intended to be forwarded to the user that is de-registered, and one reason code (see 3GPP TS 29.229 [5]) that determines the behaviour of the S-CSCF 
+    The HSS shall send to the S-CSCF a reason for the de-registration. The de-registration reason is composed of two parts: one textual message (if available) that is intended to be forwarded to the user that is de-registered, and one reason code (see 3GPP TS 29.229 [5]) that determines the behaviour of the S-CSCF 
 
 4. `Destination-Host`
 
-It contains the name of the S-CSCF which originated the last update of the name of the multimedia server stored in the HSS for a given IMS Subscription. The address of the S-CSCF is the same as the Origin-Host AVP in the message sent from the S-CSCF.
+    It contains the name of the S-CSCF which originated the last update of the name of the multimedia server stored in the HSS for a given IMS Subscription. The address of the S-CSCF is the same as the Origin-Host AVP in the message sent from the S-CSCF.
 
 ### 5.2. Response 주요 AVPs
 
 1. `Result-Code / Experimental-Result`
 
-This information element indicates the result of de-registration.
+    This information element indicates the result of de-registration.
 
-Result-Code AVP shall be used for errors defined in the Diameter base protocol (see IETF RFC 6733 [31]).
+    Result-Code AVP shall be used for errors defined in the Diameter base protocol (see IETF RFC 6733 [31]).
 
-Experimental-Result AVP shall be used for Cx/Dx errors. This is a grouped AVP which contains the 3GPP Vendor ID in the Vendor-Id AVP, and the error code in the Experimental-Result-Code AVP.
+    Experimental-Result AVP shall be used for Cx/Dx errors. This is a grouped AVP which contains the 3GPP Vendor ID in the Vendor-Id AVP, and the error code in the Experimental-Result-Code AVP.
 
 ## 6. 가입자 정보 변경(Cx / Push-Profile Req/Ans , PPR/PPA )
 
@@ -337,38 +337,38 @@ Experimental-Result AVP shall be used for Cx/Dx errors. This is a grouped AVP wh
 
 1. `User-Name`
 
-Private Identity.
+    Private Identity.
 
-The HSS shall always send a Private Identity that is known to the S-CSCF based on an earlier SAR/SAA procedure.
+    The HSS shall always send a Private Identity that is known to the S-CSCF based on an earlier SAR/SAA procedure.
 
 2. `User-Data`
 
-Updated user profile (see clauses 6.5.2.1 and 6.6.1), with the format defined in chapter 7.7.
+    Updated user profile (see clauses 6.5.2.1 and 6.6.1), with the format defined in chapter 7.7.
 
-It shall be present if the user profile is changed in the HSS. If the User-Data AVP is not present, the SIP-Auth-Data-Item or Charging-Information AVP or Allowed-WAF-WWSF-Identities AVP shall be present.
+    It shall be present if the user profile is changed in the HSS. If the User-Data AVP is not present, the SIP-Auth-Data-Item or Charging-Information AVP or Allowed-WAF-WWSF-Identities AVP shall be present.
 
 
 3. `Charging-Information`
 
-Addresses of the charging functions.
+    Addresses of the charging functions.
 
-It shall be present if the charging addresses are changed in the HSS. If the Charging-Information AVP is not present, the SIP-Auth-Data-Item or User-Data AVP or Allowed-WAF-WWSF-Identities AVP shall be present.
+    It shall be present if the charging addresses are changed in the HSS. If the Charging-Information AVP is not present, the SIP-Auth-Data-Item or User-Data AVP or Allowed-WAF-WWSF-Identities AVP shall be present.
 
-When this parameter is included, either the Primary-Charging-Collection-Function-Name AVP or the Primary-Event-Charging-Function-Name AVP shall be included. All other charging information shall be included if it is available.
+    When this parameter is included, either the Primary-Charging-Collection-Function-Name AVP or the Primary-Event-Charging-Function-Name AVP shall be included. All other charging information shall be included if it is available.
 
 4. `Destination-Host`
 
-It contains the name of the S-CSCF which originated the last update of the name of the multimedia server stored in the HSS for a given IMS Subscription. The address of the S-CSCF is the same as the Origin-Host AVP in the message sent from the S-CSCF.
+    It contains the name of the S-CSCF which originated the last update of the name of the multimedia server stored in the HSS for a given IMS Subscription. The address of the S-CSCF is the same as the Origin-Host AVP in the message sent from the S-CSCF.
 
 ### 6.2. Response 주요 AVPs
 
 1. `Result-Code / Experimental-Result`
         
-This information element indicates the result of the update of User Profile in the S-CSCF.
+    This information element indicates the result of the update of User Profile in the S-CSCF.
 
-Result-Code AVP shall be used for errors defined in the Diameter base protocol (see IETF RFC 6733 [31]).
+    Result-Code AVP shall be used for errors defined in the Diameter base protocol (see IETF RFC 6733 [31]).
 
-Experimental-Result AVP shall be used for Cx/Dx errors. This is a grouped AVP which contains the 3GPP Vendor ID in the Vendor-Id AVP, and the error code in the Experimental-Result-Code AVP.
+    Experimental-Result AVP shall be used for Cx/Dx errors. This is a grouped AVP which contains the 3GPP Vendor ID in the Vendor-Id AVP, and the error code in the Experimental-Result-Code AVP.
 
 ## 7. 가입자 위치 질의(Cx / Location-Information Req/Ans , LIR/LIA)
 
@@ -380,25 +380,25 @@ I-CSCF와 HSS 간에 Public Identity에 할당된 S-CSCF Name을 얻는데 사�
 
 1. `Public-Identity`
 
-Public Identity
+    Public Identity
 
 2. `Destination-Host, Destination-Realm`
 
-If the I-CSCF knows HSS name Destination-Host AVP shall be present in the command. Otherwise, only Destination-Realm AVP shall be present and the command shall be routed to the next Diameter node, e.g. SLF, based on the Diameter routing table in the I-CSCF.
+    If the I-CSCF knows HSS name Destination-Host AVP shall be present in the command. Otherwise, only Destination-Realm AVP shall be present and the command shall be routed to the next Diameter node, e.g. SLF, based on the Diameter routing table in the I-CSCF.
 
 3. `User-Authorization-Type`
 
-This information element shall be present and set to REGISTRATION_AND_CAPABILITIES by the I-CSCF if IMS Restoration Procedures are supported and the S-CSCF currently assigned to the Public User Identity in the HSS cannot be contacted.
+    This information element shall be present and set to REGISTRATION_AND_CAPABILITIES by the I-CSCF if IMS Restoration Procedures are supported and the S-CSCF currently assigned to the Public User Identity in the HSS cannot be contacted.
 
 ### 7.2. Response 주요 AVPs
 
 1. `Server-Name`
 
-Name of the assigned S-CSCF for basic IMS routing or the name of the AS for direct routing.
+    Name of the assigned S-CSCF for basic IMS routing or the name of the AS for direct routing.
 
 2. `Server-Capabilities`
 
-It contains the information to help the I-CSCF in the selection of the S-CSCF.
+    It contains the information to help the I-CSCF in the selection of the S-CSCF.
 
 ### *Cx interface AVP*에 대한 자세한 내용은 [여기](https://github.com/lyw1217/TIL/blob/main/Moblie/Cx_interface_AVPs.md)를 참고
 
