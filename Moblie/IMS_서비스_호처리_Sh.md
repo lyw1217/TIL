@@ -29,22 +29,46 @@
 
 ## 2. 가입자 정보 질의(Sh / User-Data Req/Ans , UDR/UDA)
 
+> Data read (Sh-Pull)
+
 - AS에 의해 호출됨
 - HSS에 있는 특정 유저의 데이터를 읽어들이는데 사용
 
 ### 2-1. Request 주요 AVPs
 
-1. `Data-Reference`
+1. `User-Identity`
+        
+    IMS Public User Identity, Public Service Identity, MSISDN or External Identifier of the user for whom the data is required.
+
+2. `Data-Reference`
     
-        - This information element indicates the reference to the requested information
+    This information element indicates the reference to the requested information
 
-2. `User-Data`
+3. `Service-Indication`
 
-        - Requested data. This information element shall be present if the requested data exists in the HSS and the AS has permissions to read it.
+    IE that identifies, together with the User Identity included in the User-Identity AVP and Data-Reference, the set of service related transparent data that is being requested.
+
+4. `Origin-Host`
+
+    IE that identifies the AS originator of the request and that is used to check the AS permission list.
 
 ### 2-2. Response 주요 AVPs
 
+1. `Result-Code / Experimental_Result`
+
+    Result of the request. 
+
+    Result-Code AVP shall be used for errors defined in the Diameter base protocol (see IETF RFC 6733 [44]).
+
+    Experimental-Result AVP shall be used for Sh errors. This is a grouped AVP which contains the 3GPP Vendor ID in the Vendor-Id AVP, and the error code in the Experimental-Result-Code AVP.
+
+2. `User-Data`
+
+    Requested data. This information element shall be present if the requested data exists in the HSS and the AS has permissions to read it.
+
 ## 3. 가입자 정보 변경(Sh / Profile-Update Req/Ans , PUR/PUA)
+
+> Data Update (Sh-Update)
 
 - AS에 의해 호출됨
 - AS가 각 IMS Public User Identity에 대해 HSS에 저장된 데이터를 업데이트할 수 있도록 함
@@ -54,17 +78,35 @@
 
 ### 3-1. Request 주요 AVPs
 
-1. `Data-Reference`
+1. `User-Identity`
 
-        - This information element includes the reference to the data on which updates are required (possible values of the Data Reference are defined in Table 7.6.1).
+    IMS Public User Identity or Public Service Identity or MSISDN or External Identifier for which data is updated.
 
-2. `User-Data`
+2. `Data-Reference`
 
-        - Updated data.
+    This information element includes the reference to the data on which updates are required (possible values of the Data Reference are defined in Table 7.6.1).
+
+3. `User-Data`
+
+    Updated data.
+
+4. `Origin-Host`
+
+    IE that identifies the AS originator of the request and that is used to check the AS permission list.
 
 ### 3-2. Response 주요 AVPs
 
+1. `Result-Code / Experimental-Result`
+
+    Result of the update of data in the HSS. 
+
+    Result-Code AVP shall be used for errors defined in the Diameter base protocol (see IETF RFC 6733 [44]).
+
+    Experimental-Result AVP shall be used for Sh errors. This is a grouped AVP which contains the 3GPP Vendor ID in the Vendor-Id AVP, and the error code in the Experimental-Result-Code AVP.
+
 ## 4. 가입자 정보 구독/해지(Sh / Subs-Notification Req/Ans , SNR/SNA)
+
+> Subscription to notifications (Sh-Subs-Notif)
 
 - AS에 의해 호출됨
 - AS가 HSS로부터 특정 Public User Identity 또는 Public Service Identity가 업데이트 되었을 때 알림(Notify)을 받을 수 있도록 구독함
@@ -72,40 +114,76 @@
 
 ### 4-1. Request 주요 AVPs
 
-1. `Data-Reference`
+1. `User-Identity`
 
-        - This information element includes the reference to the data on which notifications of change are required (valid reference values are defined in 7. 6).
+    IMS Public User Identity or Public Service Identity or MSISDN or External Identifier for which notifications of data changes are requested. See section 7.1 for the content of this AVP.
 
-2. `Subs-Req-Type`
+2. `Data-Reference`
 
-        - This information element indicates the action requested on subscription to notifications.
+    This information element includes the reference to the data on which notifications of change are required (valid reference values are defined in 7. 6).
 
-3. `Service-Indication`
+3. `Subs-Req-Type`
 
-        - IE that identifies, together with the User Identity and Data-Reference, the set of service related transparent data for which notifications of changes are requested.
+    This information element indicates the action requested on subscription to notifications.
 
-4. `Expiry-Time`
+4. `Send-Data-Indication`
 
-        - This information element indicates the expiry time of the subscription to notifications in the HSS.
-        - Gives the absolute time requested at which the subscription expires.
+    This information element requests that the data is sent in the response.
 
-5. `One-Time-Notification`
+    Send Data Indication is not applicable to one time subscriptions to UE reachability for IP.
 
-        - This information element indicates if subscription shall be ended by the HSS after sending the first notification.
-        - This IE shall be present for UE reachability for IP.
+5. `Service-Indication`
+
+    IE that identifies, together with the User Identity and Data-Reference, the set of service related transparent data for which notifications of changes are requested.
+
+6. `Origin-Host`
+
+    IE that identifies the AS originator of the request and that is used to check the AS permission list.
+
+7. `Expiry-Time`
+
+    This information element indicates the expiry time of the subscription to notifications in the HSS.
+
+    Gives the absolute time requested at which the subscription expires.
+
+8. `One-Time-Notification`
+
+    This information element indicates if subscription shall be ended by the HSS after sending the first notification.
+
+    This IE shall be present for UE reachability for IP.
 
 ### 4-2. Response 주요 AVPs
 
+1. `Expiry-Time`
+
+    Acknowledges the absolute time at which the subscription expires.
+
+2. `User-Data`
+
+    Current values of the data for which notifications have been requested.
+
+    It should be present if the Send-Data-Indication AVP is set to value USER_DATA_REQUESTED.
+
 ## 5. 가입자 정보 변경 알림(Sh / Profile-Notification Req/Ans , PNR/PNA)
+
+> Notifications (Sh-Notif)
 
 - HSS에 의해 호출됨
 - AS가 이전에 [Sh-Subs-Notif](#4-가입자-정보-구독해지sh--subs-notification-reqans--snrsna)를 사용하여 구독한 데이터의 변경 사항을 AS에 알림(Notify)
 
 ### 5-1. Request 주요 AVPs
 
-1. `User-Data`
+1. `User-Identity`
 
-        - Changed data.
+    IMS Public User Identity or Public Service Identity or MSISDN or External Identifier for which data has changed.
+
+    If the request refers to a Wildcarded PSI, the HSS may include any PSI matching the corresponding Wildcarded PSI in this information element. The AS shall find the corresponding Wildcarded PSI with this information.
+
+    See section 7.1 for the content of this AVP.
+
+2. `User-Data`
+
+    Changed data.
 
 ### 5-2. Response 주요 AVPs
 
