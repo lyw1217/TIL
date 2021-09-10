@@ -1,5 +1,7 @@
 # SVN 명령어(subcommand) 사용법 (리눅스, CLI 환경)
 
+##### _틀린 부분이 있을 수 있습니다. 지적 부탁드립니다._
+
 ## 사용법
 
     usage: svn <subcommand> [options] [args]
@@ -14,144 +16,204 @@
 
 이 문서에서는 자주 사용하는 일부 subcommand만 작성하였다.
 
-### svn add
+## 1. svn add
 
-svn add — Add files, directories, or symbolic links.
+버전 관리 대상으로 파일, 디렉토리 또는 심볼릭 링크들을 등록하는 것
+commit 하기 전까지 원격 저장소에 반영되지 않는다.
+`svn revert`를 사용하여 취소할 수 있다.
 
-Synopsis
-svn add PATH...
+### 1.1. Synopsis
+    
+    svn add PATH...
 
-Description
-Schedule files, directories, or symbolic links in your working copy for addition to the repository. They will be uploaded and added to the repository on your next commit. If you add something and change your mind before committing, you can unschedule the addition using svn revert.
+### 1.2. Options
 
-Options
---auto-props
---depth ARG
---force
---no-auto-props
---no-ignore
---parents
---quiet (-q)
---targets FILENAME
+    --auto-props
+    --depth ARG
+    --force
+    --no-auto-props
+    --no-ignore
+    --parents
+    --quiet (-q)
+    --targets FILENAME
 
-### svn blame (praise, annotate, ann)
+### 1.3. git과 비교?
+
+`git add` 와 비슷한 개념
+
+## 2. svn blame (praise, annotate, ann)
 
 svn blame (praise, annotate, ann) — Show author and revision information inline for the specified files or URLs.
 
-Synopsis
-svn blame TARGET[@REV]...
+지정된 target(files or URLs)에 대한 작성자 정보 및 revision 정보를 보여준다.
+소스코드 한 줄 한 줄에 대해서, 마지막에 변경한 사람이 누구인지, revision 몇 번에서 수정했는지 보여준다.
 
-Description
-Show author and revision information inline for the specified files or URLs. Each line of text is annotated at the beginning with the author (username) and the revision number for the last change to that line.
+### 2.1. Synopsis
 
-Options
---extensions (-x) ARG
---force
---incremental
---revision (-r) REV
---use-merge-history (-g)
---verbose (-v)
---xml
+    svn blame TARGET[@REV]...
 
-### svn cat
+### 2.2. Options
+
+    --extensions (-x) ARG
+    --force
+    --incremental
+    --revision (-r) REV
+    --use-merge-history (-g)
+    --verbose (-v)
+    --xml
+
+### 2.3. git과 비교?
+
+`git blame` 과 비슷한 개념
+
+## 3. svn cat
 
 svn cat — Output the contents of the specified files or URLs.
 
-Synopsis
-svn cat TARGET[@REV]...
+지정된 target의 내용을 출력한다.
 
-Description
-Output the contents of the specified files or URLs. For listing the contents of directories, see svn list later in this chapter.
+쉘 명령어 cat 과 비슷하게 터미널에 파일 내용을 쭉 출력해준다.
 
-Options
---revision (-r) REV
+### 3.1. Synopsis
 
-### svn changelist (cl)
+    svn cat TARGET[@REV]...
+
+### 3.2. Options
+
+    --revision (-r) REV
+
+### 3.3. git과 비교?
+
+`git show HEAD:<file>` 명령어로 비슷하게 동작하는 것 같다.
+
+## 4. svn changelist (cl)
 
 svn changelist (cl) — Associate (or deassociate) local paths with a changelist.
 
-Synopsis
-changelist CLNAME TARGET...
+여러 파일을 수정했을 때, 어떤 파일은 커밋하고 어떤 파일은 커밋하고 싶지 않은 경우,
 
-changelist --remove TARGET...
+\<CLNAME\>으로 지정한 파일들을 change list로 만들어서 지정된 파일들만 commit 할 수 
+있다.
 
-Description
-Used for dividing files in a working copy into a changelist (logical named grouping) in order to allow users to easily work on multiple file collections within a single working copy.
+`svn commit --changelist <CLNAME>`
 
-Options
---changelist (--cl) ARG
---depth ARG
---quiet (-q)
---recursive (-R)
---remove
---targets FILENAME
+과 엮어서 사용한다.
 
-## svn checkout (co)
+### 4.1. Synopsis
+
+    changelist CLNAME TARGET...
+
+    changelist --remove TARGET...
+
+### 4.2. Options
+
+    --changelist (--cl) ARG
+    --depth ARG
+    --quiet (-q)
+    --recursive (-R)
+    --remove
+    --targets FILENAME
+
+### 4.3. git과 비교?
+
+`git update-index --assume-unchanged <file>`
+
+또는
+
+`git update-index --no-assume-unchanged <file>`
+
+을 이용하면 비슷하게 사용 가능한것 같다.
+
+[stackoverflow - Git - Change List (svn) Equivalent](https://stackoverflow.com/questions/41602201/git-change-list-svn-equivalent)
+
+## 5. svn checkout (co)
 
 svn checkout (co) — Check out a working copy from a repository.
 
-Synopsis
-svn checkout URL[@REV]... [PATH]
+원격 레파지토리에서 소스의 복사본을 가져온다. PATH를 생략하면 URL의 basename이 사용된다. 여러 개의 URL이 주어지면 각각의 URL이 PATH의 하위 디렉토리로 체크아웃되며 하위 디렉토리의 이름은 URL의 basename이 된다.
 
-Description
-Check out a working copy from a repository. If PATH is omitted, the basename of the URL will be used as the destination. If multiple URLs are given, each will be checked out into a subdirectory of PATH, with the name of the subdirectory being the basename of the URL.
+### 5.1. Synopsis
 
-Options
---depth ARG
---force
---ignore-externals
---quiet (-q)
---revision (-r) REV
+    svn checkout URL[@REV]... [PATH]
 
-## svn cleanup
+### 5.2. Options
+
+    --depth ARG
+    --force
+    --ignore-externals
+    --quiet (-q)
+    --revision (-r) REV
+
+### 5.3. git과 비교?
+
+`git clone` 과 비슷한 개념
+
+## 6. svn cleanup
 
 svn cleanup — Recursively clean up the working copy
 
-Synopsis
-svn cleanup [PATH...]
+svn update 중 어떠한 문제로 오류가 생겨 lock이 걸렸다던가 하는 경우에, commit이 되지 않을 수 있다.
 
-Description
-Recursively clean up the working copy, removing working copy locks and resuming unfinished operations. If you ever get a working copy locked error, run this command to remove stale locks and get your working copy into a usable state again.
+그럴 때 이 명령어를 수행하면 해결될 수 도 있다.
 
-If, for some reason, an svn update fails due to a problem running an external diff program (e.g., user input or network failure), pass the --diff3-cmd to allow the cleanup process to complete any required merging using your external diff program. You can also specify any configuration directory with the --config-dir option, but you should need these options extremely infrequently.
+### 6.1. Synopsis
+    
+    svn cleanup [PATH...]
 
-Options
---diff3-cmd CMD
+### 6.2. Options
+    
+    --diff3-cmd CMD
 
-## svn commit (ci)
+### 6.3. git과 비교?
+
+딱히 없다.
+
+## 7. svn commit (ci)
 
 svn commit (ci) — Send changes from your working copy to the repository.
 
-Synopsis
-svn commit [PATH...]
+레파지토리에 작업한 파일을 업로드(저장) 할때 사용한다.
 
-Description
-Send changes from your working copy to the repository. If you do not supply a log message with your commit by using either the --file (-F) or --message (-m) option, svn will launch your editor for you to compose a commit message. See the editor-cmd list entry in the section called “Config”.
+-F 또는 -m 옵션을 통해 로그 메시지를 제공하지 않으면 로그 메시지를 작성할 수 있는 편집기를 띄워준다.
 
-svn commit will send any lock tokens that it finds and will release locks on all PATHs committed (recursively) unless --no-unlock is passed.
+편집기를 통해 작업하면 커밋을 취소할 수 있다.
 
-[Tip]
-If you begin a commit and Subversion launches your editor to compose the commit message, you can still abort without committing your changes. If you want to cancel your commit, just quit your editor without saving your commit message and Subversion will prompt you to either abort the commit, continue with no message, or edit the message again.
+커밋 메시지를 저장하지 않고 편집기를 종료하면 커밋을 중단할지, 로그 메시지 없이 커밋할지 물어보는데, 이 때 취소한다고 하면 된다.
 
-Options
---changelist (--cl) ARG
---depth ARG
---editor-cmd CMD
---encoding ENC
---file (-F) FILENAME
---force-log
---keep-changelists
---message (-m) MESSAGE
---no-unlock
---quiet (-q)
---targets FILENAME
---with-revprop ARG
+### 7.1. Synopsis
 
-## svn copy (cp)
+    svn commit [PATH...]
+
+### 7.2. Options
+
+    --changelist (--cl) ARG
+    --depth ARG
+    --editor-cmd CMD
+    --encoding ENC
+    --file (-F) FILENAME
+    --force-log
+    --keep-changelists
+    --message (-m) MESSAGE
+    --no-unlock
+    --quiet (-q)
+    --targets FILENAME
+    --with-revprop ARG
+
+### 7.3. git과 비교?
+
+`git add`   
+`git commit`   
+`git push`   
+
+세 명령어를 동시에 하는 것과 비슷하다.
+
+git은 commit하면 push 하기 전까지 로컬 레파지토리에서만 작업이 이루어지지만, svn은 commit하면 git push처럼 원격 레파지토리에 저장까지 이루어진다.
+
+## 8. svn copy (cp)
 
 svn copy (cp) — Copy a file or directory in a working copy or in the repository.
 
-Synopsis
+### 8.1. Synopsis
 svn copy SRC[@REV]... DST
 
 Description
@@ -174,17 +236,20 @@ If no peg revision (i.e., @REV) is supplied, by default the BASE revision will b
 [Note]
 You can only copy files within a single repository. Subversion does not support cross-repository copying.
 
-Options
---editor-cmd CMD
---encoding ENC
---file (-F) FILENAME
---force-log
---ignore-externals
---message (-m) MESSAGE
---parents
---quiet (-q)
---revision (-r) REV
---with-revprop ARG
+### 8.2. Options
+
+    --editor-cmd CMD
+    --encoding ENC
+    --file (-F) FILENAME
+    --force-log
+    --ignore-externals
+    --message (-m) MESSAGE
+    --parents
+    --quiet (-q)
+    --revision (-r) REV
+    --with-revprop ARG
+
+### 8.3. git과 비교?
 
 ## svn delete (del, remove, rm)
 
@@ -849,19 +914,14 @@ Options
 --revision (-r) REV
 --set-depth ARG
 
-## svn upgrade
+### git과 비교?
 
-svn upgrade — Upgrade the metadata storage format for a working copy.
-
-Synopsis
-svn upgrade [PATH...]
-
-Description
-As new versions of Subversion are released, the format used for the working copy metadata changes to accomodate new features or fix bugs. Older versions of Subversion would automatically upgrade working copies to the new format the first time the working copy was used by the new version of the software. Beginning with Subversion 1.7, working copy upgrades must be explicitly performed at the user's request. svn upgrade is the subcommand used to trigger that upgrade process.
-
-Options
---quiet (-q)
+git-fetch + git-merge/git-rebase
 
 ## 참고 자료
 
-[Version Control with Subversion For Subversion 1.7](https://svnbook.red-bean.com/en/1.7/index.html)
+- [Version Control with Subversion For Subversion 1.7](https://svnbook.red-bean.com/en/1.7/index.html)
+- [git-scm.com](https://git-scm.com/docs)
+- [Cheatsheet for Git as an SVN Client](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwioh5DvovPyAhWCF6YKHeZCDfoQFnoECAMQAQ&url=https%3A%2F%2Fgit.wiki.kernel.org%2Fimages-git%2F7%2F78%2FGit-svn-cheatsheet.pdf&usg=AOvVaw0p8-Npgpca4vbH99GTFDX-)
+- [앙카이브 - Subversion(SVN) 개념 및 명령어 정리](https://hellowoori.tistory.com/57)
+- 
