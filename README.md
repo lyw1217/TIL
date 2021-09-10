@@ -8,12 +8,6 @@ _39 TILs and counting..._
 
 ---
 
-### 3 most recent TILs
-
-- [git clone 중에 'fatal: unable to checkout working tree' 에러 해결 방법](ETC/git_fatal_unable_to_checkout_working_tree_해결법.md) - Fri Aug 20 13:52:19 2021 +0900
-- [IMS 서비스 호처리(Cx)](Moblie/IMS_서비스_호처리_Cx.md) - Wed Aug 18 13:23:40 2021 +0900
-- [Sh Interface AVPs](Moblie/Sh_interface_AVPs.md) - Thu Aug 12 09:33:46 2021 +0900
-
 ### Categories
 
 - [3GPP](#3GPP)
