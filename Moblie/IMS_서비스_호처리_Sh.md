@@ -15,6 +15,7 @@
 | Push-Notification-Req       | HSS | AS   | PNR  |
 | Push-Notification-Ans       | AS  | HSS  | PNA  |
 
+---
 ## 1. Sh Interface 절차의 기능 분류
 
 1. 데이터 처리 절차(Data Handling Procedures)
@@ -27,6 +28,7 @@
    - AS는 HSS로부터 데이터 변경에 대한 알림을 수신하기 위해 구독할 수 있음 (Subscription to notifications [`Sh-Subs-Notif`])
    - HSS는 AS가 이전에 구독한 데이터의 변경 사항을 AS에 알릴(notify) 수 있음 (Notifications [`Sh-Notif`])
 
+---
 ## 2. 가입자 정보 질의(Sh / User-Data Req/Ans , UDR/UDA)
 
 > Data read (Sh-Pull)
@@ -66,6 +68,7 @@
 
     Requested data. This information element shall be present if the requested data exists in the HSS and the AS has permissions to read it.
 
+---
 ## 3. 가입자 정보 변경(Sh / Profile-Update Req/Ans , PUR/PUA)
 
 > Data Update (Sh-Update)
@@ -104,6 +107,7 @@
 
     Experimental-Result AVP shall be used for Sh errors. This is a grouped AVP which contains the 3GPP Vendor ID in the Vendor-Id AVP, and the error code in the Experimental-Result-Code AVP.
 
+---
 ## 4. 가입자 정보 구독/해지(Sh / Subs-Notification Req/Ans , SNR/SNA)
 
 > Subscription to notifications (Sh-Subs-Notif)
@@ -164,6 +168,7 @@
 
     It should be present if the Send-Data-Indication AVP is set to value USER_DATA_REQUESTED.
 
+---
 ## 5. 가입자 정보 변경 알림(Sh / Profile-Notification Req/Ans , PNR/PNA)
 
 > Notifications (Sh-Notif)
@@ -189,6 +194,7 @@
 
 ### *Sh interface AVP*에 대한 자세한 내용은 [여기](https://github.com/lyw1217/TIL/blob/main/Moblie/Sh_interface_AVPs.md)를 참고
 
+---
 ## Message flows
 
 ![Figure B.1.1: Data Update, Registration, Notification Subscription](images/Data%20Update,%20Registration,%20Notification%20Subscription.png)

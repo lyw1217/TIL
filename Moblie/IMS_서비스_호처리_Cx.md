@@ -19,6 +19,7 @@
 | Push-Profile-Req              | HSS    | S-CSCF | PPR  |
 | Push-Profile-Ans              | S-CSCF | HSS    | PPA  |
 
+---
 ## 1. Cx Interface 절차의 기능 분류
 
 1. 위치 관리 절차
@@ -35,6 +36,7 @@
 
 4. S-CSCF 서비스 interruption을 지원하는 IMS Restoration 절차
 
+---
 ## 2. 가입자 권한 검증(Cx / User-Authorization Req/Ans , UAR/UAA)
 
 > User registration status query
@@ -74,7 +76,7 @@
 
     Name of the assigned S-CSCF.
 
-
+---
 ## 3. 가입자 인증(Cx / Multimedia-Auth Req/Ans , MAR/MAA)
 
 > Authentication procedures
@@ -200,6 +202,7 @@ This procedure is mapped to the commands Multimedia-Auth-Request/Answer in the D
 
         This information element shall contain the integrity key. 
 
+---
 ## 4. 위치 등록 처리(Cx / Server-Assignment Req/Ans , SAR/SAA)
 
 > S-CSCF registration/deregistration notification
@@ -284,7 +287,7 @@ This procedure is mapped to the commands Multimedia-Auth-Request/Answer in the D
 
     This information may be present if it was stored by the S-CSCF in the HSS and Server-Assignment-Type is either REGISTRATION or RE-REGISTRATION and there are other Private Identities different from the Private Identity received in the SAR command being registered with the Public Identity received in the SAR command.
 
-
+---
 ## 5. 위치 삭제 처리(Cx / Registration-Termination Req/Ans , RTR/RTA)
 
 > Network initiated de-registration by the HSS, administrative
@@ -322,6 +325,7 @@ HSS에 의해 네트워크 등록 취소가 시작된 경우, HSS는 Public Iden
 
     Experimental-Result AVP shall be used for Cx/Dx errors. This is a grouped AVP which contains the 3GPP Vendor ID in the Vendor-Id AVP, and the error code in the Experimental-Result-Code AVP.
 
+---
 ## 6. 가입자 정보 변경(Cx / Push-Profile Req/Ans , PPR/PPA )
 
 > HSS initiated update of User Information
@@ -370,6 +374,7 @@ HSS에 의해 네트워크 등록 취소가 시작된 경우, HSS는 Public Iden
 
     Experimental-Result AVP shall be used for Cx/Dx errors. This is a grouped AVP which contains the 3GPP Vendor ID in the Vendor-Id AVP, and the error code in the Experimental-Result-Code AVP.
 
+---
 ## 7. 가입자 위치 질의(Cx / Location-Information Req/Ans , LIR/LIA)
 
 > User location query
@@ -402,6 +407,7 @@ I-CSCF와 HSS 간에 Public Identity에 할당된 S-CSCF Name을 얻는데 사�
 
 ### *Cx interface AVP*에 대한 자세한 내용은 [여기](https://github.com/lyw1217/TIL/blob/main/Moblie/Cx_interface_AVPs.md)를 참고
 
+---
 ## Registration Flow
 
 > 23228 5.2.2 Registration Flows 참고
