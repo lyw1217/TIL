@@ -196,36 +196,216 @@ An IMS Public Identity would be either:
 Multiple instances of this information element may be included in the message.
 </details><br>
 
+
 ### IMS User State
+
+참조된 Public Identifier의 IMS User State가 포함된다. 아래와 같은 값들이 가능하다.
+-	REGISTERED,
+-	NOT_REGISTERED,
+-	AUTHENTICATION_PENDING,
+-	REGISTERED_UNREG_SERVICES.
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element contains the IMS User State of the public identifier referenced. Its possible values are:
+-	REGISTERED,
+-	NOT_REGISTERED,
+-	AUTHENTICATION_PENDING,
+-	REGISTERED_UNREG_SERVICES.
+If the IMS Public User Identity is shared between multiple Private User Identities, HSS shall indicate the most registered state of the shared IMS Public User Identity to an AS. The most registered state of a shared IMS Public User Identity is defined as follows:
+-	If the shared IMS Public User Identity is registered with any of the Private User Identities, the most registered state of the shared IMS Public User Identity is REGISTERED.
+-	If the shared IMS Public User Identity is not currently registered with any of the Private User Identities, but it is in state REGISTERED_UNREG_SERVICES, then the most registered state of the shared IMS Public User Identity is REGISTERED_UNREG_SERVICES.
+-	If the shared IMS Public User Identity is not currently registered with any of the Private User Identities, and it is not in state REGISTERED_UNREG_SERVICES, but it is in the process of being authenticated with any of the Private User Identities, then the most registered state of the shared IMS Public User Identity is AUTHENTICATION_PENDING.
+-	If the shared IMS Public User Identity is not currently registered with any of the Private User Identities, and it is not in state REGISTERED_UNREG_SERVICES, and it is not in the process of being authenticated with any of the Private User Identities, then the most registered state of the shared IMS Public User Identity is NOT_REGISTERED.
+</details><br>
 
 ### S-CSCF Name
 
+IMS Subscription에 포함된 S-CSCF의 이름
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element contains the name of the S CSCF assigned to the IMS Subscription.
+
+</details><br>
+
 ### Initial Filter Criteria
+
+서비스에 대한 트리거 정보가 포함되어 있음 (IFC에 대한 정보는 복잡하니 다른 문서에 따로 정리할 예정)
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element contains the triggering information for a service.
+For a more detailed description, refer to 3GPP TS 23.218 [4] and 3GPP TS 29.228 [6].
+
+</details><br>
 
 ### Location Information
 
+Requested 도메인과 Requested 노드에 따라 그에 맞는 Location 정보를 준다.
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element contains: 
+-	the location of the served subscriber in the MSC/VLR if the requested domain is CS, or 
+-	the location of the served subscriber in the SGSN if the requested domain is PS and either the requested node is SGSN or the requested node is not present, or 
+-	the location of the served subscriber in the MME if the requested domain is PS and the requested nodes is MME, or 
+-	the locations of the served subscriber in the 3GPP AAA Server for TWAN if the requested domain is PS and the requested nodes indicates 3GPP AAA SERVER for TWAN, or
+-	the locations of the served subscriber in the MME and the SGSN and 3GPP AAA Server for TWAN if the requested domain is PS and the requested nodes are MME and SGSN and 3GPP AAA SERVER for TWAN, or 
+-	the locations of the served subscriber in any of the two serving nodes among the MME, the SGSN and 3GPP AAA Server for TWAN if the requested domain is PS and the requested nodes indicates the corresponding nodes for which the location are to be requested, or
+-	the location of the served subscriber in the AMF (for 3GPP access) if the requested domain is PS and the requested nodes is AMF.
+If the HSS has to communicate with the MSC/VLR or SGSN and/or MME and/or 3GPP AAA Server to retrieve location information, it shall make use of the service MAP-PROVIDE-SUBSCRIBER-INFO or S6a/S6d-IDR or SWx-PPR. This information element shall contain the location information as received from the access nodes.
+If the HSS cannot communicate with the VLR or SGSN or MME (e.g., because the UE is purged), or if the HSS cannot retrieve the location information from the serving nodes because they do not support such feature, the HSS shall provide locally stored location information if available (e.g., serving node name, Visited PLMN ID) received in a previous Update Location message, and the last known UE's location if available e.g. as received in the Purge message from VLR or SGSN or MME.
+If the Serving Node Indication was present in the request, the location information shall contain the serving node address(es) as stored in the HSS, according to the requested domain and the requested nodes (if received). Other location information may be absent, in order to eliminate unnecessary communication with the MSC/VLR or SGSN and/or MME and/or 3GPP AAA Server when the AS does not require these information elements.
+For both Location Information for CS and Location Information for GPRS, the considerations described in 3GPP TS 23.078 [14] apply.
+
+</details><br>
+
 ### User state
+
+Requested-Domain/Requested-Node 이 나타내는 domain/node에서의 User Identity의 상태를 표시해준다.
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element indicates the state of the User Identity in the domain/node indicated by the Requested-Domain/Requested-Node (see 7.2), with the values specified in 3GPP TS 23.078 [14] for Subscriber State and PS Domain Subscriber State, and with the values specified in 3GPP TS 29.272 [31] for EPS User State and 3GPP TS 29.518 [47] for the 5GS User State.
+-	The HSS shall make use of the operation MAP-PROVIDE-SUBSCRIBER-INFO towards the MSC/VLR to obtain this information if the requested domain is CS.
+-	The HSS shall make use of the operation S6a-IDR towards the MME to obtain this information if the requested domain is PS and the requested node is MME.
+-	The HSS shall make use of the operation MAP-PROVIDE-SUBSCRIBER-INFO or S6d-IDR towards the SGSN to obtain this information if the requested domain is PS and either the requested node is SGSN or the requested node is not present.
+-	The HSS shall make use of the operation S6a-IDR towards the MME and MAP-PROVIDE-SUBSCRIBER-INFO or S6d-IDR towards the SGSN to obtain this information if the requested domain is PS and the Requested Nodes is MME and SGSN.
+-	The HSS/UDM shall make use of the Location-Report subscription of Namf_EventExposure Service towards the AMF to obtain this information if the requested domain is PS and the requested node is AMF.
+This information element shall contain the information as received from the access nodes.The HSS/UDM may retrieve the User States from the MME, SGSN or AMF within one procedure.
+The HSS shall include the value "NotProvidedFromSGSN or MME or AMF" in the "EPSUserState" / "PSUserState" / " Sh-5GSUserState" fields, if the MME, SGSN or AMF does not support the retrieval of User State over S6a/S6d-IDR/ Namf_EventExposure Service, or it did not provide any information on subscriber state even though it was requested by HSS.
+
+</details><br>
 
 ### Charging information
 
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element contains the addresses of the charging functions: primary Online Charging Function (PrimaryEventChargingFunctionName), secondary Online Charging Function (SecondaryEventChargingFunctionName), primary Charging Data Function (PrimaryChargingCollectionFunctionName), and secondary Charging Data Function (SecondaryChargingCollectionFunctionName). When a clash occurs between the charging function address(es) received over the ISC interface and those received over the Sh interface, the address(es) received over the ISC interface should take precedence.
+NOTE:	The use of the Sh interface to retrieve charging function addresses is not intended as a general-purpose alternative to receiving charging function addresses from the ISC interfaces. Rather, it is meant to address a special case where the AS needs to interact with the charging system before initiating a request to a user when the AS has not received the third party REGISTER for that user.
+The AS shall extract the FQDN of the DiameterURI in these information elements and may use it as content of the Destination-Host AVP for the Diameter accounting requests. The parent domain of the FQDN in the DiameterURI shall be used as Destination-Realm. The number of labels used for the Destination-Realm shall be determined before the Charging Information is provisioned and may be a configuration option.
+NOTE:	A FQDN is an absolute domain name including a subdomain and its parent domain. The subdomain and the parent domain contain one or more labels separated by dots.
+
+</details><br>
+
 ### MSISDN
+
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element contains the MSISDN, or the Basic MSISDN if multinumbering is used, that is associated with the User Identity present in the request. See 3GPP TS 23.012 [19] for Basic MSISDN definition.
+Multiple instances of this information element shall only occur if the Public User Identity is shared and no Private Identity was included in the request, otherwise only one instance shall be included in the message.
+If Additional-MSISDN feature is supported by the HSS but the AS has indicated that it does not support it, it is up to operator policy to decide what information is returned by the HSS, either what is provisioned in MSISDN or in Additional MSISDN (A-MSISDN).
+
+</details><br>
 
 ### UE reachability for IP
 
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element reflects the change of URRP-MME and/or URRP-SGSN parameters and indicates whether the UE has become reachable, i.e. when the URRP-MME and/or URRP-SGSN parameters was set and has been cleared due to UE activity notification from the MME and/or the SGSN, see 3GPP TS 29.272 [26]. 
+This information element also indicates whether the UE has become reachable at the AMF for 3GPP access and/or at the AMF for non 3GPP access.
+It consists of the following subordinate information elements:
+-	UE-IP-REACHABILITY-MME. Its possible values are:
+-	REACHABLE (0) 
+-	UE-IP-REACHABILITY-SGSN. Its possible values are:
+-	REACHABLE (0)
+-	UE-IP-REACHABILITY-AMF-3GPP. Its possible values are:
+-	REACHABLE (0) 
+-	UE-IP-REACHABILITY-AMF-NON-3GPP. Its possible values are:
+-	REACHABLE (0)
+
+</details><br>
+
 ### T-ADS Information
+
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element indicates the RAT type that is serving the UE and whether or not IMS voice over PS Session is supported at the current Routing Area/Tracking Area.
+The HSS shall make use of the appropriate S6a operation towards the MME and/or S6d/MAP operation towards the SGSN to retrieve the T-ADS information. The UDM/HSS shall make use of appropriate Namf service operation towards the AMF to retrieve the T-ADS information.
+The possible values for IMS voice over PS Session support are:
+-	IMS-VOICE-OVER-PS-NOT-SUPPORTED (0)
+-	IMS-VOICE-OVER-PS-SUPPORTED (1)
+-	IMS-VOICE-OVER-PS-SUPPORT-UNKNOWN (2)
+The possibles values of RAT type are specified in 3GPP TS 29.212 [28], subclause 5.3.31.
+
+</details><br>
 
 ### Private Identity
 
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element contains the IMS Private User Identity or the IMSI. See 3GPP TS 23.003 [17]).
+</details><br>
+
 ### STN-SR
+
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element indicates the Session Transfer Number for SRVCC (see 3GPP TS 23.003 [11]).
+When STN-SR is updated, the HSS shall make use of the service S6a/S6d-IDR to update the STN-SR in the MME/SGSN.
+
+</details><br>
 
 ### UE SRVCC Capability
 
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element indicates the SRVCC capability of the UE.
+The possible values for the UE-SRVCC capability are:
+-	UE-SRVCC-CAPABILITY-NOT-SUPPORTED (0)
+-	UE-SRVCC-CAPABILITY-SUPPORTED (1)
+
+</details><br>
+
 ### CSRN
+
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element contains a CS Domain Routeing Number (see 3GPP TS 23.003) associated to the user identity of the request.
+The HSS shall make use of the operation MAP-PROVIDE-ROAMING-NUMBER towards the MSC/VLR to obtain this information and shall indicate the Suppression of Announcement to the MSC/VLR. 
+This information element is requested by AS when all terminating services have been already executed, then HSS is only interested in the CSRN received from MSC/VLR.
+
+</details><br>
 
 ### IMSI
 
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element contains the IMSI that is associated with the IMS Public User Identity present in the request. See 3GPP TS 23.003 [11] for IMSI definition.
+</details><br>
+
 ### IMSPrivateUserIdentity
 
+
+<details>
+<summary>접기/펼치기</summary>
+
+This information element contains all IMS Private User Identities associated with the IMS Public User Identity present in the request. See 3GPP TS 23.003 [11] for Private User Identity definition.
+</details><br>
 
 
 ## Subs-Req-Type AVP
