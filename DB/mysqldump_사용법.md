@@ -29,21 +29,21 @@ CSV, other delimited text, XML 포멧으로도 생성 가능하다.
 
 - 모든 databases를 덤프
 
-    mysqldump -u root -p --all-databases > dump_name.sql
+        mysqldump -u root -p --all-databases > dump_name.sql
 
 - 모든 databases의 DDL 정보만 덤프
 
-    mysqldump -u root -p --all-databases --no-data > dump_name.sql
+        mysqldump -u root -p --all-databases --no-data > dump_name.sql
 
 - 특정 database(db_name)를 덤프
 
-    mysqldump -u root -p --databases db_name > dump_name.sql
+        mysqldump -u root -p --databases db_name > dump_name.sql
 
 ### 복원
 
 - 덤프를 복원한다. 복원할 db_name은 미리 생성되어 있어야 한다.
 
-    mysql -u root -p db_name < dump_name.sql
+        mysql -u root -p db_name < dump_name.sql
 
 ### 참고 자료
 - [mysqldump(1) - Linux man page](https://linux.die.net/man/1/mysqldump)
