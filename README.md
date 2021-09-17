@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_39 TILs and counting..._
+_41 TILs and counting..._
 
 ---
 
@@ -13,6 +13,7 @@ _39 TILs and counting..._
 - [3GPP](#3GPP)
 - [Bash](#Bash)
 - [C](#C)
+- [DB](#DB)
 - [ETC](#ETC)
 - [Linux](#Linux)
 - [Make](#Make)
@@ -36,6 +37,10 @@ _39 TILs and counting..._
 ### [C](#C)
 - [공유 메모리 함수 (Shared Memory Functions)](C/shared_memory_functions.md)
 - [C언어 구조체 비트 필드 (Bit Field)](C/struct_bit_field.md)
+
+### [DB](#DB)
+- [MySQL 스토리지 엔진](DB/MySQL_스토리지_엔진.md)
+- [mysqldump 사용법](DB/mysqldump_사용법.md)
 
 ### [ETC](#ETC)
 - [git clone 중에 'fatal: unable to checkout working tree' 에러 해결 방법](ETC/git_fatal_unable_to_checkout_working_tree_해결법.md)
