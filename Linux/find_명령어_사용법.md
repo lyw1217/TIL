@@ -72,6 +72,10 @@ _**walk a file hierarchy**_
      find -L /usr/ports/packages -type l -exec rm -- {}	+
 	     /usr/ports/packages 디렉토리에 있는 모든 심볼릭 링크 중 broken symbolic links(이동되었거나 존재하지 않는 대상을 가리키는 링크)들을 삭제(rm 명령어의 입력값으로 사용)
 
+## -exec 명령어 사용법
+
+[find 명령어 exec 옵션 사용법](find_명령어_exec_옵션_사용법.md) 참고
+
 ## 참고 자료
 - [BSD Manual Page](https://www.freebsd.org/cgi/man.cgi?find(1))
 - [find(1) - Linux man page](https://linux.die.net/man/1/find)
