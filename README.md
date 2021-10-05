@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_41 TILs and counting..._
+_42 TILs and counting..._
 
 ---
 
@@ -49,6 +49,7 @@ _41 TILs and counting..._
 - [Windows 윈도우에서 Linux 리눅스의 `grep` 명령어를 사용하려면?](ETC/윈도우에서_grep_사용법(findstr).md)
 
 ### [Linux](#Linux)
+- [`find` 명령어 `-exec` 옵션 사용법(특정 파일 문자열 치환)](Linux/find_명령어_exec_옵션_사용법(특정_파일_문자열_치환).md)
 - [`find` 명령어 사용법](Linux/find_명령어_사용법.md)
 - [`grep` 명령어 사용법](Linux/grep_명령어_사용법.md)
 - [`ls` 명령어 사용법](Linux/ls_명령어_사용법.md)
