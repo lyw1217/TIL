@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_43 TILs and counting..._
+_44 TILs and counting..._
 
 ---
 
@@ -37,6 +37,7 @@ _43 TILs and counting..._
 ### [C](#C)
 - [공유 메모리 함수 (Shared Memory Functions)](C/shared_memory_functions.md)
 - [C언어 구조체 비트 필드 (Bit Field)](C/struct_bit_field.md)
+- [메모리 누수 검사 valgrind macOS에서 설치하기](C/메모리_누수_검사_valgrind_macOS_설치.md)
 
 ### [DB](#DB)
 - [MySQL 스토리지 엔진](DB/MySQL_스토리지_엔진.md)
