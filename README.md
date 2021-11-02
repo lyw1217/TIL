@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_45 TILs and counting..._
+_46 TILs and counting..._
 
 ---
 
@@ -58,6 +58,7 @@ _45 TILs and counting..._
 - [ssh로 원격으로 명령어 실행하는 방법](Linux/ssh로_원격_명령_실행.md)
 - [`tar` 명령어 사용법](Linux/tar_명령어_사용법.md)
 - [`tcpdump` 명령어 사용법](Linux/tcpdump_명령어_사용법.md)
+- [`wc` 명령어 사용법](Linux/wc_명령어_사용법.md)
 - [리눅스 계정 관련 명령어](Linux/리눅스_계정_관련_명령어.md)
 
 ### [Make](#Make)
