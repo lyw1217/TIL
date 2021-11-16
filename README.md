@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_47 TILs and counting..._
+_48 TILs and counting..._
 
 ---
 
@@ -15,6 +15,7 @@ _47 TILs and counting..._
 - [C](#C)
 - [DB](#DB)
 - [ETC](#ETC)
+- [Golang](#Golang)
 - [Linux](#Linux)
 - [Make](#Make)
 - [Markdown](#Markdown)
@@ -48,6 +49,9 @@ _47 TILs and counting..._
 - [macOS에서 숨겨진 파일, 숨은 폴더 확인 하는 법](ETC/macOS_숨겨진파일_보기.md)
 - [SVN 명령어(subcommand) 사용법 (리눅스, CLI 환경)](ETC/svn_subcommand_사용법.md)
 - [Windows 윈도우에서 Linux 리눅스의 `grep` 명령어를 사용하려면?](ETC/윈도우에서_grep_사용법(findstr).md)
+
+### [Golang](#Golang)
+- [`Go 언어` 문법의 특징](Golang/Go_문법_특징.md)
 
 ### [Linux](#Linux)
 - [IPC 관련 명령어 사용법(`ipcs`, `ipcrm`)](Linux/IPC_관련_명령어_사용법_ipcs_ipcrm.md)
