@@ -194,30 +194,198 @@ for i := 0; i < 3; i++ {
 - 쌍따옴표(") 로 묶인 문자열은 Interpreted String Literal 이라고 하는데, 이스케이프 문자열이 적용된다.
   - 여러 줄에 걸쳐 쓸 수 없고, `+` 연산자를 이용하여 결합해야 한다.
 
-## Array 타입
+```go
+// 두 문자열은 같은 문자열이다.
+DIR1 := "C:\\Users\\leeyw\\go\\src"
+DIR2 := `C:\Users\leeyw\go\src`
+```
+
+```go
+	raw_str := `Hello\n
+	World!`
+	int_str1 := "Hello\nWorld!"
+	int_str2 := "Hello\n" +
+		"World!"
+	fmt.Println(raw_str)
+    fmt.Println()
+	fmt.Println(int_str1)
+    fmt.Println()
+	fmt.Println(int_str2)
+
+/*
+출력 결과
+Hello\n
+    World!
+
+Hello
+World!
+
+Hello
+World!
+*/
+```
+
+## Array 타입 (배열) / Slice 타입 (슬라이스)
 ---
 
-## Slice 타입
+배열은 연속된 메모리 공간에 동일한 타입의 요소를 저장하는 구조로, 크기가 고정되어 있다.
+
+슬라이스는 내부적으로는 배열에 기초해서 만들어 졌지만 크기를 동적으로 변경할 수 있다.
+
+배열보다 슬라이스가 더 유연하고 기능이 풍부하여 반드시 배열을 사용해야 하는 특별한 상황이 아니라면 대부분 슬라이스를 사용한다.
+
+### **배열의 선언**
+
+	```go
+	var arr1 = [3]int{1, 2, 3}   // 길이가 3인 int형 배열 선언
+	arr2 := [3]int{1, 2}         // 초깃값을 지정하지 않으면 Zero Value로 초기화
+	arr3 := [...]int{1, 2, 3, 4} // 배열의 크기를 자동으로 맞춰줌
+	arr4 := [3][3]int{           // 다차원 배열 선언
+		{1, 2, 3},
+		{4, 5, 6}, // 여러줄로 표기할 때, 마지막 요소 뒤에 콤마(,)를 붙여주어야함
+	}
+	fmt.Println(arr1)
+	fmt.Println(arr2)
+	fmt.Println(arr3)
+	fmt.Println(arr4)
+	/*
+	출력 결과
+	[1 2 3]
+	[1 2 0]
+	[1 2 3 4]
+	[[1 2 3] [4 5 6] [0 0 0]]
+	*/
+	```
+
+### **슬라이스의 선언**
+
+	```go
+	var sli1 []int            // 크기를 지정하지 않으면 슬라이스가 선언
+	sli2 := []int{}           // 길이와 용량은 0으로 지정됨
+	sli3 := []int{1, 2, 3, 4} // 선언과 동시에 초기화 하면 길이와 용량은 요소의 개수로 지정됨
+	sli4 := [][]int{          // 다차원 슬라이스 선언
+		{1, 2, 3},
+		{4, 5, 6}, // 여러줄로 표기할 때, 마지막 요소 뒤에 콤마(,)를 붙여주어야함
+	}
+	sli5 := make([]int, 0)		// make 함수를 이용해서 길이, 용량이 0인 슬라이스 선언
+	sli6 := make([]int, 2, 5)	// 길이가 2이고 용량은 5인 슬라이스 선언
+	fmt.Println(sli1, len(sli1), cap(sli1))
+	fmt.Println(sli2, len(sli2), cap(sli2))
+	fmt.Println(sli3, len(sli3), cap(sli3))
+	fmt.Println(sli4, len(sli4), cap(sli4))
+	fmt.Println(sli5, len(sli5), cap(sli5))
+	fmt.Println(sli6, len(sli6), cap(sli6))
+	/*
+	출력 결과
+	[] 0 0
+	[] 0 0
+	[1 2 3 4] 4 4
+	[[1 2 3] [4 5 6]] 2 2
+	[] 0 0
+	[0 0] 2 5
+	*/
+	```
+
+## Struct 타입 (구조체)
 ---
 
-## Struct 타입
+Go언어는 전통적인 OOP 언어가 갖는 클래스, 객체, 상속의 개념이 없다.
+
+전통적인 OOP에서는 클래스가 필드와 메서드를 함께 갖는 것과는 달리 Go언어는 필드(struct)와 메서드(func)는 별도로 분리하여 정의한다. 
+
+구조체와 메서드는 [여기]()에서 좀 더 구체적으로 다루겠다.
+
+## Pointer 타입 (포인터)
 ---
 
-## Pointer 타입
+Go언어는 포인터와 참조 타입을 모두 제공하고 있다.
+
+Go언어에서 포인터는 실제 데이터가 있는 메모리 주소에 접근하게는 해주지만, C언어처럼 포인터 변수가 가지는 주소 값을 직접 다른 값으로 변경할 수는 없다.
+
+참조 타입은 포인터처럼 데이터를 직접 갖지 않고, 실제 데이터가 있는 메모리 주소를 가리킨다.
+
+슬라이스, 함수, 메서드, 맵, 채널은 참조 타입이다.
+
+### **포인터의 선언**
+
+`*`를 자료형 앞에 붙여 포인터 변수를 선언한다.
+
+Zero Value는 `nil`로 초기화된다.
+
+포인터 변수는 두 가지 방식으로 할당할 수 있다.
+
+1. `&` 참조 연산자로 특정 값의 메모리 주소를 포인터 변수에 할당하는 방법
+   
+	```go
+	var p *int
+	i := 1
+	p = &i		// p := &i 처럼 선언과 동시에 할당하는 것도 가능하다.
+	fmt.Println(i)
+	fmt.Println(&i)
+	fmt.Println(*p)
+	fmt.Println(p)
+	/*
+	출력 결과
+	1
+	0xc000016098
+	1
+	0xc000016098
+	*/
+	```
+2. `new(자료형)` 함수로 메모리 공간을 할당하고 역참조로 값을 대입하는 방법
+   
+	```go
+	p := new(int)
+	i := 1
+	*p = i // 역참조로 포인터 변수에 값을 직접 대입
+	fmt.Println(i)
+	fmt.Println(&i)
+	fmt.Println(*p) // 포인터 변수의 값을 가져오기
+	fmt.Println(p)
+	/*
+	출력 결과
+	1
+	0xc0000160b0
+	1
+	0xc000016098
+	*/
+	```
+
+## Map 타입 (맵)
 ---
 
-## Function 타입
----
+Map은 키(Key)와 값(Value)으로 이루어진 해시 테이블(Hash Table) 형태의 자료구조이다.
 
-## Interface 타입
----
+참조 타입(슬라이스, 맵)은 키로 사용될 수 없고, 값에는 모든 타입이 사용 가능하다.
 
-## Map 타입
----
+### **Map의 선언**
+1. make 함수로 초기화
+	```go
+	var a_map map[int]string     // 키는 int, 값은 string인 map 선언, 초깃값은 nil
+	a_map = make(map[int]string) // a_map := make(map[int]string)
+	a_map[1] = "Apple"
+	a_map[2] = "Banana"
+	a_map[3] = "Orange"
+	fmt.Println((a_map))
+	/*
+	출력 결과
+	map[1:Apple 2:Banana 3:Orange]
+	*/
+	```
 
-## Channel 타입
----
-
+2. 리터럴로 초기화
+	```go
+	a_map := map[string]int{
+		"Samsung": 1,
+		"Apple":   2,
+		"LG":      3, // 여러줄로 표기할 때, 마지막 요소 뒤에 콤마(,)를 붙여주어야함
+	}
+	fmt.Println((a_map))
+	/*
+	출력 결과
+	map[Apple:2 LG:3 Samsung:1]
+	*/
+	```
 
 ### 참고 자료
 - [Go Spec](https://golang.org/ref/spec)
