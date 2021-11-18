@@ -201,16 +201,16 @@ DIR2 := `C:\Users\leeyw\go\src`
 ```
 
 ```go
-	raw_str := `Hello\n
-	World!`
-	int_str1 := "Hello\nWorld!"
-	int_str2 := "Hello\n" +
-		"World!"
-	fmt.Println(raw_str)
-    fmt.Println()
-	fmt.Println(int_str1)
-    fmt.Println()
-	fmt.Println(int_str2)
+raw_str := `Hello\n
+World!`
+int_str1 := "Hello\nWorld!"
+int_str2 := "Hello\n" +
+	"World!"
+fmt.Println(raw_str)
+fmt.Println()
+fmt.Println(int_str1)
+fmt.Println()
+fmt.Println(int_str2)
 
 /*
 출력 결과
@@ -236,55 +236,55 @@ World!
 
 ### **배열의 선언**
 
-	```go
-	var arr1 = [3]int{1, 2, 3}   // 길이가 3인 int형 배열 선언
-	arr2 := [3]int{1, 2}         // 초깃값을 지정하지 않으면 Zero Value로 초기화
-	arr3 := [...]int{1, 2, 3, 4} // 배열의 크기를 자동으로 맞춰줌
-	arr4 := [3][3]int{           // 다차원 배열 선언
-		{1, 2, 3},
-		{4, 5, 6}, // 여러줄로 표기할 때, 마지막 요소 뒤에 콤마(,)를 붙여주어야함
-	}
-	fmt.Println(arr1)
-	fmt.Println(arr2)
-	fmt.Println(arr3)
-	fmt.Println(arr4)
-	/*
-	출력 결과
-	[1 2 3]
-	[1 2 0]
-	[1 2 3 4]
-	[[1 2 3] [4 5 6] [0 0 0]]
-	*/
-	```
+```go
+var arr1 = [3]int{1, 2, 3}   // 길이가 3인 int형 배열 선언
+arr2 := [3]int{1, 2}         // 초깃값을 지정하지 않으면 Zero Value로 초기화
+arr3 := [...]int{1, 2, 3, 4} // 배열의 크기를 자동으로 맞춰줌
+arr4 := [3][3]int{           // 다차원 배열 선언
+	{1, 2, 3},
+	{4, 5, 6}, // 여러줄로 표기할 때, 마지막 요소 뒤에 콤마(,)를 붙여주어야함
+}
+fmt.Println(arr1)
+fmt.Println(arr2)
+fmt.Println(arr3)
+fmt.Println(arr4)
+/*
+출력 결과
+[1 2 3]
+[1 2 0]
+[1 2 3 4]
+[[1 2 3] [4 5 6] [0 0 0]]
+*/
+```
 
 ### **슬라이스의 선언**
 
-	```go
-	var sli1 []int            // 크기를 지정하지 않으면 슬라이스가 선언
-	sli2 := []int{}           // 길이와 용량은 0으로 지정됨
-	sli3 := []int{1, 2, 3, 4} // 선언과 동시에 초기화 하면 길이와 용량은 요소의 개수로 지정됨
-	sli4 := [][]int{          // 다차원 슬라이스 선언
-		{1, 2, 3},
-		{4, 5, 6}, // 여러줄로 표기할 때, 마지막 요소 뒤에 콤마(,)를 붙여주어야함
-	}
-	sli5 := make([]int, 0)		// make 함수를 이용해서 길이, 용량이 0인 슬라이스 선언
-	sli6 := make([]int, 2, 5)	// 길이가 2이고 용량은 5인 슬라이스 선언
-	fmt.Println(sli1, len(sli1), cap(sli1))
-	fmt.Println(sli2, len(sli2), cap(sli2))
-	fmt.Println(sli3, len(sli3), cap(sli3))
-	fmt.Println(sli4, len(sli4), cap(sli4))
-	fmt.Println(sli5, len(sli5), cap(sli5))
-	fmt.Println(sli6, len(sli6), cap(sli6))
-	/*
-	출력 결과
-	[] 0 0
-	[] 0 0
-	[1 2 3 4] 4 4
-	[[1 2 3] [4 5 6]] 2 2
-	[] 0 0
-	[0 0] 2 5
-	*/
-	```
+```go
+var sli1 []int            // 크기를 지정하지 않으면 슬라이스가 선언
+sli2 := []int{}           // 길이와 용량은 0으로 지정됨
+sli3 := []int{1, 2, 3, 4} // 선언과 동시에 초기화 하면 길이와 용량은 요소의 개수로 지정됨
+sli4 := [][]int{          // 다차원 슬라이스 선언
+	{1, 2, 3},
+	{4, 5, 6}, // 여러줄로 표기할 때, 마지막 요소 뒤에 콤마(,)를 붙여주어야함
+}
+sli5 := make([]int, 0)		// make 함수를 이용해서 길이, 용량이 0인 슬라이스 선언
+sli6 := make([]int, 2, 5)	// 길이가 2이고 용량은 5인 슬라이스 선언
+fmt.Println(sli1, len(sli1), cap(sli1))
+fmt.Println(sli2, len(sli2), cap(sli2))
+fmt.Println(sli3, len(sli3), cap(sli3))
+fmt.Println(sli4, len(sli4), cap(sli4))
+fmt.Println(sli5, len(sli5), cap(sli5))
+fmt.Println(sli6, len(sli6), cap(sli6))
+/*
+출력 결과
+[] 0 0
+[] 0 0
+[1 2 3 4] 4 4
+[[1 2 3] [4 5 6]] 2 2
+[] 0 0
+[0 0] 2 5
+*/
+```
 
 ## Struct 타입 (구조체)
 ---
@@ -316,40 +316,41 @@ Zero Value는 `nil`로 초기화된다.
 
 1. `&` 참조 연산자로 특정 값의 메모리 주소를 포인터 변수에 할당하는 방법
    
-	```go
-	var p *int
-	i := 1
-	p = &i		// p := &i 처럼 선언과 동시에 할당하는 것도 가능하다.
-	fmt.Println(i)
-	fmt.Println(&i)
-	fmt.Println(*p)
-	fmt.Println(p)
-	/*
-	출력 결과
-	1
-	0xc000016098
-	1
-	0xc000016098
-	*/
-	```
+```go
+var p *int
+i := 1
+p = &i		// p := &i 처럼 선언과 동시에 할당하는 것도 가능하다.
+fmt.Println(i)
+fmt.Println(&i)
+fmt.Println(*p)
+fmt.Println(p)
+/*
+출력 결과
+1
+0xc000016098
+1
+0xc000016098
+*/
+```
+
 2. `new(자료형)` 함수로 메모리 공간을 할당하고 역참조로 값을 대입하는 방법
    
-	```go
-	p := new(int)
-	i := 1
-	*p = i // 역참조로 포인터 변수에 값을 직접 대입
-	fmt.Println(i)
-	fmt.Println(&i)
-	fmt.Println(*p) // 포인터 변수의 값을 가져오기
-	fmt.Println(p)
-	/*
-	출력 결과
-	1
-	0xc0000160b0
-	1
-	0xc000016098
-	*/
-	```
+```go
+p := new(int)
+i := 1
+*p = i // 역참조로 포인터 변수에 값을 직접 대입
+fmt.Println(i)
+fmt.Println(&i)
+fmt.Println(*p) // 포인터 변수의 값을 가져오기
+fmt.Println(p)
+/*
+출력 결과
+1
+0xc0000160b0
+1
+0xc000016098
+*/
+```
 
 ## Map 타입 (맵)
 ---
@@ -360,32 +361,34 @@ Map은 키(Key)와 값(Value)으로 이루어진 해시 테이블(Hash Table) �
 
 ### **Map의 선언**
 1. make 함수로 초기화
-	```go
-	var a_map map[int]string     // 키는 int, 값은 string인 map 선언, 초깃값은 nil
-	a_map = make(map[int]string) // a_map := make(map[int]string)
-	a_map[1] = "Apple"
-	a_map[2] = "Banana"
-	a_map[3] = "Orange"
-	fmt.Println((a_map))
-	/*
-	출력 결과
-	map[1:Apple 2:Banana 3:Orange]
-	*/
-	```
 
-2. 리터럴로 초기화
-	```go
-	a_map := map[string]int{
-		"Samsung": 1,
-		"Apple":   2,
-		"LG":      3, // 여러줄로 표기할 때, 마지막 요소 뒤에 콤마(,)를 붙여주어야함
-	}
-	fmt.Println((a_map))
-	/*
-	출력 결과
-	map[Apple:2 LG:3 Samsung:1]
-	*/
-	```
+```go
+var a_map map[int]string     // 키는 int, 값은 string인 map 선언, 초깃값은 nil
+a_map = make(map[int]string) // a_map := make(map[int]string)
+a_map[1] = "Apple"
+a_map[2] = "Banana"
+a_map[3] = "Orange"
+fmt.Println((a_map))
+/*
+출력 결과
+map[1:Apple 2:Banana 3:Orange]
+*/
+```
+
+1. 리터럴로 초기화
+
+```go
+a_map := map[string]int{
+	"Samsung": 1,
+	"Apple":   2,
+	"LG":      3, // 여러줄로 표기할 때, 마지막 요소 뒤에 콤마(,)를 붙여주어야함
+}
+fmt.Println((a_map))
+/*
+출력 결과
+map[Apple:2 LG:3 Samsung:1]
+*/
+```
 
 ### 참고 자료
 - [Go Spec](https://golang.org/ref/spec)
