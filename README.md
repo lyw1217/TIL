@@ -56,7 +56,7 @@ _53 TILs and counting..._
 - [`Go 언어` 문자열](Golang/Go_문자열.md)
 - [`Go 언어` 변수와 상수](Golang/Go_변수와_상수.md)
 - [Go 언어 공부를 위한 참고 자료](Golang/Go_언어_공부.md)
-- [`Go 언어` 조건문](Golang/Go_조건문.md)
+- [`Go 언어` 조건문(`if`), 분기문(`switch case`), `goto` 문](Golang/Go_조건문_분기문_goto.md)
 
 ### [Linux](#Linux)
 - [IPC 관련 명령어 사용법(`ipcs`, `ipcrm`)](Linux/IPC_관련_명령어_사용법_ipcs_ipcrm.md)
