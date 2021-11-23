@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_53 TILs and counting..._
+_54 TILs and counting..._
 
 ---
 
@@ -54,6 +54,7 @@ _53 TILs and counting..._
 - [`Go 언어` 데이터 타입](Golang/Go_데이터_타입.md)
 - [`Go 언어` 문법의 특징](Golang/Go_문법_특징.md)
 - [`Go 언어` 문자열](Golang/Go_문자열.md)
+- [`Go 언어` 반복문](Golang/Go_반복문.md)
 - [`Go 언어` 변수와 상수](Golang/Go_변수와_상수.md)
 - [Go 언어 공부를 위한 참고 자료](Golang/Go_언어_공부.md)
 - [`Go 언어` 조건문(`if`), 분기문(`switch case`), `goto` 문](Golang/Go_조건문_분기문_goto.md)
