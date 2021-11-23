@@ -23,6 +23,7 @@ The User-Identity AVP is of type Grouped. This AVP contains either a Public- Ide
 | IMS Public User Identity / Public Service Identity | Public-Identity         | IMS Public User Identity or Public Service Identity for which data is required. If the MSISDNand External Identifier are is not included in the User-Identity AVP, the Public-Identity AVP shall be included in Sh messages only for allowed Data References as described in Table 7.6.1.          |
 | MSISDN                                             | MSISDN                  | MSISDN for which data is required. If the Public-Identity AVP and External Identifier are not included in the User-Identity AVP, the MSISDN AVP shall be included in the Sh-Pull or Sh-Subs-Notif or Sh-Update messages only for allowed Data References as described in Table 7.6.1.              |
 | External Identifier                                | External-Identifier     | External Identifier for which data is required. If the Public-Identity AVP and MSISDN are not included in the User-Identity AVP, the External Identifier AVP shall be included in the Sh-Pull or Sh-Subs-Notif or Sh-Update messages only for allowed Data References as described in Table 7.6.1. |
+
 </details><br>
 
 ## Identity-Set AVP
@@ -48,6 +49,7 @@ The Identity-Set AVP is of type Enumerated and indicates the requested set of IM
     REGISTERED_IDENTITIES (1)
     IMPLICIT_IDENTITIES (2)
     ALIAS_IDENTITIES (3)
+
 </details><br>
 
 
@@ -74,6 +76,7 @@ Identifier of one set of service related transparent data, which is stored in an
 The HSS shall allocate memory space to implement a data repository to store transparent data per IMS Public User Identity or Public Service Identity and value of Service Indication with a Sequence Number for verification.
 
 For Public Service Identities matching a Wildcarded Public Service Identity, the repository data shall be stored per Wildcarded Public Service Identity and not for each specific Public Service Identity.
+
 </details><br>
 
 ## Data-Reference AVP
@@ -156,6 +159,7 @@ transparent 데이터가 포함되어 있다. 하나의 Data Repository는 동�
 <summary>접기/펼치기</summary>
 
 This information element contains transparent data. A data repository may be shared by more than one AS implementing the same service.
+
 </details><br>
 
 ### IMSPublicIdentity
@@ -194,6 +198,7 @@ An IMS Public Identity would be either:
 -	associated with the MSISDN present in the request or
 -	associated with an External Identifier present in the request.
 Multiple instances of this information element may be included in the message.
+
 </details><br>
 
 
@@ -218,6 +223,7 @@ If the IMS Public User Identity is shared between multiple Private User Identiti
 -	If the shared IMS Public User Identity is not currently registered with any of the Private User Identities, but it is in state REGISTERED_UNREG_SERVICES, then the most registered state of the shared IMS Public User Identity is REGISTERED_UNREG_SERVICES.
 -	If the shared IMS Public User Identity is not currently registered with any of the Private User Identities, and it is not in state REGISTERED_UNREG_SERVICES, but it is in the process of being authenticated with any of the Private User Identities, then the most registered state of the shared IMS Public User Identity is AUTHENTICATION_PENDING.
 -	If the shared IMS Public User Identity is not currently registered with any of the Private User Identities, and it is not in state REGISTERED_UNREG_SERVICES, and it is not in the process of being authenticated with any of the Private User Identities, then the most registered state of the shared IMS Public User Identity is NOT_REGISTERED.
+
 </details><br>
 
 ### S-CSCF Name
@@ -351,6 +357,7 @@ The possibles values of RAT type are specified in 3GPP TS 29.212 [28], subclause
 <summary>접기/펼치기</summary>
 
 This information element contains the IMS Private User Identity or the IMSI. See 3GPP TS 23.003 [17]).
+
 </details><br>
 
 ### STN-SR
@@ -405,6 +412,7 @@ This information element contains the IMSI that is associated with the IMS Publi
 <summary>접기/펼치기</summary>
 
 This information element contains all IMS Private User Identities associated with the IMS Public User Identity present in the request. See 3GPP TS 23.003 [11] for Private User Identity definition.
+
 </details><br>
 
 
@@ -428,6 +436,7 @@ The Subs-Req-Type AVP is of type Enumerated, and indicates the type of the subsc
     This value is used by an AS to subscribe to notifications of changes in data.   
     Unsubscribe (1)   
     This value is used by an AS to unsubscribe to notifications of changes in data.   
+
 </details><br>
 
 
@@ -441,6 +450,7 @@ The Subs-Req-Type AVP is of type Enumerated, and indicates the type of the subsc
 <summary>접기/펼치기</summary>
 
 The Expiry-Time AVP is of type Time.  This AVP contains the expiry time of subscriptions to notifications in the HSS.
+
 </details><br>
 
 
@@ -462,6 +472,7 @@ The Send-Data-Indication AVP is of type Enumerated. If present it indicates that
 
     USER_DATA_NOT_REQUESTED (0)
     USER_DATA_REQUESTED (1)
+
 </details><br>
 
 ## One-Time-Notification AVP
@@ -483,6 +494,7 @@ The One-Time-Notification AVP is of type Enumerated. If present it indicates tha
 
     ONE_TIME_NOTIFICATION_REQUESTED (0)
     This AVP is only applicable to UE reachability for IP (25)
+
 </details><br>
 
 
