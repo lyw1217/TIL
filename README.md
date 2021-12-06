@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_55 TILs and counting..._
+_56 TILs and counting..._
 
 ---
 
@@ -16,6 +16,7 @@ _55 TILs and counting..._
 - [DB](#DB)
 - [ETC](#ETC)
 - [Golang](#Golang)
+- [Infra](#Infra)
 - [Linux](#Linux)
 - [Make](#Make)
 - [Markdown](#Markdown)
@@ -59,6 +60,9 @@ _55 TILs and counting..._
 - [`Go 언어` 변수와 상수](Golang/Go_변수와_상수.md)
 - [Go 언어 공부를 위한 참고 자료](Golang/Go_언어_공부.md)
 - [`Go 언어` 조건문(`if`), 분기문(`switch case`), `goto` 문](Golang/Go_조건문_분기문_goto.md)
+
+### [Infra](#Infra)
+- [`minikube start` 수행 시 The "docker" driver should not be used with root privileges 에러 발생](Infra/minikube_start_docker_should_not_be_used_with_root.md)
 
 ### [Linux](#Linux)
 - [IPC 관련 명령어 사용법(`ipcs`, `ipcrm`)](Linux/IPC_관련_명령어_사용법_ipcs_ipcrm.md)
