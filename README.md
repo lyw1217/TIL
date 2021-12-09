@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_56 TILs and counting..._
+_57 TILs and counting..._
 
 ---
 
@@ -62,6 +62,7 @@ _56 TILs and counting..._
 - [`Go 언어` 조건문(`if`), 분기문(`switch case`), `goto` 문](Golang/Go_조건문_분기문_goto.md)
 
 ### [Infra](#Infra)
+- [docker ubuntu apt update 시 "Release file is not valid yet"](Infra/docker_ubuntu_apt_update_실패시.md)
 - [`minikube start` 수행 시 The "docker" driver should not be used with root privileges 에러 발생](Infra/minikube_start_docker_should_not_be_used_with_root.md)
 
 ### [Linux](#Linux)
