@@ -1,4 +1,4 @@
-# docker ubuntu apt update 시 "Release file is not valid yet"
+# docker ubuntu apt update 시 "Release file is not valid yet" 에러 발생
 
 dockerfile을 아래와 같이 구성하고
 
