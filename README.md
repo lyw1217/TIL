@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_57 TILs and counting..._
+_58 TILs and counting..._
 
 ---
 
@@ -49,6 +49,7 @@ _57 TILs and counting..._
 - [git clone 중에 'fatal: unable to checkout working tree' 에러 해결 방법](ETC/git_fatal_unable_to_checkout_working_tree_해결법.md)
 - [macOS에서 숨겨진 파일, 숨은 폴더 확인 하는 법](ETC/macOS_숨겨진파일_보기.md)
 - [SVN 명령어(subcommand) 사용법 (리눅스, CLI 환경)](ETC/svn_subcommand_사용법.md)
+- [Visual Studio Code(VSCode)에서 멀티커서 사용하기](ETC/vscode_멀티커서.md)
 - [Windows 윈도우에서 Linux 리눅스의 `grep` 명령어를 사용하려면?](ETC/윈도우에서_grep_사용법(findstr).md)
 
 ### [Golang](#Golang)
