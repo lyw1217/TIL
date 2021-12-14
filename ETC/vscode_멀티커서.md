@@ -12,13 +12,16 @@
 | `마우스 휠 클릭 + 드래그` | Column (box) selection, 휠 클릭한 부분부터 드래그한 곳까지 다중 선택                 |
 | `ESC`                     | 멀티 커서 취소                                                                       |
 
-- `Ctrl + Alt + ↓` 으로 멀티플 셀렉션
+- `Ctrl + Alt + ↓` 으로 멀티플 셀렉션   
+  
 ![Ctrl+Alt+Down](https://code.visualstudio.com/assets/docs/editor/codebasics/multicursor.gif)
 
-- `Ctrl + D` 로 멀티플 셀렉션 
+- `Ctrl + D` 로 멀티플 셀렉션   
+  
 ![Ctrl+D](https://code.visualstudio.com/assets/docs/editor/codebasics/multicursor-word.gif)
 
-- `Shift + Alt + Drag` 로 Column selection
+- `Shift + Alt + Drag` 로 Column selection   
+  
 ![Shift+Alt+Drag](https://code.visualstudio.com/assets/docs/editor/codebasics/column-select.gif)
 
 (이미지는 VSCode의 User Guide에서 가져왔습니다. 참고자료 링크)
