@@ -1,4 +1,4 @@
-# pandoc를 이용해서 Markdown 을 Github-style로 렌더링 하는 방법
+# Markdown 을 Github-style로 변환하는 방법
 
 ## 1. Installing pandoc
 
