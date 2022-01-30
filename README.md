@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_59 TILs and counting..._
+_60 TILs and counting..._
 
 ---
 
@@ -42,6 +42,7 @@ _59 TILs and counting..._
 - [메모리 누수 검사 valgrind macOS에서 설치하기](C/메모리_누수_검사_valgrind_macOS_설치.md)
 
 ### [DB](#DB)
+- [Mongo DB(4.4) 설치(Red Hat or CentOS)](DB/MongoDB_설치.md)
 - [MySQL 스토리지 엔진](DB/MySQL_스토리지_엔진.md)
 - [mysqldump 사용법](DB/mysqldump_사용법.md)
 
