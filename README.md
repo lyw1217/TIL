@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_61 TILs and counting..._
+_63 TILs and counting..._
 
 ---
 
@@ -17,6 +17,7 @@ _61 TILs and counting..._
 - [ETC](#ETC)
 - [Golang](#Golang)
 - [Infra](#Infra)
+- [JavaScript](#JavaScript)
 - [Linux](#Linux)
 - [Make](#Make)
 - [Markdown](#Markdown)
@@ -67,6 +68,10 @@ _61 TILs and counting..._
 ### [Infra](#Infra)
 - [docker ubuntu apt update 시 "Release file is not valid yet" 에러 발생](Infra/docker_ubuntu_apt_update_실패시.md)
 - [`minikube start` 수행 시 The "docker" driver should not be used with root privileges 에러 발생](Infra/minikube_start_docker_should_not_be_used_with_root.md)
+
+### [JavaScript](#JavaScript)
+- [자바스크립트 변수 선언](JavaScript/JavaScript_변수_선언.md)
+- [자바스크립트 화살표 함수](JavaScript/JavaScript_화살표_함수.md)
 
 ### [Linux](#Linux)
 - [IPC 관련 명령어 사용법(`ipcs`, `ipcrm`)](Linux/IPC_관련_명령어_사용법_ipcs_ipcrm.md)
