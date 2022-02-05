@@ -8,13 +8,13 @@
 
 3GPP uses a system of parallel "Releases" which provide developers with a stable platform for the implementation of features at a given point and then allow for the addition of new functionality in subsequent Releases.
 
-3GPP는 개발자에게 주어진 시점에서 기능을 구현하기 위한 안정적인 플랫폼을 제공한 후 후속 릴리스에서 새로운 기능을 추가할 수 있는 병렬 "릴리스" 시스템을 사용한다. 
+3GPP는 개발자에게 주어진 시점에서 기능을 구현하기 위한 안정적인 플랫폼을 제공한 후 후속 릴리즈에서 새로운 기능을 추가할 수 있는 병렬 "릴리즈" 시스템을 사용한다. 
 
 - [참고1](https://www.3gpp.org/specifications/releases)
 
 ## 왜 릴리즈를 나눠놨을까?
 
-장비 개발자들이 해당 릴리즈까지의 기술 특징들을 자신들의 장비가 모두 지원하고, 그후 릴리즈에 나타나는 기술 특징들도 자신들의 장비에 추가 부가시킬 수 있도록하며, 이를 확인 가능케하기 위함
+장비 개발자들이 해당 릴리즈까지의 기술 특징들을 자신들의 장비가 모두 지원하고, 그 후 릴리즈에 나타나는 기술 특징들도 자신들의 장비에 추가 부가시킬 수 있도록 하며, 이를 확인 가능케 하기 위함
 
 - [참고1](http://www.ktword.co.kr/test/view/view.php?m_temp1=5391)
 

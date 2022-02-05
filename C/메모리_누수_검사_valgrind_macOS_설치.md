@@ -2,13 +2,13 @@
 
 ## valgrind?
 
-valgrind는 프로그램 성능을 프로파일링하고 분석하는데 사용할 수 있는 여러 도구를 갖는 프레임워크이다. 메모리 관리나 쓰레드 버그들을 자동으로 탐지해준다.
+valgrind는 프로그램 성능을 프로파일링하고 분석하는 데 사용할 수 있는 여러 도구를 갖는 프레임워크이다. 메모리 관리나 쓰레드 버그들을 자동으로 탐지해준다.
 
 ## macOS에서 설치하는 방법
 
 [LouisBrunner/valgrind-macos](https://github.com/LouisBrunner/valgrind-macos/tree/feature/macos_11pp)
 
-아주 착하신 개발자분께서 macOS 플랫폼에 지원 가능하도록 개선해서 배포중이시다.
+아주 착하신 개발자분께서 macOS 플랫폼에 지원 가능하도록 개선해서 배포 중이시다.
 
 위 링크를 타고 레파지토리로 들어가서 REAME에 따라 brew 명령어 몇 개만 수행하면 된다. (homebrew는 설치되어있어야 한다!)
 
@@ -43,7 +43,7 @@ valgrind는 프로그램 성능을 프로파일링하고 분석하는데 사용�
     ❯ sudo rm -rf /Library/Developer/CommandLineTools
     ❯ sudo xcode-select --install
 
-다시 아래 명령어를 재 수행해서
+다시 아래 명령어를 재수행해서
 
     ❯ brew install --HEAD LouisBrunner/valgrind/valgrind
 
@@ -53,12 +53,12 @@ valgrind는 프로그램 성능을 프로파일링하고 분석하는데 사용�
 
 1. 첫 번째 방법
 
-   - 컴파일 한 다음, 실행파일(`a.out`)이 생성되면
+   - 컴파일한 다음, 실행파일(`a.out`)이 생성되면
    - `valgrind --leak-check=full ./a.out` 하면 파일이 실행되면서 메모리 누수를 검사한다.
 
 2. 두 번째 방법
 
-   - 컴파일 한 다음, 실행파일(`a.out`)이 생성되면
+   - 컴파일한 다음, 실행파일(`a.out`)이 생성되면
    - `leaks a.out`
    - 파일이 실행 중이어야 한다.
 
