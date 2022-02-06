@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_63 TILs and counting..._
+_64 TILs and counting..._
 
 ---
 
@@ -70,6 +70,7 @@ _63 TILs and counting..._
 - [`minikube start` 수행 시 The "docker" driver should not be used with root privileges 에러 발생](Infra/minikube_start_docker_should_not_be_used_with_root.md)
 
 ### [JavaScript](#JavaScript)
+- [자바스크립트 Array 함수](JavaScript/JavaScript_Array.md)
 - [자바스크립트 변수 선언](JavaScript/JavaScript_변수_선언.md)
 - [자바스크립트 화살표 함수](JavaScript/JavaScript_화살표_함수.md)
 
