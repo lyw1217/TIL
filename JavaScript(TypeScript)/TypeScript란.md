@@ -1,0 +1,39 @@
+# TypeScript란?
+
+자바스크립트는 세 종류가 있다.
+
+- ES5(ECMAScript 5)
+- ESNext(ES6~)
+- TypeScript (ESNext에 Type을 추가)
+
+
+## 누가 만들었지?
+
+마이크로소프트에서 개발, 유지하고 있으며 엄격한 문법을 지원한다. C#의 리드 아키텍트이자 델파이, 터보 파스칼의 창시자인 Anders Hejlsberg가 개발에 참여한다.
+
+[출처](https://ko.wikipedia.org/wiki/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8)
+
+## 자바스크립트에 타입이 있으면?
+
+타입스크립트는 정적 타입을 명시할 수 있다는 점이 자바스크립트와 가장 큰 차이점이다.
+
+아래와 같은 코드를 A 개발자가 작성했다고 가정해보자.
+
+```javascript
+function makeDocument(id, title, contents) {}
+```
+
+그런데 B 개발자가 이 코드를 이용하려고 아래와 같은 코드를 작성했지만 에러가 발생했다면, 자바스크립트에서는 이 오류가 왜 발생했는지 알기 어렵다.
+
+```javascript
+makeDocument(1, "test", "test_contents")
+// 함수 내부에서 id가 정수형인지, title이 문자열인지 함수 내부를 보기 전까지는 알 수 없다
+```
+
+하지만 타입스크립트의 타입 기능을 이용하여 아래와 같이 타입을 명시해준다면 이 문제는 발생하지 않는다.
+
+```typescript
+function makeDocument(id:number, title:string, contents:string) {}
+```
+
+게다가, 타입스크립트 컴파일러는 이러한 타입 기능을 기반으로 코드 자동 완성이나 잘못된 변수/함수 사용에 대한 에러 원인을 알려주기 때문에 자바스크립트보다 더 선호하게 되었다.
