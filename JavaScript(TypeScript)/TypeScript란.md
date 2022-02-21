@@ -1,11 +1,14 @@
-# TypeScript란?
+# 타입스크립트란?
 
-자바스크립트는 세 종류가 있다.
+ECMAScript (ES)는 Ecma International에 의해 표준화된 스크립트 언어 스펙
 
-- ES5(ECMAScript 5)
-- ESNext(ES6~)
-- TypeScript (ESNext에 Type을 추가)
+2009년에 ES5, 2015년에 ES6 (각 ECMAScript 2015, ECMAScript 2016으로 불림)가 발표되었고
 
+ES10(ES2019), ES2020 등이 있다.
+
+2015년부터는 해당 연도를 버전에 사용하게 되었고, 차기 버전으로 개발되고 있는 ECMAScript는 ESNext라고 불리운다.
+
+TypeScript는 ESNext에 Type을 추가한 것이다. 즉, ESNext의 모든 문법을 포함하면서 Type 기능을 사용할 수 있다.
 
 ## 누가 만들었지?
 
@@ -53,3 +56,13 @@ function makeDocument(id:number, title:string, contents:string) {}
 ESNext 자바스크립트 소스코드는 바벨(Babel)이라는 트랜스파일러를 거쳐 ES5 자바스크립트 코드로 변환된다.
 
 타입스크립트 소스코드는 TSC(TypeScript Compiler)라는 트랜스파일러를 거쳐 ES5 자바스크립트 코드로 변환된다.
+
+
+### 참고 자료들
+
+- [JavaScript Tutorial](https://www.javascripttutorial.net/)
+- [모던 JavaScript 튜토리얼 KO](https://ko.javascript.info/)
+- [모던 JavaScript 튜토리얼 한글화 저장소](https://github.com/javascript-tutorial/ko.javascript.info)
+- [타입스크립트 홈페이지 KO](https://www.typescriptlang.org/ko/)
+- [타입스크립트 웹사이트 저장소](https://github.com/microsoft/TypeScript-Website)
+- [TypeScript Tutorial](https://www.typescripttutorial.net/)
