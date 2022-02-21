@@ -73,7 +73,7 @@ _65 TILs and counting..._
 - [자바스크립트 Array 함수](JavaScript(TypeScript)/JavaScript_Array.md)
 - [자바스크립트 변수 선언](JavaScript(TypeScript)/JavaScript_변수_선언.md)
 - [자바스크립트 화살표 함수](JavaScript(TypeScript)/JavaScript_화살표_함수.md)
-- [TypeScript란?](JavaScript(TypeScript)/TypeScript란.md)
+- [타입스크립트란?](JavaScript(TypeScript)/TypeScript란.md)
 
 ### [Linux](#Linux)
 - [IPC 관련 명령어 사용법(`ipcs`, `ipcrm`)](Linux/IPC_관련_명령어_사용법_ipcs_ipcrm.md)
