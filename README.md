@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_66 TILs and counting..._
+_67 TILs and counting..._
 
 ---
 
@@ -67,6 +67,7 @@ _66 TILs and counting..._
 
 ### [Infra](#Infra)
 - [docker ubuntu apt update 시 "Release file is not valid yet" 에러 발생](Infra/docker_ubuntu_apt_update_실패시.md)
+- [k8s 에러 관련 포스팅 모음](Infra/k8s_에러_관련.md)
 - [`minikube start` 수행 시 The "docker" driver should not be used with root privileges 에러 발생](Infra/minikube_start_docker_should_not_be_used_with_root.md)
 
 ### [JavaScript(TypeScript)](#JavaScript(TypeScript))
