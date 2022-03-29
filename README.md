@@ -78,7 +78,7 @@ _68 TILs and counting..._
 - [타입스크립트란?](JavaScript(TypeScript)/TypeScript란.md)
 
 ### [Linux](#Linux)
-- [CentOS 7에서 Shell Script를 GUI에서 더블클릭으로 실행하기](Linux/CentOS_7_shell_script_gui_더블클릭_실행.md)
+- [CentOS 7 GUI에서 Shell Script를  더블클릭으로 실행하기](Linux/CentOS_7_shell_script_gui_더블클릭_실행.md)
 - [IPC 관련 명령어 사용법(`ipcs`, `ipcrm`)](Linux/IPC_관련_명령어_사용법_ipcs_ipcrm.md)
 - [`find` 명령어 `-exec` 옵션 사용법(특정 파일 문자열 치환)](Linux/find_명령어_exec_옵션_사용법(특정_파일_문자열_치환).md)
 - [`find` 명령어 사용법](Linux/find_명령어_사용법.md)
