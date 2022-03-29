@@ -1,4 +1,4 @@
-# CentOS 7에서 Shell Script를 GUI에서 더블클릭으로 실행하기
+# CentOS 7 GUI에서 Shell Script를  더블클릭으로 실행하기
 
 Shell Script를 작성하고 실행할 때, 보통 터미널에서 `./script.sh` 와 같이 실행한다.
 
