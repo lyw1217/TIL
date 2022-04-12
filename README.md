@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_68 TILs and counting..._
+_69 TILs and counting..._
 
 ---
 
@@ -83,6 +83,7 @@ _68 TILs and counting..._
 - [`find` 명령어 `-exec` 옵션 사용법(특정 파일 문자열 치환)](Linux/find_명령어_exec_옵션_사용법(특정_파일_문자열_치환).md)
 - [`find` 명령어 사용법](Linux/find_명령어_사용법.md)
 - [`grep` 명령어 사용법](Linux/grep_명령어_사용법.md)
+- [/lib, /lib64 의 심볼릭 링크를 삭제했을 때 해결 방법](Linux/lib_심볼릭_링크를_삭제했을_때.md)
 - [`ls` 명령어 사용법](Linux/ls_명령어_사용법.md)
 - [`screen` 명령어 사용법](Linux/screen_명령어_사용법.md)
 - [ssh로 원격으로 명령어 실행하는 방법](Linux/ssh로_원격_명령_실행.md)
