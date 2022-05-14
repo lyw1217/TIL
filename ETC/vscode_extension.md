@@ -66,6 +66,26 @@ VS Marketplace 링크: https://marketplace.visualstudio.com/items?itemName=formu
 
 - 코드 전체 뿐만 아니라 코드 중간에 있는 코드만 따로 실행할 수도 있어서 좋음
 
+### **이름: Material Icon Theme**
+
+설명: Material Design Icons for Visual Studio Code
+
+게시자: Philipp Kief
+
+VS Marketplace 링크: https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme
+
+- 파일의 아이콘 테마. 깔끔하고 VSCode랑 일체감이 좋음
+
+### **이름: Prettier - Code formatter**
+
+설명: Code formatter using prettier
+
+게시자: Prettier
+
+VS Marketplace 링크: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+
+- 좋은데.. 안좋다. 지금은 사용 안함
+
 ## 웹 관련
 
 ### **이름: JavaScript (ES6) code snippets**
