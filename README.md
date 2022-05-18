@@ -8,6 +8,12 @@ _71 TILs and counting..._
 
 ---
 
+### 3 most recent TILs
+
+- [도커 컨테이너에서 호스트에 있는 명령어를 실행하는 방법](Infra/cmd_run_on_host_from_container.md) - Wed May 18 16:12:19 2022 +0900
+- [내가 사용하는 VSCode Extension](ETC/vscode_extension.md) - Sat May 14 23:22:27 2022 +0900
+- [/lib, /lib64 의 심볼릭 링크를 삭제했을 때 해결 방법](Linux/lib_심볼릭_링크를_삭제했을_때.md) - Tue Apr 12 16:14:27 2022 +0900
+
 ### Categories
 
 - [3GPP](#3GPP)
