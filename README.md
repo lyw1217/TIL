@@ -4,15 +4,15 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_71 TILs and counting..._
+_72 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [HTML `<video>` tag](Web/html_video_tag.md) - Mon May 30 23:22:20 2022 +0900
 - [도커 컨테이너에서 호스트에 있는 명령어를 실행하는 방법](Infra/cmd_run_on_host_from_container.md) - Wed May 18 16:12:19 2022 +0900
 - [내가 사용하는 VSCode Extension](ETC/vscode_extension.md) - Sat May 14 23:22:27 2022 +0900
-- [/lib, /lib64 의 심볼릭 링크를 삭제했을 때 해결 방법](Linux/lib_심볼릭_링크를_삭제했을_때.md) - Tue Apr 12 16:14:27 2022 +0900
 
 ### Categories
 
@@ -30,6 +30,7 @@ _71 TILs and counting..._
 - [Moblie](#Moblie)
 - [Node.js](#Node.js)
 - [Python](#Python)
+- [Web](#Web)
 
 ### [3GPP](#3GPP)
 - [3GPP 규격 보는 방법(Release, Stage 등)](3GPP/3gpp_규격_보는_방법.md)
@@ -129,6 +130,9 @@ _71 TILs and counting..._
 ### [Python](#Python)
 - [UnicodeDecodeError: 'cp949' 에러 해결 방법](Python/UnicodeDecodeError_cp949_해결방법.md)
 - [Python 파이썬에서 파일 다루기(읽기, 쓰기)](Python/파이썬에서_파일_다루기.md)
+
+### [Web](#Web)
+- [HTML `<video>` tag](Web/html_video_tag.md)
 
 [1]: https://simonwillison.net/2020/Apr/20/self-rewriting-readme/
 [2]: https://github.com/jbranchaud/til
