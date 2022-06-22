@@ -4,15 +4,15 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_72 TILs and counting..._
+_74 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [bash 쉘 스크립트 특정 문자열이 포함되었는지 확인하는 방법](Bash/bash_특정_문자열_포함_확인.md) - Wed Jun 22 10:25:38 2022 +0900
+- [LTE 호처리](Moblie/LTE_호처리.md) - Wed Jun 22 10:25:38 2022 +0900
 - [HTML `<video>` tag](Web/html_video_tag.md) - Mon May 30 23:22:20 2022 +0900
-- [도커 컨테이너에서 호스트에 있는 명령어를 실행하는 방법](Infra/cmd_run_on_host_from_container.md) - Wed May 18 16:12:19 2022 +0900
-- [내가 사용하는 VSCode Extension](ETC/vscode_extension.md) - Sat May 14 23:22:27 2022 +0900
 
 ### Categories
 
@@ -42,6 +42,7 @@ _72 TILs and counting..._
 - [bash 쉘 스크립트 배열(Array) 사용법](Bash/bash_배열_사용법.md)
 - [bash 쉘 스크립트 변수 사용 시 주의사항(중괄호)](Bash/bash_변수_사용_시_주의사항(중괄호).md)
 - [bash 쉘 스크립트 정수형 변수 증가/감소시키기 (++ 연산하기)](Bash/bash_정수형_변수_증감.md)
+- [bash 쉘 스크립트 특정 문자열이 포함되었는지 확인하는 방법](Bash/bash_특정_문자열_포함_확인.md)
 - [bash 쉘 스크립트 함수 반환 값 전달(return)](Bash/bash_함수_반환값(리턴).md)
 - [bash 쉘 스크립트 함수 사용법](Bash/bash_함수_사용법.md)
 
@@ -119,6 +120,7 @@ _72 TILs and counting..._
 - [IMS 서비스](Moblie/IMS_서비스.md)
 - [IMS 서비스 호처리(Cx)](Moblie/IMS_서비스_호처리_Cx.md)
 - [IMS 서비스 호처리(Sh)](Moblie/IMS_서비스_호처리_Sh.md)
+- [LTE 호처리](Moblie/LTE_호처리.md)
 - [PuID(Public User ID)와 PrID(Private User ID)](Moblie/PrID와_PuID.md)
 - [Sh Interface AVPs](Moblie/Sh_interface_AVPs.md)
 - [UE (User Equipment) Identifier](Moblie/User_Equipment.md)
