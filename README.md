@@ -4,15 +4,15 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_74 TILs and counting..._
+_75 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [svn remote repository의 URL이 변경 되었을 때(svn 서버 URL 변경)](ETC/svn_remote의_주소_변경.md) - Mon Jun 27 09:42:38 2022 +0900
 - [bash 쉘 스크립트 특정 문자열이 포함되었는지 확인하는 방법](Bash/bash_특정_문자열_포함_확인.md) - Wed Jun 22 10:25:38 2022 +0900
 - [LTE 호처리](Moblie/LTE_호처리.md) - Wed Jun 22 10:25:38 2022 +0900
-- [HTML `<video>` tag](Web/html_video_tag.md) - Mon May 30 23:22:20 2022 +0900
 
 ### Categories
 
@@ -59,6 +59,7 @@ _74 TILs and counting..._
 ### [ETC](#ETC)
 - [git clone 중에 'fatal: unable to checkout working tree' 에러 해결 방법](ETC/git_fatal_unable_to_checkout_working_tree_해결법.md)
 - [macOS에서 숨겨진 파일, 숨은 폴더 확인 하는 법](ETC/macOS_숨겨진파일_보기.md)
+- [svn remote repository의 URL이 변경 되었을 때(svn 서버 URL 변경)](ETC/svn_remote의_주소_변경.md)
 - [SVN 명령어(subcommand) 사용법 (리눅스, CLI 환경)](ETC/svn_subcommand_사용법.md)
 - [내가 사용하는 VSCode Extension](ETC/vscode_extension.md)
 - [Visual Studio Code(VSCode)에서 멀티커서 사용하기](ETC/vscode_멀티커서.md)
