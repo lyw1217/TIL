@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_76 TILs and counting..._
+_77 TILs and counting..._
 
 ---
 
@@ -59,6 +59,7 @@ _76 TILs and counting..._
 ### [ETC](#ETC)
 - [git clone 중에 'fatal: unable to checkout working tree' 에러 해결 방법](ETC/git_fatal_unable_to_checkout_working_tree_해결법.md)
 - [macOS에서 숨겨진 파일, 숨은 폴더 확인 하는 법](ETC/macOS_숨겨진파일_보기.md)
+- [라즈베리파이 4 gpio를 이용한 팬 컨트롤 (bash script)](ETC/raspberry_pi_gpio_fan_control.md)
 - [svn remote repository의 URL이 변경 되었을 때(svn 서버 URL 변경)](ETC/svn_remote의_주소_변경.md)
 - [SVN 명령어(subcommand) 사용법 (리눅스, CLI 환경)](ETC/svn_subcommand_사용법.md)
 - [내가 사용하는 VSCode Extension](ETC/vscode_extension.md)
