@@ -1,5 +1,7 @@
 # Visual Studio Code(VSCode)에서 멀티커서 사용하기
 
+VS Code에서 여러 줄을 동시에 선택하는 방법을 알아보자
+
 ## Multiple selections(multi-cursor)
 
 | 사용법                    | 내용                                                                                 |
