@@ -4,14 +4,14 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_77 TILs and counting..._
+_78 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [alpine 리눅스에서 timezone 설정하기(docker container)](Infra/alpine_timezone.md) - Mon Jul 25 21:28:59 2022 +0900
 - [svn remote repository의 URL이 변경 되었을 때(svn 서버 URL 변경)](ETC/svn_remote의_주소_변경.md) - Mon Jun 27 09:42:38 2022 +0900
-- [bash 쉘 스크립트 특정 문자열이 포함되었는지 확인하는 방법](Bash/bash_특정_문자열_포함_확인.md) - Wed Jun 22 10:25:38 2022 +0900
 - [LTE 호처리](Moblie/LTE_호처리.md) - Wed Jun 22 10:25:38 2022 +0900
 
 ### Categories
@@ -78,6 +78,7 @@ _77 TILs and counting..._
 
 ### [Infra](#Infra)
 - [구글 클라우드 스터디잼 쿠버네티스 입문과정 참고](Infra/Google_Cloud_Study_Jam.md)
+- [alpine 리눅스에서 timezone 설정하기(docker container)](Infra/alpine_timezone.md)
 - [도커 컨테이너에서 호스트에 있는 명령어를 실행하는 방법](Infra/cmd_run_on_host_from_container.md)
 - [docker ubuntu apt update 시 "Release file is not valid yet" 에러 발생](Infra/docker_ubuntu_apt_update_실패시.md)
 - [k8s 에러 관련 포스팅 모음](Infra/k8s_에러_관련.md)
