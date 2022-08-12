@@ -4,15 +4,15 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_78 TILs and counting..._
+_79 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [Ubuntu 20.04에 KVM 설치하기](Linux/How_To_Install_KVM_on_Ubuntu_20.04.md) - Fri Aug 12 16:38:00 2022 +0900
 - [alpine 리눅스에서 timezone 설정하기(docker container)](Infra/alpine_timezone.md) - Mon Jul 25 21:28:59 2022 +0900
 - [svn remote repository의 URL이 변경 되었을 때(svn 서버 URL 변경)](ETC/svn_remote의_주소_변경.md) - Mon Jun 27 09:42:38 2022 +0900
-- [LTE 호처리](Moblie/LTE_호처리.md) - Wed Jun 22 10:25:38 2022 +0900
 
 ### Categories
 
@@ -93,6 +93,7 @@ _78 TILs and counting..._
 
 ### [Linux](#Linux)
 - [CentOS 7 GUI에서 Shell Script를  더블클릭으로 실행하기](Linux/CentOS_7_shell_script_gui_더블클릭_실행.md)
+- [Ubuntu 20.04에 KVM 설치하기](Linux/How_To_Install_KVM_on_Ubuntu_20.04.md)
 - [IPC 관련 명령어 사용법(`ipcs`, `ipcrm`)](Linux/IPC_관련_명령어_사용법_ipcs_ipcrm.md)
 - [`find` 명령어 `-exec` 옵션 사용법(특정 파일 문자열 치환)](Linux/find_명령어_exec_옵션_사용법(특정_파일_문자열_치환).md)
 - [`find` 명령어 사용법](Linux/find_명령어_사용법.md)
