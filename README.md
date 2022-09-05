@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_80 TILs and counting..._
+_81 TILs and counting..._
 
 ---
 
@@ -58,6 +58,7 @@ _80 TILs and counting..._
 
 ### [ETC](#ETC)
 - [git clone 중에 'fatal: unable to checkout working tree' 에러 해결 방법](ETC/git_fatal_unable_to_checkout_working_tree_해결법.md)
+- [jenkins alpine 리눅스 Publish over SSH Auth Error](ETC/jenkins_alpine_ssh_error.md)
 - [jenkins Github SSH 에러 (No ECDSA host key...)](ETC/jenkins_ssh_error.md)
 - [macOS에서 숨겨진 파일, 숨은 폴더 확인 하는 법](ETC/macOS_숨겨진파일_보기.md)
 - [라즈베리파이 4 gpio를 이용한 팬 컨트롤 (bash script)](ETC/raspberry_pi_gpio_fan_control.md)
