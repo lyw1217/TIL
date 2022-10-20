@@ -4,15 +4,15 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_83 TILs and counting..._
+_84 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [하이픈(`-`)으로 시작하는 파일 삭제하기](Linux/하이픈(-)_시작_파일명_삭제.md) - Thu Oct 20 20:14:02 2022 +0900
 - [kubernetes 오브젝트 이름과 ID](Infra/k8s_object_name_id.md) - Thu Oct 13 23:33:20 2022 +0900
 - [jenkins Github SSH 에러 (No ECDSA host key...)](ETC/jenkins_ssh_error.md) - Wed Aug 31 16:04:30 2022 +0900
-- [Ubuntu 20.04에 KVM 설치하기](Linux/How_To_Install_KVM_on_Ubuntu_20.04.md) - Fri Aug 12 16:38:00 2022 +0900
 
 ### Categories
 
@@ -110,6 +110,7 @@ _83 TILs and counting..._
 - [`tcpdump` 명령어 사용법](Linux/tcpdump_명령어_사용법.md)
 - [`wc` 명령어 사용법](Linux/wc_명령어_사용법.md)
 - [리눅스 계정 관련 명령어](Linux/리눅스_계정_관련_명령어.md)
+- [하이픈(`-`)으로 시작하는 파일 삭제하기](Linux/하이픈(-)_시작_파일명_삭제.md)
 
 ### [Make](#Make)
 - [Makefile 에서 `if else` 문 사용하기](Make/Makefile_if_else.md)
