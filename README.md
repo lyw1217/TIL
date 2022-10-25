@@ -4,15 +4,15 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_84 TILs and counting..._
+_85 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [hostname(domain)을 alias 설정하는 방법](Linux/hostname_alias_거는_법.md) - Tue Oct 25 13:32:20 2022 +0900
 - [하이픈(`-`)으로 시작하는 파일 삭제하기](Linux/하이픈(-)_시작_파일명_삭제.md) - Thu Oct 20 20:14:02 2022 +0900
 - [kubernetes 오브젝트 이름과 ID](Infra/k8s_object_name_id.md) - Thu Oct 13 23:33:20 2022 +0900
-- [jenkins Github SSH 에러 (No ECDSA host key...)](ETC/jenkins_ssh_error.md) - Wed Aug 31 16:04:30 2022 +0900
 
 ### Categories
 
@@ -102,6 +102,7 @@ _84 TILs and counting..._
 - [`find` 명령어 `-exec` 옵션 사용법(특정 파일 문자열 치환)](Linux/find_명령어_exec_옵션_사용법(특정_파일_문자열_치환).md)
 - [`find` 명령어 사용법](Linux/find_명령어_사용법.md)
 - [`grep` 명령어 사용법](Linux/grep_명령어_사용법.md)
+- [hostname(domain)을 alias 설정하는 방법](Linux/hostname_alias_거는_법.md)
 - [/lib, /lib64 의 심볼릭 링크를 삭제했을 때 해결 방법](Linux/lib_심볼릭_링크를_삭제했을_때.md)
 - [`ls` 명령어 사용법](Linux/ls_명령어_사용법.md)
 - [`screen` 명령어 사용법](Linux/screen_명령어_사용법.md)
