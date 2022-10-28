@@ -7,12 +7,12 @@
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 
-192.168.0.15   test.domain.example
+192.168.0.15   realdomain
 ```
 
-위 내용은 `test.domain.example` 이라는 도메인이 `192.168.0.15` IP에 연결되어있다는 의미이다.
+위 내용은 `fakedomain` 이라는 도메인이 `192.168.0.15` IP에 연결되어있다는 의미이다.
 
-그렇다면 `alias.domain.example` 이라는 도메인을 `test.domain.example` 과 연결하고 싶다면 어떻게 해야할까?
+그렇다면 `fakedomain` 이라는 도메인을 `realdomain` 과 연결하고 싶다면 어떻게 해야할까?
 
 ## 방법 1
 
@@ -23,7 +23,7 @@
 ## 방법 2 (getaddrinfo(3) 또는 gethostbyname(3) 을 사용하는 경우에만 사용 가능)
 
 ```
-echo "alias.domain.example  test.domain.example" > /etc/host.aliases
+echo "fakedomain  realdomain" > /etc/host.aliases
 echo "export HOSTALIASES=/etc/host.aliases" >> /etc/profile
 . /etc/profile
 ```
@@ -32,7 +32,7 @@ echo "export HOSTALIASES=/etc/host.aliases" >> /etc/profile
 
 파일의 이름이나 위치는 굳이 중요하지 않아보인다.
 
-그렇게 되면 `alias.domain.example` 도메인에 연결하면 `test.domain.example` 로 연결할 수 있게 된다.
+그렇게 되면 `fakedomain` 도메인에 연결하면 `realdomain` 로 연결할 수 있게 된다.
 
 (테스트 환경 : centos7.5)
 
@@ -44,5 +44,18 @@ echo "export HOSTALIASES=/etc/host.aliases" >> /etc/profile
 
 - 쿠버네티스 DNS를 이용하면 방법 1로 사용 가능해보이지만, 방법 2로 더 간단히 사용할 수 있어서 일단은 그렇게 했다.
 
+## 주의사항
+
+테스트 중 `test-ipc1` 은 정상적으로 작동 했으나 `test.ipc1` 은 인식하지 못해서 찾아봤더니
+
+[여기](https://man7.org/linux/man-pages/man3/gethostbyname.3.html)를 보면 
+
+> If the name consists of a single component, that is, contains no dot, and if the environment variable HOSTALIASES is set to the name of a file, that file is searched for any string matching the input hostname. 
+
+점(dot)이 포함되지 않은 이름이어야 한다고 나와있다.
+
+
 ### 참고 자료
 - https://serverfault.com/questions/65199/is-it-possible-to-alias-a-hostname-in-linux
+- https://man7.org/linux/man-pages/man3/gethostbyname.3.html
+- https://man7.org/linux/man-pages/man7/hostname.7.html
