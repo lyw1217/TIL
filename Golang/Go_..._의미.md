@@ -14,11 +14,13 @@ go get -d -v ./... && go build -v ./...
 
 `go help packages` 를 수행하면 나오는 설명 중 아래 내용을 확인해보면 된다.
 
-> An import path is a pattern if it includes one or more "..." wildcards,
-> each of which can match any string, including the empty string and
-> strings containing slashes. Such a pattern expands to all package
-> directories found in the GOPATH trees with names matching the
-> patterns.
+```
+An import path is a pattern if it includes one or more "..." wildcards,
+each of which can match any string, including the empty string and
+strings containing slashes. Such a pattern expands to all package
+directories found in the GOPATH trees with names matching the
+patterns.
+```
 
 즉, 모든 하위 디렉토리를 재귀적으로 나타내는 와일드카드 개념인 것 같다.
 
