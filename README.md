@@ -4,15 +4,15 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_87 TILs and counting..._
+_88 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [python f-string 문자열 정렬하는 방법](Python/f-string_정렬.md) - Thu Dec 29 17:34:17 2022 +0900
 - [`Go 언어` 명령어 중 `...` 의미](Golang/Go_..._의미.md) - Thu Nov 24 16:50:16 2022 +0900
 - [hostname(domain)을 alias 설정하는 방법](Linux/hostname_alias_거는_법.md) - Tue Oct 25 13:32:20 2022 +0900
-- [하이픈(`-`)으로 시작하는 파일 삭제하기](Linux/하이픈(-)_시작_파일명_삭제.md) - Thu Oct 20 20:14:02 2022 +0900
 
 ### Categories
 
@@ -144,6 +144,7 @@ _87 TILs and counting..._
 
 ### [Python](#Python)
 - [UnicodeDecodeError: 'cp949' 에러 해결 방법](Python/UnicodeDecodeError_cp949_해결방법.md)
+- [python f-string 문자열 정렬하는 방법](Python/f-string_정렬.md)
 - [Python 파이썬에서 파일 다루기(읽기, 쓰기)](Python/파이썬에서_파일_다루기.md)
 
 ### [Web](#Web)
