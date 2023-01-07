@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_88 TILs and counting..._
+_89 TILs and counting..._
 
 ---
 
@@ -144,6 +144,7 @@ _88 TILs and counting..._
 
 ### [Python](#Python)
 - [UnicodeDecodeError: 'cp949' 에러 해결 방법](Python/UnicodeDecodeError_cp949_해결방법.md)
+- [python f-string `{`, `}` 출력하는 방법](Python/f-string_escape.md)
 - [python f-string 문자열 정렬하는 방법](Python/f-string_정렬.md)
 - [Python 파이썬에서 파일 다루기(읽기, 쓰기)](Python/파이썬에서_파일_다루기.md)
 
