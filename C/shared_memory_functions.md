@@ -11,53 +11,59 @@
 
 -----------------------------------------
 ## - 공유 메모리와 관련된 함수들
-    #include <sys/ipc.h>
-    #include <sys/shm.h>
-    
-    int shmget(key_t key, size_t size, int shmflg);             : 공유메모리 get
-    int shmctl(int shmid, int cmd, struct shmid_ds *buf);       : 공유메모리 control
-    ----------------------------------------------------------
-    #include <sys/types.h>
-    #include <sys/shm.h>
+```c
+#include <sys/ipc.h>
+#include <sys/shm.h>
 
-    void *shmat(int shmid, const void *shmaddr, int shmflg);    : 공유메모리 attach
-    int shmdt(const void *shmaddr);                             : 공유메모리 detach
+int shmget(key_t key, size_t size, int shmflg);             : 공유메모리 get
+int shmctl(int shmid, int cmd, struct shmid_ds *buf);       : 공유메모리 control
+----------------------------------------------------------
+#include <sys/types.h>
+#include <sys/shm.h>
+
+void *shmat(int shmid, const void *shmaddr, int shmflg);    : 공유메모리 attach
+int shmdt(const void *shmaddr);                             : 공유메모리 detach
+```
 
 ## - 공유 메모리와 관련된 구조체
-    <sys/shm.h> 에 정의되어 있다.
+```c
+<sys/shm.h> 에 정의되어 있다.
 
-    struct shmid_ds {
-        struct ipc_perm shm_perm;    /* 소유권과 권한 */
-        size_t          shm_segsz;   /* 메모리 공간의 크기 (bytes) */
-        time_t          shm_atime;   /* 마지막 attach 시간 */
-        time_t          shm_dtime;   /* 마지막 detach 시간 */
-        time_t          shm_ctime;   /* Creation time/ shmctl()에 의해
-                                        마지막으로 변경된 시간 */
-        pid_t           shm_cpid;    /* 생성 프로세스의 PID */
-        pid_t           shm_lpid;    /* 마지막으로 shmat(2)/shmdt(2) 한
-                                        프로세스의 PID */
-        shmatt_t        shm_nattch;  /* 현재 attach 한 프로세스의 수 */
-        ...
-    };
+struct shmid_ds {
+    struct ipc_perm shm_perm;    /* 소유권과 권한 */
+    size_t          shm_segsz;   /* 메모리 공간의 크기 (bytes) */
+    time_t          shm_atime;   /* 마지막 attach 시간 */
+    time_t          shm_dtime;   /* 마지막 detach 시간 */
+    time_t          shm_ctime;   /* Creation time/ shmctl()에 의해
+                                    마지막으로 변경된 시간 */
+    pid_t           shm_cpid;    /* 생성 프로세스의 PID */
+    pid_t           shm_lpid;    /* 마지막으로 shmat(2)/shmdt(2) 한
+                                    프로세스의 PID */
+    shmatt_t        shm_nattch;  /* 현재 attach 한 프로세스의 수 */
+    ...
+};
 
-    struct ipc_perm {
-        key_t          __key;       /* Key supplied to shmget(2) */
-        uid_t          uid;         /* Effective UID of owner */
-        gid_t          gid;         /* Effective GID of owner */
-        uid_t          cuid;        /* Effective UID of creator */
-        gid_t          cgid;        /* Effective GID of creator */
-        unsigned short mode;        /* Permissions + SHM_DEST and
-                                       SHM_LOCKED flags */
-        unsigned short __seq;       /* Sequence number */
-    };
+struct ipc_perm {
+    key_t          __key;       /* Key supplied to shmget(2) */
+    uid_t          uid;         /* Effective UID of owner */
+    gid_t          gid;         /* Effective GID of owner */
+    uid_t          cuid;        /* Effective UID of creator */
+    gid_t          cgid;        /* Effective GID of creator */
+    unsigned short mode;        /* Permissions + SHM_DEST and
+                                    SHM_LOCKED flags */
+    unsigned short __seq;       /* Sequence number */
+};
+```
 
 -----------------------------------------
 ## 1. _**`shmget()`**_ - 공유 메모리를 생성하거나 접근하기 위한 함수
 
-    #include <sys/ipc.h>
-    #include <sys/shm.h>
+```c
+#include <sys/ipc.h>
+#include <sys/shm.h>
 
-    int shmget(key_t key, size_t size, int shmflg);
+int shmget(key_t key, size_t size, int shmflg);
+```
 
 ### 1.1. 매개 변수
 1. key_t *key*
@@ -90,10 +96,12 @@
 
 -----------------------------------------
 ## 2. _**`shmat()`**_ - 공유 메모리를 프로세스에서 사용할 수 있게 하는 함수
-    #include <sys/types.h>
-    #include <sys/shm.h>
+```c
+#include <sys/types.h>
+#include <sys/shm.h>
 
-    void *shmat(int shmid, const void *shmaddr, int shmflg);
+void *shmat(int shmid, const void *shmaddr, int shmflg);
+```
 
 ### 2.1. 매개 변수
    1. int *shmid*
@@ -127,10 +135,12 @@
 
 -----------------------------------------
 ## 3. _**`shmctl()`**_ - 공유 메모리를 제어하기 위한 함수
-    #include <sys/ipc.h>
-    #include <sys/shm.h>
+```c
+#include <sys/ipc.h>
+#include <sys/shm.h>
 
-    int shmctl(int shmid, int cmd, struct shmid_ds *buf);
+int shmctl(int shmid, int cmd, struct shmid_ds *buf);
+```
 
 ### 3.1. 매개 변수
    1. *shmid*
@@ -165,11 +175,12 @@
 
 -----------------------------------------
 ## 4. _**`shmdt()`**_ - 공유 메모리를 프로세스에서 분리하기 위한 함수
-    #include <sys/types.h>
-    #include <sys/shm.h>
+```c
+#include <sys/types.h>
+#include <sys/shm.h>
 
-    int shmdt(const void *shmaddr);
-
+int shmdt(const void *shmaddr);
+```
 ### 4.1. 매개 변수
    1. *shmaddr*
 

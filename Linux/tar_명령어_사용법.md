@@ -15,16 +15,18 @@ tar 명령어는 여러 개의 파일을 하나의 파일로 묶거나 풀 때 �
 
 ## 2. `tar` 명령어 사용법
 
-    tar [OPTION...] [FILE]...
+```shell
+tar [OPTION...] [FILE]...
 
-    tar -cf archive.tar foo bar
-        # foo 와 bar 파일을 묶어서 archive.tar 파일 생성
+tar -cf archive.tar foo bar
+    # foo 와 bar 파일을 묶어서 archive.tar 파일 생성
 
-    tar -tvf archive.tar
-        # archive.tar 파일 안의 모든 파일의 리스트 출력 (묶인 파일들이 풀리지는 않는다)
+tar -tvf archive.tar
+    # archive.tar 파일 안의 모든 파일의 리스트 출력 (묶인 파일들이 풀리지는 않는다)
 
-    tar -xf archive.tar
-        # archive.tar 파일 안의 모든 파일을 현재 디렉토리에 풀기
+tar -xf archive.tar
+    # archive.tar 파일 안의 모든 파일을 현재 디렉토리에 풀기
+```
 
 tar 명령어의 자세한 사용법은 사용 예시를 참고.
 
@@ -32,35 +34,37 @@ tar 명령어의 자세한 사용법은 사용 예시를 참고.
 
 tar 명령어의 옵션도 매우 많지만 자주 사용하는 옵션 위주로 나열했다.
 
-    -c, --create
-        파일들을 하나로 묶을 때 사용
+```shell
+-c, --create
+    파일들을 하나로 묶을 때 사용
 
-    -t, --list
-        어떤 파일들이 묶여 있는지 확인
+-t, --list
+    어떤 파일들이 묶여 있는지 확인
 
-    -x, --extract, --get
-        아카이브로부터 추출 (묶인 파일을 풀 때 사용)
+-x, --extract, --get
+    아카이브로부터 추출 (묶인 파일을 풀 때 사용)
 
-    -f, --file=ARCHIVE
-        아카이브 파일 지정 (default로 포함되는 옵션이라고 생각하면 된다)
+-f, --file=ARCHIVE
+    아카이브 파일 지정 (default로 포함되는 옵션이라고 생각하면 된다)
 
-    -j, --bzip2
-        bzip2 압축 방식 적용
+-j, --bzip2
+    bzip2 압축 방식 적용
 
-    -z, --gzip
-        gzip 압축 방식 적용
+-z, --gzip
+    gzip 압축 방식 적용
 
-    --exclude=PATTERN
-        파일을 묶을 때 제외할 파일들 지정할 때 사용
+--exclude=PATTERN
+    파일을 묶을 때 제외할 파일들 지정할 때 사용
 
-    -v, --verbose
-        진행 과정을 출력
+-v, --verbose
+    진행 과정을 출력
 
-    -w, --interactive, --confirmation
-        모든 진행 과정에 대해 확인 요청
+-w, --interactive, --confirmation
+    모든 진행 과정에 대해 확인 요청
 
-    -C, --directory=DIR
-        디렉토리 지정
+-C, --directory=DIR
+    디렉토리 지정
+```
 
 ## 4. tar 명령어 사용 예시
 
@@ -79,11 +83,13 @@ _파일 3개 : example.txt, text.txt, wiki.txt_
 
 여기에서 `archive.tar` 라는 이름으로 5개 전부 하나의 파일로 묶는 명령어는 아래와 같다.
 
-    tar -cvf archive.tar *        # 현재 디렉토리에 있는 모든(*)것들을 archive.tar로 묶기
+```shell
+tar -cvf archive.tar *        # 현재 디렉토리에 있는 모든(*)것들을 archive.tar로 묶기
 
-    # c 옵션을 통해 하나로 묶이게 되며
-    # v 옵션을 통해 진행 상황이 출력될 것이고
-    # f 옵션을 통해 archive.tar 라는 파일로 지정할 수 있게 되었다.
+# c 옵션을 통해 하나로 묶이게 되며
+# v 옵션을 통해 진행 상황이 출력될 것이고
+# f 옵션을 통해 archive.tar 라는 파일로 지정할 수 있게 되었다.
+```
 
 <p align="center"><img src="images/tar_3.png" alt="명령어 실행 결과 archive.tar 생성"></p>
 <p align="center">명령어 실행 결과 archive.tar 생성</p>
@@ -105,9 +111,11 @@ _파일 3개 : example.txt, text.txt, wiki.txt_
 
 이 세가지 파일만 `text_files.tar` 라는 이름으로 묶어보겠다.
 
-    tar -cvf text_files.tar example.txt text.txt wiki.txt
+```shell
+tar -cvf text_files.tar example.txt text.txt wiki.txt
 
-    # example.txt, text.txt, wiki.txt 파일들을 text_files.tar 라는 이름으로 묶기
+# example.txt, text.txt, wiki.txt 파일들을 text_files.tar 라는 이름으로 묶기
+```
 
 <p align="center"><img src="images/tar_5.png" alt="명령어 실행 결과 text_files.tar 생성"></p>
 <p align="center">명령어 실행 결과 text_files.tar 생성</p>
@@ -118,8 +126,10 @@ _파일 3개 : example.txt, text.txt, wiki.txt_
 
 이런 경우 하나하나 지정해줄 필요 없이 아래와 같은 명령어로 한 번에 여러 파일을 지정해줄 수 있다.
 
-    tar -cvf text_files.tar *.txt
-    # 현재 디렉토리 내 모든 파일 중 파일명 뒤에 '.txt' 가 붙은 파일들은 모두 선택된다.
+```shell
+tar -cvf text_files.tar *.txt
+# 현재 디렉토리 내 모든 파일 중 파일명 뒤에 '.txt' 가 붙은 파일들은 모두 선택된다.
+```
 
 결과는 위와 동일하다.
 
@@ -129,8 +139,10 @@ _파일 3개 : example.txt, text.txt, wiki.txt_
 
 아래처럼 명령어를 수행하면 현재 디렉토리에 tar로 묶었던 파일들을 풀 수 있다.
 
-    tar -xvf archive.tar
-    # 현재 디렉토리에 archive.tar 로 묶인 파일들을 풀어낸다.
+```shell
+tar -xvf archive.tar
+# 현재 디렉토리에 archive.tar 로 묶인 파일들을 풀어낸다.
+```
 
 <p align="center"><img src="images/tar_6.png" alt="묶었던 파일들이 그대로 있는데 동일한 위치에 풀면 어떻게 될까"></p>
 <p align="center">묶었던 파일들이 그대로 있는데 동일한 위치에 풀면 어떻게 될까</p>
@@ -152,8 +164,10 @@ tar 명령어를 이용해 묶인 걸 풀더라도 overwrite 되고 실제로 �
 
 tar 파일을 옮기지 않고 제자리에서 내가 원하는 디렉토리에 파일들을 풀고 싶을 땐 C 옵션을 이용하면 된다.
 
-    tar -xvf archive.tar -C ./TEST1
-    # TEST1 이라는 디렉토리 안에 archive.tar 로 묶인 파일들을 풀어낸다.
+```shell
+tar -xvf archive.tar -C ./TEST1
+# TEST1 이라는 디렉토리 안에 archive.tar 로 묶인 파일들을 풀어낸다.
+```
 
 <p align="center"><img src="images/tar_8.png" alt="TEST1 디렉토리 안에 파일들이 풀렸다."></p>
 <p align="center">TEST1 디렉토리 안에 파일들이 풀렸다.</p>
@@ -162,8 +176,10 @@ tar 파일을 옮기지 않고 제자리에서 내가 원하는 디렉토리에 
 
 풀기 전에 어떤 파일들이 있는지 알고 싶을 때에는 t 옵션을 이용하면 된다.
 
-    tar -tvf archive.tar
-    # archive.tar 로 묶인 파일들의 목록을 출력한다.
+```shell
+tar -tvf archive.tar
+# archive.tar 로 묶인 파일들의 목록을 출력한다.
+```
 
 <p align="center"><img src="images/tar_9.png" alt="archive.tar 안의 내용물이 보인다"></p>
 <p align="center">archive.tar 안의 내용물이 보인다</p>
@@ -178,10 +194,12 @@ tar 명령어는 기본적으로 압축을 하는 것은 아니다. 그러나 �
 
 예시로, text 파일 3개를 그냥 묶고, gzip으로 묶어서 용량을 비교해보겠다.
 
-    tar -zcvf archive.tar.gz *
+```shell
+tar -zcvf archive.tar.gz *
 
-    # gzip 방식을 이용하여, 현재 디렉토리의 모든 파일을 archive.tar.gz 로 묶고 압축한다.
-    # .tar.gz == .tgz 로 줄여서 사용 가능하다.
+# gzip 방식을 이용하여, 현재 디렉토리의 모든 파일을 archive.tar.gz 로 묶고 압축한다.
+# .tar.gz == .tgz 로 줄여서 사용 가능하다.
+```
 
 <p align="center"><img src="images/tar_10.png" alt="그냥 묶은 것과, gzip으로 압축한 것"></p>
 <p align="center">그냥 묶은 것과, gzip으로 압축한 것</p>

@@ -10,23 +10,29 @@ make 에서 조건문은 단순하고 은근히 까다롭다. 사용할 때 주�
 - endif : 조건을 종료한다. 모든 조건은 반드시 endif로 종료해야 한다. 
 
 ## Makefile 조건문 예시
-    libs_for_gcc = -lgnu
-    normal_libs =
+```shell
+libs_for_gcc = -lgnu
+normal_libs =
 
-    foo: $(objects)
-    ifeq ($(CC),gcc)
-            $(CC) -o foo $(objects) $(libs_for_gcc)
-    else
-            $(CC) -o foo $(objects) $(normal_libs)
-    endif
+foo: $(objects)
+ifeq ($(CC),gcc)
+        $(CC) -o foo $(objects) $(libs_for_gcc)
+else
+        $(CC) -o foo $(objects) $(normal_libs)
+endif
+```
 
 변수 'CC'가 'gcc' 일 때 조건이 참이므로, ifeq 아래의
 
-    $(CC) -o foo $(objects) $(libs_for_gcc)
+```shell
+$(CC) -o foo $(objects) $(libs_for_gcc)
+```
 
 가 수행되며, 'gcc' 가 아닐 경우 조건이 거짓이므로, else 아래의
-    
-    $(CC) -o foo $(objects) $(normal_libs)
+
+```shell    
+$(CC) -o foo $(objects) $(normal_libs)
+```
 
 가 수행된다.
 

@@ -14,11 +14,13 @@
 
 기본적으로 설치되어있는 경우도 있지만, 설치되어 있지 않다면 배포판에 따라 아래와 같은 명령어로 설치하면 된다.
 
-    RedHat 계열
-    yum install screen
+```shell
+# RedHat 계열
+yum install screen
 
-    Debian 계열
-    apt install screen
+# Debian 계열
+apt install screen
+```
 
 ## `screen` 명령어 사용법
 
@@ -26,39 +28,39 @@ screen 명령어는 실행 전 옵션(command-line options), 실행 후 커맨�
 
 실행 후 커맨드는 screen에 진입한 상태에서 단축키 누르듯 커맨드를 동시에 입력하면 수행된다.
 
-    실행 전 옵션(command-line options)
-    screen [ -options ] [ cmd [ args ] ]
-        -ls and -list
-            실행 중인 screen 리스트를 보여준다. 
-            'detached' : 세션에 아무도 attach하지 않은 상태(-r 옵션으로 접근 가능)
-            'attached' : 해당 세션에 attach하여 터미널을 컨트롤 중인 경우
-            'multi'    : multiuser mode로 세션이 동작 중인 경우(여러 명이 세션에 attach 중인 경우)
-        -S [sessionname]
-            새로운 세션을 생성할 때, 세션의 이름을 지정한다.
-        -R [sessionname]
-            'detached' 상태인 세션으로 재진입하기 위해 사용하는 옵션으로, sessionname에 해당하는 세션이 없다면 새로 생성한다.
-            세션을 새로 생성하고 싶지 않으면 -r 옵션을 사용
-        -x [sessionname]
-            'attached' 상태인 세션으로 진입하기 위해 사용하는 옵션 (Multi display mode)
+```shell
+실행 전 옵션(command-line options)
+screen [ -options ] [ cmd [ args ] ]
+    -ls and -list
+        실행 중인 screen 리스트를 보여준다. 
+        'detached' : 세션에 아무도 attach하지 않은 상태(-r 옵션으로 접근 가능)
+        'attached' : 해당 세션에 attach하여 터미널을 컨트롤 중인 경우
+        'multi'    : multiuser mode로 세션이 동작 중인 경우(여러 명이 세션에 attach 중인 경우)
+    -S [sessionname]
+        새로운 세션을 생성할 때, 세션의 이름을 지정한다.
+    -R [sessionname]
+        'detached' 상태인 세션으로 재진입하기 위해 사용하는 옵션으로, sessionname에 해당하는 세션이 없다면 새로 생성한다.
+        세션을 새로 생성하고 싶지 않으면 -r 옵션을 사용
+    -x [sessionname]
+        'attached' 상태인 세션으로 진입하기 위해 사용하는 옵션 (Multi display mode)
 
-    실행 후 커맨드(default key bindings)
-        기본적으로 screen 의 커맨드는 'Ctrl + a' 의 조합으로 시작된다. 'Ctrl + a' 는 줄여서 'C-a'로 작성하겠다.
-        C-a a
-            바로 전 창으로 이동
-        C-a c   (create)
-            새로운 창을 생성하고 그 창으로 이동한다.
-        C-a d   (detach)
-            현재 터미널로부터 detach 한다. (현재 터미널에서 진행 중인 작업은 유지하면서, screen에서만 빠져나온다.)
-        C-a n   (next)
-            다음 창으로 이동
-        C-a p   (previous)
-            이전 창으로 이동
-        C-a k   (kill)
-            현재 터미널을 종료(terminate)하면서 screen에서 빠져나간다.
-        
-        
+실행 후 커맨드(default key bindings)
+    기본적으로 screen 의 커맨드는 'Ctrl + a' 의 조합으로 시작된다. 'Ctrl + a' 는 줄여서 'C-a'로 작성하겠다.
+    C-a a
+        바로 전 창으로 이동
+    C-a c   (create)
+        새로운 창을 생성하고 그 창으로 이동한다.
+    C-a d   (detach)
+        현재 터미널로부터 detach 한다. (현재 터미널에서 진행 중인 작업은 유지하면서, screen에서만 빠져나온다.)
+    C-a n   (next)
+        다음 창으로 이동
+    C-a p   (previous)
+        이전 창으로 이동
+    C-a k   (kill)
+        현재 터미널을 종료(terminate)하면서 screen에서 빠져나간다.
     
-    screen에 진입한 상태에서 쉘에 `exit` 명령어를 수행하면 screen 세션을 종료하고 완전히 빠져나오게 된다.
+screen에 진입한 상태에서 쉘에 `exit` 명령어를 수행하면 screen 세션을 종료하고 완전히 빠져나오게 된다.
+```
 
 다른 옵션은 screen의 man page를 참고.
 

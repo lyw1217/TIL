@@ -18,13 +18,13 @@
 1. 터미널을 연다.
 2. 아래의 명령어를 원하는 설정에 맞추어 입력한다.
 
+```bash
+# 숨김 속성의 파일과 폴더가 보이도록 설정하기
+defaults write com.apple.finder AppleShowAllFiles TRUE;killall Finder
 
-    숨김 속성의 파일과 폴더가 보이도록 설정하기
-    defaults write com.apple.finder AppleShowAllFiles TRUE;killall Finder
-
-    숨김 속성의 파일과 폴더가 보이지 않도록 설정하기
-    defaults write com.apple.Finder AppleShowAllFiles FALSE;killall Finder
-
+# 숨김 속성의 파일과 폴더가 보이지 않도록 설정하기
+defaults write com.apple.Finder AppleShowAllFiles FALSE;killall Finder
+```
 ----------
 ## 주의 사항
 숨겨진 파일을 삭제하거나 수정하면 시스템에 문제가 발생할 수 있을 뿐만 아니라 되돌릴 수 없으므로 정확히 숙지한 상태에서 변경해야한다.

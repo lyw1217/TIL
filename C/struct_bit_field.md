@@ -4,26 +4,26 @@
 **`정수형`** 데이터를 **`비트`** 단위로 나누어서 사용할 수 있다.
 이를 구조체의 Bit Field 라고 한다.
 
-~~~
+```c
 struct 구조체명 {
     unsigned 정수형 이름1   :비트수 ;
     unsigned 정수형 이름2   :비트수 ;
     ...
 };
-~~~
+```
 
-사용 가능한 정수 자료형의 종류
-> - char
-> - short
-> - int
-> - long
+### 사용 가능한 정수 자료형의 종류
+- char
+- short
+- int
+- long
 
-double, float 과 같은 실수 자료형은 사용할 수 없다.
+> double, float 과 같은 실수 자료형은 사용할 수 없다.
 
 
 ## 사용 예시
 1. PLMN ID ( MCC + MNC )
-    ~~~
+    ```c
     struct PlmnId {
         uint8_t     mcc1    :4;
         uint8_t     mcc2    :4;
@@ -32,7 +32,7 @@ double, float 과 같은 실수 자료형은 사용할 수 없다.
         uint8_t     mnc1    :4;
         uint8_t     mnc2    :4;
     };
-    ~~~
+    ```
     이 Bit Field 구조체는 총 24bit를 관리할 수 있는 형태가 되며,
 
     데이터 타입의 크기인 8bit 보다 전체 bit field의 합이 더 크기 때문에,
