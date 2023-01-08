@@ -2,16 +2,18 @@
 
 ## 함수 선언 및 사용
 
-    #!/bin/bash
-    
-    # 함수 선언
-    function 함수명()
-    {
-        함수 내용
-    }
+```bash
+#!/bin/bash
 
-    # 함수 사용
-    함수명
+# 함수 선언
+function 함수명()
+{
+    함수 내용
+}
+
+# 함수 사용
+함수명
+```
 
 ### 주의 사항
 
@@ -21,16 +23,20 @@
 
 ### 예시
 
-    #!/bin/bash
-    func_echo()
-    {
-        echo "Test function"
-    }
+```bash
+#!/bin/bash
+func_echo()
+{
+    echo "Test function"
+}
 
-    func_echo
+func_echo
+```
 
-    [출력 결과]
-    Test function
+```
+[출력 결과]
+Test function
+```
 
 ## 지역변수 사용 방법
 
@@ -39,38 +45,44 @@
 
 ### 예시
 
-    #!/bin/bash
-    
-    var="abc"
+```bash
+#!/bin/bash
+
+var="abc"
+echo ${var}
+
+func_local_var()
+{
+    local var="def"
     echo ${var}
+}
 
-    func_local_var()
-    {
-        local var="def"
-        echo ${var}
-    }
+func_local_var
+echo ${var}
+```
 
-    func_local_var
-    echo ${var}
-
-    [출력 결과]
-    abc
-    def
-    abc
+```
+[출력 결과]
+abc
+def
+abc
+```
 
 ## 함수 인자 전달 방법
 
-    #!/bin/bash
-    
-    # 함수 선언
-    function 함수명()
-    {
-        함수 내용
-        # $1 : 인자1, $2 : 인자2 ...
-    }
+```bash
+#!/bin/bash
 
-    # 함수 사용
-    함수명 인자1 인자2 ...
+# 함수 선언
+function 함수명()
+{
+    함수 내용
+    # $1 : 인자1, $2 : 인자2 ...
+}
+
+# 함수 사용
+함수명 인자1 인자2 ...
+```
 
 함수명 뒤에 인자들을 공백으로 구분하여 나열하면 인자를 전달할 수 있다.
 
@@ -78,21 +90,25 @@
 
 ### 예시
 
-    #!/bin/bash
+```bash
+#!/bin/bash
 
-    func_param_test()
-    {
-        echo "first parameter : "$1
-        echo "second parameter : "$2
-        echo "third parameter : "$3
-    }
+func_param_test()
+{
+    echo "first parameter : "$1
+    echo "second parameter : "$2
+    echo "third parameter : "$3
+}
 
-    func_param_test "abc" "def" "ghi"
+func_param_test "abc" "def" "ghi"
+```
 
-    [출력 결과]
-    first parameter : abc
-    second parameter : def
-    third parameter : ghi
+```
+[출력 결과]
+first parameter : abc
+second parameter : def
+third parameter : ghi
+```
 
 ## 함수 결과값(반환값) 전달 방법
 

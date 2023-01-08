@@ -5,12 +5,12 @@
 ssh 명령어의 manpage에서, 아래와 같은 Synopsis를 확인할 수 있다.
 
     ssh [-afgknqstvxACNTX1246] [-b bind_address] [-m mac_spec] 
-     [-c cipher_spec] [-e escape_char] [-i identity_file] 
-     [-i PKCS#11-URI]
-     [-l login_name] [-F configfile] [-o option] [-p port] 
-     [-L [bind_address:]port:host:hostport]
-     [-R [bind_address:]port:host:hostport]
-     [-D [bind_address:]port] hostname | user@hostname [command]
+        [-c cipher_spec] [-e escape_char] [-i identity_file] 
+        [-i PKCS#11-URI]
+        [-l login_name] [-F configfile] [-o option] [-p port] 
+        [-L [bind_address:]port:host:hostport]
+        [-R [bind_address:]port:host:hostport]
+        [-D [bind_address:]port] hostname | user@hostname [command]
     
 여기서 맨 윗 줄과 아랫 줄만 빼서 보면 아래와 같이 줄일 수 있다.
 
@@ -39,32 +39,32 @@ ssh 명령어의 manpage에서, 아래와 같은 Synopsis를 확인할 수 있�
 
 ### 별도의 쉘스크립트를 만들고 원격에 스크립트 해석기를 실행시키고 파이프나 리다이렉션으로 보내는 방법
     
-    [test_script.sh]
+```bash
+#!/bin/bash
+ls -al
+df
 
-    #!/bin/bash
-    ls -al
-    df
+# 파이프로 보내기
+cat test_script.sh | ssh myserver sh
 
-    # 파이프로 보내기
-    cat test_script.sh | ssh myserver sh
-    
-    # 리다이렉션으로 보내기
-    ssh user@server_ip sh < test_script.sh
+# 리다이렉션으로 보내기
+ssh user@server_ip sh < test_script.sh
+```
 
 ### 여러 서버에 루프를 돌면서 지정한 스크립트를 실행하는 스크립트
 
-    [test_script.sh]
-
-    #!/bin/bash
-    SERVERS="
-    hostname1
-    hostname2
-    "
-    for s in $SERVERS
-    do
-        ssh $s sh < test_script.sh               # 순차적으로 실행
-        # ssh $s sh < test_script.sh > $m.log &  # 백그라운드에서 실행
-    done
+```bash
+#!/bin/bash
+SERVERS="
+hostname1
+hostname2
+"
+for s in $SERVERS
+do
+    ssh $s sh < test_script.sh               # 순차적으로 실행
+    # ssh $s sh < test_script.sh > $m.log &  # 백그라운드에서 실행
+done
+```
 
 ## 참고 자료
 - [ssh 원격 명령 실행](https://doitnow-man.tistory.com/2)

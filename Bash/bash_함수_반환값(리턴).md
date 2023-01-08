@@ -4,7 +4,7 @@
 
 개발바닥 유튜브에서 기술면접 질문에 대한 영상에서 향로님이 쉘 스크립트에서의 리턴은 일반 프로그래밍 언어와 다르다고 하는데,
 
-질문을 듣고 '어? 어떻게 다르더라?' 라는 생각부터 들었다.
+질문을 듣고 정답이 바로 떠오르지 않았다.
 
 그래서 찾아보고 정리해보기로 했다.
 
@@ -23,18 +23,20 @@
 
 가장 일반적인 방법으로 사용된다고 한다.
 
-    #/bin/bash
-    
-    foo()
-    {
-        val="test"
-        echo ${val}
-    }
-    
-    # 함수 foo 호출의 결과를 변수에 넣는다.
-    retval=$(foo)           # retval=`foo` 도 사용 가능
-    
-    echo ${retval}
+```bash
+#/bin/bash
+
+foo()
+{
+    val="test"
+    echo ${val}
+}
+
+# 함수 foo 호출의 결과를 변수에 넣는다.
+retval=$(foo)           # retval=`foo` 도 사용 가능
+
+echo ${retval}
+```
 
 스크립트 실행 결과는 "test" 가 출력된다.
 
@@ -47,18 +49,20 @@
 
 나는 이 방법밖에 모르고 살았다.
 
-    #/bin/bash
-    
-    retval=""
+```bash
+#/bin/bash
 
-    foo()
-    {
-        retval="test"
-    }
-    
-    foo
-    
-    echo ${retval}
+retval=""
+
+foo()
+{
+    retval="test"
+}
+
+foo
+
+echo ${retval}
+```
 
 스크립트 실행 결과는 [방법 1](#방법-1-echo-로-전달하기)과 동일하게 "test" 가 출력된다.
 
@@ -68,16 +72,18 @@
 
 이 방법은 정수(0~255)만 전달 가능하다. (사실상 에러 코드를 반환하는 것이다.)
 
-    #/bin/bash
-    
-    foo()
-    {
-        return 123
-    }
-    
-    foo
-    
-    echo $?
+```bash
+#/bin/bash
+
+foo()
+{
+    return 123
+}
+
+foo
+
+echo $?
+```
 
 스크립트 실행 결과는 "123" 이 출력된다.
 

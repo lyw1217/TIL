@@ -7,7 +7,7 @@
 
     변수명=값
 
-    (o)올바른 예시
+    (o) 올바른 예시
     encoding="UTF-8"
     
     -> encoding 이라는 변수에 UTF-8 이라는 값이 지정됨     
@@ -38,14 +38,14 @@
 
 ### 계산 결과를 출력(`echo`)
 
-    # var_test_1.sh
-
-    #!/usr/bin/env bash
-    echo $((3-1))   # 예상 결과 : 2
+```bash
+#!/usr/bin/env bash
+echo $((3-1))   # 예상 결과 : 2
+```
 
 위 코드를 실행한 결과는 예상 결과와 같이 '3-1'을 한 '2'가 출력되었다.
 
-![결과 확인](images/bash_integer_1.png)
+![결과 확인](../Linux/images/bash_integer_1.png)
 
 ### 계산 결과를 변수에 저장
 
@@ -53,37 +53,37 @@
 
 쉘 스크립트에서는 위에서 설명한 것과 같이 이중 괄호를 활용해서 정수형 변수를 다루어야 하는데, 방법은 아래와 같다.
 
-    # var_test_2.sh
+```bash
+#!/usr/bin/env bash
+# 1부터 5까지 반복문 외부의 변수(count)를 반복문 내부에서 증가시켜 출력해보자.
+count=1
+for i in {0..4}:
+do
+    echo "${count}"
+    count=$((count+1))
+done
+```
 
-    #!/usr/bin/env bash
-    # 1부터 5까지 반복문 외부의 변수(count)를 반복문 내부에서 증가시켜 출력해보자.
-    count=1
-    for i in {0..4}:
-    do
-        echo "${count}"
-        count=$((count+1))
-    done
-
-![결과 확인](images/bash_integer_2.png)
+![결과 확인](../Linux/images/bash_integer_2.png)
 
 또는 아래와 같은 방법들로도 사용할 수 있으니 편한 방법으로 사용하면 된다.
 
-    # var_test_3.sh
+```bash
+#!/usr/bin/env bash
+# 1부터 5까지 반복문 외부의 변수(a,b)를 반복문 내부에서 증가시켜 출력해보자.
+a=1
+b=1
+for i in {0..4}:
+do
+    echo "a = ${a}"
+    echo "b = ${b}"
+    ((a++))    # 방법 1
+    ((b+=1))   # 방법 2
+    echo ""
+done
+```
 
-    #!/usr/bin/env bash
-    # 1부터 5까지 반복문 외부의 변수(a,b)를 반복문 내부에서 증가시켜 출력해보자.
-    a=1
-    b=1
-    for i in {0..4}:
-    do
-        echo "a = ${a}"
-        echo "b = ${b}"
-        ((a++))    # 방법 1
-        ((b+=1))   # 방법 2
-        echo ""
-    done
-
-![결과 확인](images/bash_integer_3.png)
+![결과 확인](../Linux/images/bash_integer_3.png)
 
 
 ## 참고 자료

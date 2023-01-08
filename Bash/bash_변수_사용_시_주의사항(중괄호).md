@@ -10,11 +10,13 @@
 
 만약 중괄호로 묶지 않는다면 아래와 같은 비정상 동작이 발생할 수 있다.
 
-    #!bin/bash
+```bash
+#!bin/bash
 
-    var="def"
+var="def"
 
-    echo "abc$varghi"
+echo "abc$varghi"
+```
 
 |                  |             |
 | ---------------- | ----------- |
@@ -25,11 +27,13 @@
 
 ### 해결 방법은?
 
-    #!bin/bash
+```bash
+#!bin/bash
 
-    var="def"
+var="def"
 
-    echo "abc${var}ghi"
+echo "abc${var}ghi"
+```
 
 이처럼 변수를 중괄호로 묶어주면, 원하는 출력 결과를 얻을 수 있다.
 

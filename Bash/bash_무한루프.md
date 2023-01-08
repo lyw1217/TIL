@@ -5,22 +5,26 @@
 기본적으로, 무한루프는 반복문 안의 조건을 항상 참(true)으로 설정해서 무한정 반복문을 돌게 한다.
 
 ## for 반복문 예시
-    #!/usr/bin/env bash
+```bash
+#!/usr/bin/env bash
 
-    for (( ; ; ))   # 항상 참
-    do
-        echo "PRESS [Ctrl+c] TO STOP"
-        sleep 1
-    done
+for (( ; ; ))   # 항상 참
+do
+    echo "PRESS [Ctrl+c] TO STOP"
+    sleep 1
+done
+```
 
 ## while 반복문 예시
-    #!/usr/bin/env bash
+```bash
+#!/usr/bin/env bash
 
-    while true :   # 항상 참, true 는 생략해도 된다.
-    do
-        echo "PRESS [Ctrl+c] TO STOP"
-        sleep 1
-    done
+while true :   # 항상 참, true 는 생략해도 된다.
+do
+    echo "PRESS [Ctrl+c] TO STOP"
+    sleep 1
+done
+```
 
 ## 주의 사항
 

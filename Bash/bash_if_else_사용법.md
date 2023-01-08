@@ -45,37 +45,39 @@
 
 ## **문법**
 
-    #!/bin/bash
+```bash
+#!/bin/bash
 
-    if [ 조건식 ]   # 조건식에는 아래 비교 연산자를 활용
-    then
-        명령어
-    elif [ 조건식 ]
-    then
-        명령어
-    else
-        명령어
-    fi
+if [ 조건식 ]   # 조건식에는 아래 비교 연산자를 활용
+then
+    명령어
+elif [ 조건식 ]
+then
+    명령어
+else
+    명령어
+fi
 
-    # 아래처럼 줄여서 사용도 가능하다.
+# 아래처럼 줄여서 사용도 가능하다.
 
-    if [ 조건식 ]; then
-        명령어
-    elif [ 조건식 ]; then
-        명령어
-    else
-        명령어
-    fi
+if [ 조건식 ]; then
+    명령어
+elif [ 조건식 ]; then
+    명령어
+else
+    명령어
+fi
 
-    # 이중 괄호로 조건식을 묶으면 산술 연산자(>,< 등)를 사용할 수 있다.
+# 이중 괄호로 조건식을 묶으면 산술 연산자(>,< 등)를 사용할 수 있다.
 
-    if (( 조건식 )); then
-        명령어
-    elif (( 조건식 )); then
-        명령어
-    else
-        명령어
-    fi
+if (( 조건식 )); then
+    명령어
+elif (( 조건식 )); then
+    명령어
+else
+    명령어
+fi
+```
 
 *아래 연산자 관련 내용은 대부분 [kldp wiki](https://wiki.kldp.org/HOWTO/html/Adv-Bash-Scr-HOWTO/comparison-ops.html) 에서 가져왔습니다. 일부 내용을 제가 보기 편하도록 수정했습니다.*
 
@@ -268,6 +270,7 @@ suid 플래그가 걸린 파일은 퍼미션에 s라고 나타납니다.
 | --------------------------------------------------- | ---------------------------------- |
 | `if [ $variable = "wrong" ]`                        | `if [ "$variable" -eq "correct" ]` |
 | 쉘은 `if [ -eq "wrong" ]` 이렇게 인식함 (에러 발생) |                                    |
+
 ( variable 변수는 비어있는 상태 )
 
 ## 참고 자료
