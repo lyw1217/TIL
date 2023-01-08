@@ -75,7 +75,7 @@ _**walk a file hierarchy**_
 
 ## -exec 명령어 사용법
 
-[find 명령어 exec 옵션 사용법](find_명령어_exec_옵션_사용법.md) 참고
+[find 명령어 exec 옵션 사용법](./find_%EB%AA%85%EB%A0%B9%EC%96%B4_exec_%EC%98%B5%EC%85%98_%EC%82%AC%EC%9A%A9%EB%B2%95(%ED%8A%B9%EC%A0%95_%ED%8C%8C%EC%9D%BC_%EB%AC%B8%EC%9E%90%EC%97%B4_%EC%B9%98%ED%99%98).md) 참고
 
 ## 참고 자료
 - [BSD Manual Page](https://www.freebsd.org/cgi/man.cgi?find(1))
