@@ -9,77 +9,78 @@ IP 기반 멀티미디어(IM) 서비스
 
 이동가입자에게 하부에 IP 전송 프로토콜을 기반으로 하는 다양한 형태의 패킷 서비스들을 동시에 제공하는 것
 
-이를 위해 3GPP에서 제시하고 있는 논리적인 ALL IP 망 구조는 IM CN 서브시스템을 포함하고 있는데, IM CN 서브시스템의 중요한 기능 요소로는 Call Session Control Function(CSCF)와 Home Subscriber
-Server(HSS) 등이 있다. 
+이를 위해 3GPP에서 제시하고 있는 논리적인 ALL IP 망 구조는 IM CN 서브시스템을 포함하고 있는데, IM CN 서브시스템의 중요한 기능 요소로는 `Call Session Control Function`(CSCF)와 `Home Subscriber
+Server`(HSS) 등이 있다. 
 
-CSCF는 가입자가 위치하고 있는 망에 따라서 가입자의 세션과 서비스를 제어한다. 
+`CSCF`는 가입자가 위치하고 있는 망에 따라서 가입자의 세션과 서비스를 제어한다. 
 
-HSS는 가입자의 마스터 데이터베이스로 기존의 3G HLR의 모든 기능과 User Mobility Server(UMS) 기능을 가진다. 
+`HSS`는 가입자의 마스터 데이터베이스로 기존의 3G HLR의 모든 기능과 User Mobility Server(UMS) 기능을 가진다. 
 
 가입자가 기존의 음성, 영상 등의 실시간 서비스는 물론 파일전송, 이메일, 단문 메시지 등의 비 실시간 서비스를 동시에 사용할 수 있게 하거나 또는 이들 서비스를 이용한 새로운 서비스, 예를 들면 Video Phone, Instant Messaging, Emergency Call, Location 서비스, Presence 서비스 등을 이용할 수 있게 하는 것을 의미한다.
 
-![Reference Architecture of the IP Multimedia Core Network Subsystem](images/Reference%20Architecture%20of%20the%20IP%20Multimedia%20Core%20Network%20Subsystem.png)
+![Reference Architecture of the IP Multimedia Core Network Subsystem](https://raw.githubusercontent.com/lyw1217/TIL/main/Moblie/images/Reference%20Architecture%20of%20the%20IP%20Multimedia%20Core%20Network%20Subsystem.png)
 
 [3GPP TS 23.228 "IP Multimedia Subsystem (IMS); Stage 2", Figure 4.0: Reference Architecture of the IP Multimedia Core Network Subsystem]
 
 
 ## 2. IMS 주요 구성 요소
 
-1. CSCF(Call Sesstion Control Function)
+1. `CSCF` (Call Sesstion Control Function)
 
-    CSCF는 가입자가 위치하고 있는 망에 따라서 수행하는 기능이 다르므로 그 위치와 역할을 기준으로 해서 Proxy-CSCF, Interrogating CSCF, Serving CSCF로 논리적으로 구분할 수 있다.
+    `CSCF`는 가입자가 위치하고 있는 망에 따라서 수행하는 기능이 다르므로 그 위치와 역할을 기준으로 해서 `Proxy-CSCF`, `Interrogating CSCF`, `Serving CSCF`로 논리적으로 구분할 수 있다.
 
-   1. P-CSCF
+   1. `P-CSCF` (Proxy-CSCF)
         
-      - 사용자(UE)가 IMS 망에 접속하는 최초 Contact Point 역할
-      - UE로부터 수신한 SIP Regi 요청 메시지를 홈 I-CSCF에게 전달
-      - Emergency session을 검출하여 이를 처리할 S-CSCF를 선택
+      - 사용자(`UE`)가 IMS 망에 접속하는 _최초_ `Contact Point` 역할
+      - `UE`로부터 수신한 SIP Regi 요청 메시지를 홈 `I-CSCF`에게 전달
+      - Emergency session을 검출하여 이를 처리할 `S-CSCF`를 선택
    
-   2. I-CSCF
+   2. `I-CSCF` (Interrogating CSCF)
 
-      - 하나의 사업자 망(홈 망)에 대한 Contact Point 역할
-      - UE의 SIP Regi을 수행하는 S-CSCF의 주소를 HSS(UDM)로부터 수신한 후 실제 Regi을 담당할 S-CSCF를 할당
-      - 타 망으로부터 수신한 SIP 메시지를 S-CSCF로 라우팅
+      - 하나의 사업자 망(`홈 망`)에 대한 `Contact Point` 역할
+      - `UE`의 SIP Regi을 수행하는 `S-CSCF`의 주소를 `HSS(UDM)`로부터 수신한 후 실제 Regi을 담당할 `S-CSCF`를 할당
+      - 타 망으로부터 수신한 SIP 메시지를 `S-CSCF`로 라우팅
 
-   3. S-CSCF
+   3. `S-CSCF` (Serving CSCF)
 
-      - UE의 세션을 제어하는 서버임을 HSS에 등록하고, 이후 UE의 가입자 정보를 받아 저장 (HSS로부터 사용자 프로파일을 다운로드하고 업로드)
+      - `UE`의 세션을 제어하는 서버임을 `HSS`에 등록하고, 이후 `UE`의 가입자 정보를 받아 저장 (`HSS`로부터 사용자 프로파일을 다운로드하고 업로드)
       - Registered User에 대한 Session 제어 및 Session 상태 관리
-      - UE Regi 시에 HSS로부터 수신한 인증정보를 가지고 인증을 수행
+      - UE Regi 시에 `HSS`로부터 수신한 인증정보를 가지고 인증을 수행
 
-2. HSS(Home Subscriber Server)
+2. `HSS` (Home Subscriber Server)
    
    - 호/세션 제어를 위한 가입자의 모든 정보에 대한 책임을 지고 있는 마스터 데이터베이스
    - 가입자 식별자, 가입자 보안 정보(인증), 가입자 위치 정보, 가입자 서비스 프로파일 정보 등
 
-3. AS(Application Server)
+3. `AS` (Application Server)
 
-    - 서비스를 호스팅 및 실행하고 S-CSCF와 SIP 인터페이스로 통신한다.
-    - 홈 네트워크 또는 외부 타사 네트워크에 위치할 수 있으며 홈 네트워크에 있는 경우 Diameter Sh 또는 Si 인터페이스로 HSS와 통신한다.
+    - 서비스를 호스팅 및 실행하고 `S-CSCF`와 `SIP 인터페이스`로 통신한다.
+    - 홈 네트워크 또는 외부 타사 네트워크에 위치할 수 있으며 홈 네트워크에 있는 경우 `Diameter Sh` 또는 `Si 인터페이스`로 `HSS`와 통신한다.
 
-    ![Figure 5-1: Functional architecture for AS interoperability](images/Functional%20architecture%20for%20AS%20interoperability.png)
+    ![Figure 5-1: Functional architecture for AS interoperability](https://raw.githubusercontent.com/lyw1217/TIL/main/Moblie/images/Functional%20architecture%20for%20AS%20interoperability.png)
 
     [3GPP TS 29.364 "IP Multimedia Subsystem (IMS) Application Server (AS) service data descriptions for AS interoperability", Figure 5-1: Functional architecture for AS interoperability]
 
-4. Mw Interface(CSCF간, SIP 프로토콜)
+4. `Mw Interface` (CSCF간, SIP 프로토콜)
     
-    - CSCF 사이의 인터페이스   
+    - `CSCF` 사이의 인터페이스   
 
-5. Cx Interface(CSCF와 HSS간, Diameter 프로토콜)
+5. `Cx Interface` (CSCF와 HSS간, Diameter 프로토콜)
 
-    - I-CSCF/S-CSCF 와 HSS 사이의 인터페이스
-    - 가입자의 등록/등록 해제와 가입자의 IM 서브시스템 망의 접근 가능 여부의 권한 검증 및 위치 정보 관리를 위한 메시지(UAR/UAA, SAR/SAA, LIR/LIA, RTR/RTA)
-    - 가입자의 프로파일 다운로드 및 가입자 정보 갱신을 위한 메시지(PPR/PPA, SAR/SAA)
-    - 가입자 인증 수행을 위한 메시지(MAR/MAA)
+    - `I-CSCF`/`S-CSCF` 와 `HSS` 사이의 인터페이스
+    - 가입자의 등록/등록 해제와 가입자의 IM 서브시스템 망의 접근 가능 여부의 권한 검증 및 위치 정보 관리를 위한 메시지(`UAR/UAA`, `SAR/SAA`, `LIR/LIA`, `RTR/RTA`)
+    - 가입자의 프로파일 다운로드 및 가입자 정보 갱신을 위한 메시지(`PPR/PPA`, `SAR/SAA`)
+    - 가입자 인증 수행을 위한 메시지(`MAR/MAA`)
 
-6. Sh Interface(AS와 HSS간, Diameter 프로토콜)
+6. `Sh Interface` (AS와 HSS간, Diameter 프로토콜)
 
-    - AS(Application Server)와 HSS 간 또는 여러 IMS AS 사이의 인터페이스
-    - 사용자의 데이터를 질의하거나 업데이트를 위한 메시지(UDR/UDA, PUR/PUA)
-    - 사용자 데이터가 변경될 때 알림을 구독하거나 수신을 위한 메시지(SNR/SNA, PNR/PNA)
+    - `AS`(Application Server)와 `HSS` 간 또는 여러 IMS `AS` 사이의 인터페이스
+    - 사용자의 데이터를 질의하거나 업데이트를 위한 메시지(`UDR/UDA`, `PUR/PUA`)
+    - 사용자 데이터가 변경될 때 알림을 구독하거나 수신을 위한 메시지(`SNR/SNA`, `PNR/PNA`)
 
 
 ### IMS Diameter 메시지
+
 | Command Name                  | Src    | Dest   | Abbr |
 | ----------------------------- | ------ | ------ | ---- |
 | **Cx Interface**              |        |        |      |

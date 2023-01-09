@@ -1,55 +1,63 @@
 # bash 쉘 스크립트 배열(Array) 사용법
 
 ## 배열 선언하는 방법
-    #!/bin/bash
+```bash
+#!/bin/bash
 
-    arr_1=("abc" "123" "456" )
-    arr_2=(1 2 3)
-    arr_3[0]=1
-    arr_3[1]=2
+arr_1=("abc" "123" "456" )
+arr_2=(1 2 3)
+arr_3[0]=1
+arr_3[1]=2
 
-    echo ${arr_1[0]}
-    # abc
-    echo ${arr_2[1]}
-    # 2
-    echo ${arr_3[1]}
-    # 2
+echo ${arr_1[0]}
+# abc
+echo ${arr_2[1]}
+# 2
+echo ${arr_3[1]}
+# 2
+```
 
 이외에, 아래와 같이 빈 배열을 선언하고 요소를 하나씩 추가하는 방법도 있다.
 
-    #!/bin/bash
+```bash
+#!/bin/bash
 
-    arr=()
-    arr+=("abc")
-    arr+=("123")
-    arr+=("456")
+arr=()
+arr+=("abc")
+arr+=("123")
+arr+=("456")
+```
 
 ## 배열 참조하는 방법
 
-    #!/bin/bash
+```bash
+#!/bin/bash
 
-    arr=("Lee YW" "Array" "Test")
+arr=("Lee YW" "Array" "Test")
 
-    # - 개별 요소 참조
-    echo "arr[0] = ${arr[0]}"
+# - 개별 요소 참조
+echo "arr[0] = ${arr[0]}"
 
-    # - 전체 요소 참조
-    echo "arr[*] = ${arr[*]}"
-    echo "arr[@] = ${arr[@]}"
+# - 전체 요소 참조
+echo "arr[*] = ${arr[*]}"
+echo "arr[@] = ${arr[@]}"
 
-    # - 인덱스의 개수
-    echo "arr index = ${!arr[@]}"
+# - 인덱스의 개수
+echo "arr index = ${!arr[@]}"
 
-    # - 개별 요소의 크기
-    echo "arr[0] size = ${#arr[0]}"
+# - 개별 요소의 크기
+echo "arr[0] size = ${#arr[0]}"
+```
 
 출력 결과는 아래와 같다.
 
-    arr[0] = Lee YW
-    arr[*] = Lee YW Array Test
-    arr[@] = Lee YW Array Test
-    arr index = 0 1 2
-    arr[0] size = 6
+```
+arr[0] = Lee YW
+arr[*] = Lee YW Array Test
+arr[@] = Lee YW Array Test
+arr index = 0 1 2
+arr[0] size = 6
+```
 
 ## 주의 사항
 - 배열의 요소들이 인접해있거나 연속적이지 않아도 된다.
