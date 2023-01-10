@@ -66,15 +66,19 @@ tcpdump를 원하는 인터페이스나 포트를 지정하여 조건에 만족�
 
 - ens3f1 인터페이스의 80번 포트에서 주고 받는 패킷들을 rest_dump.pcap 파일로 저장
 
-    (root)
-    tcpdump -nn -vvv -tttt -X -A -w rest_dump.pcap -i ens3f1 port 80 
+```shell
+(root)
+tcpdump -nn -vvv -tttt -X -A -w rest_dump.pcap -i ens3f1 port 80 
+```
 
 ## 저장한 `.pcap` 파일 보는 방법
 
 - 와이어샤크(WireShark)를 지원하는 OS라면 와이어샤크를 설치 후 pcap 파일을 실행하면 볼 수 있다.
 - CLI 환경에서는 아래 커맨드로 확인 가능하다.
-            
-        tcpdump -qns 0 -A -r [pcap 파일 경로]
+
+```shell
+tcpdump -qns 0 -A -r [pcap 파일 경로]
+```
 
 ## 참고 자료
 - [나비와꽃기린 - 리눅스 tcpdump 사용방법 및 명령어 정리 / tcpdump 파일로 저장하는 방법](https://mkil.tistory.com/482)

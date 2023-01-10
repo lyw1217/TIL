@@ -4,7 +4,7 @@
 
 Cx Interface의 AVPs 중 일부를 발췌해서 정리
 
-## Visited-Network-Identifier AVP
+## - Visited-Network-Identifier AVP
 ---
 
 <details>
@@ -20,7 +20,7 @@ The Visited-Network-Identifier AVP is of type OctetString. This AVP contains an 
 
 (예를 들면, visited network domain name)
 
-## User-Authorization-Type AVP
+## - User-Authorization-Type AVP
 ---
 
 >type : Enumerated
@@ -58,7 +58,7 @@ RLOS support of the different S-CSCFs shall be locally configured in the I-CSCF,
 </details><br>
 
 
-## Server-Capabilities AVP
+## - Server-Capabilities AVP
 ---
 
 >type : Grouped
@@ -102,7 +102,7 @@ The following table is a guideline for operators that records S-CSCF capabilitie
 
 </details><br>
 
-## SIP-Number-Auth-Items AVP
+## - SIP-Number-Auth-Items AVP
 ---
 
 >type : Unsigned32
@@ -119,7 +119,7 @@ When used in a request, the SIP-Number-Auth-Items indicates the number of authen
 
 </details><br>
 
-## SIP-Authenticate AVP
+## - SIP-Authenticate AVP
 ---
 
 >type : OctecString
@@ -139,7 +139,7 @@ It shall contain, binary encoded, the concatenation of the authentication challe
 
 </details><br>
 
-## SIP-Authorization AVP
+## - SIP-Authorization AVP
 ---
 
 >type : OctetString
