@@ -14,17 +14,17 @@ language를 한국으로 하니 에러가 아래처럼 나온다
 
 ## 해결 방법
 
-minikube issue (https://github.com/kubernetes/minikube/issues/7903)
+[minikube issue](https://github.com/kubernetes/minikube/issues/7903)를 참고했다.
 
 ### Running minikube with root user is not allowed
 
 root가 아닌 새로운 유저를 만들고(아니면 기존 유저에다가) 도커가 그 유저에서 관리되도록 설정해주면 된다.
 
-방법은 https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user 참고
+방법은 [여기(docs.docker)](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)를 참고
 
 ### 왜 root 계정에서 docker driver가 실행되면 안될까?
 
-https://stackoverflow.com/questions/68984450/minikube-why-the-docker-driver-should-not-be-used-with-root-privileges
-
 >Docker allows you to share a directory between the Docker host and a guest container; and it allows you to do so without limiting the access rights of the container. This means that you can start a container where the /host directory is the / directory on your host; and the container can alter your host filesystem without any restriction.
+
+[참고(stackoverflow)](https://stackoverflow.com/questions/68984450/minikube-why-the-docker-driver-should-not-be-used-with-root-privileges)
 

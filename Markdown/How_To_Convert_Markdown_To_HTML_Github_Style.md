@@ -2,17 +2,15 @@
 
 ## 1. Installing pandoc
 
-아래 링크를 참고하여 pandoc 설치
+[여기(github)](https://github.com/jgm/pandoc/blob/master/INSTALL.md)를 참고하여 pandoc 설치
 
-https://github.com/jgm/pandoc/blob/master/INSTALL.md
-
-[다운로드](https://github.com/jgm/pandoc/releases)
+[바로 다운로드](https://github.com/jgm/pandoc/releases)
 
 ## 2. pandoc를 이용해서 Markdown 변환
 
 ## 2-1. Github Style CSS 다운로드
 
-https://gist.github.com/dashed/6714393 여기서 github style sheet 다운받기
+[여기(github)](https://gist.github.com/dashed/6714393)서 github style sheet 다운받기
 
 ## 2-2. 설치한 pandoc를 이용하여 파일 변환하기
 

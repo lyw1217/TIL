@@ -43,6 +43,8 @@ gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc
 그런 현상을 방지하고자 할 때는, `/etc/yum.conf` 파일에 아래 `exclude` 구문을 추가해주면 된다.
 
 ```
+# /etc/yum.conf
+
 exclude=mongodb-org,mongodb-org-server,mongodb-org-shell,mongodb-org-mongos,mongodb-org-tools
 ```
 
