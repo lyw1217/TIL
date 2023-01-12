@@ -80,7 +80,7 @@ Proton OpenVPN의 UDP는 `114`, TCP는 `443` port를 기본값으로 사용합�
 
 그렇기 때문에 공유기에서 NAS로 `114`번 포트를 포트포워딩 해줘야 VPN을 정상적으로 사용할 수 있습니다.
 
-## 5. VPN 연결 맟 서비스 순서 변경
+## 5. VPN 연결 및 서비스 순서 변경
 
 ![vpn profile](images/synology_proton_vpn_9.png)
 
