@@ -4,15 +4,15 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_90 TILs and counting..._
+_91 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [Synology NAS에서 Proton VPN(free) 적용하기 (+ DDNS)](ETC/synology_proton_vpn.md) - Fri Jan 13 00:46:55 2023 +0900
 - [python f-string 문자열 정렬하는 방법](Python/f-string_정렬.md) - Thu Dec 29 17:34:17 2022 +0900
 - [`Go 언어` 명령어 중 `...` 의미](Golang/Go_..._의미.md) - Thu Nov 24 16:50:16 2022 +0900
-- [hostname(domain)을 alias 설정하는 방법](Linux/hostname_alias_거는_법.md) - Tue Oct 25 13:32:20 2022 +0900
 
 ### Categories
 
@@ -65,6 +65,7 @@ _90 TILs and counting..._
 - [라즈베리파이 4 gpio를 이용한 팬 컨트롤 (bash script)](ETC/raspberry_pi_gpio_fan_control.md)
 - [svn remote repository의 URL이 변경 되었을 때(svn 서버 URL 변경)](ETC/svn_remote의_주소_변경.md)
 - [SVN 명령어(subcommand) 사용법 (리눅스, CLI 환경)](ETC/svn_subcommand_사용법.md)
+- [Synology NAS에서 Proton VPN(free) 적용하기 (+ DDNS)](ETC/synology_proton_vpn.md)
 - [내가 사용하는 VSCode Extension](ETC/vscode_extension.md)
 - [Visual Studio Code(VSCode)에서 멀티커서 사용하기](ETC/vscode_멀티커서.md)
 - [Windows 윈도우에서 Linux 리눅스의 `grep` 명령어를 사용하려면?](ETC/윈도우에서_grep_사용법(findstr).md)
