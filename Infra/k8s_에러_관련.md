@@ -1,5 +1,7 @@
 # k8s 에러 관련 포스팅 모음
 
+지속적으로 업데이트 예정
+
 |제목(링크)|비고|
 |---|---|
 |[kubeadm init 실행시 에러 : 'curl -sSL http://localhost:10248/healthz' failed with error](https://almost-native.tistory.com/415)|https://kubernetes.io/ko/docs/setup/production-environment/container-runtimes/ 참고|
