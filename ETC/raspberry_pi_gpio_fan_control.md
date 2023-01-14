@@ -2,7 +2,7 @@
 
 라즈베리파이 4에서 gpio를 이용한 fan control을 bash script로 구현했다.
 
-라즈베리파이의 BCM 21번 핀에 FAN 제어 핀을 연결했다.
+라즈베리파이의 `BCM 21번` 핀에 FAN 제어 핀을 연결했다.
 
 sudo crontab에 등록해서 30초에 한 번씩 실행되도록 했고 정상적으로 잘 동작한다.
 
@@ -117,6 +117,6 @@ fan_control
 
 
 ### 참고 자료
-- 라즈베리파이4b에 최신 버전 wiringpi 설치하는 방법 - https://hoho325.tistory.com/212
-- [Raspberry Pi GPIO 활용하기 (쉘 스크립트)] - https://201301651.tistory.com/5
-- [[라즈베리파이] 발열 테스트 및 CPU 온도 확인 방법] - https://frankler.tistory.com/22
+- 라즈베리파이4b에 최신 버전 wiringpi 설치하는 방법 - [https://hoho325.tistory.com/212](https://hoho325.tistory.com/212)
+- [Raspberry Pi GPIO 활용하기 (쉘 스크립트)] - [https://201301651.tistory.com/5](https://201301651.tistory.com/5)
+- [[라즈베리파이] 발열 테스트 및 CPU 온도 확인 방법] - [https://frankler.tistory.com/22](https://frankler.tistory.com/22)

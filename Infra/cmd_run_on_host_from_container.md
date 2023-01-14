@@ -2,7 +2,9 @@
 
 출처의 내용을 한글로 번역하였습니다.   
 
-출처 : https://stackoverflow.com/questions/32163955/how-to-run-shell-script-on-host-from-docker-container
+출처 : [https://stackoverflow.com/questions/32163955/how-to-run-shell-script-on-host-from-docker-container](https://stackoverflow.com/questions/32163955/how-to-run-shell-script-on-host-from-docker-container)
+
+---
 
 도커 컨테이너에서 호스트에 있는 명령어를 호스트가 직접 실행하게 하고 싶다.
 
@@ -11,9 +13,9 @@
 파이프란 프로세스간 통신을 할 때 사용하는 방법 중 하나이다.
 
 - 리눅스 파이프 관련 자료 참고
-  - https://gracefulprograming.tistory.com/92
-  - https://velog.io/@t1won/Unix-pipe
-  - https://reakwon.tistory.com/80
+  - [https://gracefulprograming.tistory.com/92](https://gracefulprograming.tistory.com/92)
+  - [https://velog.io/@t1won/Unix-pipe](https://velog.io/@t1won/Unix-pipe)
+  - [https://reakwon.tistory.com/80](https://reakwon.tistory.com/80)
 
 
 # 방법

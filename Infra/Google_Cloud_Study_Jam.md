@@ -17,6 +17,6 @@ Quest : Kubernetes in Google Cloud
 ```
 Error: Could not connect to Cloud Shell on port 8080 
 ```
-- https://stackoverflow.com/questions/51793485/error-could-not-connect-to-cloud-shell-on-port-8080-deploying-jenkins-in-googl
+- [https://stackoverflow.com/questions/51793485/error-could-not-connect-to-cloud-shell-on-port-8080-deploying-jenkins-in-googl](https://stackoverflow.com/questions/51793485/error-could-not-connect-to-cloud-shell-on-port-8080-deploying-jenkins-in-googl)
 
 요약 : `kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &` 명령어를 통해 `$POD_NAME` 에게 포트포워딩 해주어야 한다.

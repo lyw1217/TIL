@@ -69,5 +69,5 @@ if 문에 중괄호를 두 개 사용해야 한다. (`[[ ]]`)
 
 ## 참고 자료
 
-- https://stackoverflow.com/questions/229551/how-to-check-if-a-string-contains-a-substring-in-bash
-- https://linuxize.com/post/how-to-check-if-string-contains-substring-in-bash/
+- [https://stackoverflow.com/questions/229551/how-to-check-if-a-string-contains-a-substring-in-bash](https://stackoverflow.com/questions/229551/how-to-check-if-a-string-contains-a-substring-in-bash)
+- [https://linuxize.com/post/how-to-check-if-string-contains-substring-in-bash/](https://linuxize.com/post/how-to-check-if-string-contains-substring-in-bash/)

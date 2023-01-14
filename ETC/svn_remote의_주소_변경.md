@@ -33,6 +33,6 @@ $ svn relocate http://svn2.repo.com/src
 ```
 
 ## 참고 자료
-- https://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.relocate.html
-- https://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.switch.html
-- https://www.lesstif.com/software-architect/subversion-repository-url-url-6717460.html
+- [https://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.relocate.html](https://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.relocate.html)
+- [https://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.switch.html](https://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.switch.html)
+- [https://www.lesstif.com/software-architect/subversion-repository-url-url-6717460.html](https://www.lesstif.com/software-architect/subversion-repository-url-url-6717460.html)

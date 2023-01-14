@@ -6,7 +6,7 @@
 
 다음 명령어로 프로세서(CPU)가 가상화 기능을 지원하는지 확인합니다.
 
-```
+```shell
 $ sudo apt update
 $ sudo apt install cpu-checker
 $ kvm-ok
@@ -23,13 +23,13 @@ KVM acceleration can be used
 
 다음 명령어로 KVM 설치에 요구되는 패키지들을 설치합니다.
 
-```
+```shell
 $ sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
 ```
 
 다음 명령어로 kvm 설치를 확인할 수 있습니다.
 
-```
+```shell
 $ kvm --version
 ```
 
@@ -45,7 +45,7 @@ $ kvm --version
 
 다음 명령어로 `libvirtd`가 정상적으로 실행되었는지 확인할 수 있습니다.
 
-```
+```shell
 $ sudo systemctl is-active libvirtd
 
 # Output
@@ -56,7 +56,7 @@ active
 
 아래 명령어를 수행하여 그룹에 추가합니다.
 
-```
+```shell
 $ sudo usermod -aG libvirt $USER
 $ sudo usermod -aG kvm $USER
 ```
@@ -67,7 +67,7 @@ $ sudo usermod -aG kvm $USER
 
 다음 명령어를 실행해서 Virtual Machine Manager를 실행합니다.
 
-```
+```shell
 $ sudo virt-manager
 ```
 
@@ -75,7 +75,7 @@ $ sudo virt-manager
 
 KVM에서 우분투 20.04 LTS 인스턴스를 시작하려면 다음 명령어를 실행하면 됩니다.
 
-```
+```shell
 $ sudo virt-install --name ubuntu-guest --os-variant ubuntu20.04 --vcpus 2 --ram 2048 --location http://ftp.ubuntu.com/ubuntu/dists/focal/main/installer-amd64/ --network bridge=virbr0,model=virtio --graphics none --extra-args='console=ttyS0,115200n8 serial'
 ```
 
@@ -84,5 +84,5 @@ $ sudo virt-install --name ubuntu-guest --os-variant ubuntu20.04 --vcpus 2 --ram
 
 ### 참고자료
 
-- https://ubuntu.com/blog/kvm-hyphervisor
-- https://linuxize.com/post/how-to-install-kvm-on-ubuntu-20-04/
+- [https://ubuntu.com/blog/kvm-hyphervisor](https://ubuntu.com/blog/kvm-hyphervisor)
+- [https://linuxize.com/post/how-to-install-kvm-on-ubuntu-20-04/](https://linuxize.com/post/how-to-install-kvm-on-ubuntu-20-04/)
