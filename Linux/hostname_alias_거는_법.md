@@ -22,10 +22,10 @@
 
 ## 방법 2 (getaddrinfo(3) 또는 gethostbyname(3) 을 사용하는 경우에만 사용 가능)
 
-```
-echo "fakedomain  realdomain" > /etc/host.aliases
-echo "export HOSTALIASES=/etc/host.aliases" >> /etc/profile
-. /etc/profile
+```shell
+$ echo "fakedomain  realdomain" > /etc/host.aliases
+$ echo "export HOSTALIASES=/etc/host.aliases" >> /etc/profile
+$ . /etc/profile
 ```
 
 `/etc/host.aliases` 라는 파일을 생성해서, `HOSTALIASES` 라는 환경변수에 등록해준다.
@@ -56,6 +56,6 @@ echo "export HOSTALIASES=/etc/host.aliases" >> /etc/profile
 
 
 ### 참고 자료
-- https://serverfault.com/questions/65199/is-it-possible-to-alias-a-hostname-in-linux
-- https://man7.org/linux/man-pages/man3/gethostbyname.3.html
-- https://man7.org/linux/man-pages/man7/hostname.7.html
+- [https://serverfault.com/questions/65199/is-it-possible-to-alias-a-hostname-in-linux](https://serverfault.com/questions/65199/is-it-possible-to-alias-a-hostname-in-linux)
+- [https://man7.org/linux/man-pages/man3/gethostbyname.3.html](https://man7.org/linux/man-pages/man3/gethostbyname.3.html)
+- [https://man7.org/linux/man-pages/man7/hostname.7.html](https://man7.org/linux/man-pages/man7/hostname.7.html)

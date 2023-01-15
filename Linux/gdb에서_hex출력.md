@@ -39,5 +39,5 @@ p/t variable
 ```
 
 ### 참고자료
-- https://ftp.gnu.org/old-gnu/Manuals/gdb/html_node/gdb_54.html
-- https://stackoverflow.com/questions/9671820/print-variables-in-hexadecimal-or-decimal-format
+- [https://ftp.gnu.org/old-gnu/Manuals/gdb/html_node/gdb_54.html](https://ftp.gnu.org/old-gnu/Manuals/gdb/html_node/gdb_54.html)
+- [https://stackoverflow.com/questions/9671820/print-variables-in-hexadecimal-or-decimal-format](https://stackoverflow.com/questions/9671820/print-variables-in-hexadecimal-or-decimal-format)

@@ -24,4 +24,4 @@ Warning: Permanently added 'github.com,20.200.245.247' (ECDSA) to the list of kn
 `yes` 를 입력해줌으로써 known_hosts에 github에 대한 내용을 추가해주었다.
 
 ### 참고 자료
-- https://stackoverflow.com/questions/15174194/jenkins-host-key-verification-failed
+- [https://stackoverflow.com/questions/15174194/jenkins-host-key-verification-failed](https://stackoverflow.com/questions/15174194/jenkins-host-key-verification-failed)

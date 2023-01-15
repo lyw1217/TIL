@@ -23,4 +23,4 @@
 
 ### 참고 자료
 
-- https://kubernetes.io/ko/docs/concepts/overview/working-with-objects/names/
+- [https://kubernetes.io/ko/docs/concepts/overview/working-with-objects/names/](https://kubernetes.io/ko/docs/concepts/overview/working-with-objects/names/)

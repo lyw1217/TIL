@@ -23,5 +23,4 @@ $ kubectl exec -it mysql-0 -- mysql -u root -p
 
 
 ### 참고 자료
-- https://stackoverflow.com/questions/69684693/why-does-kubectl-exec-need-a
-- 
+- [https://stackoverflow.com/questions/69684693/why-does-kubectl-exec-need-a](https://stackoverflow.com/questions/69684693/why-does-kubectl-exec-need-a)
