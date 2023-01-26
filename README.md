@@ -4,15 +4,15 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_91 TILs and counting..._
+_92 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [Bash Script로 AWS 리전별 응답 시간 체크하기](Infra/aws_region_latency.md) - Thu Jan 26 13:14:00 2023 +0900
 - [Synology NAS에서 Proton VPN(free) 적용하기 (+ DDNS)](ETC/synology_proton_vpn.md) - Fri Jan 13 00:46:55 2023 +0900
 - [python f-string 문자열 정렬하는 방법](Python/f-string_정렬.md) - Thu Dec 29 17:34:17 2022 +0900
-- [`Go 언어` 명령어 중 `...` 의미](Golang/Go_..._의미.md) - Thu Nov 24 16:50:16 2022 +0900
 
 ### Categories
 
@@ -84,6 +84,7 @@ _91 TILs and counting..._
 ### [Infra](#Infra)
 - [구글 클라우드 스터디잼 쿠버네티스 입문과정 참고](Infra/Google_Cloud_Study_Jam.md)
 - [alpine 리눅스에서 timezone 설정하기(docker container)](Infra/alpine_timezone.md)
+- [Bash Script로 AWS 리전별 응답 시간 체크하기](Infra/aws_region_latency.md)
 - [도커 컨테이너에서 호스트에 있는 명령어를 실행하는 방법](Infra/cmd_run_on_host_from_container.md)
 - [docker ubuntu apt update 시 "Release file is not valid yet" 에러 발생](Infra/docker_ubuntu_apt_update_실패시.md)
 - [kubernetes | kubectl double dash 더블 대쉬(--) 왜 쓸까](Infra/k8s_double_dash(--).md)
