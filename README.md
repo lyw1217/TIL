@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_92 TILs and counting..._
+_93 TILs and counting..._
 
 ---
 
@@ -91,6 +91,7 @@ _92 TILs and counting..._
 - [kubernetes 오브젝트 이름과 ID](Infra/k8s_object_name_id.md)
 - [k8s 에러 관련 포스팅 모음](Infra/k8s_에러_관련.md)
 - [`minikube start` 수행 시 The "docker" driver should not be used with root privileges 에러 발생](Infra/minikube_start_docker_should_not_be_used_with_root.md)
+- [podman-compose runtimeerror: missing networks: privnet 발생 시 해결 방법](Infra/podman-compose_runtimeerror_missing_networks_privnet.md)
 
 ### [JavaScript(TypeScript)](#JavaScript(TypeScript))
 - [자바스크립트 Array 함수](JavaScript(TypeScript)/JavaScript_Array.md)
