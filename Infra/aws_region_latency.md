@@ -107,12 +107,12 @@ endpoint의 `/ping` 경로에 HTTP 또는 HTTPS GET 요청을 하면 현재 endp
   - 그래서 가져온 데이터를 파일로 저장하고 부모쉘에서 다시 그 파일을 읽어들이는 방식을 사용했다.
 - 결과를 출력할 때 응답시간 순으로 정렬하고 싶었는데 `associative array`는 정렬하는 방법이 마땅치 않았다.
   - bash에서, `associative array`(dictionary, map)는 순서를 보장하지 않는다.
-  - 참고 : https://stackoverflow.com/questions/29161323/how-to-keep-associative-array-order
+  - 참고 : [https://stackoverflow.com/questions/29161323/how-to-keep-associative-array-order](https://stackoverflow.com/questions/29161323/how-to-keep-associative-array-order)
   - 그래서 결과를 구분자($sep)로 구분하여 파일로 저장하고 `sort` 명령어를 이용하여 파일을 정렬했다
 - 터미널 너비에 상관없이 좌우 꽉차게 출력하고 싶다.
   - `tput cols`를 이용해서 터미널의 열을 가져왔다.
   - `\033[${col}G`는 ANSI Escape 코드로, 터미널에서 커서를 이동시키는 데 사용된다. ("Cursor Horizontal Absolute" (CHA))
-    - https://ko.wikipedia.org/wiki/ANSI_%EC%9D%B4%EC%8A%A4%EC%BC%80%EC%9D%B4%ED%94%84_%EC%BD%94%EB%93%9C
+    - 참고 : [https://ko.wikipedia.org/wiki/ANSI_%EC%9D%B4%EC%8A%A4%EC%BC%80%EC%9D%B4%ED%94%84_%EC%BD%94%EB%93%9C](https://ko.wikipedia.org/wiki/ANSI_%EC%9D%B4%EC%8A%A4%EC%BC%80%EC%9D%B4%ED%94%84_%EC%BD%94%EB%93%9C)
     - `${col}`열로 커서를 이동해준다.
   - 이를 이용해서 터미널 크기에 상관없이 좌우 꽉채워서 출력할 수 있었다.
 
