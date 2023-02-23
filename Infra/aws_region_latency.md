@@ -89,4 +89,49 @@ endpoint의 `/ping` 경로에 HTTP 또는 HTTPS GET 요청을 하면 현재 endp
 
 > 보통 ICMP를 이용한 `ping`을 사용하여 네트워크 상태를 파악하지만, 나는 리전별 응답시간을 비교하는 것이 목적이기 때문에 `ping`을 사용하지 않더라도 내가 원하는 결과값을 얻어낼 수 있을 것이다.
 
+그런데 쉘 스크립트를 작성하다보니 `ping`으로도 하는게 좋을 것 같아서 옵션을 주어 `ping`으로도 확인이 가능하도록 했다.
+
 ## 3. 쉘 스크립트 작성
+
+[여기](https://github.com/lyw1217/TIL/blob/main/Infra/src/check_latency_of_aws_regions.sh) 에 스크립트 전체가 올라가있다.
+
+`ping` / `curl` 모두 이용하여 latency 및 health 상태를 확인하며, 실행 시 옵션을 주어 선택할 수 있다.
+
+스크립트와 동일 경로에 `health.txt`, `latency.txt` 파일이 생성되며, 데이터 정렬 및 출력에 활용한다.
+
+### 스크립트 작성하면서 고민한 부분들
+
+- 모든 endpoints에 순서대로 `curl`/`ping` 요청을 보내면 시간이 너무 오래 걸려서 백그라운드로 동작시켰다.
+  - `&`를 이용하면 서브쉘을 생성해서 백그라운드로 동작한다.
+  - 서브쉘은 부모쉘에 영향을 줄 수 없기 때문에 백그라운드로 얻어온 데이터를 활용하기 어려웠다.
+  - 그래서 가져온 데이터를 파일로 저장하고 부모쉘에서 다시 그 파일을 읽어들이는 방식을 사용했다.
+- 결과를 출력할 때 응답시간 순으로 정렬하고 싶었는데 `associative array`는 정렬하는 방법이 마땅치 않았다.
+  - bash에서, `associative array`(dictionary, map)는 순서를 보장하지 않는다.
+  - 참고 : https://stackoverflow.com/questions/29161323/how-to-keep-associative-array-order
+  - 그래서 결과를 구분자($sep)로 구분하여 파일로 저장하고 `sort` 명령어를 이용하여 파일을 정렬했다
+- 터미널 너비에 상관없이 좌우 꽉차게 출력하고 싶다.
+  - `tput cols`를 이용해서 터미널의 열을 가져왔다.
+  - `\033[${col}G`는 ANSI Escape 코드로, 터미널에서 커서를 이동시키는 데 사용된다. ("Cursor Horizontal Absolute" (CHA))
+    - https://ko.wikipedia.org/wiki/ANSI_%EC%9D%B4%EC%8A%A4%EC%BC%80%EC%9D%B4%ED%94%84_%EC%BD%94%EB%93%9C
+    - `${col}`열로 커서를 이동해준다.
+  - 이를 이용해서 터미널 크기에 상관없이 좌우 꽉채워서 출력할 수 있었다.
+
+## 4. 출력 확인 및 다른 사이트와 비교
+
+### - `curl`을 이용한 latency 확인
+
+![curl](images/latency_curl.jpg)
+
+### - `ping`을 이용한 latency 확인
+
+![ping](images/latency_ping.jpg)
+
+### - [https://cloudpingtest.com/aws](https://cloudpingtest.com/aws) 에서 확인
+
+여러 사이트들 중 이 곳이 HTML 코드 상 aws ec2에 요청하는 것 같았다.
+
+![site](images/latency_site.jpg)
+
+측정된 값은 다를지라도 latency 순으로 정렬하면 정렬된 순서는 얼추 비슷했다.
+
+지역적인 거리 뿐만 아니라 네트워크 상태에 따라 latency가 다르게 측정될 수 있는 것을 감안하면 나름 만족스럽게 만들어진 것 같다.
