@@ -4,15 +4,15 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_93 TILs and counting..._
+_94 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [윈도우에서 배치 파일로 스피커와 헤드셋 바꾸기](ETC/윈도우_스피커_헤드셋_토글.md) - Thu Apr 13 21:51:59 2023 +0900
 - [Bash Script로 AWS 리전별 응답 시간 체크하기](Infra/aws_region_latency.md) - Thu Jan 26 13:14:00 2023 +0900
 - [Synology NAS에서 Proton VPN(free) 적용하기 (+ DDNS)](ETC/synology_proton_vpn.md) - Fri Jan 13 00:46:55 2023 +0900
-- [python f-string 문자열 정렬하는 방법](Python/f-string_정렬.md) - Thu Dec 29 17:34:17 2022 +0900
 
 ### Categories
 
@@ -68,6 +68,7 @@ _93 TILs and counting..._
 - [Synology NAS에서 Proton VPN(free) 적용하기 (+ DDNS)](ETC/synology_proton_vpn.md)
 - [내가 사용하는 VSCode Extension](ETC/vscode_extension.md)
 - [Visual Studio Code(VSCode)에서 멀티커서 사용하기](ETC/vscode_멀티커서.md)
+- [윈도우에서 배치 파일로 스피커와 헤드셋 바꾸기](ETC/윈도우_스피커_헤드셋_토글.md)
 - [Windows 윈도우에서 Linux 리눅스의 `grep` 명령어를 사용하려면?](ETC/윈도우에서_grep_사용법(findstr).md)
 
 ### [Golang](#Golang)
