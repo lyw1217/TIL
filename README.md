@@ -4,15 +4,15 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_94 TILs and counting..._
+_95 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [C++ 기초 개념 정리](C/C++Basic.md) - Mon Jun 26 13:13:52 2023 +0900
 - [윈도우에서 배치 파일로 스피커와 헤드셋 바꾸기](ETC/윈도우_스피커_헤드셋_토글.md) - Thu Apr 13 21:51:59 2023 +0900
 - [Bash Script로 AWS 리전별 응답 시간 체크하기](Infra/aws_region_latency.md) - Thu Jan 26 13:14:00 2023 +0900
-- [Synology NAS에서 Proton VPN(free) 적용하기 (+ DDNS)](ETC/synology_proton_vpn.md) - Fri Jan 13 00:46:55 2023 +0900
 
 ### Categories
 
@@ -48,6 +48,7 @@ _94 TILs and counting..._
 - [bash 쉘 스크립트 함수 사용법](Bash/bash_함수_사용법.md)
 
 ### [C](#C)
+- [C++ 기초 개념 정리](C/C++Basic.md)
 - [공유 메모리 함수 (Shared Memory Functions)](C/shared_memory_functions.md)
 - [C언어 구조체 비트 필드 (Bit Field)](C/struct_bit_field.md)
 - [메모리 누수 검사 valgrind macOS에서 설치하기](C/메모리_누수_검사_valgrind_macOS_설치.md)
