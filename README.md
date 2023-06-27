@@ -4,15 +4,15 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_95 TILs and counting..._
+_96 TILs and counting..._
 
 ---
 
 ### 3 most recent TILs
 
+- [PDU Session Establishment](Moblie/PDU_Session_Establishment.md) - Tue Jun 27 13:10:47 2023 +0900
 - [C++ 기초 개념 정리](C/C++Basic.md) - Mon Jun 26 13:13:52 2023 +0900
 - [윈도우에서 배치 파일로 스피커와 헤드셋 바꾸기](ETC/윈도우_스피커_헤드셋_토글.md) - Thu Apr 13 21:51:59 2023 +0900
-- [Bash Script로 AWS 리전별 응답 시간 체크하기](Infra/aws_region_latency.md) - Thu Jan 26 13:14:00 2023 +0900
 
 ### Categories
 
@@ -140,6 +140,7 @@ _95 TILs and counting..._
 - [IMS 서비스 호처리(Cx)](Moblie/IMS_서비스_호처리_Cx.md)
 - [IMS 서비스 호처리(Sh)](Moblie/IMS_서비스_호처리_Sh.md)
 - [LTE 호처리](Moblie/LTE_호처리.md)
+- [PDU Session Establishment](Moblie/PDU_Session_Establishment.md)
 - [PuID(Public User ID)와 PrID(Private User ID)](Moblie/PrID와_PuID.md)
 - [Sh Interface AVPs](Moblie/Sh_interface_AVPs.md)
 - [UE (User Equipment) Identifier](Moblie/User_Equipment.md)
