@@ -30,7 +30,7 @@ TS 23.501의 5.6.1절에 명시된 대로, PDU Session은 한번에 하나의 ac
 
 로밍의 경우, AMF는 LBO(Local BreakOut) 또는 Home Routing에서 PDU Session을 establish할지 여부를 결정한다. LBO의 경우, 절차는 로밍이 아닌 경우와 동일하지만 AMF, SMF, UPF, PCF가 visited network에 위치한다. Emergency Service를 위한 PDU Sessions는 Home Routed mode에서는 절대로 설정되지 않는다. 만약 PDU session의 Control Plane CIoT 5GS Optimisation이 LBO와 함께 활성화된 경우, NEF는 이 PDU Session의 앵커로 사용되지 않는다.
 
-NOTE 1: UE는 TS 23.501의 5.15.5.3절에서와 같이 Home PLMN과 Visited PLMN의 S-NSSAIs 모두를 네트워크에 제공한다.
+> NOTE 1: UE는 TS 23.501의 5.15.5.3절에서와 같이 Home PLMN과 Visited PLMN의 S-NSSAIs 모두를 네트워크에 제공한다.
 
 ![Figure 4.3.2.2.1-1](images/Figure%204.3.2.2.1-1.png)
 
@@ -86,6 +86,37 @@ Port Management Information Container is received from DS-TT and includes port m
 
 ## 2. SMF selection
 
+AMF는 Request Type이 "initial request"를 나타내고 PDU Session ID가 UE의 기존 PDU Session 중 어느 것에도 사용되지 않는다는 것을 기준으로 메시지가 새로운 PDU Session을 생성하는 요청인지 판단한다.
+
+만약 NAS 메시지에 S-NSSAI가 포함되어 있지 않은 경우, AMF는 요청받은 PDU Session을 위한 Serving PLMN의 S-NSSAI를 결정한다. UE의 현재 Allowed NSSAI로부터.
+
+만약 단 하나의 S-NSSAI만 Allowd NSSAI에 있다면, 그 S-NSSAI를 사용해야 한다. Allowed NSSAI에 여러 개의 S-NSSAI가 있다면 UE의 가입정보 또는 사업자 정책에 따라 S-NSSAI가 선택됩니다.
+
+NAS 메시지에 Serving PLMN의 S-NSSAI가 포함되어 있지만 DNN은 포함되어 있지 않은 경우, AMF는 요청받은 PDU Session을 위한 DNN을 결정하기 위해 UE의 가입 정보에 default DNN이 있는 경우 해당 S-NSSAI의 default DNN을 선택한다; 그렇지 않은 경우 serving AMF는 로컬로 구성된 DNN을 선택한다.
+
+만약 AMF가 SMF를 선택할 수 없는 경우(e.g. UE가 요청한 DNN이 네트워크에서 지원되지 않는 경우, 또는 UE가 요청한 DNN이 S-NSSAI에 대한 Subscribed DNN 목록에 없고 wildcard DNN이 Subscribed DNN 목록에 없는 경우), AMF는 PCF로부터 받은 operator policy에 따라 적절한 원인과 함께 UE의 PDU Session Establishment Request를 reject하거나 PCF에게 UE의 requested DNN을 selected DNN으로 교체하도록 요청해야 한다.
+
+만약 UE가 요청한 DNN이 UE의 가입 정보에 있지만 PCF로부터 받은 operator policy에 replacement로 표시된 경우, AMF는 PCF에게 selected DNN으로의 DNN replacement를 요청해야 한다. AMF는 DNN replacement를 요청할 때 4.1.16.2.11절에 명시된대로 처리한다. 만약 UE가 요청한 DNN이 UE의 가입 정보에 있지만 네트워크에서 지원되지 않고 PCF로부터 받은 operator policy에도 replacement로 표시되지 않은 경우, AMF는 적절한 cause와 함께 UE로부터의 PDU Sesstion Establishment Request를 reject 해야한다.
+
+AMF는 23.501의 6.3.2절 및  4.3.2.2.3절에 설명된 대로 SMF를 선택한다. 만약 Request Type이 "Initial request"를 나타내거나, request가 EPS에서의 handover 또는 다른 AMF에 의한 non-3GPP access에서의 handover로 인한 것이면, AMF는 S-NSSAI(s), DNN, PDU Session ID, SMF ID 및 PDU Session의 Access Type과의 연관성(association)을 저장한다.
+
+During registration procedures, the AMF determines the use of the Control Plane CIoT 5GS Optimisation or User Plane CIoT 5GS Optimisation based on UEs indications in the 5G Preferred Network Behaviour, the serving operator policies and the network support of CIoT 5GS optimisations. The AMF selects an SMF that supports Control Plane CIoT 5GS optimisation or User Plane CIoT 5GS Optimisation as described in clause 6.3.2 of TS 23.501 [2].
+
+Request Type이 "initial request" 이고, 메시지에 existing PDU Session을 나타내는 Old PDU Session ID가 포함되어 있는 경우, AMF는 4.3.5.2절에 설명된 대로 SMF를 선택하고, 새로운 PDU Session ID, S-NSSAI(s), selected SMF ID 및 PDU Session의 Access Type의 연관 관계(association)을 저장한다.
+
+Request Type이 "Existing PDU Session"인 경우, AMF는 UDM에서 받은 SMF-ID에 기반해서 SMF를 선택한다. Request Type이 "Existing PDU Session"이지만 AMF가 PDU Session ID를 인식하지 못하거나, subscription context(AMF가 Registration 또는 Subscription Profile Update Notification 절차 중에 UDM으로부터 받은)에 PDU Session ID에 해당하는 SMF ID가 포함되어 있지 않은 경우 error case에 해당한다. AMF는 PDU Session에 저장된 Access Type을 업데이트 한다.
+
+Request Type이 "Existing PDU Session"인데, existing PDU Session이 3GPP access와 non-3GPP access간 이동을 의미하는 경우, PDU Session의 Serving PLMN S-NSSAI가 target access type의 Allowed NSSAI에 포함되어 있다면 PDU Session Establishment 절차를 아래와 같은 경우에 수행할 수 있다.
+- PDU Session ID에 해당하는 SMF ID와 AMF가 동일한 PLMN에 속하는 경우
+- PDU Session ID에 해당하는 SMF ID가 HPLMN에 속하는 경우
+
+그렇지 않으면 AMF는 적절한 cause와 함께 PDU Session Establishment Request를 reject 해야한다.
+
+> NOTE 2: SMF ID에는 SMF가 속한 PLMN ID가 포함된다.
+
+Emergency Registerd UE로부터 온 request이고 Request Type이 "Emergency Request" 또는 "Existing Emergency PDU Session"이 아닌 경우 해당 요청을 reject한다. AMF는 Request Type이 "Emergency Request"라면 UE에서 제공한 S-NSSAI 및 DNN 값이 없다고 가정하고, 대신에 로컬로 configured된 값을 사용한다. AMF는 PDU Session의 Access Type을 저장한다.
+
+만약 Request Type이 "Emergency Request" 또는 "Existing Emergency PDU Session"인 경우, AMF는 23.501의 5.16.4절에서 설명된대로 SMF를 선택한다.
 
 
 ---
