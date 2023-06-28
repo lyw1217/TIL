@@ -38,7 +38,11 @@ TS 23.501의 5.6.1절에 명시된 대로, PDU Session은 한번에 하나의 ac
 
 ## 1. PDU Session Establishment Request
 
-UE에서 AMF로: NAS 메시지(S-NSSAI(s), UE가 요청한 DNN, PDU Session ID, Request type, 이전 PDU Session ID, N1 SM container(PDU Session Establishment Request, \[Port Management Information Container\])) 전송
+UE에서 AMF로: NAS 메시지 전송
+
+- NAS 메시지
+
+      S-NSSAI(s), UE가 요청한 DNN, PDU Session ID, Request type, 이전 PDU Session ID, N1 SM container(PDU Session Establishment Request, [Port Management Information Container])
 
 **새로운 PDU Session을 establish하기 위해서, UE는 새로운 PDU Session ID를 생성한다.**
 
@@ -118,62 +122,269 @@ Emergency Registerd UE로부터 온 request이고 Request Type이 "Emergency Req
 
 만약 Request Type이 "Emergency Request" 또는 "Existing Emergency PDU Session"인 경우, AMF는 23.501의 5.16.4절에서 설명된대로 SMF를 선택한다.
 
-
 ---
 
 ## 3. Nsmf_PDUSession_CreateSMContext Request
+
+AMF에서 SMF로: Nsmf_PDUSession_CreateSMContext Request 또는 Nsmf_PDUSession_UpdateSMContext Request
+
+- Nsmf_PDUSession_CreateSMContext Request
+
+      SUPI, selected DNN, requested DNN, S-NSSAI(s), PDU Session ID, AMF ID, Request Type, PCF ID, Priority Access, [Small Data Rate Control Status], N1 SM container(PDU Session Establishment Request), 가입자 위치 정보, Access Type, RAT Type, PEI, GPSI, LADN service area내 UE 존재 여부, PDU Session Status Notification을 위한 Subscription, DNN Selection Mode, Trace Requirement, Control Plane CIoT 5GS Optimisation indication, or Control Plane Only indicator
+
+- Nsmf_PDUSession_UpdateSMContext Request
+
+      SUPI, DNN, S-NSSAI(s), SM Context ID, AMF ID, Request Type, N1 SM container (PDU Session Establishment Request), User location information, Access Type, RAT type, PEI, Serving Network (PLMN ID, or PLMN ID and NID, see clause 5.18 of TS 23.501 [2])
+
+만약 AMF가 UE로부터 제공받은 PDU Session ID에 대한 SMF와의 association이 없을 경우(e.g. Request Type이 "initial request"), AMF는 Nsmf_PDUSession_CreateSMContext Request를 invoke한다. 그러나 AMF가 이미 UE로부터 제공받은 PDU Session ID에 대한 SMF와의 association을 갖고 있는 경우(e.g. Request Type이 "existing PDU Session"), AMF는 Nsmf_PDUSession_UpdateSMContext Request를 invoke한다.
+
+AMF는 Allowed NSSAI에서 Serving PLMN의 S-NSSAI를 SMF에게 전송한다. local breakout(LBO)에서 로밍 시나리오의 경우에는 AMF가 Mapping Of Allowed NSSAI에서 해당하는 HPLMN의 S-NSSAI를 SMF에게 전송한다.
+
+AMF ID는 UE를 serving하는 AMF를 고유하게 식별하는 UE의 GUAMI이다. AMF는 UE로부터 수신한 PDU Session Establishment Request가 포함된 N1 SM container와 함께 PDU Session ID를 forward한다. GPSI는 AMF에서 사용 가능한 경우 포함되어야 한다.
+
+AMF는 Access Type과 RAT Type을 결정한다. 4.2.2.2.1절 참고.
+
+UE가 제한된 서비스 상태에서 SUPI를 제공하지 않고 Emergency services(i.e. Emergency Registered)에 register한 경우, AMF는 SUPI 대신 PEI를 제공한다. PEI는 23.501의 5.9.3절에 정의되어있다. 만약 UE가 제한된 서비스 상태에서  인증되지 않은 SUPI를 제공하여 Emergency services(i.e. Emergency Registered)에 register한 경우에는 AMF에서 SUPI가 인증되지 않았음을 표시한다. SMF는 UE에 대한 SUPI를 수신하지 못하거나 AMF가 SUPI가 인증되지 않았다고 표시할 때 UE가 인증되지 않았다고 판단한다.
+
+만약 AMF가 selected DNN이 LADN에 해당하는 것으로 판단하면, AMF는 "UE presence in LADN service area"를 제공한다. 이는 UE가 LADN service area의 IN인지 OUT인지를 나타낸다.
+
+만약 step 1에 Old PDU Session ID이 포함되어 있고 SMF가 재할당되지 않아야 하는 경우에, AMF는 Nsmf_PDUSession_CreateSMContext Request에 Old PDU Session ID를 포함시킨다.
+
+DNN Selection Mode는 AMF에 의해 결정된다. 이는 UE가 PDU Session Establishment Request에서 명시적(explicitly) subscribed DNN을 제공했는지 여부를 나타낸다.
+
+SMF는 DNN Selection Mode를 사용하여 UE의 request를 accept할지 reject할지 결정할 수 있다.
+
+Registration 절차 또는 Service Request 절차 도중 AN parameters로 수신된 Establishment cause가 priority services(e.g. MPS, MCS)와 관련이 있는 경우, AMF는 priority정보를 나타내기 위해 Message Priority header를 포함합니다. SMF는 Message Priority header를 사용하여 UE request가 NAS level congestion control 대상인지 여부를 판단한다. 다른 NF들은 priority 정보를 29.500에 명시된 service-based interfaces에서 Message Priority header를 포함하여 relay한다.
+
+In the local breakout case, if the SMF (in the VPLMN) is not able to process some part of the N1 SM information that Home Routed Roaming is required and the SMF responds to the AMF that it is not the right SMF to handle the N1 SM message by invoking Nsmf_PDUSession_CreateSMContext Response service operation. The SMF includes a proper N11 cause code triggering the AMF to proceed with home routed case. The procedure starts again at step 2 of clause 4.3.2.2.2. 
+
+The AMF may include a PCF ID in the Nsmf_PDUSession_CreateSMContext Request. This PCF ID identifies the H-PCF in the non-roaming case and the V-PCF in the local breakout roaming case. 
+
+The AMF includes Trace Requirements if Trace Requirements have been received in subscription data. 
+
+If the AMF decides to use the Control Plane CIoT 5GS Optimisation or User Plane CIoT 5GS Optimisation as specified in step 2 or to only use Control Plane CIoT 5GS Optimisation for the PDU session as described in clause 5.31.4 of TS 23.501 [2], the AMF sends the Control Plane CIoT 5GS Optimisation indication or Control Plane Only indicator to the SMF. 
+
+If the AMF determines that the RAT type is NB-IoT and the number of PDU Sessions with user plane resources activated for the UE has reached the maximum number of supported user plane resources (0, 1 or 2) based on whether the UE supports UP data transfer and the UE's 5GMM Core Network Capability as described in Clause 5.31.19 of TS 23.501 [2], the AMF may either reject the PDU Session Establishment Request or continue with the PDU Session establishment and include the Control Plane CIoT 5GS Optimisation indication or Control Plane Only indicator to the SMF. 
+
+The AMF includes the latest Small Data Rate Control Status if it has stored it for the PDU Session. 
+
+If the RAT type was included in the message, then the SMF stores the RAT type in SM Context. 
+
+If the UE supports CE mode B and and use of CE mode B is not restricted according to the Enhanced Coverage Restriction information in the UE context in the AMF, then the AMF shall include the extended NAS-SM timer indication. Based on the extended NAS-SM timer indication, the SMF shall use the extended NAS-SM timer setting for the UE as specified in TS 24.501 [25].
 
 ---
 
 ## 4. Subscription retrieval / Subscription for updates
 
+If Session Management Subscription data for corresponding SUPI, DNN and S-NSSAI of the HPLMN is not available, then SMF retrieves the Session Management Subscription data using Nudm_SDM_Get (SUPI, Session Management Subscription data, selected DNN, S-NSSAI of the HPLMN, Serving PLMN ID, [NID]) and subscribes to be notified when this subscription data is modified using Nudm_SDM_Subscribe (SUPI, Session Management Subscription data, selected DNN, S-NSSAI of the HPLMN, Serving PLMN ID, [NID]). UDM may get this information from UDR by Nudr_DM_Query (SUPI, Subscription Data, Session Management Subscription data, selected DNN, S-NSSAI of the HPLMN, Serving PLMN ID, [NID]) and may subscribe to notifications from UDR for the same data by Nudr_DM_subscribe. 
+
+The SMF may use DNN Selection Mode when deciding whether to retrieve the Session Management Subscription data e.g. if the (selected DNN, S-NSSAI of the HPLMN) is not explicitly subscribed, the SMF may use local configuration instead of Session Management Subscription data. 
+
+If the Request Type in step 3 indicates "Existing PDU Session" or "Existing Emergency PDU Session" the SMF determines that the request is due to switching between 3GPP access and non-3GPP access or due to handover from EPS. The SMF identifies the existing PDU Session based on the PDU Session ID. In such a case, the SMF does not create a new SM context but instead updates the existing SM context and provides the representation of the updated SM context to the AMF in the response. 
+
+If the Request Type is "Initial request" and if the Old PDU Session ID is included in Nsmf_PDUSession_CreateSMContext Request, the SMF identifies the existing PDU Session to be released based on the Old PDU Session ID. 
+
+Subscription data includes the Allowed PDU Session Type(s), Allowed SSC mode(s), default 5QI and ARP, subscribed Session-AMBR, SMF-Associated external parameters. 
+
+Static IP address/prefix may be included in the subscription data if the UE has subscribed to it. 
+
+The SMF checks the validity of the UE request: it checks 
+- Whether the UE request is compliant with the user subscription and with local policies; 
+- (If the selected DNN corresponds to an LADN), whether the UE is located within the LADN service area 
+based on the "UE presence in LADN service area" indication from the AMF. If the AMF does not provide the "UE presence in LADN service area" indication and the SMF determines that the selected DNN corresponds to a LADN, then the SMF considers that the UE is OUT of the LADN service area. 
+
+The SMF determines whether the PDU Session requires redundancy and the SMF determines the RSN as described in clause 5.33.2.1 of TS 23.501 [2]. If the SMF determines that redundant handling is not allowed or not possible for the given PDU Session, the SMF shall either reject the establishment of the PDU Session or accept the establishment of a PDU session without redundancy handling based on local policy. 
+
+If the UE request is considered as not valid, the SMF decides to not accept to establish the PDU Session. 
+
+> NOTE 3: The SMF can, instead of the Nudm_SDM_Get service operation, use the Nudm_SDM_Subscribe service operation with an Immediate Report Indication that triggers the UDM to immediately return the subscribed data if the corresponding feature is supported by both the SMF and the UDM. 
+
 ---
 
 ## 5. Nsmf_PDUSession_CreateSMContext Response
+
+From SMF to AMF: Either Nsmf_PDUSession_CreateSMContext Response (Cause, SM Context ID or N1 SM container (PDU Session Reject (Cause))) or an Nsmf_PDUSession_UpdateSMContext Response depending on the request received in step 3. 
+
+If the SMF received Nsmf_PDUSession_CreateSMContext Request in step 3 and the SMF is able to process the PDU Session establishment request, the SMF creates an SM context and responds to the AMF by providing an SM Context ID. 
+
+If the UP Security Policy for the PDU Session is determined to have Integrity Protection set to "Required", the SMF may, based on local configuration, decide whether to accept or reject the PDU Session request based on the UE Integrity Protection Maximum Data Rate. 
+
+> NOTE 4: The SMF can e.g. be configured to reject a PDU Session if the UE Integrity Protection Maximum Data Rate has a very low value, if the services provided by the DN would require higher bitrates. 
+
+When the SMF decides to not accept to establish a PDU Session, the SMF rejects the UE request via NAS SM signalling including a relevant SM rejection cause by responding to the AMF with Nsmf_PDUSession_CreateSMContext Response. The SMF also indicates to the AMF that the PDU Session ID is to be considered as released, the SMF proceeds to step 20 and the PDU Session Establishment procedure is stopped.
 
 ---
 
 ## 6. PDU Session authentication / authorization
 
+Optional Secondary authentication/authorization. 
+
+If the Request Type in step 3 indicates "Existing PDU Session", the SMF does not perform secondary authentication/authorization. 
+
+If the Request Type received in step 3 indicates "Emergency Request" or "Existing Emergency PDU Session", the SMF shall not perform secondary authentication\authorization. 
+
+If the SMF needs to perform secondary authentication/authorization during the establishment of the PDU Session by a DN-AAA server as described in clause 5.6.6 of TS 23.501 [2], the SMF triggers the PDU Session establishment authentication/authorization as described in clause 4.3.2.3. 
+
 ---
 
 ## 7a. PCF selection
+
+If dynamic PCC is to be used for the PDU Session, the SMF performs PCF selection as described in clause 6.3.7.1 of TS 23.501 [2]. If the Request Type indicates "Existing PDU Session" or "Existing Emergency PDU Session", the SMF shall use the PCF already selected for the PDU Session. 
+
+Otherwise, the SMF may apply local policy. 
 
 ---
 
 ## 7b. SM Policy Association Establishment or SMF initiated SM Policy Association Modification
 
+The SMF may perform an SM Policy Association Establishment procedure as defined in clause 4.16.4 to establish an SM Policy Association with the PCF and get the default PCC Rules for the PDU Session. The SMF shall include the 3GPP Data Off status if received in step 1. The GPSI shall be included if available at SMF. If the Request Type in step 3 indicates "Existing PDU Session", the SMF provides information on the Policy Control Request Trigger condition(s) that have been met by an SMF initiated SM Policy Association Modification procedure as defined in clause 4.16.5.1. The PCF may provide policy information defined in clause 5.2.5.4 (and in TS 23.503 [20]) to SMF. 
+
+The PCF, based on the Emergency DNN, sets the ARP of the PCC rules to a value that is reserved for 
+Emergency services as described in TS 23.503 [20]. 
+
+> NOTE 5: The purpose of step 7 is to receive PCC rules before selecting UPF. If PCC rules are not needed as input for UPF selection, step 7 can be performed after step 8.
+
 ---
 
 ## 8. UPF selection
+
+If the Request Type in step 3 indicates "Initial request", the SMF selects an SSC mode for the PDU Session as described in clause 5.6.9.3 of TS 23.501 [2]. The SMF also selects one or more UPFs as needed as described in clause 6.3.3 of TS 23.501 [2]. In the case of PDU Session Type IPv4 or IPv6 or IPv4v6, the SMF allocates an IP address/prefix for the PDU Session (unless configured otherwise) as described in clause 5.8.2 of TS 23.501 [2]. In the case of PDU Session Type IPv6 or IPv4v6, the SMF also allocates an interface identifier to the UE for the UE to build its link-local address. For Unstructured PDU Session Type the SMF may allocate an IPv6 prefix for the PDU Session and N6 point-to-point tunnelling (based on UDP/IPv6) as described in clause 5.6.10.3 of TS 23.501 [2]. For Ethernet PDU Session Type, neither a MAC nor an IP address is allocated by the SMF to the UE for this PDU Session. 
+
+If the AMF indicated Control Plane CIoT 5GS Optimisation in step 3 for this PDU session, then, 
+
+1. For Unstructured PDU Session Type, the SMF checks whether UE's subscription include a "NEF Identity for NIDD" for the DNN/S-NSSAI combination. When the "NEF Identity for NIDD" is present in the UE's subscription data, the SMF will select the NEF identified for the S-NSSAI and selected DNN in the "NEF Identity for NIDD" as the anchor of this PDU Session. Otherwise, the SMF will select a UPF as the anchor of this PDU Session. 
+2. For other PDU Session Types, the SMF will perform UPF selection to select a UPF as the anchor of this 
+PDU Session. 
+
+If the Request Type in Step 3 is "Existing PDU Session", the SMF maintains the same IP address/prefix that has already been allocated to the UE in the source network. 
+
+If the Request Type in step 3 indicates "Existing PDU Session" referring to an existing PDU Session moved between 3GPP access and non-3GPP access the SMF maintains the SSC mode of the PDU Session, the current PDU Session Anchor and IP address. 
+
+> NOTE 6: The SMF may decide to trigger e.g. new intermediate UPF insertion or allocation of a new UPF as described in step 5 in clause 4.2.3.2. 
+
+If the Request Type indicates "Emergency Request", the SMF selects the UPF as described in clause 5.16.4 of TS 23.501 [2] and selects SSC mode 1. 
+
+SMF may select a UPF (e.g. based on requested DNN/S-NSSAI) that supports NW-TT functionality.
 
 ---
 
 ## 9. SMF initiated SM Policy Association Modification
 
+SMF may perform an SMF initiated SM Policy Association Modification procedure as defined in clause 4.16.5.1 to provide information on the Policy Control Request Trigger condition(s) that have been met. If Request Type is "initial request" and dynamic PCC is deployed and PDU Session Type is IPv4 or IPv6 or IPv4v6, SMF notifies the PCF (if the Policy Control Request Trigger condition is met) with the allocated UE IP address/prefix(es). 
+
+> NOTE 7: If an IP address/prefix has been allocated before step 7 (e.g. subscribed static IP address/prefix in UDM/UDR) or the step 7 is perform after step 8, the IP address/prefix can be provided to PCF in step 7 and the IP address/prefix notification in this step can be skipped. 
+
+PCF may provide updated policies to the SMF. The PCF may provide policy information defined in clause 5.2.5.4 (and in TS 23.503 [20]) to SMF. 
+
 ---
 
+## 10.
+
+If Request Type indicates "initial request", the SMF initiates an N4 Session Establishment procedure with the selected UPF(s), otherwise it initiates an N4 Session Modification procedure with the selected UPF(s): 
+
 ## 10a. N4 Session Establishment / Modification Request
+
+The SMF sends an N4 Session Establishment/Modification Request to the UPF and provides Packet detection, enforcement and reporting rules to be installed on the UPF for this PDU Session. If the SMF is configured to request IP address allocation from UPF as described in clause 5.8.2 of TS 23.501 [2] then the SMF indicates to the UPF to perform the IP address/prefix allocation and includes the information required for the UPF to perform the allocation. If the selective User Plane deactivation is required for this PDU Session, the SMF determines the Inactivity Timer and provides it to the UPF. The SMF provides Trace Requirements to the UPF if it has received Trace Requirements. If the Reliable Data Service is enabled for the PDU Session by the SMF as specified in TS 23.501 [2], the RDS Configuration information is provided to the UPF in this step. The SMF provides Small Data Rate Control parameters to the UPF for the PDU Session, if required. The SMF provides the Small Data Rate Control Status to the UPF, if received from the AMF. If the Serving PLMN intends to enforce Serving PLMN Rate Control (see clause 5.31.14.2 of TS 23.501 [2]) for this PDU session then the SMF shall provide Serving PLMN Rate Control parameters to UPF for limiting the rate of downlink control plane data packets. 
+
+For a PDU Session of type Ethernet, SMF (e.g. for a certain requested DNN/S-NSSAI) may include an indication to request UPF to provide port numbers. 
+
+If SMF decides to perform redundant transmission for one or more QoS Flows of the PDU session as described in clause 5.33.1.2 of TS 23.501 [2], two CN Tunnel Info are requested by the SMF from the UPF. The SMF also indicates the UPF to eliminate the duplicated packet for the QoS Flow in uplink direction. The SMF indicates the UPF that one CN Tunnel Info is used as the redundancy tunnel of the PDU session described in clause 5.33.2.2 of TS 23.501 [2]. 
+
+If SMF decides to insert two I-UPFs between the PSA UPF and the NG-RAN for redundant transmission as described in clause 5.33.1.2 of TS 23.501 [2], the SMF requests the corresponding CN Tunnel Info and provides them to the I-UPFs and PSA UPF respectively. The SMF also indicates the PSA UPF to eliminate the duplicated packet for the QoS Flow in uplink direction. The SMF indicates the PSA UPF that one CN Tunnel Info is used as the redundancy tunnel of the PDU session described in clause 5.33.2.2 of 
+TS 23.501 [2]. 
+
+> NOTE 8: The method to perform elimination and reordering on RAN/UPF based on the packets received from the two GTP-U tunnels is up to RAN/UPF implementation. The two GTP-U tunnels are terminated at the same RAN node and UPF. 
+
+If Control Plane CIoT 5GS Optimisation is enabled for this PDU session and the SMF selects the NEF as the anchor of this PDU Session in step 8, the SMF performs SMF-NEF Connection Establishment Procedure as described in clause 4.25.2. 
 
 ---
 
 ## 10b. N4 Session Establishment / Modification Response
 
+The UPF acknowledges by sending an N4 Session Establishment/Modification Response. 
+
+If the SMF indicates in step 10a that IP address/prefix allocation is to be performed by the UPF then this response contains the requested IP address/prefix. The requested CN Tunnel Info is provided to SMF in this step. If SMF indicated the UPF to perform packet duplication and elimination for the QoS Flow in step 10a, two CN Tunnel Info are allocated by the UPF and provided to the SMF. If SMF decides to insert two I-UPFs between the PSA UPF and the NG-RAN for redundant transmission as described in clause 5.33.1.2 of TS 23.501 [2], CN Tunnel Info of two I-UPFs and the UPF (PSA) are allocated by the UPFs and provided to the SMF. The UPF indicates the SMF that one CN Tunnel Info is used as the redundancy tunnel of the PDU session as described in clause 5.33.2.2 of TS 23.501 [2]. 
+
+If SMF requested UPF to provide port numbers then UPF includes the DS-TT port and Bridge ID in the response according to TS 23.501 [2]. 
+
+If multiple UPFs are selected for the PDU Session, the SMF initiate N4 Session Establishment/Modification procedure with each UPF of the PDU Session in this step. 
+
+> NOTE 9: If the PCF has subscribed to the UE IP address change Policy Control Trigger (as specified in clause 6.1.3.5 of TS 23.503 [20]) then the SMF notifies the PCF about the IP address/prefix allocated by the UPF. This is not shown in figure 4.3.2.2.1-1.
+
 ---
 
 ## 11. Namf_Communication_N1N2MessageTransfer
+
+SMF to AMF: Namf_Communication_N1N2MessageTransfer (PDU Session ID, N2 SM information (PDU Session ID, QFI(s), QoS Profile(s), CN Tunnel Info, S-NSSAI from the Allowed NSSAI, Session-AMBR, PDU Session Type, User Plane Security Enforcement information, UE Integrity Protection Maximum Data Rate, RSN), N1 SM container (PDU Session Establishment Accept ([QoS Rule(s) and QoS Flow level QoS parameters if needed for the QoS Flow(s) associated with the QoS rule(s)], selected SSC mode, S-NSSAI(s), UE Requested DNN, allocated IPv4 address, interface identifier, Session-AMBR, selected PDU Session Type, [Reflective QoS Timer] (if available), [P-CSCF address(es)], [Control Plane Only indicator], [Header Compression Configuration], [Always-on PDU Session Granted], [Small Data Rate Control parameters], [Small Data Rate Control Status], [Serving PLMN Rate Control]))). If multiple UPFs are used for the PDU Session, the CN Tunnel Info contains tunnel information related with the UPFs that terminate N3. 
+
+The SMF may provide the SMF derived CN assisted RAN parameters tuning to the AMF by invoking Nsmf_PDUSession_SMContextStatusNotify (SMF derived CN assisted RAN parameters tuning) service. The AMF stores the SMF derived CN assisted RAN parameters tuning in the associated PDU Session context for this UE. 
+
+The N2 SM information carries information that the AMF shall forward to the (R)AN which includes: 
+
+- The CN Tunnel Info corresponds to the Core Network address(es) of the N3 tunnel corresponding to the PDU Session. If two CN Tunnel Info are included for the PDU session for redundant transmission, the SMF also indicates the NG-RAN that one of the CN Tunnel Info used as the redundancy tunnel of the PDU session as described in clause 5.33.2.2 of TS 23.501 [2]. 
+- One or multiple QoS profiles and the corresponding QFIs can be provided to the (R)AN. This is further described in clause 5.7 of TS 23.501 [2]. The SMF may indicate for each QoS Flow whether redundant transmission shall be performed by a corresponding redundant transmission indicator. 
+- The PDU Session ID may be used by AN signalling with the UE to indicate to the UE the association between (R)AN resources and a PDU Session for the UE. 
+- A PDU Session is associated to an S-NSSAI of the HPLMN and, if applicable, to a S-NSSAI of the VPLMN and a DNN. The S-NSSAI provided to the (R)AN, is the S-NSSAI with the value for the Serving PLMN (i.e. the HPLMN S-NSSAI or, in LBO roaming case, the VPLMN S-NSSAI). 
+- User Plane Security Enforcement information is determined by the SMF as described in clause 5.10.3 of TS 23.501 [2]. 
+- If the User Plane Security Enforcement information indicates that Integrity Protection is "Preferred" or "Required", the SMF also includes the UE Integrity Protection Maximum Data Rate as received in the PDU Session Establishment Request. 
+- The use of the RSN parameter by NG-RAN is described in clause 5.33.2.1 of TS 23.501 [2]. 
+
+The N1 SM container contains the PDU Session Establishment Accept that the AMF shall provide to the UE. If the UE requested P-CSCF discovery then the message shall also include the P-CSCF IP address(es) as determined by the SMF and as described in clause 5.16.3.4 of TS 23.501 [2]. The PDU Session Establishment Accept includes S-NSSAI from the Allowed NSSAI. For LBO roaming scenario, the PDU Session Establishment Accept includes the S-NSSAI from the Allowed NSSAI for the VPLMN and also it includes the corresponding S-NSSAI of the HPLMN from the Mapping Of Allowed NSSAI that SMF received in step 3. 
+
+If the PDU Session being established was requested to be an always-on PDU Session, the SMF shall indicate whether the request is accepted by including an Always-on PDU Session Granted indication in the PDU Session Establishment Accept message. If the PDU Session being established was not requested to be an always-on PDU Session but the SMF determines that the PDU Session needs to be established as an always-on PDU Session, the SMF shall include an Always-on PDU Session Granted indication in the PDU Session Establishment Accept message indicating that the PDU session is an always-on PDU Session. 
+
+If Control Plane CIoT 5GS Optimisation is enabled for this PDU session, the N2 SM information is not included in this step. If Control Plane CIoT 5GS optimisation is enabled for this PDU session and the UE has sent the Header Compression Configuration in the PDU Session Establishment Request and the SMF supports the header compression parameters, the SMF shall include the Header Compression Configuration in the PDU Session Establishment Accept message. If the UE has included Header Compression context parameters in Header Compression Configuration in the PDU Session Establishment Request, the SMF shall establish the header compression context and may acknowledge the Header Compression context parameters. If the header compression context is not established during the PDU Session Establishment procedure, before using the compressed format for sending the data, the UE and the SMF need to establish the header compression context based on the Header Compression Configuration. If the SMF has received the Control Plane Only Indicator in step 3, the SMF shall include the Control Plane Only Indicator in the PDU Session Establishment Accept message. The SMF shall indicate the use of Control Plane only on its CDR. If the Small Data Rate Control is configured in the SMF, the SMF shall also include Small Data Rate Control parameters and the Small Data Rate Control Status (if received from the AMF) in the PDU Session Establishment Accept message as described inclause 5.31.14.3 of TS 23.501 [2]. If the Serving PLMN intends to enforce Serving PLMN Rate Control (see clause 5.31.14.2 of TS 23.501 [2]) for this PDU session then the SMF shall include the Serving PLMN Rate Control parameters in the PDU Session Establishment Accept message. The UE shall store and use Serving PLMN Rate Control parameters as the maximum allowed limit of uplink control plane user data. 
+
+If the UE indicates the support of RDS in the PCO in the PDU Session Establishment Request and RDS is enabled for the PDU Session, the SMF shall inform the UE that RDS is enabled in the PCO in the PDU Session Establishment Accept (see clause 5.31.6 of TS 23.501 [2]). 
+
+If the NIDD parameters (e.g. maximum packet size) were received from NEF during the SMF-NEF Connection Establishment procedure in step 10, the SMF shall inform the UE of the NIDD parameters in the PCO in the PDU Session Establishment Accept (see clause 5.31.5 of TS 23.501 [2]). 
+
+Multiple QoS Rules, QoS Flow level QoS parameters if needed for the QoS Flow(s) associated with those QoS rule(s) and QoS Profiles may be included in the PDU Session Establishment Accept within the N1 SM and in the N2 SM information. 
+
+The Namf_Communication_N1N2MessageTransfer contains the PDU Session ID allowing the AMF to know which access towards the UE to use. 
+
+If the PDU session establishment failed anywhere between step 5 and step 11, then the Namf_Communication_N1N2MessageTransfer request shall include the N1 SM container with a PDU Session Establishment Reject message (see clause 8.3.3 of TS 24.501 [25]) and shall not include any N2 SM container. The (R)AN sends the NAS message containing the PDU Session Establishment Reject to the UE. In this case, steps 12-17 are skipped. 
 
 ---
 
 ## 12. N2 PDU Session Request (NAS msg)
 
+AMF to (R)AN: N2 PDU Session Request (N2 SM information, NAS message (PDU Session ID, N1 SM container (PDU Session Establishment Accept)), [CN assisted RAN parameters tuning]). If the N2 SM information is not included in the step 11, an N2 Downlink NAS Transport message is used instead. 
+
+The AMF sends the NAS message containing PDU Session ID and PDU Session Establishment Accept targeted to the UE and the N2 SM information received from the SMF within the N2 PDU Session Request to the (R)AN. 
+
+If the SMF derived CN assisted RAN parameters tuning are stored for the activated PDU Session(s), the AMF may derive updated CN assisted RAN parameters tuning and provide them the (R)AN.
+
 ---
 
 ## 13. AN-specific resource setup (PDU Session Establishment Accept)
 
+(R)AN to UE: The (R)AN may issue AN specific signalling exchange with the UE that is related with the information received from SMF. For example, in the case of a NG-RAN, an RRC Connection Reconfiguration may take place with the UE establishing the necessary NG-RAN resources related to the QoS Rules for the PDU Session request received in step 12. 
+
+(R)AN also allocates (R)AN Tunnel Info for the PDU Session. In the case of Dual Connectivity, the Master RAN node may assign some (zero or more) QFIs to be setup to a Master RAN node and others to the Secondary RAN node. The AN Tunnel Info includes a tunnel endpoint for each involved (R)AN node and the QFIs assigned to each tunnel endpoint. A QFI can be assigned to either the Master RAN node or the Secondary RAN node and not to both. 
+
+If the (R)AN receives two CN Tunnel Info for a PDU session in step 12 for redundant transmission, (R)AN also allocates two AN Tunnel Info correspondingly and indicate to SMF one of the AN Tunnel Info is used as the redundancy tunnel of the PDU session as described in clause 5.33.2.2 of TS 23.501 [2]. 
+
+(R)AN forwards the NAS message (PDU Session ID, N1 SM container (PDU Session Establishment Accept)) provided in step 12 to the UE. (R)AN shall only provide the NAS message to the UE if the AN specific signalling exchange with the UE includes the (R)AN resource additions associated to the received N2 command. 
+
+If MICO mode is active and the NAS message Request Type in step 1 indicated "Emergency Request", then the UE and the AMF shall locally deactivate MICO mode. 
+
+If the N2 SM information is not included in the step 11, then the following steps 14 to 16b and step 17 are omitted. 
+
 ---
 
 ## 14. N2 PDU Session Response
+
+(R)AN to AMF: N2 PDU Session Response (PDU Session ID, Cause, N2 SM information (PDU Session ID, AN Tunnel Info, List of accepted/rejected QFI(s), User Plane Enforcement Policy Notification)). 
+
+The AN Tunnel Info corresponds to the Access Network address of the N3 tunnel corresponding to the PDU Session. 
+
+If the (R)AN rejects QFI(s) the SMF is responsible of updating the QoS rules and QoS Flow level QoS parameters if needed for the QoS Flow associated with the QoS rule(s) in the UE accordingly. 
+
+The NG-RAN rejects the establishment of UP resources for the PDU Session when it cannot fulfil User Plane Security Enforcement information with a value of Required. The NG-RAN notifies the SMF when it cannot 
+fulfil a User Plane Security Enforcement with a value of Preferred. 
+
+If the NG-RAN cannot establish redundant user plane for the PDU Session as indicated by the RSN parameter, the NG-RAN takes the decision on whether to reject the establishment of RAN resources for the PDU Session based on local policies as described in TS 23.501 [2].
 
 ---
 
@@ -183,17 +394,48 @@ Emergency Registerd UE로부터 온 request이고 Request Type이 "Emergency Req
 
 ## 15. Nsmf_PDUSession_UpdateSMContext Request
 
+AMF to SMF: Nsmf_PDUSession_UpdateSMContext Request (SM Context ID, N2 SM information, Request Type). 
+
+The AMF forwards the N2 SM information received from (R)AN to the SMF. 
+
+If the list of rejected QFI(s) is included in N2 SM information, the SMF shall release the rejected QFI(s) associated QoS profiles. 
+
+If the N2 SM information indicates failure of user plane resource setup, the SMF shall reject the PDU session establishment by including a N1 SM container with a PDU Session Establishment Reject message (see clause 8.3.3 of TS 24.501 [25]) in the Nsmf_PDUSession_UpdateSMContext Response in step 17. Step 16 is skipped in this case and instead the SMF releases the N4 Session with UPF. 
+
+If the User Plane Enforcement Policy Notification in the N2 SM information indicates that no user plane resources could be established and the User Plane Enforcement Policy indicated "required" as described in clause 5.10.3 of TS 23.501 [2], the SMF shall reject the PDU session establishment by including a N1 SM container with a PDU Session Establishment Reject message (see clause 8.3.3 of TS 24.501 [25]) in the Nsmf_PDUSession_UpdateSMContext Response in step 17. Step 16 is skipped in this case.
+
 ---
 
 ## 16a. N4 Session Modification Request
+
+The SMF initiates an N4 Session Modification procedure with the UPF. The SMF provides AN Tunnel Info to the UPF as well as the corresponding forwarding rules. 
+
+If SMF decides to perform redundant transmission for one or more QoS Flows of the PDU, the SMF also indicates the UPF to perform packet duplication for the QoS Flow(s) in downlink direction by forwarding rules. 
+
+In the case of redundant transmission with two I-UPFs for one or more QoS Flows of the PDU, the SMF provides AN Tunnel Info to two I-UPFs and also indicates the UPF (PSA) to perform packet duplication for the QoS Flow(s) in downlink direction by forwarding rules. The SMF also provides the UL Tunnel Info of the UPF (PSA) to the two I-UPFs and the DL Tunnel Info of the two I-UPFs to the UPF (PSA). 
+
+> NOTE 10: If the PDU Session Establishment Request was due to mobility between 3GPP and non-3GPP access or mobility from EPC, the downlink data path is switched towards the target access in this step. 
 
 ---
 
 ## 16b. N4 Session Modification Response
 
+The UPF provides an N4 Session Modification Response to the SMF. 
+
+If multiple UPFs are used in the PDU Session, the UPF in step 16 refers to the UPF terminating N3. 
+
+After this step, the UPF delivers any down-link packets to the UE that may have been buffered for this PDU Session. 
+
 ---
 
 ## 16c. Registration
+
+If Request Type in step 3 indicates neither "Emergency Request" nor "Existing Emergency PDU Session" and, if the SMF has not yet registered for this PDU Session, then the SMF registers with the UDM using Nudm_UECM_Registration (SUPI, DNN, S-NSSAI, PDU Session ID, SMF Identity, Serving PLMN ID, [NID]) for a given PDU Session. As a result, the UDM stores following information: SUPI, SMF identity and the associated DNN, S-NSSAI, PDU Session ID and Serving Network (PLMN ID, [NID], see clause 5.18 of TS 23.501 [2]). The UDM may further store this information in UDR by Nudr_DM_Update (SUPI, Subscription Data, UE context in SMF data). 
+
+If the Request Type received in step 3 indicates "Emergency Request": 
+
+- For an authenticated non-roaming UE, based on operator configuration (e.g. related with whether the operator uses a fixed SMF for Emergency calls, etc.), the SMF may register in the UDM usingNudm_UECM_Registration (SUPI, PDU Session ID, SMF identity, Indication of Emergency Services) for a given PDU Session that is applicable for emergency services. As a result, the UDM shall store the applicable PDU Session for Emergency services. 
+- For an unauthenticated UE or a roaming UE, the SMF shall not register in the UDM for a given PDU Session.
 
 ---
 
@@ -203,19 +445,38 @@ Emergency Registerd UE로부터 온 request이고 Request Type이 "Emergency Req
 
 ## 17. Nsmf_PDUSession_UpdateSMContext Response
 
+SMF to AMF: Nsmf_PDUSession_UpdateSMContext Response (Cause). 
+
+The SMF may subscribe to the UE mobility event notification from the AMF (e.g. location reporting, UE moving into or out of Area Of Interest), after this step by invoking Namf_EventExposure_Subscribe service operation as specified in clause 5.2.2.3.2. For LADN, the SMF subscribes to the UE moving into or out of LADN service area event notification by providing the LADN DNN as an indicator for the Area Of Interest (see clause 5.6.5 and 5.6.11 of TS 23.501 [2]). 
+
+After this step, the AMF forwards relevant events subscribed by the SMF.
+
 ---
 
 ## 18. Nsmf_PDUSession_SMContextStatusNotify
+
+\[Conditional\] SMF to AMF: Nsmf_PDUSession_SMContextStatusNotify (Release) 
+
+If during the procedure, any time after step 5, the PDU Session establishment is not successful, the SMF informs the AMF by invoking Nsmf_PDUSession_SMContextStatusNotify (Release). The SMF also releases any N4 session(s) created, any PDU Session address if allocated (e.g. IP address) and releases the association with PCF, if any. In this case, step 19 is skipped. 
 
 ---
 
 ## 19. IPv6 Address Configuration
 
+SMF to UE: In the case of PDU Session Type IPv6 or IPv4v6, the SMF generates an IPv6 Router Advertisement and sends it to the UE. If Control Plane CIoT 5GS Optimisation is enabled for this PDU Session the SMF sends the IPv6 Router Advertisement via the AMF for transmission to the UE using the Mobile Terminated Data Transport in Control Plane CIoT 5GS Optimisation procedures (see clause 4.24.2), otherwise the SMF sends the IPv6 Router Advertisement via N4 and the UPF. 
+
 ---
 
 ## 20. SMF initiated SM Policy Association Modification
+
+When the trigger for 5GS Bridge information available is armed, then the SMF may initiate the SM Policy Association Modification as described in 4.16.5.1. 
+
+If the UE has indicated support of transferring Port Management Information Containers, then SMF informs PCF that a 5GS Bridge information is available. SMF provides the 5GS Bridge information (e.g. 5GS Bridge ID, port number of the DS-TT Ethernet port, MAC address of the DS-TT Ethernet port and UE-DS-TT Residence Time as provided by the UE) to PCF. TSN AF calculates the bridge delay for each port pair, i.e. composed of DS-TT Ethernet port and NW-TT Ethernet port, using the UE-DS-TT Residence Time for all NW-TT Ethernet port(s) serving the 5GS Bridge indicated by the 5GS Bridge ID. If SMF received a Port Management Information Container from either the UE or the UPF, then SMF provides the Port Management Information Container and port number of the related port to the PCF as described in clause 5.28.3.2 of TS 23.501 [2]. If SMF received a Bridge Management Information Container from the UPF, then SMF provides the Bridge Management Information Container to the PCF as described in clause 5.28.3.2 of TS 23.501 [2]. 
 
 ---
 
 ## 21. Unsubscription
 
+If the PDU Session establishment failed after step 4, the SMF shall perform the following: 
+
+The SMF unsubscribes to the modifications of Session Management Subscription data for the corresponding (SUPI, DNN, S-NSSAI of the HPLMN), using Nudm_SDM_Unsubscribe (SUPI, Session Management Subscription data, DNN, S-NSSAI of the HPLMN), if the SMF is no more handling a PDU Session of the UE for this (DNN, S-NSSAI of the HPLMN). The UDM may unsubscribe to the modification notification from UDR by Nudr_DM_Unsubscribe (SUPI, Subscription Data, Session Management Subscription data, S-NSSAI of the HPLMN, DNN). 
