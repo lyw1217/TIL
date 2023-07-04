@@ -32,3 +32,5 @@ TS 29.502(v1614) Session Management Service 5.2절
 | Update                   | Update a PDU session in the H-SMF or V-SMF in HR roaming scenarios, or in the I-SMF or SMF for PDU sessions involving an I-SMF.                                                                                                        | Request/Response                    | V-SMF, H-SMF, I-SMF, SMF |
 | Release                  | Release a PDU session in the H-SMF in HR roaming scenarios, or in the SMF for PDU sessions involving an I-SMF.                                                                                                                         | Request/Response                    | V-SMF, I-SMF             |
 | Notify Status            | Notify the NF Service Consumer about the status of a PDU session (e.g. the PDU session is released due to local reasons within the SMF).                                                                                               | Subscribe/Notify                    | V-SMF, I-SMF             |
+
+(일부 생략)
