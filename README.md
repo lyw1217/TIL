@@ -4,7 +4,7 @@
 📚 오늘 내가 배운 것들을 모아놓는 곳 🙏
 
 
-_97 TILs and counting..._
+_98 TILs and counting..._
 
 ---
 
@@ -134,6 +134,7 @@ _97 TILs and counting..._
 
 ### [Moblie](#Moblie)
 - [3GPP 5G System Architecture](Moblie/3GPP_5G_System_Architecture.md)
+- [AN Release(clause 4.2.6 of TS 23.502)](Moblie/AN_Release.md)
 - [Cx Interface AVPs](Moblie/Cx_interface_AVPs.md)
 - [HPACK: Header Compression for HTTP/2](Moblie/HPACK(HTTP2).md)
 - [IMS 서비스](Moblie/IMS_서비스.md)
