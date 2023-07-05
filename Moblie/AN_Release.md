@@ -108,41 +108,38 @@ Control Plane CIoT 5GS Optimisation을 사용하는 PDU Session의 경우, 그�
 
 ## 6a. N4 Session Modification Request (Conditional)
 
-SMF to UPF: N4 Session Modification Request (AN or N3 UPF Tunnel Info to be removed, Buffering on/off). 
-
 SMF에서 UPF로: N4 Session Modification Request (제거할 AN 또는 N3 UPF 터널링 정보, 버퍼링 on/off)
 
-For PDU Sessions not using Control Plane CIoT 5GS Optimisation, the SMF initiates an N4 Session Modification procedure indicating the need to remove Tunnel Info of AN or UPF terminating N3. Buffering on/off indicates whether the UPF shall buffer incoming DL PDU or not. 
+Control Plane CIoT 5GS Optimisation을 사용하지 않는 PDU Session의 경우, SMF는 AN 또는 UPF가 terminating N3의 터널 정보를 제거해야 함을 나타내는 N4 Session Modification 절차를 시작한다. Buffering on/off는 UPF가 수신 DL PDU를 버퍼링 할지 여부를 나타낸다.
 
-If the SMF has received an indication from the AMF that the UE is not reachable for downlink data for PDU Sessions using Control Plane CIoT 5GS Optimisation, the SMF may initiate an N4 Session Modification procedure to activate buffering in the UPF. 
+SMF가 AMF로부터 Control Plane CIoT 5GS Optimisation을 사용하는 PDU Session에 대해 UE가 downlink data를 reachable하지 않다는 indication을 수신한 경우, SMF는 N4 Session Modification 절차를 시작하여 UPF에서 버퍼링을 활성화할 수 있다.
 
-If multiple UPFs are used in the PDU Session and the SMF determines to release the UPF terminating N3, step 6a is performed towards the UPF (e.g. PSA) terminating N9 towards the current N3 UPF. The SMF then releases the N4 session towards the N3 UPF (the N4 release is not shown on the call flow). 
+PDU Session에서 multiple UPFs가 사용되고, SMF가 N3를 terminating하는 UPF를 release하기로 결정한 경우에, step 6a가 현재 N3 UPF를 향해 N9을 종료하는 UPF(e.g. PSA)에게 수행된다. 그런 다음 SMF는 N4 session을 N3 UPF를 향해 release한다.(N4 release는 call flow에 표현되지 않았음)
 
-See clause 4.4 for more details. 
+자세한 내용은 4.4절을 참조.
 
-If the cause of AN Release is because of User Inactivity, or UE Redirection, the SMF shall preserve the GBR QoS Flows. Otherwise, the SMF shall trigger the PDU Session Modification procedure (see clause 4.3.3) for the GBR QoS Flows of the UE after the AN Release procedure is completed. 
+AN Release의 cause가 User Inactivity 또는 UE Redirection인 경우, SMF는 GBR QoS Flows를 유지해야 한다. 그렇지 않은 경우, SMF는 AN Release 절차가 완료된 이후에 UE의 GBR QoS Flow에 대해 PDU Session Modification 절차(4.3.3절)를 trigger해야 한다.
 
-If the redundant I-UPFs are used for URLLC, the N4 Session Modification Request procedure is done for each I-UPF. In this case, SMF selects both the redundant I-UPFs to buffer the DL packets for this PDU Session or drop the DL packets for this PDU session or forward the DL packets for this PDU session to the SMF, based on buffering instruction provided by the SMF as described in clause 5.8.3.2 or 5.8.3.3 of TS 23.501 [2]. 
- 
-If the redundant N3 tunnels are used for URLLC, the N4 Session Modification Request procedure to the UPF of N3 terminating point is to remove the dual AN Tunnel Info for N3 tunnel of the corresponding PDU Session.
+URLLC에 중복(redundant) I-UPFs가 사용되는 경우, 각 I-UPF에 대해서 N4 Session Modification Request 절차가 수행된다. 이 경우에, TS 23.501 5.8.3.2절 또는 5.8.3.3절에 설명된 대로 SMF가 제공하는 buffering instruction에 따라 이 PDU Session에 대한 DL 패킷을 버퍼링하거나 drop하거나 SMF로 forward하기 위해 SMF는 중복 I-UPFs를 모두 선택한다. 
+
+중복 N3 터널이 URLLC에 사용되는 경우, N3 terminating point의 UPF에 대한 N4 Session Modification Request 절차는 해당 PDU Session의 N3 터널에 대한 dual AN Tunnel Info를 제거하는 것이다.
 
 ---
 
 ## 6b. N4 Session modification Response (Conditional)
 
-UPF to SMF: N4 Session Modification Response acknowledging the SMF request. 
+UPF에서 SMF로: N4 Session Modification Response는 SMF request를 승인(acknowledging)
 
 See clause 4.4 for more details.
 
 ## 7. Nsmf_PDUSession_UpdateSMContext Response (Conditional)
 
-SMF to AMF: Nsmf_PDUSession_UpdateSMContext Response for step 5. 
+SMF에서 AMF로: step 5에 대한 Nsmf_PDUSession_UpdateSMContext Response
 
 --- 
 
-Upon completion of the procedure, the AMF considers the N2 and N3 as released and enters CM-IDLE state.
+절차가 완료되면 AMF는 N2와 N3가 release된 것으로 간주하고 CM-IDLE 상태로 들어간다.
 
-After completion of the procedure, the AMF reports towards the NF consumers are triggered for cases in clause 4.15.4. 
+절차가 완료된 이후에, AMF는 4.15.4절의 경우에 대해 NF consumers에게 report를 시작한다.
 
-After completion of the procedure, if steps 5 to 7 were performed before step 2 and the AMF received N2 SM information from NG-RAN in step 4 (e.g. Secondary RAT usage data report), the AMF initiates a 
-Nsmf_PDUSession_UpdateSMContext towards SMF to deliver the N2 SM information. 
+절차가 완료된 이후에, step 2 전에 step 5에서 step 7이 수행되었고 step 4에서 NG-RAN으로부터 N2 SM Information을 수신한 경우, AMF는 Nsmf_PDUSession_UpdateSMContext를 SMF로 전송하여 N2 SM Information을 deliver한다.
