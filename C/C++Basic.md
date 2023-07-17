@@ -399,3 +399,35 @@ void foo ( const Rect& r )
     r.left = 100; // error
 }
 ```
+
+## nullptr
+
+- C++11에서 도입
+- "null pointer"를 나타내는 literal keyword
+- 모든 타입의 *포인터 변수*를 초기화하는데 사용
+- 포인터 변수를 초기화 할 때, '0' 을 사용가능하긴 하지만 `nullptr`을 사용하자.
+    ```c++
+    int* p1 = 0;        // 사용 가능하지만
+    int* p2 = nullptr;  // 주로 nullptr 사용
+    ```
+  - C에서는 `void*` 가 `char*`로 암시적 변환이 허용
+  - C++에서는 암시적 변환 불가능
+
+- `std::nullptr_t`
+  - nullptr의 타입
+  - 모든 타입의 포인터로 암시적 형변환 된다.
+
+
+## explicit casting (명시적 형변환)
+- static_case
+  - 논리적으로 맞고, 반드시 필요한 경우의 캐스팅만 허용
+    ```c++
+    //int* p1 = (int*)malloc(100);
+    int* p1 = static_case<int*>(malloc(100));
+    ```
+- reinterpret_case
+  - 메모리의 재해석(reinterpret)
+  - 서로 다른 타입의 주소(참조) 캐스팅
+  - 정수 <=> 주소 사이 캐스팅
+- const_case
+  - 포인터 또는 레퍼런스의 상수성을 제거하는 캐스팅
